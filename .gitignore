@@ -1,0 +1,4 @@
+# The staged tree is curated (see data/manifest.tsv). Only block accidental junk.
+__pycache__/
+*.pyc
+*.hprof
