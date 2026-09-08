@@ -1,0 +1,322 @@
+Compiled from "ModuleGate.java"
+public final class com.akashic.thepatcher.core.ModuleGate {
+  private static volatile java.util.EnumMap<com.akashic.thepatcher.core.PatchModule, java.lang.Boolean> active;
+
+  private static volatile java.util.Map<com.akashic.thepatcher.core.PatchModule, java.lang.String> legacyJars;
+
+  private static volatile java.io.File gameDirectory;
+
+  private static volatile boolean initialized;
+
+  private com.akashic.thepatcher.core.ModuleGate();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+    LineNumberTable:
+      line 17: 0
+
+  public static synchronized void bootstrap(java.io.File);
+    Code:
+       0: aload_0
+       1: invokestatic  #7                  // Method com/akashic/thepatcher/config/BundleConfig.bootstrap:(Ljava/io/File;)V
+       4: invokestatic  #13                 // Method com/akashic/thepatcher/config/BundleConfig.getGameDirectory:()Ljava/io/File;
+       7: astore_1
+       8: aload_1
+       9: ifnull        16
+      12: aload_1
+      13: putstatic     #17                 // Field gameDirectory:Ljava/io/File;
+      16: getstatic     #17                 // Field gameDirectory:Ljava/io/File;
+      19: invokestatic  #23                 // Method com/akashic/thepatcher/core/LegacyPatchDetector.scan:(Ljava/io/File;)Ljava/util/Map;
+      22: astore_2
+      23: invokestatic  #29                 // Method com/akashic/thepatcher/config/BundleConfig.get:()Lcom/akashic/thepatcher/config/BundleConfig$Settings;
+      26: astore_3
+      27: new           #33                 // class java/util/EnumMap
+      30: dup
+      31: ldc           #35                 // class com/akashic/thepatcher/core/PatchModule
+      33: invokespecial #37                 // Method java/util/EnumMap."<init>":(Ljava/lang/Class;)V
+      36: astore        4
+      38: invokestatic  #40                 // Method com/akashic/thepatcher/core/PatchModule.values:()[Lcom/akashic/thepatcher/core/PatchModule;
+      41: astore        5
+      43: aload         5
+      45: arraylength
+      46: istore        6
+      48: iconst_0
+      49: istore        7
+      51: iload         7
+      53: iload         6
+      55: if_icmpge     118
+      58: aload         5
+      60: iload         7
+      62: aaload
+      63: astore        8
+      65: aload_3
+      66: aload         8
+      68: invokevirtual #44                 // Method com/akashic/thepatcher/config/BundleConfig$Settings.isConfiguredEnabled:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      71: istore        9
+      73: iload         9
+      75: ifeq          99
+      78: aload_3
+      79: getfield      #50                 // Field com/akashic/thepatcher/config/BundleConfig$Settings.disableBundledModuleWhenLegacyJarPresent:Z
+      82: ifeq          99
+      85: aload_2
+      86: aload         8
+      88: invokeinterface #54,  2           // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+      93: ifeq          99
+      96: iconst_0
+      97: istore        9
+      99: aload         4
+     101: aload         8
+     103: iload         9
+     105: invokestatic  #60                 // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+     108: invokevirtual #66                 // Method java/util/EnumMap.put:(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
+     111: pop
+     112: iinc          7, 1
+     115: goto          51
+     118: getstatic     #70                 // Field initialized:Z
+     121: ifeq          147
+     124: aload         4
+     126: getstatic     #73                 // Field active:Ljava/util/EnumMap;
+     129: invokevirtual #77                 // Method java/util/EnumMap.equals:(Ljava/lang/Object;)Z
+     132: ifeq          147
+     135: aload_2
+     136: getstatic     #80                 // Field legacyJars:Ljava/util/Map;
+     139: invokeinterface #84,  2           // InterfaceMethod java/util/Map.equals:(Ljava/lang/Object;)Z
+     144: ifne          151
+     147: iconst_1
+     148: goto          152
+     151: iconst_0
+     152: istore        5
+     154: aload         4
+     156: putstatic     #73                 // Field active:Ljava/util/EnumMap;
+     159: aload_2
+     160: putstatic     #80                 // Field legacyJars:Ljava/util/Map;
+     163: getstatic     #70                 // Field initialized:Z
+     166: ifne          176
+     169: aload_3
+     170: getfield      #85                 // Field com/akashic/thepatcher/config/BundleConfig$Settings.verboseSummary:Z
+     173: ifne          187
+     176: getstatic     #70                 // Field initialized:Z
+     179: ifeq          191
+     182: iload         5
+     184: ifeq          191
+     187: aload_3
+     188: invokestatic  #88                 // Method logState:(Lcom/akashic/thepatcher/config/BundleConfig$Settings;)V
+     191: iconst_1
+     192: putstatic     #70                 // Field initialized:Z
+     195: return
+    LineNumberTable:
+      line 20: 0
+      line 21: 4
+      line 22: 8
+      line 23: 16
+      line 24: 23
+      line 25: 27
+      line 26: 38
+      line 27: 65
+      line 28: 73
+      line 29: 96
+      line 31: 99
+      line 26: 112
+      line 33: 118
+      line 34: 154
+      line 35: 159
+      line 36: 163
+      line 37: 187
+      line 39: 191
+      line 40: 195
+
+  public static boolean isActive(com.akashic.thepatcher.core.PatchModule);
+    Code:
+       0: getstatic     #73                 // Field active:Ljava/util/EnumMap;
+       3: aload_0
+       4: invokevirtual #92                 // Method java/util/EnumMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       7: checkcast     #61                 // class java/lang/Boolean
+      10: astore_1
+      11: aload_1
+      12: ifnull        26
+      15: aload_1
+      16: invokevirtual #95                 // Method java/lang/Boolean.booleanValue:()Z
+      19: ifeq          26
+      22: iconst_1
+      23: goto          27
+      26: iconst_0
+      27: ireturn
+    LineNumberTable:
+      line 43: 0
+      line 44: 11
+
+  public static java.io.File gameDirectory();
+    Code:
+       0: getstatic     #17                 // Field gameDirectory:Ljava/io/File;
+       3: areturn
+    LineNumberTable:
+      line 48: 0
+
+  public static java.lang.String summary();
+    Code:
+       0: new           #99                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #101                // Method java/lang/StringBuilder."<init>":()V
+       7: astore_0
+       8: invokestatic  #40                 // Method com/akashic/thepatcher/core/PatchModule.values:()[Lcom/akashic/thepatcher/core/PatchModule;
+      11: astore_1
+      12: aload_1
+      13: arraylength
+      14: istore_2
+      15: iconst_0
+      16: istore_3
+      17: iload_3
+      18: iload_2
+      19: if_icmpge     80
+      22: aload_1
+      23: iload_3
+      24: aaload
+      25: astore        4
+      27: aload_0
+      28: invokevirtual #102                // Method java/lang/StringBuilder.length:()I
+      31: ifle          41
+      34: aload_0
+      35: ldc           #106                // String ,
+      37: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      40: pop
+      41: aload_0
+      42: aload         4
+      44: invokevirtual #112                // Method com/akashic/thepatcher/core/PatchModule.displayName:()Ljava/lang/String;
+      47: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      50: bipush        61
+      52: invokevirtual #116                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      55: aload         4
+      57: invokestatic  #119                // Method isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      60: ifeq          68
+      63: ldc           #122                // String ON
+      65: goto          70
+      68: ldc           #124                // String OFF
+      70: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      73: pop
+      74: iinc          3, 1
+      77: goto          17
+      80: aload_0
+      81: invokevirtual #126                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      84: areturn
+    LineNumberTable:
+      line 52: 0
+      line 53: 8
+      line 54: 27
+      line 55: 41
+      line 53: 74
+      line 57: 80
+
+  public static java.lang.String legacyJar(com.akashic.thepatcher.core.PatchModule);
+    Code:
+       0: getstatic     #80                 // Field legacyJars:Ljava/util/Map;
+       3: aload_0
+       4: invokeinterface #129,  2          // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       9: checkcast     #130                // class java/lang/String
+      12: areturn
+    LineNumberTable:
+      line 61: 0
+
+  private static void logState(com.akashic.thepatcher.config.BundleConfig$Settings);
+    Code:
+       0: new           #99                 // class java/lang/StringBuilder
+       3: dup
+       4: invokespecial #101                // Method java/lang/StringBuilder."<init>":()V
+       7: ldc           #132                // String Configured module state:
+       9: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      12: invokestatic  #134                // Method summary:()Ljava/lang/String;
+      15: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      18: bipush        46
+      20: invokevirtual #116                // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      23: invokevirtual #126                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      26: invokestatic  #137                // Method com/akashic/thepatcher/util/BundleLog.info:(Ljava/lang/String;)V
+      29: aload_0
+      30: getfield      #50                 // Field com/akashic/thepatcher/config/BundleConfig$Settings.disableBundledModuleWhenLegacyJarPresent:Z
+      33: ifeq          122
+      36: getstatic     #80                 // Field legacyJars:Ljava/util/Map;
+      39: invokeinterface #143,  1          // InterfaceMethod java/util/Map.entrySet:()Ljava/util/Set;
+      44: invokeinterface #147,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+      49: astore_1
+      50: aload_1
+      51: invokeinterface #153,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      56: ifeq          122
+      59: aload_1
+      60: invokeinterface #158,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      65: checkcast     #162                // class java/util/Map$Entry
+      68: astore_2
+      69: new           #99                 // class java/lang/StringBuilder
+      72: dup
+      73: invokespecial #101                // Method java/lang/StringBuilder."<init>":()V
+      76: ldc           #164                // String Disabled bundled
+      78: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      81: aload_2
+      82: invokeinterface #166,  1          // InterfaceMethod java/util/Map$Entry.getKey:()Ljava/lang/Object;
+      87: checkcast     #35                 // class com/akashic/thepatcher/core/PatchModule
+      90: invokevirtual #112                // Method com/akashic/thepatcher/core/PatchModule.displayName:()Ljava/lang/String;
+      93: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      96: ldc           #169                // String  module because a standalone legacy JAR is still present:
+      98: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     101: aload_2
+     102: invokeinterface #171,  1          // InterfaceMethod java/util/Map$Entry.getValue:()Ljava/lang/Object;
+     107: checkcast     #130                // class java/lang/String
+     110: invokevirtual #108                // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     113: invokevirtual #126                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     116: invokestatic  #174                // Method com/akashic/thepatcher/util/BundleLog.warn:(Ljava/lang/String;)V
+     119: goto          50
+     122: return
+    LineNumberTable:
+      line 65: 0
+      line 66: 29
+      line 67: 36
+      line 68: 69
+      line 69: 102
+      line 68: 116
+      line 70: 119
+      line 72: 122
+
+  private static java.util.EnumMap<com.akashic.thepatcher.core.PatchModule, java.lang.Boolean> defaults();
+    Code:
+       0: new           #33                 // class java/util/EnumMap
+       3: dup
+       4: ldc           #35                 // class com/akashic/thepatcher/core/PatchModule
+       6: invokespecial #37                 // Method java/util/EnumMap."<init>":(Ljava/lang/Class;)V
+       9: astore_0
+      10: invokestatic  #40                 // Method com/akashic/thepatcher/core/PatchModule.values:()[Lcom/akashic/thepatcher/core/PatchModule;
+      13: astore_1
+      14: aload_1
+      15: arraylength
+      16: istore_2
+      17: iconst_0
+      18: istore_3
+      19: iload_3
+      20: iload_2
+      21: if_icmpge     45
+      24: aload_1
+      25: iload_3
+      26: aaload
+      27: astore        4
+      29: aload_0
+      30: aload         4
+      32: getstatic     #177                // Field java/lang/Boolean.TRUE:Ljava/lang/Boolean;
+      35: invokevirtual #66                 // Method java/util/EnumMap.put:(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
+      38: pop
+      39: iinc          3, 1
+      42: goto          19
+      45: aload_0
+      46: areturn
+    LineNumberTable:
+      line 75: 0
+      line 76: 10
+      line 77: 45
+
+  static {};
+    Code:
+       0: invokestatic  #181                // Method defaults:()Ljava/util/EnumMap;
+       3: putstatic     #73                 // Field active:Ljava/util/EnumMap;
+       6: invokestatic  #185                // Method java/util/Collections.emptyMap:()Ljava/util/Map;
+       9: putstatic     #80                 // Field legacyJars:Ljava/util/Map;
+      12: return
+    LineNumberTable:
+      line 12: 0
+      line 13: 6
+}

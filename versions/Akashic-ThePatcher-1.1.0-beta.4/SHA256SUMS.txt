@@ -1,0 +1,7 @@
+38a41936cd3a82dca08c351ae3b4901f13900b2a71a5c1e17c0be66bd0b1ee2c  !Akashic-ThePatcher-1.1.0-beta.4.jar
+f69c7ccf1f99287aa58ae2b5fc63cba9a92670b88e5b6a835567510a28ac722a  Akashic-ThePatcher-1.1.0-beta.4-build-kit.zip
+e3669fee90e795deb6d624cca1bbd1a2c1fc68516ea3bd37a443ee076ee344a3  Akashic-ThePatcher-1.1.0-beta.4-evidencias.zip
+d927ca2d11733db24ce1256f94cad00e08186ddab5ff8d8a1fdc6b24480f314c  AUDITORIA.json
+8037eb9a9d0482b52716283a2c33099f3819ce80c9160007d295a2fdb9cd0885  DIAGNOSTICO.md
+10db055f71bf30ac4f2c910539cfac33a2759be6e88901d501fdebd78c121a64  LEIA-ME.md
+28fecddd2943d8772238108f6b27d96006b04c66bc37b127e9bb45c75bfc4df4  RESULTADO.md

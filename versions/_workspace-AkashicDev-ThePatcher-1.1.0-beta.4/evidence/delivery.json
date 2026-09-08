@@ -1,0 +1,94 @@
+{
+  "path": "C:\\Users\\User\\Desktop\\Akashic-ThePatcher-1.1.0-beta.4",
+  "jar": "C:\\Users\\User\\Desktop\\Akashic-ThePatcher-1.1.0-beta.4\\!Akashic-ThePatcher-1.1.0-beta.4.jar",
+  "sha256": "38a41936cd3a82dca08c351ae3b4901f13900b2a71a5c1e17c0be66bd0b1ee2c",
+  "status": "isolated-homologation-only",
+  "classes": 110,
+  "checks": [
+    {
+      "label": "release-build-1",
+      "exit": 0,
+      "log": "release-build-1.log"
+    },
+    {
+      "label": "compile-standard-tests",
+      "exit": 0,
+      "log": "compile-standard-tests.log"
+    },
+    {
+      "label": "compile-world-fixture",
+      "exit": 0,
+      "log": "compile-world-fixture.log"
+    },
+    {
+      "label": "generate-world-fixture",
+      "exit": 0,
+      "log": "generate-world-fixture.log"
+    },
+    {
+      "label": "compile-side-fixtures",
+      "exit": 0,
+      "log": "compile-side-fixtures.log"
+    },
+    {
+      "label": "compile-native-replay",
+      "exit": 0,
+      "log": "compile-native-replay.log"
+    },
+    {
+      "label": "release-build-2",
+      "exit": 0,
+      "log": "release-build-2.log"
+    },
+    {
+      "label": "queue-final",
+      "exit": 0,
+      "log": "queue-final.log"
+    },
+    {
+      "label": "transformers-final",
+      "exit": 0,
+      "log": "transformers-final.log"
+    },
+    {
+      "label": "scope-CLIENT-true",
+      "exit": 0,
+      "log": "scope-CLIENT-true.log"
+    },
+    {
+      "label": "scope-CLIENT-false",
+      "exit": 0,
+      "log": "scope-CLIENT-false.log"
+    },
+    {
+      "label": "scope-CLIENT-invalid",
+      "exit": 0,
+      "log": "scope-CLIENT-invalid.log"
+    },
+    {
+      "label": "scope-SERVER-true",
+      "exit": 0,
+      "log": "scope-SERVER-true.log"
+    },
+    {
+      "label": "native-baseline-final",
+      "exit": 0,
+      "log": "native-baseline-final.log"
+    },
+    {
+      "label": "native-fixed-final",
+      "exit": 0,
+      "log": "native-fixed-final.log"
+    },
+    {
+      "label": "java8-queue-final",
+      "exit": 0,
+      "log": "java8-queue-final.log"
+    },
+    {
+      "label": "java8-native-final",
+      "exit": 0,
+      "log": "java8-native-final.log"
+    }
+  ]
+}

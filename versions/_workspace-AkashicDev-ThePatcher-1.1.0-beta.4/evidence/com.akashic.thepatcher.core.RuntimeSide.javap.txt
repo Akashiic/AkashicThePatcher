@@ -1,0 +1,107 @@
+Compiled from "RuntimeSide.java"
+public final class com.akashic.thepatcher.core.RuntimeSide {
+  private static volatile boolean warned;
+
+  private com.akashic.thepatcher.core.RuntimeSide();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+    LineNumberTable:
+      line 11: 0
+
+  public static cpw.mods.fml.relauncher.Side current();
+    Code:
+       0: invokestatic  #7                  // Method cpw/mods/fml/relauncher/FMLLaunchHandler.side:()Lcpw/mods/fml/relauncher/Side;
+       3: astore_0
+       4: aload_0
+       5: ifnull        10
+       8: aload_0
+       9: areturn
+      10: goto          40
+      13: astore_0
+      14: aload_0
+      15: invokestatic  #15                 // Method rethrowFatal:(Ljava/lang/Throwable;)V
+      18: new           #21                 // class java/lang/StringBuilder
+      21: dup
+      22: invokespecial #23                 // Method java/lang/StringBuilder."<init>":()V
+      25: ldc           #24                 // String FMLLaunchHandler.side() was unavailable during discovery; defaulting to CLIENT:
+      27: invokevirtual #26                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      30: aload_0
+      31: invokevirtual #30                 // Method java/lang/StringBuilder.append:(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+      34: invokevirtual #33                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      37: invokestatic  #37                 // Method warnOnce:(Ljava/lang/String;)V
+      40: getstatic     #41                 // Field cpw/mods/fml/relauncher/Side.CLIENT:Lcpw/mods/fml/relauncher/Side;
+      43: areturn
+    Exception table:
+       from    to  target type
+           0     9    13   Class java/lang/Throwable
+    LineNumberTable:
+      line 15: 0
+      line 16: 4
+      line 20: 10
+      line 17: 13
+      line 18: 14
+      line 19: 18
+      line 21: 40
+
+  public static boolean isClient();
+    Code:
+       0: invokestatic  #47                 // Method current:()Lcpw/mods/fml/relauncher/Side;
+       3: getstatic     #41                 // Field cpw/mods/fml/relauncher/Side.CLIENT:Lcpw/mods/fml/relauncher/Side;
+       6: if_acmpne     13
+       9: iconst_1
+      10: goto          14
+      13: iconst_0
+      14: ireturn
+    LineNumberTable:
+      line 25: 0
+
+  public static boolean isServer();
+    Code:
+       0: invokestatic  #47                 // Method current:()Lcpw/mods/fml/relauncher/Side;
+       3: getstatic     #50                 // Field cpw/mods/fml/relauncher/Side.SERVER:Lcpw/mods/fml/relauncher/Side;
+       6: if_acmpne     13
+       9: iconst_1
+      10: goto          14
+      13: iconst_0
+      14: ireturn
+    LineNumberTable:
+      line 29: 0
+
+  private static synchronized void warnOnce(java.lang.String);
+    Code:
+       0: getstatic     #53                 // Field warned:Z
+       3: ifeq          7
+       6: return
+       7: iconst_1
+       8: putstatic     #53                 // Field warned:Z
+      11: aload_0
+      12: invokestatic  #57                 // Method com/akashic/thepatcher/util/BundleLog.warn:(Ljava/lang/String;)V
+      15: return
+    LineNumberTable:
+      line 33: 0
+      line 34: 7
+      line 35: 11
+      line 36: 15
+
+  private static void rethrowFatal(java.lang.Throwable);
+    Code:
+       0: aload_0
+       1: instanceof    #62                 // class java/lang/ThreadDeath
+       4: ifeq          12
+       7: aload_0
+       8: checkcast     #62                 // class java/lang/ThreadDeath
+      11: athrow
+      12: aload_0
+      13: instanceof    #64                 // class java/lang/VirtualMachineError
+      16: ifeq          24
+      19: aload_0
+      20: checkcast     #64                 // class java/lang/VirtualMachineError
+      23: athrow
+      24: return
+    LineNumberTable:
+      line 39: 0
+      line 40: 12
+      line 41: 24
+}

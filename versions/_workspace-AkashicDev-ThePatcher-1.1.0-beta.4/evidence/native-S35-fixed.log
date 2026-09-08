@@ -1,0 +1,13 @@
+2026-09-08 04:01:45,339 WARN Unable to instantiate org.fusesource.jansi.WindowsAnsiOutputStream
+[Akashic-ThePatcher] DimDoors S35 link deferred until authoritative dimension data is ready; tile NBT retained.
+2 [main] INFO io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system unstability.
+Exception in thread "main" java.lang.ExceptionInInitializerError
+	at org.dimdev.dimdoors.core.PocketManager.load(PocketManager.java:164)
+	at com.akashic.thepatcher.module.dimdoors.NativeReplay.main(NativeReplay.java:66)
+Caused by: java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class net.minecraft.launchwrapper.LaunchClassLoader (jdk.internal.loader.ClassLoaders$AppClassLoader is in module java.base of loader 'bootstrap'; net.minecraft.launchwrapper.LaunchClassLoader is in unnamed module of loader 'app')
+	at cpw.mods.fml.common.ModClassLoader.<init>(ModClassLoader.java:46)
+	at cpw.mods.fml.common.Loader.<init>(Loader.java:197)
+	at cpw.mods.fml.common.Loader.instance(Loader.java:176)
+	at cpw.mods.fml.common.FMLCommonHandler.<init>(FMLCommonHandler.java:87)
+	at cpw.mods.fml.common.FMLCommonHandler.<clinit>(FMLCommonHandler.java:77)
+	... 2 more

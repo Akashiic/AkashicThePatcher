@@ -1,0 +1,3 @@
+2026-09-08 04:01:41,885 WARN Unable to instantiate org.fusesource.jansi.WindowsAnsiOutputStream
+NATIVE_S35_BASELINE_CRASH_PASS checks=2
+2 [main] INFO io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system unstability.

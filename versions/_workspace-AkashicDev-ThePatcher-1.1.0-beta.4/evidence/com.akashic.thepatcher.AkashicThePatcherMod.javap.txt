@@ -1,0 +1,406 @@
+Compiled from "AkashicThePatcherMod.java"
+public final class com.akashic.thepatcher.AkashicThePatcherMod {
+  public static final java.lang.String MOD_ID;
+
+  public static final java.lang.String NAME;
+
+  public static final java.lang.String VERSION;
+
+  public com.akashic.thepatcher.AkashicThePatcherMod();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+    LineNumberTable:
+      line 21: 0
+
+  public void preInitialize(cpw.mods.fml.common.event.FMLPreInitializationEvent);
+    Code:
+       0: aconst_null
+       1: invokestatic  #7                  // Method com/akashic/thepatcher/core/ModuleGate.bootstrap:(Ljava/io/File;)V
+       4: invokestatic  #13                 // Method com/akashic/thepatcher/core/RuntimeSide.isClient:()Z
+       7: ifeq          22
+      10: getstatic     #19                 // Field com/akashic/thepatcher/core/PatchModule.BOTANIA_CACHE:Lcom/akashic/thepatcher/core/PatchModule;
+      13: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      16: ifeq          22
+      19: invokestatic  #29                 // Method com/akashic/thepatcher/module/botania/BotaniaCacheModule.repairIfPresent:()V
+      22: return
+    LineNumberTable:
+      line 28: 0
+      line 29: 4
+      line 30: 19
+      line 32: 22
+
+  public void initialize(cpw.mods.fml.common.event.FMLInitializationEvent);
+    Code:
+       0: aconst_null
+       1: invokestatic  #7                  // Method com/akashic/thepatcher/core/ModuleGate.bootstrap:(Ljava/io/File;)V
+       4: invokestatic  #13                 // Method com/akashic/thepatcher/core/RuntimeSide.isClient:()Z
+       7: ifeq          22
+      10: invokestatic  #34                 // Method cpw/mods/fml/common/FMLCommonHandler.instance:()Lcpw/mods/fml/common/FMLCommonHandler;
+      13: invokevirtual #40                 // Method cpw/mods/fml/common/FMLCommonHandler.getSide:()Lcpw/mods/fml/relauncher/Side;
+      16: invokevirtual #44                 // Method cpw/mods/fml/relauncher/Side.isClient:()Z
+      19: ifne          52
+      22: new           #47                 // class java/lang/StringBuilder
+      25: dup
+      26: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+      29: ldc           #50                 // String Server/common runtime active; client listeners were intentionally skipped.
+      31: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      34: invokestatic  #56                 // Method com/akashic/thepatcher/core/ModuleGate.summary:()Ljava/lang/String;
+      37: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      40: bipush        46
+      42: invokevirtual #60                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      45: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      48: invokestatic  #66                 // Method com/akashic/thepatcher/util/BundleLog.info:(Ljava/lang/String;)V
+      51: return
+      52: iconst_0
+      53: invokestatic  #72                 // Method bootstrapDetailedConfigs:(Z)V
+      56: getstatic     #78                 // Field com/akashic/thepatcher/core/PatchModule.HANDOFF:Lcom/akashic/thepatcher/core/PatchModule;
+      59: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      62: ifeq          77
+      65: invokestatic  #34                 // Method cpw/mods/fml/common/FMLCommonHandler.instance:()Lcpw/mods/fml/common/FMLCommonHandler;
+      68: invokevirtual #81                 // Method cpw/mods/fml/common/FMLCommonHandler.bus:()Lcpw/mods/fml/common/eventhandler/EventBus;
+      71: getstatic     #85                 // Field com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.INSTANCE:Lcom/akashic/forbiddenhandoff/client/ClientHandoffWatchdog;
+      74: invokevirtual #91                 // Method cpw/mods/fml/common/eventhandler/EventBus.register:(Ljava/lang/Object;)V
+      77: getstatic     #97                 // Field com/akashic/thepatcher/core/PatchModule.HOLOGRAM:Lcom/akashic/thepatcher/core/PatchModule;
+      80: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      83: ifeq          98
+      86: invokestatic  #34                 // Method cpw/mods/fml/common/FMLCommonHandler.instance:()Lcpw/mods/fml/common/FMLCommonHandler;
+      89: invokevirtual #81                 // Method cpw/mods/fml/common/FMLCommonHandler.bus:()Lcpw/mods/fml/common/eventhandler/EventBus;
+      92: getstatic     #100                // Field com/akashic/forbiddenhologram/client/ClientHologramWatchdog.INSTANCE:Lcom/akashic/forbiddenhologram/client/ClientHologramWatchdog;
+      95: invokevirtual #91                 // Method cpw/mods/fml/common/eventhandler/EventBus.register:(Ljava/lang/Object;)V
+      98: getstatic     #105                // Field com/akashic/thepatcher/core/PatchModule.BACKHAND:Lcom/akashic/thepatcher/core/PatchModule;
+     101: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+     104: ifeq          119
+     107: invokestatic  #34                 // Method cpw/mods/fml/common/FMLCommonHandler.instance:()Lcpw/mods/fml/common/FMLCommonHandler;
+     110: invokevirtual #81                 // Method cpw/mods/fml/common/FMLCommonHandler.bus:()Lcpw/mods/fml/common/eventhandler/EventBus;
+     113: getstatic     #108                // Field com/akashic/forbiddenbackhand/client/BackhandConnectionEvents.INSTANCE:Lcom/akashic/forbiddenbackhand/client/BackhandConnectionEvents;
+     116: invokevirtual #91                 // Method cpw/mods/fml/common/eventhandler/EventBus.register:(Ljava/lang/Object;)V
+     119: new           #47                 // class java/lang/StringBuilder
+     122: dup
+     123: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+     126: ldc           #113                // String Client runtime listeners registered.
+     128: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     131: invokestatic  #56                 // Method com/akashic/thepatcher/core/ModuleGate.summary:()Ljava/lang/String;
+     134: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     137: bipush        46
+     139: invokevirtual #60                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+     142: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     145: invokestatic  #66                 // Method com/akashic/thepatcher/util/BundleLog.info:(Ljava/lang/String;)V
+     148: return
+    LineNumberTable:
+      line 36: 0
+      line 37: 4
+      line 38: 22
+      line 39: 34
+      line 38: 48
+      line 40: 51
+      line 42: 52
+      line 44: 56
+      line 45: 65
+      line 48: 77
+      line 49: 86
+      line 52: 98
+      line 53: 107
+      line 56: 119
+      line 57: 148
+
+  public void loadComplete(cpw.mods.fml.common.event.FMLLoadCompleteEvent);
+    Code:
+       0: invokestatic  #13                 // Method com/akashic/thepatcher/core/RuntimeSide.isClient:()Z
+       3: ifeq          33
+       6: invokestatic  #34                 // Method cpw/mods/fml/common/FMLCommonHandler.instance:()Lcpw/mods/fml/common/FMLCommonHandler;
+       9: invokevirtual #40                 // Method cpw/mods/fml/common/FMLCommonHandler.getSide:()Lcpw/mods/fml/relauncher/Side;
+      12: invokevirtual #44                 // Method cpw/mods/fml/relauncher/Side.isClient:()Z
+      15: ifeq          33
+      18: getstatic     #78                 // Field com/akashic/thepatcher/core/PatchModule.HANDOFF:Lcom/akashic/thepatcher/core/PatchModule;
+      21: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      24: ifeq          33
+      27: getstatic     #85                 // Field com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.INSTANCE:Lcom/akashic/forbiddenhandoff/client/ClientHandoffWatchdog;
+      30: invokevirtual #115                // Method com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.armStartupRecovery:()V
+      33: invokestatic  #13                 // Method com/akashic/thepatcher/core/RuntimeSide.isClient:()Z
+      36: ifeq          45
+      39: invokestatic  #118                // Method logTransformationStatus:()V
+      42: goto          87
+      45: new           #47                 // class java/lang/StringBuilder
+      48: dup
+      49: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+      52: ldc           #121                // String Common/server transformation status: IU-DE Compat=
+      54: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      57: getstatic     #123                // Field com/akashic/thepatcher/core/PatchModule.IU_DE_COMPAT:Lcom/akashic/thepatcher/core/PatchModule;
+      60: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      63: ifeq          71
+      66: ldc           #126                // String ACTIVE
+      68: goto          73
+      71: ldc           #128                // String DISABLED
+      73: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      76: bipush        46
+      78: invokevirtual #60                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      81: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      84: invokestatic  #66                 // Method com/akashic/thepatcher/util/BundleLog.info:(Ljava/lang/String;)V
+      87: return
+    LineNumberTable:
+      line 61: 0
+      line 62: 21
+      line 63: 27
+      line 65: 33
+      line 66: 39
+      line 68: 45
+      line 69: 57
+      line 68: 84
+      line 71: 87
+
+  private static void bootstrapDetailedConfigs(boolean);
+    Code:
+       0: invokestatic  #130                // Method com/akashic/thepatcher/core/ModuleGate.gameDirectory:()Ljava/io/File;
+       3: astore_1
+       4: getstatic     #78                 // Field com/akashic/thepatcher/core/PatchModule.HANDOFF:Lcom/akashic/thepatcher/core/PatchModule;
+       7: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      10: ifeq          18
+      13: aload_1
+      14: iload_0
+      15: invokestatic  #134                // Method com/akashic/forbiddenhandoff/config/PatchConfig.bootstrap:(Ljava/io/File;Z)V
+      18: getstatic     #97                 // Field com/akashic/thepatcher/core/PatchModule.HOLOGRAM:Lcom/akashic/thepatcher/core/PatchModule;
+      21: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      24: ifeq          32
+      27: aload_1
+      28: iload_0
+      29: invokestatic  #139                // Method com/akashic/forbiddenhologram/config/PatchConfig.bootstrap:(Ljava/io/File;Z)V
+      32: getstatic     #105                // Field com/akashic/thepatcher/core/PatchModule.BACKHAND:Lcom/akashic/thepatcher/core/PatchModule;
+      35: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      38: ifeq          46
+      41: aload_1
+      42: iload_0
+      43: invokestatic  #142                // Method com/akashic/forbiddenbackhand/config/PatchConfig.bootstrap:(Ljava/io/File;Z)V
+      46: getstatic     #145                // Field com/akashic/thepatcher/core/PatchModule.LEGACY_REGISTER:Lcom/akashic/thepatcher/core/PatchModule;
+      49: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      52: ifeq          60
+      55: aload_1
+      56: iload_0
+      57: invokestatic  #148                // Method com/akashic/forbiddenregister/config/PatchConfig.bootstrap:(Ljava/io/File;Z)V
+      60: return
+    LineNumberTable:
+      line 74: 0
+      line 75: 4
+      line 76: 13
+      line 78: 18
+      line 79: 27
+      line 81: 32
+      line 82: 41
+      line 84: 46
+      line 85: 55
+      line 87: 60
+
+  private static void logTransformationStatus();
+    Code:
+       0: new           #47                 // class java/lang/StringBuilder
+       3: dup
+       4: ldc           #151                // String Transformation status:
+       6: invokespecial #153                // Method java/lang/StringBuilder."<init>":(Ljava/lang/String;)V
+       9: astore_0
+      10: aload_0
+      11: getstatic     #78                 // Field com/akashic/thepatcher/core/PatchModule.HANDOFF:Lcom/akashic/thepatcher/core/PatchModule;
+      14: new           #47                 // class java/lang/StringBuilder
+      17: dup
+      18: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+      21: ldc           #155                // String FallbackJoin=
+      23: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      26: invokestatic  #157                // Method com/akashic/forbiddenhandoff/core/HandoffTransitionState.isJoinBoundaryPatched:()Z
+      29: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+      32: ldc           #165                // String  (hooks=
+      34: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      37: invokestatic  #167                // Method com/akashic/forbiddenhandoff/core/HandoffTransitionState.joinHookCount:()I
+      40: invokevirtual #171                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      43: ldc           #174                // String ), GuiQuarantine=
+      45: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      48: invokestatic  #176                // Method com/akashic/forbiddenhandoff/core/HandoffTransitionState.isGuiBoundaryPatched:()Z
+      51: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+      54: ldc           #165                // String  (hooks=
+      56: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      59: invokestatic  #179                // Method com/akashic/forbiddenhandoff/core/HandoffTransitionState.guiHookCount:()I
+      62: invokevirtual #171                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+      65: ldc           #182                // String ), completed=
+      67: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      70: getstatic     #85                 // Field com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.INSTANCE:Lcom/akashic/forbiddenhandoff/client/ClientHandoffWatchdog;
+      73: invokevirtual #184                // Method com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.completedTransitions:()J
+      76: invokevirtual #188                // Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+      79: ldc           #191                // String , suppressedGui=
+      81: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      84: getstatic     #85                 // Field com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.INSTANCE:Lcom/akashic/forbiddenhandoff/client/ClientHandoffWatchdog;
+      87: invokevirtual #193                // Method com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.quarantinedScreens:()J
+      90: invokevirtual #188                // Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+      93: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+      96: invokestatic  #196                // Method append:(Ljava/lang/StringBuilder;Lcom/akashic/thepatcher/core/PatchModule;Ljava/lang/String;)V
+      99: aload_0
+     100: getstatic     #97                 // Field com/akashic/thepatcher/core/PatchModule.HOLOGRAM:Lcom/akashic/thepatcher/core/PatchModule;
+     103: invokestatic  #199                // Method com/akashic/forbiddenhologram/core/PatchState.summary:()Ljava/lang/String;
+     106: invokestatic  #196                // Method append:(Ljava/lang/StringBuilder;Lcom/akashic/thepatcher/core/PatchModule;Ljava/lang/String;)V
+     109: aload_0
+     110: getstatic     #105                // Field com/akashic/thepatcher/core/PatchModule.BACKHAND:Lcom/akashic/thepatcher/core/PatchModule;
+     113: new           #47                 // class java/lang/StringBuilder
+     116: dup
+     117: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+     120: ldc           #202                // String Backhand=
+     122: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     125: invokestatic  #204                // Method com/akashic/forbiddenbackhand/core/TransformerState.isBackhandPatched:()Z
+     128: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+     131: ldc           #209                // String  (sync=
+     133: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     136: invokestatic  #211                // Method com/akashic/forbiddenbackhand/core/TransformerState.getSyncCallsRedirected:()I
+     139: invokevirtual #171                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     142: ldc           #214                // String , action=
+     144: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     147: invokestatic  #216                // Method com/akashic/forbiddenbackhand/core/TransformerState.getActionCallsRedirected:()I
+     150: invokevirtual #171                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     153: ldc           #219                // String ), C09=
+     155: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     158: invokestatic  #221                // Method com/akashic/forbiddenbackhand/core/TransformerState.isHeldItemPacketGuardPatched:()Z
+     161: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+     164: ldc           #224                // String , JoinGame=
+     166: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     169: invokestatic  #226                // Method com/akashic/forbiddenbackhand/core/TransformerState.isJoinGameGuardPatched:()Z
+     172: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+     175: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     178: invokestatic  #196                // Method append:(Ljava/lang/StringBuilder;Lcom/akashic/thepatcher/core/PatchModule;Ljava/lang/String;)V
+     181: aload_0
+     182: getstatic     #229                // Field com/akashic/thepatcher/core/PatchModule.BAUBLES:Lcom/akashic/thepatcher/core/PatchModule;
+     185: new           #47                 // class java/lang/StringBuilder
+     188: dup
+     189: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+     192: ldc           #232                // String BaublesCleanup=
+     194: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     197: invokestatic  #234                // Method com/akashic/forbiddenbaubles/core/TransformerState.isPatched:()Z
+     200: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+     203: ldc           #239                // String  (redirects=
+     205: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     208: invokestatic  #241                // Method com/akashic/forbiddenbaubles/core/TransformerState.getRedirects:()I
+     211: invokevirtual #171                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     214: ldc           #244                // String )
+     216: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     219: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     222: invokestatic  #196                // Method append:(Ljava/lang/StringBuilder;Lcom/akashic/thepatcher/core/PatchModule;Ljava/lang/String;)V
+     225: aload_0
+     226: getstatic     #145                // Field com/akashic/thepatcher/core/PatchModule.LEGACY_REGISTER:Lcom/akashic/thepatcher/core/PatchModule;
+     229: new           #47                 // class java/lang/StringBuilder
+     232: dup
+     233: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+     236: ldc           #246                // String REGISTER=
+     238: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     241: invokestatic  #248                // Method com/akashic/forbiddenregister/core/TransformerState.isPatched:()Z
+     244: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+     247: ldc           #251                // String  (class=
+     249: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     252: invokestatic  #253                // Method com/akashic/forbiddenregister/core/TransformerState.getPatchedClass:()Ljava/lang/String;
+     255: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     258: ldc           #244                // String )
+     260: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     263: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     266: invokestatic  #196                // Method append:(Ljava/lang/StringBuilder;Lcom/akashic/thepatcher/core/PatchModule;Ljava/lang/String;)V
+     269: aload_0
+     270: getstatic     #256                // Field com/akashic/thepatcher/core/PatchModule.MEKANISM_CREATIVE_GUARD:Lcom/akashic/thepatcher/core/PatchModule;
+     273: new           #47                 // class java/lang/StringBuilder
+     276: dup
+     277: invokespecial #49                 // Method java/lang/StringBuilder."<init>":()V
+     280: ldc_w         #259                // String EnergyCubeGuard=
+     283: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     286: invokestatic  #261                // Method com/akashic/thepatcher/module/mekanism/MekanismEnergyCubeTransformer.isPatched:()Z
+     289: invokevirtual #162                // Method java/lang/StringBuilder.append:(Z)Ljava/lang/StringBuilder;
+     292: ldc_w         #264                // String  (exactCastSites=
+     295: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     298: invokestatic  #266                // Method com/akashic/thepatcher/module/mekanism/MekanismEnergyCubeTransformer.guardedCastCount:()I
+     301: invokevirtual #171                // Method java/lang/StringBuilder.append:(I)Ljava/lang/StringBuilder;
+     304: ldc_w         #269                // String , suppressed=
+     307: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     310: invokestatic  #271                // Method com/akashic/thepatcher/module/mekanism/MekanismEnergyCubeHooks.suppressedCount:()J
+     313: invokevirtual #188                // Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;
+     316: ldc           #244                // String )
+     318: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+     321: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     324: invokestatic  #196                // Method append:(Ljava/lang/StringBuilder;Lcom/akashic/thepatcher/core/PatchModule;Ljava/lang/String;)V
+     327: aload_0
+     328: invokevirtual #63                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+     331: invokestatic  #66                 // Method com/akashic/thepatcher/util/BundleLog.info:(Ljava/lang/String;)V
+     334: return
+    LineNumberTable:
+      line 90: 0
+      line 91: 10
+      line 93: 26
+      line 95: 37
+      line 97: 48
+      line 99: 59
+      line 101: 73
+      line 103: 87
+      line 91: 96
+      line 104: 99
+      line 105: 103
+      line 104: 106
+      line 106: 109
+      line 107: 125
+      line 108: 136
+      line 109: 147
+      line 110: 158
+      line 111: 169
+      line 106: 178
+      line 112: 181
+      line 113: 197
+      line 114: 208
+      line 112: 222
+      line 115: 225
+      line 116: 241
+      line 117: 252
+      line 115: 266
+      line 118: 269
+      line 119: 286
+      line 121: 298
+      line 122: 310
+      line 118: 324
+      line 123: 327
+      line 124: 334
+
+  private static void append(java.lang.StringBuilder, com.akashic.thepatcher.core.PatchModule, java.lang.String);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #276                // Method java/lang/StringBuilder.length:()I
+       5: iconst_1
+       6: isub
+       7: invokevirtual #279                // Method java/lang/StringBuilder.charAt:(I)C
+      10: bipush        32
+      12: if_icmpeq     23
+      15: aload_0
+      16: ldc_w         #283                // String ;
+      19: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      22: pop
+      23: aload_0
+      24: aload_1
+      25: invokevirtual #285                // Method com/akashic/thepatcher/core/PatchModule.displayName:()Ljava/lang/String;
+      28: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      31: bipush        61
+      33: invokevirtual #60                 // Method java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+      36: pop
+      37: aload_0
+      38: aload_1
+      39: invokestatic  #25                 // Method com/akashic/thepatcher/core/ModuleGate.isActive:(Lcom/akashic/thepatcher/core/PatchModule;)Z
+      42: ifeq          49
+      45: aload_2
+      46: goto          51
+      49: ldc           #128                // String DISABLED
+      51: invokevirtual #52                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+      54: pop
+      55: return
+    LineNumberTable:
+      line 127: 0
+      line 128: 23
+      line 129: 37
+      line 130: 55
+
+  public void akashicSamplerLoadComplete(cpw.mods.fml.common.event.FMLLoadCompleteEvent);
+    Code:
+       0: invokestatic  #336                // Method com/akashic/thepatcher/module/sampler/SamplerHudBootstrap.loadComplete:()V
+       3: return
+
+  public void akashicRgbLoadComplete(cpw.mods.fml.common.event.FMLLoadCompleteEvent);
+    Code:
+       0: invokestatic  #340                // Method com/akashic/thepatcher/module/rgb/RgbBootstrap.loadComplete:()V
+       3: return
+}

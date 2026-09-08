@@ -1,0 +1,4 @@
+[Akashic-ThePatcher] Configured module state: Handoff=ON, Hologram=ON, Backhand=ON, Baubles=ON, Legacy REGISTER=ON, Botania Cache=ON, Mekanism Creative Guard=ON, IU-DE Compat=ON, NecroTempus Bossbar=ON, Sampler F3 Guard=ON, RGB Text Integration=ON, RGB JSON Styles=ON, Industrial Upgrade OreDict Guard=ON.
+[Akashic-ThePatcher] WARN: DimDoors client sync guard disabled: java.io.IOException: invalid boolean
+[Akashic-ThePatcher] DimDoors client sync guard: OFF
+SIDE_SCOPE_PASS side=CLIENT enabled=false

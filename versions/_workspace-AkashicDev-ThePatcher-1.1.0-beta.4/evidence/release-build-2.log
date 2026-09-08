@@ -1,0 +1,5 @@
+warning: [options] source value 8 is obsolete and will be removed in a future release
+warning: [options] target value 8 is obsolete and will be removed in a future release
+warning: [options] To suppress warnings about obsolete options, use -Xlint:-options.
+3 warnings
+BUILD_OK={"path": "C:\\Users\\User\\AkashicDev\\ThePatcher-1.1.0-beta.4\\build\\!Akashic-ThePatcher-1.1.0-beta.4.jar", "sha256": "38a41936cd3a82dca08c351ae3b4901f13900b2a71a5c1e17c0be66bd0b1ee2c", "bytes": 216004, "classes": 110, "binary_base_sha256": "d39feb760fd74b3fd596b50832fd85f80d0d056ec47f33bfa48a244415bd7fb0"}

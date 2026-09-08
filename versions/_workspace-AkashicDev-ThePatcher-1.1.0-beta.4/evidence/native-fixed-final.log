@@ -1,0 +1,4 @@
+2026-09-08 04:15:24,818 WARN Unable to instantiate org.fusesource.jansi.WindowsAnsiOutputStream
+[Akashic-ThePatcher] DimDoors S35 link deferred until authoritative dimension data is ready; tile NBT retained.
+NATIVE_S35_AND_SNAPSHOT_PASS checks=12; actual DimDoors 2.2.6, NBT, S35, Compactor and watcher; controlled World/FML context
+3 [main] INFO io.netty.util.internal.PlatformDependent - Your platform does not provide complete low-level API for accessing direct buffers reliably. Unless explicitly requested, heap buffer will always be preferred to avoid potential system unstability.
