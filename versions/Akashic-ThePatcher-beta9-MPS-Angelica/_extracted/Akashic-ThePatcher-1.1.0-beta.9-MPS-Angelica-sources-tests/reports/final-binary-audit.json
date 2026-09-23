@@ -1,0 +1,37 @@
+{
+  "addedEntries": [
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$1.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$Snapshot.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$StateStack.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelicaCompatTransformer.class"
+  ],
+  "base": "!Akashic-ThePatcher-1.1.0-beta.8.jar",
+  "baseEntries": 108,
+  "baseSha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.9-FINAL-CANDIDATE.jar",
+  "candidateEntries": 113,
+  "candidateSha256": "cefc4f7b13e9c9bdba5f3c2c3c4a534d75a7d22096c6ea012737ef671e885e70",
+  "changedEntries": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "classMajors": {
+    "com/akashic/thepatcher/AkashicThePatcherMod.class": 52,
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": 52,
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$1.class": 52,
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$Snapshot.class": 52,
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$StateStack.class": 52,
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat.class": 52,
+    "com/akashic/thepatcher/module/mps/MpsAngelicaCompatTransformer.class": 52
+  },
+  "java8CompatibleChangedAndAddedClasses": true,
+  "manifestVersionVerified": true,
+  "mcmodVersionVerified": true,
+  "pass": true,
+  "removedEntries": [],
+  "schema": 1,
+  "unchangedEntries": 104
+}
