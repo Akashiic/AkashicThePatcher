@@ -1,0 +1,66 @@
+{
+  "baseBeta8Sha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "binaryDelta": {
+    "addedEntries": [
+      "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$1.class",
+      "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$Snapshot.class",
+      "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$StateStack.class",
+      "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat.class",
+      "com/akashic/thepatcher/module/mps/MpsAngelicaCompatTransformer.class"
+    ],
+    "changedExistingEntries": [
+      "META-INF/MANIFEST.MF",
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+      "mcmod.info"
+    ],
+    "removedEntries": []
+  },
+  "candidateSha256": "695d6bd9681070bba8bc8e80bc9bc89d9ac02b2b524725dcbc30dc024e116740",
+  "gates": {
+    "binaryDelta": "PASS changed=4 added=5 removed=0",
+    "deterministicBuild": "PASS",
+    "inheritedBeta8Regression": "PASS 17/17",
+    "java21CompileWerror": "PASS",
+    "java8CompileWerror": "PASS",
+    "killSwitchBytesUnchanged": "PASS",
+    "mismatchedNuminaFingerprintBytesUnchanged": "PASS",
+    "postAngelicaRedirectReplay6of6": "PASS",
+    "rawOrderReplay6of6": "PASS",
+    "realFingerprintJava21MR": "PASS",
+    "realFingerprintJava8": "PASS"
+  },
+  "note": "This gate validates bytecode shape, exact fingerprints, Java 8/21 compatibility and inherited regressions. It does not prove the visual runtime symptom is fixed until the Forbidden client is launched and tested.",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "runtimeUserTestPending": true,
+  "schema": 1,
+  "target": {
+    "angelicaGLStateManagerSha256": {
+      "java17": "9dae6a1ea42f7d42d6ddf90b24e9007d890e1ad15787a01777a423d8317e5f68",
+      "java21": "f6292d494a17b73c5c189379aaf9304f5e1a61046a6b6b1372597b5fa0726aad",
+      "java8": "41595e360943797144409a388b8ca3ab48b18d39fd3336c13cfbd930004f7dc6"
+    },
+    "angelicaJarSha256": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+    "gtnhlibJarSha256": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "mpsJarSha256": "546fafff354c8bf28ea9e66237ac01124e3468e8a46637aa1f24a82b0c965c71",
+    "numinaJarSha256": "576b577093d77536ff403f8e166c6a7b49aacd14571b3d0739faf894bbc7e3b0",
+    "numinaRenderStateSha256": "bc331c67fa8fae765fb8bfce84f9872446498d32707adc572efd63ec55546746"
+  },
+  "transform": {
+    "class": "net.machinemuse.numina.render.RenderState",
+    "clientOnly": true,
+    "expectedCalls": 6,
+    "failClosed": true,
+    "killSwitch": "-Dakashic.mpsAngelica218.disable=true",
+    "methods": [
+      "on2D",
+      "off2D",
+      "blendingOn",
+      "blendingOff",
+      "glowOn",
+      "glowOff"
+    ]
+  },
+  "version": "1.1.0-beta.9"
+}

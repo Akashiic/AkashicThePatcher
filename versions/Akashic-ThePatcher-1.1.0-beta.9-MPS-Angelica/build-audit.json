@@ -1,0 +1,43 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$1.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$Snapshot.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat$StateStack.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelica218StateCompat.class",
+    "com/akashic/thepatcher/module/mps/MpsAngelicaCompatTransformer.class"
+  ],
+  "angelicaTarget": "2.2.18 exact GLStateManager.class fingerprint",
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.9.jar",
+  "baseBeta8Sha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "baseClasses": 106,
+  "bytes": 233341,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+  ],
+  "dependencies": {
+    "C:\\Users\\User\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.8\\18419ca5b77a2f81097c741e7872e6ab8d2f40d\\asm-tree-9.8.jar": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1",
+    "C:\\Users\\User\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.8\\dc19ecb3f7889b7860697215cae99c0f9b6f6b4b\\asm-9.8.jar": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\libraries\\net\\minecraft\\launchwrapper\\1.12\\launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\libraries\\org\\lwjgl\\lwjgl\\lwjgl\\2.9.1\\lwjgl-2.9.1.jar": "c118f8d84313980f79e1e7f7ae4b14b10c2f20c77ea4a1c29f6f0b02bc139077",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\modpacks\\forbidden-series\\mods\\angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\modpacks\\forbidden-series\\mods\\gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7"
+  },
+  "deterministicRebuild": true,
+  "killSwitch": "-Dakashic.mpsAngelica218.disable=true",
+  "loaderPatchDeterministic": true,
+  "loaderPatchProof": "PATCH_THEPATCHER_BETA9_LOADING_PLUGIN PASS sha256=c3ec25b1af8cd296dd1704ed687d5631f2787e2660abf9b5b34227b891b71731",
+  "numinaTarget": "0.4.1.105 exact RenderState.class fingerprint",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "resultClasses": 111,
+  "schema": 1,
+  "scope": "beta.8 plus narrow Numina RenderState bridge for Angelica 2.2.18 COW attrib-stack compatibility",
+  "sha256": "695d6bd9681070bba8bc8e80bc9bc89d9ac02b2b524725dcbc30dc024e116740",
+  "sourceSha256": {
+    "sources\\thepatcher-beta9\\src\\main\\java\\com\\akashic\\thepatcher\\module\\mps\\MpsAngelica218StateCompat.java": "ab4a9b6f5c95143ab1170f48637415b5a044de712ec3d9d4cfa2b13200136736",
+    "sources\\thepatcher-beta9\\src\\main\\java\\com\\akashic\\thepatcher\\module\\mps\\MpsAngelicaCompatTransformer.java": "0f4e505ebab78d2835c27944a1f237c86a1f909f964ab7edb2f42260223c0cad"
+  },
+  "unchangedBaseClasses": 104,
+  "version": "1.1.0-beta.9"
+}

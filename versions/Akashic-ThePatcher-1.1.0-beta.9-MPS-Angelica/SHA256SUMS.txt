@@ -1,0 +1,6 @@
+695d6bd9681070bba8bc8e80bc9bc89d9ac02b2b524725dcbc30dc024e116740  !Akashic-ThePatcher-1.1.0-beta.9.jar
+ec9837060500b50b0a7f8f5fc2203d09e058382365cf368b3f32c5954d05e6ed  Akashic-ThePatcher-1.1.0-beta.9-MPS-Angelica-sources-tests.zip
+94d02cf5313c38dea2509372211601bad3770678df2d3d7843dd92e17abf2f73  build-audit.json
+f647baff158a9791d26d65770d8504c257f06574211d554a7ca8a1c43d920ed1  mps-angelica-gate.json
+454588bab3e3b458fc60006f960c4b23780256697382a176bc7b1ded82ea4907  README-TESTE.txt
+9b5b5fb361f6f51115c184569dbcf723f10bbac4b47ff5ee71d95ea456b26b7d  regression-gate.json
