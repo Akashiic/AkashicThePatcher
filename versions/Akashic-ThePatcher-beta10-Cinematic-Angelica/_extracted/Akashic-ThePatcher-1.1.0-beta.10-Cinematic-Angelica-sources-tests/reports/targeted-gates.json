@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "candidateSha256": "3182e7e3d6b51854eae008ff8eb8f346a1d0a8b291740ceff8dab9c5fabc9dab",
+  "allPassed": true,
+  "rawScope": {
+    "exact": {
+      "pass": true,
+      "inputSha256": "43922d54b50dfc6c2ce9ac8bb052e07172a46369123143dc8c1371790a988d53",
+      "outputSha256": "1ecd33b659c084d9bdb38e432ce206f9ec1cb6b080797b2da3d4659ebf29d7a1",
+      "injectedFenceCalls": 1
+    },
+    "disabledByteIdentical": true,
+    "shapeMismatchFailClosedByteIdentical": true
+  },
+  "vsyncBackend": {
+    "exact": {
+      "pass": true,
+      "inputSha256": "6819de7d6ded5753c0d7645304a37ecd4091353b8896a5fdb2806fa9f79993b1",
+      "outputSha256": "e6fbed75721759aea9814e658ad5eff3529a43ca007c0a3a7a23bf9ddb1913e6",
+      "guardedDisplayCalls": 1
+    },
+    "disabledByteIdentical": true,
+    "shapeMismatchFailClosedByteIdentical": true
+  },
+  "liveGpuAcceptance": false
+}
