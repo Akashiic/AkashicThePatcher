@@ -1,0 +1,42 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinTextureUtilUploadProfiler.class",
+    "dev/akashic/asynciconcompat/profile/TextureUploadProfiler.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.14-UploadProfiler.jar",
+  "asyncComponentSha256": "d921def207b9dfdbd8e650ceb6548ac25a5a3ca39d596df795ca62c08f667a4c",
+  "asyncComponentVersion": "0.1.0-alpha.2.6",
+  "baseBeta13Sha256": "4ea949e6962e09cee40cedb2da0bdc862e58e3cd77fede3e09334fedf95a570d",
+  "bytes": 255862,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json",
+    "mixins.akashicasynccompat.refmap.json"
+  ],
+  "deterministicRebuild": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.13 StitchCache plus read-only TextureUtil upload profiler",
+  "sha256": "bb352119296eddd4e6e74c8d46a05cb209fedaefdb8f755c120ee8422a0f0ddc",
+  "uploadProfiler": {
+    "behaviorChange": false,
+    "measures": [
+      "TextureUtil.uploadTextureSub total",
+      "filter/clamp state setup",
+      "copyToBufferPos CPU cost",
+      "GL11.glTexSubImage2D cost",
+      "GL calls and bytes",
+      "per mip-level sub/copy/gl/calls/bytes"
+    ]
+  },
+  "version": "1.1.0-beta.14",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

@@ -1,0 +1,6 @@
+bb352119296eddd4e6e74c8d46a05cb209fedaefdb8f755c120ee8422a0f0ddc  !Akashic-ThePatcher-1.1.0-beta.14-UploadProfiler.jar
+e7134036f5d8fb0ab5c9dd62cd7c7a0c2a929b1c64d53961585eeb9eb90e3f5a  final-build-audit.json
+a857c90ebdd79c8bb9870d92a14e54c00852d0047d7d87f01e547a5115346c37  final-inherited-regression-gate.json
+c01217c377be24c02c5bccc4761fdf88acccaae0f37c50e0dbc2e52f31432aa6  targeted-gates.json
+bf596539b81229bff2c90c1a92c16846e5e34c2752c3d7c5f76945fa310ed0f5  CHECKPOINT-BETA14-UPLOADPROFILER-2026-09-24.md
+04963d9915998ccfcf5bfa1b4dfb8ed09983366806f74f56803bbd5376454bd1  README-TESTE.txt

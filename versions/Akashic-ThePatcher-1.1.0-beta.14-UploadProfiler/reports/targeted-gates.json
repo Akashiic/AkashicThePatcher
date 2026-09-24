@@ -1,0 +1,25 @@
+{
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.14-UploadProfiler.jar",
+  "candidateSha256": "bb352119296eddd4e6e74c8d46a05cb209fedaefdb8f755c120ee8422a0f0ddc",
+  "checks": {
+    "addedClasses": [
+      "dev/akashic/asynciconcompat/mixins/MixinTextureUtilUploadProfiler.class",
+      "dev/akashic/asynciconcompat/profile/TextureUploadProfiler.class"
+    ],
+    "alpha26MergedEntriesBitIdentity": "PASS",
+    "beta13StitchCacheUnchanged": "PASS",
+    "changedClasses": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class"
+    ],
+    "forestryGuardUnchanged": "PASS",
+    "loadingPluginUnchanged": "PASS",
+    "maxClassMajor": 52,
+    "mixinConfigIncludesUploadProfiler": "PASS",
+    "standaloneAsyncModAbsent": "PASS",
+    "uploadProfilerTargetsPresent": "PASS",
+    "zipCrc": "PASS"
+  },
+  "schema": 1
+}
