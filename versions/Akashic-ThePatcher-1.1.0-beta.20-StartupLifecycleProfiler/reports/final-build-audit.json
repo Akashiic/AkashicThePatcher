@@ -1,0 +1,45 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinLoadControllerStartupProfiler.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$1.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$2.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$DispatchSample.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$ModTiming.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$Phase.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.20-StartupLifecycleProfiler.jar",
+  "baseBeta19Sha256": "c3d2ef2127080898b0a5b0f54305056ee7deb1b8bbb8f50e9b9cf726aab08472",
+  "bytes": 280369,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "componentAlpha210Sha256": "045bd10cfb6264910325342c038519dd4be94cfad6570c334e7826667d22f187",
+  "deterministicRebuild": true,
+  "forestryGuard": {
+    "packSideMetadataExpected": true,
+    "requiredCompilerOracleExclusions": 6,
+    "rewriteAloneConsideredSafe": false
+  },
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "sha256": "00a29e58ebb428e915d3579ba3f6b9bceb6464d29d4f8c08ef7fe20285e3a48a",
+  "startupProfiler": {
+    "disableProperty": "-Dakashic.startupLifecycleProfiler=false",
+    "dispatchMethod": "sendEventToModContainer(FMLEvent,ModContainer)",
+    "phaseMethod": "propogateStateMessage(FMLEvent)",
+    "target": "cpw.mods.fml.common.LoadController",
+    "topCount": 15
+  },
+  "version": "1.1.0-beta.20",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
