@@ -1,0 +1,41 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/cache/StitchLayoutCache$Entry.class",
+    "dev/akashic/asynciconcompat/cache/StitchLayoutCache$Layout.class",
+    "dev/akashic/asynciconcompat/cache/StitchLayoutCache.class",
+    "dev/akashic/asynciconcompat/mixins/MixinStitcherLayoutCache.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.13-StitchCache.jar",
+  "asyncComponentSha256": "6c963dd1ff81cdb81d229c9447da05d36ac923914e42279d32921e82aee6d34b",
+  "asyncComponentVersion": "0.1.0-alpha.2.5",
+  "baseBeta12Sha256": "ec498ac793af3dfc755a71b71b15b7bb85fae742b5727d1085c41975d5e274ed",
+  "bytes": 250914,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json",
+    "mixins.akashicasynccompat.refmap.json"
+  ],
+  "deterministicRebuild": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.12 AtlasProfiler plus fail-closed persistent Stitcher geometry cache",
+  "sha256": "4ea949e6962e09cee40cedb2da0bdc862e58e3cd77fede3e09334fedf95a570d",
+  "stitchCache": {
+    "checksum": "CRC32 payload",
+    "disableProperty": "-Dakashic.stitchLayoutCache=false",
+    "fallback": "any fingerprint/cache/validation/application mismatch runs normal Stitcher",
+    "fingerprint": "SHA-256 over Stitcher parameters and sorted sprite names/effective dimensions/initial rotation",
+    "firstBoot": "MISS then normal doStitch then seed",
+    "formatVersion": 1,
+    "subsequentIdenticalBoot": "HIT then reconstruct cached Stitcher.Slot leaves"
+  },
+  "version": "1.1.0-beta.13",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

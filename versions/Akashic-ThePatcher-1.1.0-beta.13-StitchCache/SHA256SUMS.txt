@@ -1,0 +1,5 @@
+4ea949e6962e09cee40cedb2da0bdc862e58e3cd77fede3e09334fedf95a570d  !Akashic-ThePatcher-1.1.0-beta.13-StitchCache.jar
+7a1f13ec73a338a4358d2bc234eea3ee4d2ef32011ff385af0058205504fe00d  final-build-audit.json
+7176a23e40883edecf721ff9c2cd62b28af9d16a65a33ad23442f370804cba0d  final-inherited-regression-gate.json
+b897b2ff18bd7fb3dde85e6346e080a3e1e59fba7795b55f7474dc9c85e1dc57  targeted-gates.json
+1f25307f2bc2bbed0802232e26566950adbbe175a246ddf7e8679a9f8426745b  CHECKPOINT-BETA13-STITCHCACHE-2026-09-24.md

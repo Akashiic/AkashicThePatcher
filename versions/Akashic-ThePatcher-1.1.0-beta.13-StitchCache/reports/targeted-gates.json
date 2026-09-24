@@ -1,0 +1,27 @@
+{
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.13-StitchCache.jar",
+  "candidateSha256": "4ea949e6962e09cee40cedb2da0bdc862e58e3cd77fede3e09334fedf95a570d",
+  "checks": {
+    "addedClasses": [
+      "dev/akashic/asynciconcompat/cache/StitchLayoutCache$Entry.class",
+      "dev/akashic/asynciconcompat/cache/StitchLayoutCache$Layout.class",
+      "dev/akashic/asynciconcompat/cache/StitchLayoutCache.class",
+      "dev/akashic/asynciconcompat/mixins/MixinStitcherLayoutCache.class"
+    ],
+    "alpha25MergedEntriesBitIdentity": "PASS",
+    "beta12AtlasProfilerUnchanged": "PASS",
+    "changedClasses": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class"
+    ],
+    "forestryGuardUnchanged": "PASS",
+    "loadingPluginUnchanged": "PASS",
+    "maxClassMajor": 52,
+    "mixinConfigIncludesStitchCache": "PASS",
+    "standaloneAsyncModAbsent": "PASS",
+    "stitchCacheFingerprintAndCrcLiterals": "PASS",
+    "stitchCacheHitMissSeedFallbackLiterals": "PASS",
+    "zipCrc": "PASS"
+  },
+  "schema": 1
+}
