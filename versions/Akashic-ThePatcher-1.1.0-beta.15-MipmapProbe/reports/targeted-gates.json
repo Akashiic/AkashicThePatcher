@@ -1,0 +1,27 @@
+{
+  "allPassed": true,
+  "angelicaSha256": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.15-MipmapProbe.jar",
+  "candidateSha256": "1e7008edf76156c07f19be7151554d87c677b675db723a7c61c89e3d5f09bd0d",
+  "checks": {
+    "addedClasses": [
+      "dev/akashic/asynciconcompat/mixins/MixinAngelicaMipmapProfiler.class"
+    ],
+    "alpha27MergedEntriesBitIdentity": "PASS",
+    "angelicaTargetClassPinned": "PASS",
+    "beta13StitchCachePreserved": "PASS",
+    "beta14UploadProfilerCorePreserved": "PASS",
+    "changedClasses": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "dev/akashic/asynciconcompat/profile/TextureUploadProfiler.class"
+    ],
+    "forestryGuardUnchanged": "PASS",
+    "generateMipmapInvokeExists": "PASS",
+    "maxClassMajor": 52,
+    "maybeGenerateMipmapMethodExists": "PASS",
+    "pseudoMixinTargetStrings": "PASS",
+    "standaloneAsyncModAbsent": "PASS",
+    "zipCrc": "PASS"
+  },
+  "schema": 1
+}

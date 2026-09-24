@@ -1,0 +1,38 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinAngelicaMipmapProfiler.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.15-MipmapProbe.jar",
+  "asyncComponentSha256": "cdceefa668991cbee3f66f4bed3c222ade72948faea921c2d0c59605f8f2cb98",
+  "asyncComponentVersion": "0.1.0-alpha.2.7",
+  "baseBeta14Sha256": "bb352119296eddd4e6e74c8d46a05cb209fedaefdb8f755c120ee8422a0f0ddc",
+  "bytes": 257162,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/profile/TextureUploadProfiler.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "deterministicRebuild": true,
+  "mipmapProbe": {
+    "behaviorChange": false,
+    "measures": [
+      "maybeGenerateMipmap call count while atlas profiler active",
+      "actual RenderBackend.generateMipmap invocation count",
+      "aggregate RenderBackend.generateMipmap elapsed time"
+    ],
+    "target": "com.gtnewhorizons.angelica.glsm.GLStateManager.maybeGenerateMipmap(II)V"
+  },
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.14 UploadProfiler plus read-only Angelica mipmap-generation probe",
+  "sha256": "1e7008edf76156c07f19be7151554d87c677b675db723a7c61c89e3d5f09bd0d",
+  "version": "1.1.0-beta.15",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
