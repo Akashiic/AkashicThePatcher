@@ -1,0 +1,25 @@
+{
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.12-AtlasProfiler.jar",
+  "candidateSha256": "ec498ac793af3dfc755a71b71b15b7bb85fae742b5727d1085c41975d5e274ed",
+  "checks": {
+    "asyncAlpha24BitIdentity": "PASS",
+    "atlasProfilerTargets": "PASS",
+    "changedClasses": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class"
+    ],
+    "changedResources": [
+      "META-INF/MANIFEST.MF",
+      "mcmod.info",
+      "mixins.akashicasynccompat.refmap.json"
+    ],
+    "forestryGuardUnchanged": "PASS",
+    "loadingPluginUnchanged": "PASS",
+    "manifestMixinBootstrap": "PASS",
+    "maxClassMajor": 52,
+    "standaloneAsyncModAbsent": "PASS",
+    "zipCrc": "PASS"
+  },
+  "schema": 1
+}

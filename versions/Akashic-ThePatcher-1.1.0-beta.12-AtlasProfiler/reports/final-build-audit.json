@@ -1,0 +1,27 @@
+{
+  "addedClasses": [],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.12-AtlasProfiler.jar",
+  "asyncComponentSha256": "7576f6bb71353d9804e319737b1bd1bc3bca7e97be480e1e2dc0058640994c7e",
+  "asyncComponentVersion": "0.1.0-alpha.2.4",
+  "baseBeta11Sha256": "1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d",
+  "bytes": 236711,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.refmap.json"
+  ],
+  "deterministicRebuild": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.11 Async/Forestry plus read-only TextureMap atlas profiler: total, icon registration, ImageIO decode, Stitcher.doStitch, GL allocation, GL upload, Forge pre/post stitch hooks and residual time",
+  "sha256": "ec498ac793af3dfc755a71b71b15b7bb85fae742b5727d1085c41975d5e274ed",
+  "version": "1.1.0-beta.12",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
