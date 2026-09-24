@@ -1,0 +1,44 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapItemsUploadBatch.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureUtilItemsUploadBatch.class",
+    "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.18-ItemsAtlasBatch.jar",
+  "atlasBatchComponentSha256": "a1cee846e34689ab470bc739211467412e7bcc08e1fec328bffdc91094b6efb9",
+  "atlasBatchComponentVersion": "0.1.0-alpha.2.9",
+  "baseBeta17Sha256": "18177c88421d675da07ab6dc7ed2b5d1437691d95b1b88eeec4c684814238cc7",
+  "bytes": 270312,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json",
+    "mixins.akashicasynccompat.refmap.json"
+  ],
+  "deterministicRebuild": true,
+  "itemsAtlasBatch": {
+    "disableProperty": "-Dakashic.itemsAtlasBatch=false",
+    "expected4096StripeCalls": 16,
+    "firstVanillaUploadPassesThrough": true,
+    "minDimension": 2048,
+    "oneShot": true,
+    "requiresAnaglyph": false,
+    "requiresMipmapLevels": 0,
+    "stageBuffer": "int[atlasWidth*atlasHeight]",
+    "startupOnly": true,
+    "stripeIntCapacity": 1048576,
+    "targetPath": "textures/items"
+  },
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.17 plus startup-only items atlas GL upload batching",
+  "sha256": "12f00211e9f8cd66cad9d9a90da7f809d4e1987a72d31461dfbe42edf5169262",
+  "version": "1.1.0-beta.18",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

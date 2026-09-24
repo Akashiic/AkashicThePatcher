@@ -1,0 +1,30 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapItemsUploadBatch.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureUtilItemsUploadBatch.class",
+    "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class"
+  ],
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.18-ItemsAtlasBatch.jar",
+  "candidateSha256": "12f00211e9f8cd66cad9d9a90da7f809d4e1987a72d31461dfbe42edf5169262",
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "checks": {
+    "expected4096BatchGlCalls": 16,
+    "expected4096RowsPerBatch": 256,
+    "failOpenMarkers": "PASS",
+    "forestryUniversalBitIdentity": "PASS",
+    "hybridAsyncBitIdentity": "PASS",
+    "itemsOnlyGuardMarkers": "PASS",
+    "java8ClassMajor": "PASS",
+    "newMixinsInConfigAndRefmap": "PASS",
+    "oneShotStartupGuardMarkers": "PASS",
+    "rejectedForestryMixinAbsent": "PASS",
+    "stitchCacheBitIdentity": "PASS",
+    "strictClassDelta": "PASS",
+    "uploadProfilerBitIdentity": "PASS",
+    "zipCrc": "PASS"
+  },
+  "schema": 1
+}
