@@ -1,0 +1,38 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher$State.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.19-ItemsAtlasBatchPackFix.jar",
+  "baseBeta18Sha256": "12f00211e9f8cd66cad9d9a90da7f809d4e1987a72d31461dfbe42edf5169262",
+  "bytes": 271063,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "componentAlpha29Sha256": "a1cee846e34689ab470bc739211467412e7bcc08e1fec328bffdc91094b6efb9",
+  "deterministicRebuild": true,
+  "packagingFix": {
+    "componentBatchClasses": [
+      "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher$State.class",
+      "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class"
+    ],
+    "finalBatchClasses": [
+      "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher$State.class",
+      "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class"
+    ],
+    "logicChanged": false,
+    "missingInBeta18": "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher$State.class"
+  },
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.18 packaging fix only: include ItemsAtlasUploadBatcher$State",
+  "sha256": "c3d2ef2127080898b0a5b0f54305056ee7deb1b8bbb8f50e9b9cf726aab08472",
+  "version": "1.1.0-beta.19",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
