@@ -1,0 +1,47 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/cinematic/AngelicaVSyncGuard.class",
+    "com/akashic/thepatcher/module/cinematic/CinematicAngelicaCompatTransformer.class",
+    "com/akashic/thepatcher/module/cinematic/CinematicAngelicaStateFence.class"
+  ],
+  "angelicaVSyncBaseSha256": "6819de7d6ded5753c0d7645304a37ecd4091353b8896a5fdb2806fa9f79993b1",
+  "angelicaVSyncJava17Sha256": "01d8ae492ae60102a34894744eb98d22c09eacf709e1faeb5715ef7c474ecc7c",
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.10-Cinematic-Angelica.jar",
+  "baseBeta8Sha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "baseClasses": 106,
+  "bytes": 232088,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+  ],
+  "dependencies": {
+    "C:\\Users\\User\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm-tree\\9.8\\18419ca5b77a2f81097c741e7872e6ab8d2f40d\\asm-tree-9.8.jar": "14b7880cb7c85eed101e2710432fc3ffb83275532a6a894dc4c4095d49ad59f1",
+    "C:\\Users\\User\\.gradle\\caches\\modules-2\\files-2.1\\org.ow2.asm\\asm\\9.8\\dc19ecb3f7889b7860697215cae99c0f9b6f6b4b\\asm-9.8.jar": "876eab6a83daecad5ca67eb9fcabb063c97b5aeb8cf1fca7a989ecde17522051",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\libraries\\net\\minecraft\\launchwrapper\\1.12\\launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\modpacks\\forbidden-series\\mods\\AkashicCinematicMenu-0.7.0-alpha.4.jar": "7dbf5177c4e26edea3c0d5caceafac6d4ec013eee6d543d2dbe80066d4c0fb4a",
+    "C:\\Users\\User\\AppData\\Roaming\\.technic\\modpacks\\forbidden-series\\mods\\angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50"
+  },
+  "deterministicRebuild": true,
+  "killSwitches": [
+    "-Dakashic.cinematicAngelicaStateFence.disable=true",
+    "-Dakashic.angelicaVSyncGuard.disable=true"
+  ],
+  "loaderPatchDeterministic": true,
+  "loaderPatchProof": "PATCH_THEPATCHER_BETA10_LOADING_PLUGIN PASS sha256=709bcb592d56b10c1bdc533b9cc4f41e864c4ed344ec590a8109fa5230036b4e",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "rawScopeTargetSha256": "43922d54b50dfc6c2ce9ac8bb052e07172a46369123143dc8c1371790a988d53",
+  "resultClasses": 109,
+  "schema": 1,
+  "scope": "beta.8 plus exact Akashic Cinematic RawScope/Angelica GLSM state fence and Angelica 2.2.18 LWJGL2 VSync fail-soft guard",
+  "sha256": "3182e7e3d6b51854eae008ff8eb8f346a1d0a8b291740ceff8dab9c5fabc9dab",
+  "sourceSha256": {
+    "sources\\thepatcher-beta10-final\\src\\main\\java\\com\\akashic\\thepatcher\\module\\cinematic\\AngelicaVSyncGuard.java": "15e19992fa7aeb2d8d6a0385b2d6e9d906a3b2ec5c8a2038176ec9946ebb7138",
+    "sources\\thepatcher-beta10-final\\src\\main\\java\\com\\akashic\\thepatcher\\module\\cinematic\\CinematicAngelicaCompatTransformer.java": "40959a5395d7c8068d97b08fd810c12fafbff36552d6a724fd6eed10d0f2d386",
+    "sources\\thepatcher-beta10-final\\src\\main\\java\\com\\akashic\\thepatcher\\module\\cinematic\\CinematicAngelicaStateFence.java": "1374e4703abaef66e91fec3feed4635ca2851d49f783a68a528e878aaa933b9b"
+  },
+  "unchangedBaseClasses": 104,
+  "version": "1.1.0-beta.10",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

@@ -1,0 +1,46 @@
+{
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry.jar",
+  "candidateSha256": "1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d",
+  "checks": {
+    "added_classes": [
+      "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+      "dev/akashic/asynciconcompat/CompatHooks.class",
+      "dev/akashic/asynciconcompat/CompatState.class",
+      "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class"
+    ],
+    "async_entries_bit_identical": {
+      "dev/akashic/asynciconcompat/CompatHooks.class": true,
+      "dev/akashic/asynciconcompat/CompatState.class": true,
+      "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class": true,
+      "mixins.akashicasynccompat.json": true,
+      "mixins.akashicasynccompat.refmap.json": true
+    },
+    "beta10_cinematic_absent": true,
+    "beta9_mps_absent": true,
+    "candidate_sha": "1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d",
+    "changed_base_classes": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+    ],
+    "chisel_root_present": true,
+    "cofh_root_present": true,
+    "complete_exceptionally_present": true,
+    "forestry_guard_crash_literal": true,
+    "forestry_guard_flag_literal": true,
+    "loader_references_guard": true,
+    "manifest_mixin_config": true,
+    "manifest_mixin_tweaker": true,
+    "manifest_version": true,
+    "max_class_major": 52,
+    "mcmod_version": true,
+    "mekanism_root_present": true,
+    "mfr_root_present": true,
+    "shutdown_now_present": true,
+    "stale_cleanup_present": true,
+    "standalone_mcmod_not_merged": true,
+    "standalone_mod_absent": true,
+    "zip_crc": null
+  },
+  "schema": 1
+}

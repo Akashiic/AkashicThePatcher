@@ -1,0 +1,30 @@
+﻿{
+    "schema":  1,
+    "date":  "2026-09-24",
+    "project":  "C:\\Users\\User\\Desktop\\Codex\\Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry",
+    "installedJar":  "C:\\Users\\User\\AppData\\Roaming\\.technic\\modpacks\\forbidden-series\\mods\\!Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry.jar",
+    "installedSha256":  "1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d",
+    "expectedSha256":  "1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d",
+    "patcherJarCount":  1,
+    "patcherJars":  [
+                        "!Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry.jar"
+                    ],
+    "standaloneAsyncCompatJarCount":  0,
+    "standaloneAsyncCompatJars":  [
+                                      null
+                                  ],
+    "javaArgs":  "-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC -XX:G1NewSizePercent=20 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=16M -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=100 -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:CompileCommand=exclude,forestry/core/genetics/Genome.getChromosomes",
+    "forestryCompileCommandPresent":  true,
+    "hodgepodgeSettings":  [
+                               "B:asyncIconLoading=false",
+                               "B:removeExtraIconLoad=true"
+                           ],
+    "minecraftProcessCount":  0,
+    "technicLauncherProcessCount":  1,
+    "inheritedRegressionGate":  "16/16 PASS",
+    "targetedGate":  "24 checks PASS",
+    "baseBeta8Sha256":  "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+    "asyncComponentVersion":  "0.1.0-alpha.2.3",
+    "asyncComponentSha256":  "7baeb83b1ea8c0139952671821fb1c3d3aedaae13306c2f31996e3170024a9f4",
+    "rollback":  "C:\\Users\\User\\Desktop\\Codex\\Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry\\rollback-pre-beta11-20260924-030822"
+}

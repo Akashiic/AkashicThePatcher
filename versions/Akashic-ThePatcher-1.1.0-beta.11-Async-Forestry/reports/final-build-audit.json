@@ -1,0 +1,45 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+    "dev/akashic/asynciconcompat/CompatHooks.class",
+    "dev/akashic/asynciconcompat/CompatState.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class"
+  ],
+  "addedResources": [
+    "mixins.akashicasynccompat.json",
+    "mixins.akashicasynccompat.refmap.json"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry.jar",
+  "asyncComponentSha256": "7baeb83b1ea8c0139952671821fb1c3d3aedaae13306c2f31996e3170024a9f4",
+  "asyncComponentVersion": "0.1.0-alpha.2.3",
+  "baseBeta8Sha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "bytes": 234571,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+  ],
+  "deterministicRebuild": true,
+  "excludedExperiments": [
+    "beta.9 MPS/Numina experiment",
+    "beta.10 Cinematic/Angelica experiment"
+  ],
+  "forestryCrashEvidence": {
+    "compileTask": "forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "fatalThread": "C2 CompilerThread1",
+    "hsErr": "hs_err_pid2844.log",
+    "jre": "1.8.0_51-b16"
+  },
+  "forestryGuardSourceSha256": "a7b762e286671e18cd699de706f38160ab17a132c6a9cac44954cf0e519028d5",
+  "loaderPatchDeterministic": true,
+  "loaderPatchProof": "PATCH_THEPATCHER_BETA11_LOADING_PLUGIN PASS sha256=0cf67803c37e405538260c4895b3698315e0533d182a774f5ca2ee83d4ab2aa2",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "requiredHodgepodgeConfig": "B:asyncIconLoading=false",
+  "requiredJvmCompileCommand": "-XX:CompileCommand=exclude,forestry/core/genetics/Genome.getChromosomes",
+  "schema": 1,
+  "scope": "verified beta.8 baseline plus merged Akashic hybrid async icon scheduler alpha.2.3 (Chisel/Mekanism/MFR/CoFH main-thread fallbacks and abort cleanup) plus early Forestry Java 8u51 C2 compile-exclusion verification",
+  "sha256": "1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d",
+  "version": "1.1.0-beta.11",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

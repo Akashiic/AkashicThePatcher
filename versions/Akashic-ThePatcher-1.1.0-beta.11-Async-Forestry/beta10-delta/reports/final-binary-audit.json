@@ -1,0 +1,31 @@
+{
+  "addedEntries": [
+    "com/akashic/thepatcher/module/cinematic/AngelicaVSyncGuard.class",
+    "com/akashic/thepatcher/module/cinematic/CinematicAngelicaCompatTransformer.class",
+    "com/akashic/thepatcher/module/cinematic/CinematicAngelicaStateFence.class"
+  ],
+  "base": "!Akashic-ThePatcher-1.1.0-beta.8.jar",
+  "baseEntries": 108,
+  "baseSha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.10-Cinematic-Angelica.jar",
+  "candidateEntries": 111,
+  "candidateSha256": "3182e7e3d6b51854eae008ff8eb8f346a1d0a8b291740ceff8dab9c5fabc9dab",
+  "changedEntries": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "classMajors": {
+    "com/akashic/thepatcher/AkashicThePatcherMod.class": 52,
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": 52,
+    "com/akashic/thepatcher/module/cinematic/AngelicaVSyncGuard.class": 52,
+    "com/akashic/thepatcher/module/cinematic/CinematicAngelicaCompatTransformer.class": 52,
+    "com/akashic/thepatcher/module/cinematic/CinematicAngelicaStateFence.class": 52
+  },
+  "java8CompatibleChangedAndAddedClasses": true,
+  "pass": true,
+  "removedEntries": [],
+  "schema": 1,
+  "unchangedEntries": 104
+}
