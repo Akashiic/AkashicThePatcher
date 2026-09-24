@@ -1,0 +1,61 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/graphics/WorldRenderStateProbe.class",
+    "dev/akashic/asynciconcompat/mixins/MixinCeleritasWorldStateProbe.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.21-WorldRenderStateRepair.jar",
+  "baseBeta20Sha256": "00a29e58ebb428e915d3579ba3f6b9bceb6464d29d4f8c08ef7fe20285e3a48a",
+  "bytes": 279861,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "componentAlpha211Sha256": "ff9e1a9d966fb2c51b60397e96c352b7577d7202cf9eb2389a4700590f386e7d",
+  "deterministicRebuild": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinLoadControllerStartupProfiler.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$1.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$2.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$DispatchSample.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$ModTiming.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler$Phase.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleProfiler.class"
+  ],
+  "schema": 1,
+  "sha256": "79dcb3f15653dc764c7075a06eafd0fb494261c8db35d3af3b5a2d830e1720f7",
+  "startupProfilerRemoved": true,
+  "version": "1.1.0-beta.21",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635",
+  "worldRenderStateRepair": {
+    "defaultRepairEnabled": true,
+    "diagnosticOnly": [
+      "current color",
+      "alpha func/ref"
+    ],
+    "probeDisable": "-Dakashic.worldRenderStateProbe=false",
+    "repairDisable": "-Dakashic.worldRenderStateRepair=false",
+    "repairs": [
+      "active texture",
+      "texture2D enable",
+      "texture binding2D",
+      "blend enable",
+      "depth test enable",
+      "alpha test enable",
+      "cull face enable",
+      "depth mask",
+      "depth func",
+      "color mask",
+      "blend func",
+      "blend equation",
+      "blend color"
+    ],
+    "samplesPerVanillaPass": 12,
+    "target": "CeleritasWorldRenderer.drawChunkLayer"
+  }
+}

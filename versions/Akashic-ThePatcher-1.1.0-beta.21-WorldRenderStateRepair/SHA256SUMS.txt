@@ -1,0 +1,4 @@
+79dcb3f15653dc764c7075a06eafd0fb494261c8db35d3af3b5a2d830e1720f7  !Akashic-ThePatcher-1.1.0-beta.21-WorldRenderStateRepair.jar
+0359be5508b302c818e49d0518841fe1dfa683d64c10d5c2c22012ed2b76e8be  final-build-audit.json
+e1aee05b83667afeb6e06362f0316a0f08fdda68a0dc2a83bc0e2ebdbcb0609c  final-inherited-regression-gate.json
+32aeacd017e87f7400487eee64e08f5b4b444b7961bb642b3abceeed3abf2037  CHECKPOINT-BETA21-WORLD-RENDER-STATE-2026-09-24.md
