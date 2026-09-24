@@ -1,0 +1,27 @@
+{
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.16-UniversalForestryC2.jar",
+  "candidateSha256": "8ec2e72b2fb9488ac759e24705c22a1a05181afb107b861ca67a4c8139a4a483",
+  "checks": {
+    "addedClasses": [
+      "dev/akashic/asynciconcompat/forestry/ForestryGenomeC2Shim.class",
+      "dev/akashic/asynciconcompat/mixins/MixinForestryGenomeC2.class"
+    ],
+    "alpha28MergeIdentity": "PASS",
+    "beta15PerformanceCorePreserved": "PASS",
+    "changedClasses": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class"
+    ],
+    "forestryDependencyNotBundled": "PASS",
+    "guardUniversalModeMarkers": "PASS",
+    "maxClassMajor": 52,
+    "overwriteTinyDelegate": "PASS",
+    "shimSplitMarkers": "PASS",
+    "standaloneAsyncModAbsent": "PASS",
+    "zipCrc": "PASS"
+  },
+  "forestryGenomeClassSha256": "fe62518c6126cc715610ef3ced8685edac0e5aeb0c0315a5c1d2d284d55f2683",
+  "forestryJarSha256": "78daf273c4d112324ea7fb3ad9fbac99ecd088c1b78982811deebd58da712d6f",
+  "schema": 1
+}

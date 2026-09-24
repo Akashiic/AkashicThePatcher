@@ -1,0 +1,42 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/forestry/ForestryGenomeC2Shim.class",
+    "dev/akashic/asynciconcompat/mixins/MixinForestryGenomeC2.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.16-UniversalForestryC2.jar",
+  "asyncComponentSha256": "dcc0bf8e1a92be1e11dc82fac833bf06446a19ae8239a6478f765994daca302e",
+  "asyncComponentVersion": "0.1.0-alpha.2.8",
+  "baseBeta15Sha256": "1e7008edf76156c07f19be7151554d87c677b675db723a7c61c89e3d5f09bd0d",
+  "bytes": 261009,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "deterministicRebuild": true,
+  "forestryGenomeClassSha256": "fe62518c6126cc715610ef3ced8685edac0e5aeb0c0315a5c1d2d284d55f2683",
+  "forestryJarSha256": "78daf273c4d112324ea7fb3ad9fbac99ecd088c1b78982811deebd58da712d6f",
+  "guardClassSha256": "1dc223830644824ba3dfa00808cac8118a828f5af8342284729f495989c0be8d",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.15 plus universal client-side Forestry 4.11.36 Java 8u51 C2 mitigation",
+  "sha256": "8ec2e72b2fb9488ac759e24705c22a1a05181afb107b861ca67a4c8139a4a483",
+  "universalForestryC2": {
+    "compileCommandRequired": false,
+    "compileCommandStillSupportedAsFallback": true,
+    "forestryDependencyBundled": false,
+    "originalBytecodeLengthObserved": 288,
+    "runtimeExecutionProperty": "akashic.forestryC2Shim.executed",
+    "strategy": "Mixin @Overwrite -> split ForestryGenomeC2Shim",
+    "target": "forestry.core.genetics.Genome.getChromosomes(NBTTagCompound, ISpeciesRoot)"
+  },
+  "version": "1.1.0-beta.16",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

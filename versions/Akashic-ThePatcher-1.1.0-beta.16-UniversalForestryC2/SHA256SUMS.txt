@@ -1,0 +1,6 @@
+8ec2e72b2fb9488ac759e24705c22a1a05181afb107b861ca67a4c8139a4a483  !Akashic-ThePatcher-1.1.0-beta.16-UniversalForestryC2.jar
+d119053cd1132a80cc8d10e6b0a3f622ebd1cca0a20f8da820e40f20a7df32d0  final-build-audit.json
+18af88aff141a24f22e5ee8cfdbaed7e0da16c59df695f6fe3cc13cae4a90373  final-inherited-regression-gate.json
+683c4573d3dd65dae6239d0e2598f8c9a67439b38f5aca2c44bfb960ddad51dc  targeted-gates.json
+8c773cc6c7989784c7d1686405b0d509e90afcb5339fd4267d5e79991ab9a340  CHECKPOINT-BETA16-UNIVERSAL-FORESTRY-C2-2026-09-24.md
+2fa74529f82e7d96a75721c21da8cc99faa17405fb05bd4c48b1ef3533142942  README-TESTE.txt
