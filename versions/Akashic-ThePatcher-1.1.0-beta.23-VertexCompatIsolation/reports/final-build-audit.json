@@ -1,0 +1,17 @@
+{
+  "addedClasses": [],
+  "baseBeta22Sha256": "1843eec1e4c0a98b67fcbf74d98f55cef8a51ac33eadff95c07b3010d72f1fff",
+  "bytes": 272076,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "productionInstalled": false,
+  "removedClasses": [
+    "dev/akashic/asynciconcompat/graphics/WorldRenderStateProbe.class",
+    "dev/akashic/asynciconcompat/mixins/MixinCeleritasWorldStateProbe.class"
+  ],
+  "schema": 1,
+  "scope": "remove WorldGLState probe for clean vertex-format A/B; no renderer behavior patch",
+  "sha256": "5a3c563b61f26a24d84b3b4fe89e626afa82e87f35e1ccd51bd9e39acd6097c3",
+  "version": "1.1.0-beta.23"
+}
