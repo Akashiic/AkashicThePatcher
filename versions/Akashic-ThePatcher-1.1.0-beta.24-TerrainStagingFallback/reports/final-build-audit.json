@@ -1,0 +1,28 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinRenderRegionManagerStagingFallback.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.24-TerrainStagingFallback.jar",
+  "baseBeta23Sha256": "5a3c563b61f26a24d84b3b4fe89e626afa82e87f35e1ccd51bd9e39acd6097c3",
+  "bytes": 273707,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "componentAlpha213Sha256": "7d56918ea263416d2a84a8c10d620902037af07f13af9133e755e492fbf91c30",
+  "defaultEnabled": true,
+  "deterministicRebuild": true,
+  "disableProperty": "-Dakashic.forceTerrainFallbackStaging=false",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "force Celeritas terrain chunk staging from persistent MappedStagingBuffer to official FallbackStagingBuffer only when mapped staging is supported",
+  "sha256": "41c66f3567a66544118e71ed0ab60343fa352c56b89836f8668af959376f5922",
+  "version": "1.1.0-beta.24",
+  "worldGlStateProbeRemoved": true
+}
