@@ -1,0 +1,130 @@
+{
+  "allPassed": true,
+  "baselineBeta8Sha256": "010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b",
+  "binaryAudit": {
+    "addedClasses": [],
+    "changedClasses": [
+      "com/akashic/thepatcher/AkashicThePatcherMod.class",
+      "dev/akashic/asynciconcompat/graphics/WorldRenderStateProbe.class"
+    ]
+  },
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.22-WorldRenderStateProbeFix.jar",
+  "candidateSha256": "1843eec1e4c0a98b67fcbf74d98f55cef8a51ac33eadff95c07b3010d72f1fff",
+  "coverage": {
+    "bridgeExtendedCases": 3003,
+    "bridgeLegacyCases": 5182,
+    "extendedFormatCases": 10028,
+    "formatContinuationCases": 3072,
+    "hodgepodgeExtendedCases": 10028,
+    "hodgepodgeRgbCases": 768,
+    "legacyExactCases": 20256,
+    "transformedFormatCases": 4004,
+    "trimCases": 16128,
+    "trimChecks": 327169
+  },
+  "gateCount": 16,
+  "gates": [
+    {
+      "label": "compile_transform_tools",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": "",
+      "proof": null
+    },
+    {
+      "label": "transform_font_beta8",
+      "outputSha256": "c7c065ff3718a73a9c1a19312181b83045e4b0e14f08bc239a60883804834dfc",
+      "outputTail": "RGB_TEXT_TRANSFORMER_APPLY PASS changed=1 entries=2845 fontPatched=true",
+      "proof": "RGB_TEXT_TRANSFORMER_APPLY PASS"
+    },
+    {
+      "label": "hodgepodge_at_beta8",
+      "outputSha256": "a900f60777bbf3e06c876094a48e181faf0fb2c901ab90312ba5f101b5b158dc",
+      "outputTail": "HODGEPODGE_FONT_AT PASS patched=1 entries=2845",
+      "proof": "HODGEPODGE_FONT_AT PASS"
+    },
+    {
+      "label": "compile_hodge_tests",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": "",
+      "proof": null
+    },
+    {
+      "label": "beta8_hodgepodge_rgb",
+      "outputSha256": "c3d9eaa8251b0af075e84daacf629cd869bb8bfe79c8e8e8863df7fdc90187c7",
+      "outputTail": "HODGEPODGE_RGB_WRAP CANDIDATE_PASS cases=768 rgbFailures=0 legacy=6",
+      "proof": "HODGEPODGE_RGB_WRAP CANDIDATE_PASS cases=768 rgbFailures=0 legacy=6"
+    },
+    {
+      "label": "beta8_hodgepodge_extended",
+      "outputSha256": "4577beb0ac77376eb2f9088bd534b3ec99d5ca3efc3736499e2624a0b4b6b8c4",
+      "outputTail": "HODGEPODGE_EXTENDED_WRAP PASS cases=10028 checks=10029 qzvu-shadow-gradient=true",
+      "proof": "HODGEPODGE_EXTENDED_WRAP PASS cases=10028 checks=10029"
+    },
+    {
+      "label": "compile_format_tests",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": "",
+      "proof": null
+    },
+    {
+      "label": "format_continuation",
+      "outputSha256": "f64f4bb0d30d8f04425129c360ce1857c802e477dc2d61710e631a4404f8ece0",
+      "outputTail": "BETA5_FORMAT_CONTINUATION PASS cases=3072 checks=3073",
+      "proof": "BETA5_FORMAT_CONTINUATION PASS cases=3072 checks=3073"
+    },
+    {
+      "label": "extended_format",
+      "outputSha256": "3441fd89a39ba1fd99fa998a9403c269b66caefc360d6f0d182904b4ea3c2d5a",
+      "outputTail": "BETA5_EXTENDED_FORMAT PASS cases=10028 checks=10032 qzvu-shadow-gradient=true",
+      "proof": "BETA5_EXTENDED_FORMAT PASS cases=10028 checks=10032"
+    },
+    {
+      "label": "compile_legacy_tests",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": "",
+      "proof": null
+    },
+    {
+      "label": "legacy_exact",
+      "outputSha256": "80fae4074ca3202679dc7dbdc9454595be78c71a82a7d02a1e7d074c646404dd",
+      "outputTail": "BETA5_LEGACY_EXACT_PARITY PASS cases=20256 checks=20256",
+      "proof": "BETA5_LEGACY_EXACT_PARITY PASS cases=20256 checks=20256"
+    },
+    {
+      "label": "bridge_compat",
+      "outputSha256": "cd6ae6ca1bd7afffc87f71ff4fd385ccaf1c86a0d94209731d9a9dd0a113bd66",
+      "outputTail": "BETA5_FORMAT_BRIDGE_COMPAT PASS legacyCases=5182 extendedCases=3003 checks=8191",
+      "proof": "BETA5_FORMAT_BRIDGE_COMPAT PASS legacyCases=5182 extendedCases=3003 checks=8191"
+    },
+    {
+      "label": "compile_transformed_format",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": "",
+      "proof": null
+    },
+    {
+      "label": "transformed_format",
+      "outputSha256": "5d064f5fdbd35027437bdb55fd5093fc85454201ee29d776f40512a8295810fe",
+      "outputTail": "BETA5_TRANSFORMED_FORMAT PASS cases=4004 checks=4005",
+      "proof": "BETA5_TRANSFORMED_FORMAT PASS cases=4004 checks=4005"
+    },
+    {
+      "label": "compile_rgb_trim",
+      "outputSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "outputTail": "",
+      "proof": null
+    },
+    {
+      "label": "rgb_trim",
+      "outputSha256": "47a1266b76e9a31e5b1647bd98df2e7554260894363127d9d5b697bcda945537",
+      "outputTail": "RGB_TRIM_BRIDGE PASS cases=16128 checks=327169 payloadWidth=18 nativeRgb=true",
+      "proof": "RGB_TRIM_BRIDGE PASS cases=16128 checks=327169"
+    }
+  ],
+  "gtnhlib": "0.11.51",
+  "gtnhlibSha256": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "schema": 1,
+  "scope": "Inherited beta.8 RGB/font regression suite against beta.22 WorldRenderStateProbeFix candidate."
+}

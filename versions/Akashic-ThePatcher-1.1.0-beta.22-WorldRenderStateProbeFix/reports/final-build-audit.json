@@ -1,0 +1,28 @@
+{
+    "artifact":  "releases\\!Akashic-ThePatcher-1.1.0-beta.22-WorldRenderStateProbeFix.jar",
+    "baseBeta21Sha256":  "79dcb3f15653dc764c7075a06eafd0fb494261c8db35d3af3b5a2d830e1720f7",
+    "bytes":  279865,
+    "changedClasses":  [
+                           "com/akashic/thepatcher/AkashicThePatcherMod.class",
+                           "dev/akashic/asynciconcompat/graphics/WorldRenderStateProbe.class"
+                       ],
+    "changedResources":  [
+                             "META-INF/MANIFEST.MF",
+                             "mcmod.info"
+                         ],
+    "componentAlpha212Sha256":  "d5f0a3e798e2495ca55696b79697490a80fb9d7971552c4f69cac497f36733aa",
+    "deterministicRebuild":  true,
+    "logicRepairChanged":  false,
+    "productionApproved":  false,
+    "productionInstalled":  false,
+    "schema":  1,
+    "scope":  "beta.21 probe buffer-contract fix only (LWJGL2 glGetBoolean/glGetFloat require \u003e=16 remaining elements)",
+    "sha256":  "1843eec1e4c0a98b67fcbf74d98f55cef8a51ac33eadff95c07b3010d72f1fff",
+    "version":  "1.1.0-beta.22",
+    "addedClasses":  [
+
+                     ],
+    "removedClasses":  [
+
+                       ]
+}
