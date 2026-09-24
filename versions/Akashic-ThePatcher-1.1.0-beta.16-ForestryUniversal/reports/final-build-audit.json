@@ -1,0 +1,39 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeC2Transformer.class",
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.16-ForestryUniversal.jar",
+  "baseBeta15Sha256": "1e7008edf76156c07f19be7151554d87c677b675db723a7c61c89e3d5f09bd0d",
+  "bytes": 262795,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "deterministicRebuild": true,
+  "forestrySha256": "78daf273c4d112324ea7fb3ad9fbac99ecd088c1b78982811deebd58da712d6f",
+  "forestryVersion": "4.11.36",
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "beta.15 plus universal zero-config Forestry 4.11.36 C2 mitigation",
+  "sha256": "3e0bb92a0e7f78f01a15a555c80e5640d64a6145252eb06078d778821e2afffa",
+  "universalForestryProtection": {
+    "compileCommandStillSupportedAsDefenseInDepth": true,
+    "failClosedFingerprint": true,
+    "helperMaxObservedBytecodeOffset": 91,
+    "originalObservedBytecodeBytes": 288,
+    "replacement": "4-opcode wrapper to ForestryGenomeCompat.loadChromosomes",
+    "runtimeCompileCommandRequired": false,
+    "target": "forestry.core.genetics.Genome.getChromosomes(NBTTagCompound, ISpeciesRoot)"
+  },
+  "version": "1.1.0-beta.16",
+  "versionPatchDeterministic": true,
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

@@ -1,0 +1,30 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeC2Transformer.class",
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class"
+  ],
+  "allPassed": true,
+  "candidate": "!Akashic-ThePatcher-1.1.0-beta.16-ForestryUniversal.jar",
+  "candidateSha256": "3e0bb92a0e7f78f01a15a555c80e5640d64a6145252eb06078d778821e2afffa",
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class"
+  ],
+  "checks": {
+    "behavioralEquivalenceEmptyAndInvalidSlots": "PASS",
+    "classDelta": "PASS",
+    "fatalMethodBecomesTinyDelegate": "PASS",
+    "finalCandidateTransformsPinnedForestry": "PASS",
+    "fingerprintFailClosed": "PASS",
+    "fingerprintFailureReturnsOriginalBytes": "PASS",
+    "java8ClassMajor": "PASS",
+    "performancePipelineBitIdentity": "PASS",
+    "transformerRegisteredExactlyOnce": "PASS",
+    "zipCrc": "PASS"
+  },
+  "equivalenceOutput": "FORESTRY_GENOME_COMPAT_EQUIVALENCE PASS cases=2",
+  "forestrySha256": "78daf273c4d112324ea7fb3ad9fbac99ecd088c1b78982811deebd58da712d6f",
+  "schema": 1,
+  "transformOutput": "[Akashic-ThePatcher] [Forestry-C2] Universal Genome.getChromosomes rewrite applied.\r\nRUN_FORESTRY_TRANSFORM PASS original=10622 patched=10074 property=true"
+}
