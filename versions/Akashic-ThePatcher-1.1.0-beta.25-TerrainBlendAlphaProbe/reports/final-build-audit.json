@@ -1,0 +1,35 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/graphics/TerrainSemanticBlendProbe.class",
+    "dev/akashic/asynciconcompat/graphics/TerrainVertexAlphaProbe.class",
+    "dev/akashic/asynciconcompat/mixins/MixinAngelicaChunkBuildContextVertexAlphaProbe.class",
+    "dev/akashic/asynciconcompat/mixins/MixinCeleritasTerrainSemanticBlendProbe.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.25-TerrainBlendAlphaProbe.jar",
+  "baseBeta23Sha256": "5a3c563b61f26a24d84b3b4fe89e626afa82e87f35e1ccd51bd9e39acd6097c3",
+  "blendGuardDefaultEnabled": true,
+  "blendGuardDisableProperty": "-Dakashic.forceOpaqueTerrainBlendOff=false",
+  "bytes": 279857,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "componentAlpha214Sha256": "40476388facbfcc0fbaf95ed0bac688dbe3aa5f9b69e18b59702183638535e9f",
+  "deterministicRebuild": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "probe absolute terrain blend semantics, force GL_BLEND off for opaque terrain layers, and sample pre-encoder vertex alpha",
+  "sha256": "f49b424c4000eb992a42cc9baff66c353d2c86bc28b21d10b19bed83b70766de",
+  "stagingFallbackPresent": false,
+  "version": "1.1.0-beta.25",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635",
+  "vertexAlphaProbeDefaultEnabled": true,
+  "vertexAlphaProbeDisableProperty": "-Dakashic.terrainVertexAlphaProbe=false",
+  "worldGlStateProbePresent": false
+}
