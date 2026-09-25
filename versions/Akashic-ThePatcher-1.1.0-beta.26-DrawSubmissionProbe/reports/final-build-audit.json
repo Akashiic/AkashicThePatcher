@@ -1,0 +1,28 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinDefaultChunkRendererDrawSubmissionProbe.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.26-DrawSubmissionProbe.jar",
+  "baseBeta25Sha256": "f49b424c4000eb992a42cc9baff66c353d2c86bc28b21d10b19bed83b70766de",
+  "behaviorMutation": false,
+  "bytes": 283752,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "componentAlpha215Sha256": "59c17ed251ffdd8f5ba237ebce7a5cce0fce1f6374dfc61a186b8e726744ef38",
+  "deterministicRebuild": true,
+  "inheritsBeta25BlendAlphaProbeBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "telemetry-only Celeritas draw submission probe: render-list regions, pass storages, geometry section counts, matrices, non-empty batch execute calls, draw-command counts and pre-draw GL bindings",
+  "sha256": "8b5b24170ddcf4ad4d1ef88de91e6ef558b2e241146bf02b3f5d91ffc3fcbe0e",
+  "version": "1.1.0-beta.26",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
