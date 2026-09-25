@@ -1,0 +1,66 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$1.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$2.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$Rect.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$State.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.30.2-BlockAtlasReobfFix.jar",
+  "baseBeta28Sha256": "c84d21a316879b8afe9a50e928caef7788acf769c3d75926cdff1a21fd038443",
+  "bytes": 300660,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapItemsUploadBatch.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureUtilItemsUploadBatch.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "classSource": "RFG reobfJar",
+  "deterministicRebuild": true,
+  "itemsBatcherInheritedBitIdentical": true,
+  "mixinConfigInheritedBitIdentical": true,
+  "numinaFovGuardInheritedBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": true,
+  "refmapInheritedBitIdentical": true,
+  "removedClasses": [],
+  "runtimeFix": {
+    "classSource": "RFG reobfJar",
+    "requiredRuntimeSymbols": [
+      "func_71410_x",
+      "field_71441_e",
+      "field_71474_y",
+      "field_74337_g",
+      "field_94254_c"
+    ],
+    "resolvedCrash": "NoSuchMethodError Minecraft.getMinecraft"
+  },
+  "runtimeNamespaceGate": {
+    "forbidden": [
+      "getMinecraft",
+      "theWorld",
+      "gameSettings",
+      "basePath"
+    ],
+    "required": [
+      "func_71410_x",
+      "field_71441_e",
+      "field_71474_y",
+      "field_74337_g",
+      "field_94254_c"
+    ]
+  },
+  "schema": 1,
+  "sha256": "a47b80478d5e64736fd624c75569cab00a2dbc11270bef0f24e89e624b5a705b",
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "tests": 6
+  },
+  "version": "1.1.0-beta.30.2",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6637"
+}
