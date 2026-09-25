@@ -1,0 +1,35 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/windowguard/WindowLifecycleGuard.class",
+    "com/akashic/thepatcher/module/windowguard/WindowLifecycleGuardTransformer.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.33-WindowLifecycleFix.jar",
+  "baseBeta32Sha256": "ee26b8b61c1c93e7611a7ad898989356cb9e38bf03c68be09882559a1b107f30",
+  "bytes": 329876,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "deterministicRebuild": true,
+  "inheritedCriticalClassesBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "sha256": "6957c792cc4555c0de6eecf63d375799942269f976bfca1a2d396f116f31921d",
+  "version": "1.1.0-beta.33",
+  "windowGuard": {
+    "realSrgMinecraftSmoke": "PASS",
+    "strategy": "atomic LWJGL display-mode/fullscreen transition",
+    "unrelatedMinecraftDisplayModeCallsPreserved": 1,
+    "validatedMethods": [
+      "Minecraft.func_110441_Q",
+      "Minecraft.func_71352_k"
+    ],
+    "validatedSetDisplayModeReplacements": 2
+  }
+}
