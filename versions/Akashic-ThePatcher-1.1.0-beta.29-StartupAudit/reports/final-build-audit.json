@@ -1,0 +1,83 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinLoadControllerStartupAudit.class",
+    "dev/akashic/asynciconcompat/mixins/MixinMobHandlerStartupAudit.class",
+    "dev/akashic/asynciconcompat/mixins/MixinMobRecipeLoaderStartupAudit.class",
+    "dev/akashic/asynciconcompat/mixins/MixinNEIClientHandlerStartupAudit.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapStartupAudit.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureUtilStartupAudit.class",
+    "dev/akashic/asynciconcompat/startup/StartupAtlasAudit$State.class",
+    "dev/akashic/asynciconcompat/startup/StartupAtlasAudit.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleAudit$1.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleAudit$2.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleAudit$Entry.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleAudit$Token.class",
+    "dev/akashic/asynciconcompat/startup/StartupLifecycleAudit.class",
+    "dev/akashic/asynciconcompat/startup/StartupSpanAudit$1.class",
+    "dev/akashic/asynciconcompat/startup/StartupSpanAudit$Token.class",
+    "dev/akashic/asynciconcompat/startup/StartupSpanAudit.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.29-StartupAudit.jar",
+  "baseBeta28Sha256": "c84d21a316879b8afe9a50e928caef7788acf769c3d75926cdff1a21fd038443",
+  "bytes": 311047,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "deterministicRebuild": true,
+  "forbiddenMutationApisChecked": [
+    "CallbackInfo.cancel",
+    "CallbackInfoReturnable.setReturnValue",
+    "WrapOperation",
+    "Redirect",
+    "ModifyVariable",
+    "ModifyArg"
+  ],
+  "inheritedBeta28ClassesBitIdentical": true,
+  "passiveOnly": true,
+  "probes": {
+    "blockAtlasEligibility": {
+      "behaviorChanges": false,
+      "records": [
+        "allocation dimensions and mip levels",
+        "upload mip-array shape",
+        "blur/clamp flags",
+        "bounds",
+        "duplicate destination rectangles",
+        "sprite dimensions",
+        "animated/uploaded sprite counts",
+        "base/level pixels",
+        "observer overhead",
+        "batch eligibility"
+      ],
+      "target": "TextureMap/TextureUtil startup block atlas"
+    },
+    "fmlLifecycle": {
+      "behaviorChanges": false,
+      "slowThresholdMs": 50,
+      "target": "LoadController.sendEventToModContainer",
+      "topPerPhase": 12
+    },
+    "neiRecipe": {
+      "behaviorChanges": false,
+      "spans": [
+        "NEI.ClientHandler.loadPluginsList",
+        "MobsInfo.generateMobRecipeMap",
+        "MobsInfo.processMobRecipeMap",
+        "MobsInfo.MobHandler.sortCachedRecipes"
+      ]
+    }
+  },
+  "productionApproved": false,
+  "productionInstalled": true,
+  "refmapInheritedBitIdentical": true,
+  "removedClasses": [],
+  "schema": 1,
+  "sha256": "45cc1b2d1a8f80e0cc2416050477f17d96a151568fffec73090aeab69b029317",
+  "version": "1.1.0-beta.29",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
