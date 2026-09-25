@@ -1,0 +1,58 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/hotspotaudit/HotspotAuditTransformer$Target.class",
+    "com/akashic/thepatcher/module/hotspotaudit/HotspotAuditTransformer.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.32-HotspotAudit.jar",
+  "baseBeta31Sha256": "45a2c442e9173e33364084b6c73bdd570d570c330a609d6b812ade4d83ee1228",
+  "blockAtlasBatcherInheritedBitIdentical": true,
+  "bytes": 324850,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "deterministicRebuild": true,
+  "diagnosticOnly": true,
+  "fmlPhaseAuditInheritedBitIdentical": true,
+  "hotspotAudit": {
+    "instrumentedMethods": 20,
+    "mods": [
+      "Decocraft/props",
+      "GeckoLib",
+      "ChromatiCraft",
+      "CustomNPC+",
+      "Eln",
+      "MobsInfo"
+    ],
+    "runtimeSmoke": "PASS",
+    "uniqueRuntimeClasses": 18
+  },
+  "itemsAtlasBatcherInheritedBitIdentical": true,
+  "loadingPluginPatchProof": "LOADING_PLUGIN_AUDIT_TRANSFORMER_PATCH PASS transformer=com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer bytes=5570",
+  "mixinConfigInheritedBitIdentical": true,
+  "numinaFovGuardInheritedBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": true,
+  "refmapInheritedBitIdentical": true,
+  "removedClasses": [],
+  "runtimeSmoke": "PASS on 18 real installed classes / 20 spans",
+  "schema": 1,
+  "sha256": "ee26b8b61c1c93e7611a7ad898989356cb9e38bf03c68be09882559a1b107f30",
+  "tests": {
+    "HotspotAuditTransformerTest": 2,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "transformerRegistration": {
+    "added": "com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer",
+    "existing": "com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer",
+    "registrationCountEach": 1
+  },
+  "version": "1.1.0-beta.32",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}

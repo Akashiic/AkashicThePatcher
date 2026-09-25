@@ -1,0 +1,4 @@
+dependencies {
+    compileOnly(files("base-beta31.jar"))
+    testImplementation("junit:junit:4.13.2")
+}
