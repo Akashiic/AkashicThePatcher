@@ -1,0 +1,29 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/mixins/MixinAngelicaChunkBuildContextVertexAlpha.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTerrainRenderPassSemanticBlend.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.25-TerrainSemanticProbe.jar",
+  "baseBeta23Sha256": "5a3c563b61f26a24d84b3b4fe89e626afa82e87f35e1ccd51bd9e39acd6097c3",
+  "bytes": 277172,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "componentAlpha214Sha256": "97987d9549732d8b37a67d4972ea8c93c98d258e0599fe9c3c584ab8ce178c35",
+  "deterministicRebuild": true,
+  "disableBlendGuardProperty": "-Dakashic.forceOpaqueTerrainBlendOff=false",
+  "forceOpaqueTerrainBlendOffDefault": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "probe semantic terrain blend after pass setup and sample raw terrain vertex alpha",
+  "sha256": "1c06d807ea25832ec0dcb9a42a79feace4d1ce341702576a60562fc8010b05a1",
+  "stagingFallbackPresent": false,
+  "version": "1.1.0-beta.25"
+}
