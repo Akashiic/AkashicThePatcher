@@ -1,0 +1,41 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/graphics/NuminaFovSafety.class",
+    "dev/akashic/asynciconcompat/mixins/MixinForgeHooksClientFovFiniteGuard.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.28-NuminaFovFiniteGuard.jar",
+  "baseBeta27Sha256": "fd0a88afa9ec037f326be8cc5d702f865d6ded70f80b2c7f3002d330ce43140c",
+  "bytes": 289778,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "deterministicRebuild": true,
+  "inheritsBeta27BitIdentical": true,
+  "numinaFovPolicy": {
+    "diagnostics": [
+      "baseFov",
+      "invalidResult",
+      "entityClass"
+    ],
+    "directNuminaClassReference": false,
+    "fallback": "vanilla/Forge input fov, then 1.0",
+    "maxDiagnosticWarnings": 12,
+    "preserveFinitePositiveListenerResults": true,
+    "rootCauseCandidate": "Numina 0.4.1.105 FOVUpdateEventHandler",
+    "sanitizeNonFiniteOrNonPositiveResult": true,
+    "targetHook": "ForgeHooksClient.getOffsetFOV(EntityPlayerSP,float)"
+  },
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "post-event finite-safety guard at ForgeHooksClient.getOffsetFOV: preserve all finite positive FOVUpdateEvent listener results, repair only invalid output before EntityRenderer can latch NaN/Infinity into fovModifierHand",
+  "sha256": "c84d21a316879b8afe9a50e928caef7788acf769c3d75926cdff1a21fd038443",
+  "version": "1.1.0-beta.28",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
