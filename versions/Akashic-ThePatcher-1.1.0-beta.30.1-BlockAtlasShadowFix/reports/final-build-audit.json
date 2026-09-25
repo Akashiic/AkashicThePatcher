@@ -1,0 +1,62 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$1.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$2.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$Rect.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher$State.class",
+    "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.30.1-BlockAtlasShadowFix.jar",
+  "baseBeta28Sha256": "c84d21a316879b8afe9a50e928caef7788acf769c3d75926cdff1a21fd038443",
+  "blockAtlasPolicy": {
+    "disableForSessionOnUnexpectedInput": true,
+    "failOpen": true,
+    "firstUploadVanilla": true,
+    "mergeOnlyExactAdjacentRectangles": true,
+    "minimumAtlasDimension": 2048,
+    "property": "akashic.blocksAtlasBatch",
+    "requiresActualAllocatedMipLevels": 0,
+    "requiresBlurFalse": true,
+    "requiresClampFalse": true,
+    "requiresNoOverlap": true,
+    "requiresSingleUploadLevel": true,
+    "requiresValidBounds": true,
+    "startupOnly": true,
+    "target": "textures/blocks",
+    "writesUnusedAtlasPadding": false
+  },
+  "bytes": 300721,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureMapItemsUploadBatch.class",
+    "dev/akashic/asynciconcompat/mixins/MixinTextureUtilItemsUploadBatch.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "deterministicRebuild": true,
+  "itemsBatcherInheritedBitIdentical": true,
+  "mixinConfigInheritedBitIdentical": true,
+  "numinaFovGuardInheritedBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": true,
+  "refmapInheritedBitIdentical": true,
+  "removedClasses": [],
+  "schema": 1,
+  "sha256": "c906c6dfe9b6c38018eaec0870d6b76878b852f64fe35350f1725a8aa4f0ca77",
+  "shadowFix": {
+    "field": "field_94254_c",
+    "remap": false,
+    "runtimeGate": true
+  },
+  "tests": {
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "suite": "BlockAtlasUploadBatcherTest",
+    "tests": 6
+  },
+  "version": "1.1.0-beta.30.1",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6637"
+}
