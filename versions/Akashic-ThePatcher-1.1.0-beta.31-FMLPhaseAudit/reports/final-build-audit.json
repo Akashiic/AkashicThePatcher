@@ -1,0 +1,71 @@
+{
+  "addedClasses": [
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$1.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$2.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$3.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$4.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$ModSample.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$ModToken.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$PhaseState.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks$SpanToken.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditTransformer$1.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditTransformer$2.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditTransformer$3.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditTransformer$ExitFactory.class",
+    "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditTransformer.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.31-FMLPhaseAudit.jar",
+  "baseBeta30_2Sha256": "a47b80478d5e64736fd624c75569cab00a2dbc11270bef0f24e89e624b5a705b",
+  "blockAtlasBatcherInheritedBitIdentical": true,
+  "bytes": 318703,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info"
+  ],
+  "deterministicRebuild": true,
+  "diagnosticOnly": true,
+  "instrumentation": {
+    "buildListSpan": "buildModList(FMLLoadEvent)",
+    "globalPhaseMethod": "propogateStateMessage(FMLEvent)",
+    "perModMethod": "sendEventToModContainer(FMLEvent,ModContainer)",
+    "recordsHeapDelta": true,
+    "recordsThreadCpuTimeWhenAvailable": true,
+    "target": "cpw.mods.fml.common.LoadController",
+    "thresholdCountersMs": [
+      50,
+      250,
+      1000
+    ],
+    "topCallbacksPerPhase": 15
+  },
+  "itemsAtlasBatcherInheritedBitIdentical": true,
+  "loadingPluginPatchProof": "LOADING_PLUGIN_AUDIT_TRANSFORMER_PATCH PASS transformer=com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer bytes=5489",
+  "mixinConfigInheritedBitIdentical": true,
+  "numinaFovGuardInheritedBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": true,
+  "refmapInheritedBitIdentical": true,
+  "removedClasses": [],
+  "runtimeSmoke": "PASS against Technic modpack.jar LoadController",
+  "schema": 1,
+  "sha256": "45a2c442e9173e33364084b6c73bdd570d570c330a609d6b812ade4d83ee1228",
+  "tests": {
+    "FmlPhaseAuditHooksTest": 2,
+    "FmlPhaseAuditTransformerTest": 2,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "transformerRegistration": {
+    "class": "com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer",
+    "loadingPluginPatched": true,
+    "registrationCount": 1
+  },
+  "version": "1.1.0-beta.31",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
