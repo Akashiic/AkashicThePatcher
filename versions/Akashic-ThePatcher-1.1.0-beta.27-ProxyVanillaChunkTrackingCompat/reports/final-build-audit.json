@@ -1,0 +1,39 @@
+{
+  "addedClasses": [
+    "dev/akashic/asynciconcompat/graphics/ProxyVanillaChunkTrackingPolicy.class",
+    "dev/akashic/asynciconcompat/mixins/MixinAngelicaProxyVanillaChunkTracking.class"
+  ],
+  "artifact": "releases\\!Akashic-ThePatcher-1.1.0-beta.27-ProxyVanillaChunkTrackingCompat.jar",
+  "baseBeta26Sha256": "8b5b24170ddcf4ad4d1ef88de91e6ef558b2e241146bf02b3f5d91ffc3fcbe0e",
+  "bytes": 287216,
+  "changedClasses": [
+    "com/akashic/thepatcher/AkashicThePatcherMod.class"
+  ],
+  "changedResources": [
+    "META-INF/MANIFEST.MF",
+    "mcmod.info",
+    "mixins.akashicasynccompat.json"
+  ],
+  "connectionPolicy": {
+    "failClosed": true,
+    "forceFastFor": [
+      "VANILLA",
+      "BUKKIT"
+    ],
+    "preserveConfiguredTrue": true,
+    "requiresConnected": true,
+    "requiresRemote": true,
+    "targetAngelica": "2.2.18",
+    "targetFieldReads": 4
+  },
+  "deterministicRebuild": true,
+  "inheritsBeta26DrawProbeBitIdentical": true,
+  "productionApproved": false,
+  "productionInstalled": false,
+  "removedClasses": [],
+  "schema": 1,
+  "scope": "network-aware Angelica chunk readiness: preserve configured behavior by default, but enable aggressive/vanilla chunk tracking for remote FML VANILLA/BUKKIT connections detected by the existing Backhand connection state machine",
+  "sha256": "fd0a88afa9ec037f326be8cc5d702f865d6ded70f80b2c7f3002d330ce43140c",
+  "version": "1.1.0-beta.27",
+  "versionPatchProof": "THEPATCHER_VERSION_PATCH PASS field=1 annotation=1 bytes=6635"
+}
