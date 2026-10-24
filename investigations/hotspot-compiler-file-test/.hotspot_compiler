@@ -1,0 +1,6 @@
+exclude,forestry/core/genetics/Genome.getChromosomes
+exclude,com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.loadChromosomes
+exclude,com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.loadStoredChromosome
+exclude,com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.repairInvalidAlleles
+exclude,com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.validateChromosome
+exclude,com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.fillMissingChromosomes
