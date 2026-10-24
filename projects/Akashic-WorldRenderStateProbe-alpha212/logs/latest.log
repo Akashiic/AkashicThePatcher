@@ -1,0 +1,1 @@
+[18:37:33] [Test worker/WARN]: Ignoring invalid stitch layout cache 7a09831d3b01761da1a8d6086826f71f62131fd66b097e651f93b09d16b1d0c1.bin: java.io.IOException: CRC mismatch in stitch cache

@@ -1,0 +1,5 @@
+dependencies {
+    compileOnly(project.files("libs/angelica-2.2.18.jar"))
+    compileOnly(project.files("libs/gtnhlib-0.11.51.jar"))
+    testImplementation("junit:junit:4.13.2")
+}

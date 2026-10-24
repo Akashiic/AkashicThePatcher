@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "akashicasynccompat",
+    "name": "Akashic Hodgepodge Async Compat",
+    "description": "Hybrid Mixin scheduler replacing Hodgepodge async icon loading with selective main-thread compatibility fallbacks.",
+    "version": "0.1.0-alpha.2.13",
+    "mcversion": "1.7.10",
+    "url": "",
+    "authorList": ["Akashic"],
+    "credits": "Rede Akashic",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": ["hodgepodge"]
+  }
+]

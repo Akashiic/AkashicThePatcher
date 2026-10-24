@@ -1,0 +1,15 @@
+[
+  {
+    "modid": "akashicasynccompat",
+    "name": "Akashic Hodgepodge Async Compat",
+    "description": "Thread-safety compatibility guards for Hodgepodge async icon loading on the Forbidden Series 1.7.10 stack.",
+    "version": "0.1.0-alpha.1",
+    "mcversion": "1.7.10",
+    "url": "",
+    "authorList": ["Akashic"],
+    "credits": "Rede Akashic",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": ["hodgepodge"]
+  }
+]

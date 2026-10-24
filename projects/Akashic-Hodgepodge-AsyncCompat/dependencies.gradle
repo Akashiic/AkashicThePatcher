@@ -1,0 +1,9 @@
+dependencies {
+    devOnlyNonPublishable(
+        rfg.deobf(project.files("libs/Forestry-4.11.36.jar"))
+    )
+    testImplementation(
+        rfg.deobf(project.files("libs/Forestry-4.11.36.jar"))
+    )
+    testImplementation("junit:junit:4.13.2")
+}
