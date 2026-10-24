@@ -35,6 +35,10 @@ Commits are in chronological order of the **JAR modification time**, one per rec
 
 A **masked scan** of the whole staged tree against every sensitive token found in the excluded files returned 0 hits before commit, and the same scan is repeated on the final clone.
 
+## Relocated files
+
+`data/relocated.tsv` lists the only path changes made to files: the beta.9 MPS-Angelica transformer sources were moved from a 230-character path to `versions/Akashic-ThePatcher-1.1.0-beta.9-MPS-Angelica/sources-thepatcher-beta9/` so the repository clones on Windows without `core.longpaths`. `data/manifest.tsv` already uses the new paths; file contents are unchanged.
+
 ## Things from the same PC that are not part of this project
 
 The Codex folder contains other, separate projects and later experiments (for example disconnect/splash/backpack/logical-side compatibility work created after beta.35). They were **not mixed in**; if they should become part of this history, add them as their own repositories or as new versions with the same procedure.

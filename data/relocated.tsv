@@ -1,0 +1,2 @@
+original_path_in_source_tree	path_in_repo	reason
+versions/Akashic-ThePatcher-1.1.0-beta.9-MPS-Angelica/_extracted/Akashic-ThePatcher-1.1.0-beta.9-MPS-Angelica-sources-tests/sources/thepatcher-beta9/	versions/Akashic-ThePatcher-1.1.0-beta.9-MPS-Angelica/sources-thepatcher-beta9/	keep every path below ~190 chars so the repository clones on Windows without core.longpaths

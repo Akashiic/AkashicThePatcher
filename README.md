@@ -47,6 +47,6 @@ The newest, `!Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix.jar` (SHA-25
 ## Verify integrity
 
 ```
-cd releases && sha256sum -c SHA256SUMS.txt      # on Windows: certutil -hashfile <jar> SHA256
+sha256sum -c releases/SHA256SUMS.txt      # run from the repository root; on Windows: certutil -hashfile <jar> SHA256
 ```
-Every other file's expected hash is in `data/manifest.tsv`.
+Every other file's expected hash is in `data/manifest.tsv`. Two files under `versions/...beta.9-MPS-Angelica/` were moved to a shorter directory so the repository clones on Windows; see `data/relocated.tsv`.
