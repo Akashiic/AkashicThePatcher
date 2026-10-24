@@ -37,3 +37,4 @@ ee26b8b61c1c93e7611a7ad898989356cb9e38bf03c68be09882559a1b107f30  releases/v1.1.
 fd13dea51ad36b04c2357083b136f1174b4882c572f86c0492875e9b356570a8  releases/v1.1.0-beta.34-ItemIconMainThread/!Akashic-ThePatcher-1.1.0-beta.34-ItemIconMainThread.jar
 c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17  releases/v1.1.0-beta.35-BackhandLifecycleFix/!Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix.jar
 45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4  releases/v1.1.0-beta.36-ForestryC2CompileBarrier/!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar
+2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c  releases/v1.1.0-beta.37-ForestryGenomeBarrier/!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar

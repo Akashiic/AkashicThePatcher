@@ -52,7 +52,8 @@ beta.20's profiler Mixin crashed ("`LoadController` loaded too early") and was r
 * **beta.33** - the client was found alive with no window (`MainWindowHandle=0`); `setDisplayMode` + `setFullscreen` were merged into one LWJGL call.
 * **beta.34** - a crash while registering textures was traced to Ars Magica 2 icon code running on a worker thread; async *item* icons became opt-in.
 * **beta.35 "BackhandLifecycleFix"** (23:54). Only the Backhand bytecode transformer changed (obfuscated-name constants). Source of this build exists only as a decompilation; the reasons are not written anywhere.
-* **beta.36 "ForestryC2CompileBarrier"** (2026-10-24) - the latest. Launched through SKLauncher, the pack lost the six JVM CompileCommands (they only lived in Technic's `version.json`) and the client died natively right after joining. The Genome helpers are now padded past HotSpot's `HugeMethodLimit`, so Java 8u51 never JIT-compiles them, whichever launcher is used.
+* **beta.36 "ForestryC2CompileBarrier"** (2026-10-24). Launched through SKLauncher, the pack lost the six JVM CompileCommands (they only lived in Technic's `version.json`) and the client died natively right after joining. The Genome helpers are now padded past HotSpot's `HugeMethodLimit`, so Java 8u51 never JIT-compiles them, whichever launcher is used.
+* **beta.37 "ForestryGenomeBarrier"** (2026-10-24) - the latest. The definitive form of that fix: the barrier now goes on **Forestry's own, unchanged** `Genome.getChromosomes`. The beta.17 reimplementation and its fingerprint lock are gone, and results were proved identical to Forestry on 8u51/8u462/21 with the real Forestry classes.
 
 ## What the history teaches a new maintainer
 

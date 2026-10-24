@@ -1,0 +1,7 @@
+tiered-s2 exit=0 CHAOS DONE iterations=4000000 ok=3931731 thrown=68269 repaired=321175 
+tiered-s3 exit=0 CHAOS DONE iterations=4000000 ok=3931567 thrown=68433 repaired=322067 
+notiered exit=0 CHAOS DONE iterations=4000000 ok=3912150 thrown=87850 repaired=301827 
+xcomp exit=0 CHAOS DONE iterations=4000000 ok=3902509 thrown=97491 repaired=291783 
+c2only-batch exit=0 CHAOS DONE iterations=4000000 ok=3892615 thrown=107385 repaired=282399 
+g1 exit=0 CHAOS DONE iterations=4000000 ok=3872620 thrown=127380 repaired=263193 
+ALLDONE

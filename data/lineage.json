@@ -1181,6 +1181,34 @@
   "declared_base_sha256": "c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17",
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17",
-  "note": "in-JAR Forestry C2 compile barrier (launcher-independent); built in-repo by tools/beta36-build.py"
+  "note": "superseded by beta.37; in-JAR compile barrier on the ForestryGenomeCompat reimplementation"
+ },
+ {
+  "id": "1.1.0-beta.37",
+  "kind": "mainline",
+  "sha256": "2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c",
+  "size": 329030,
+  "entries": 158,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.37",
+  "impl_version": "1.1.0-beta.37",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+   "com/akashic/thepatcher/module/forestry/ForestryGenomeC2Transformer.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [
+   "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class"
+  ],
+  "tag": "v1.1.0-beta.37-ForestryGenomeBarrier",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar",
+  "date": "2026-10-24T18:00:00-03:00",
+  "declared_base_sha256": "45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4",
+  "note": "compile barrier on Forestry's original Genome.getChromosomes (no reimplementation, no fingerprint); built by tools/beta37-build.py"
  }
 ]

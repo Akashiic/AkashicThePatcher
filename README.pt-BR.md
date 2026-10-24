@@ -2,7 +2,7 @@
 
 Pacote de coremods de correção de bugs, **client-side**, para o modpack **Forbidden Series** (Minecraft **1.7.10**): coremod Forge + Mixins que corrigem crashes, tempo de inicialização e incompatibilidades de outros mods em tempo de carregamento de classe.
 
-Este repositório é o **histórico completo registrado** do projeto, reconstruído a partir dos arquivos do autor: **39 builds**, de `1.1.0-beta.3` (08/09/2026) até `1.1.0-beta.36-ForestryC2CompileBarrier` (24/10/2026, a atual), com checkpoints, auditorias, ferramentas, código-fonte (quando existe), as investigações por trás de cada build e a procedência de cada arquivo.
+Este repositório é o **histórico completo registrado** do projeto, reconstruído a partir dos arquivos do autor: **40 builds**, de `1.1.0-beta.3` (08/09/2026) até `1.1.0-beta.37-ForestryGenomeBarrier` (24/10/2026, a atual), com checkpoints, auditorias, ferramentas, código-fonte (quando existe), as investigações por trás de cada build e a procedência de cada arquivo.
 
 > English version: [README.md](README.md). A documentação em `docs/` está em inglês.
 
@@ -20,7 +20,7 @@ Este repositório é o **histórico completo registrado** do projeto, reconstru�
 
 ## Qual JAR instalar?
 
-O mais novo: `!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar` (SHA-256 `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4`). Ele substitui a beta.35 e não depende mais do launcher passar argumentos de JVM contra o crash C2 do Forestry (funciona no Technic, SKLauncher e outros). **Não** instale os dois builds marcados `REJECTED` (beta.28) nem os builds de diagnóstico, a menos que esteja reproduzindo uma investigação. Outros requisitos do pack estão em [docs/HANDOFF.md](docs/HANDOFF.md).
+O mais novo: `!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar` (SHA-256 `2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c`). Ele substitui as betas 35/36 e não depende mais do launcher passar argumentos de JVM contra o crash C2 do Forestry (funciona no Technic, SKLauncher e outros). **Não** instale os dois builds marcados `REJECTED` (beta.28) nem os builds de diagnóstico, a menos que esteja reproduzindo uma investigação. Outros requisitos do pack estão em [docs/HANDOFF.md](docs/HANDOFF.md).
 
 ## Ressalvas honestas
 

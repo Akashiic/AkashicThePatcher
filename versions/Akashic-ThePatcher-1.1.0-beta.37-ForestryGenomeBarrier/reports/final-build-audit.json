@@ -1,0 +1,90 @@
+{
+  "version": "1.1.0-beta.37",
+  "base": {
+    "path": "releases/v1.1.0-beta.36-ForestryC2CompileBarrier/!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar",
+    "sha256": "45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4"
+  },
+  "forestry": {
+    "jar_sha256": "78daf273c4d112324ea7fb3ad9fbac99ecd088c1b78982811deebd58da712d6f",
+    "genome_class_sha256": "fe62518c6126cc715610ef3ced8685edac0e5aeb0c0315a5c1d2d284d55f2683"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar",
+    "sha256": "2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c",
+    "bytes": 329030
+  },
+  "deterministic_rebuild": "PASS",
+  "entries": 158,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeC2Transformer.class",
+    "mcmod.info"
+  ],
+  "removed": [
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class"
+  ],
+  "inherited_identical": 153,
+  "transform": [
+    "[Akashic-ThePatcher] [Forestry-C2] Genome compile barrier applied: Forestry's original getChromosomes kept unchanged, code 288 -> 8484 bytes (> HugeMethodLimit 8000); HotSpot will never JIT-compile or inline it.",
+    "TRANSFORM identity=false bytes=10622->18850 applied=true codeLength=8484 failed=null"
+  ],
+  "transform_sha256": {
+    "original": "fe62518c6126cc715610ef3ced8685edac0e5aeb0c0315a5c1d2d284d55f2683",
+    "barrier": "8f1da336f6e44179475208437c1e209edc7d8255a189ca373b4d91062e77191a"
+  },
+  "transform_idempotent": "PASS",
+  "transform_killswitch": "PASS",
+  "original_body_preserved": "BODY_COMPARE PASS target=201 canonical entries, other methods unchanged=16",
+  "java8u51.original.compiled": [
+    "1983 1130 %     3       forestry.core.genetics.Genome::getChromosomes @ 241 (288 bytes)",
+    "2000 1138 %     3       forestry.core.genetics.Genome::getChromosomes @ 23 (288 bytes)",
+    "2004 1139       3       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "2015 1141       4       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "475  715       3       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "556  828       4       forestry.core.genetics.Genome::getChromosomes (288 bytes)"
+  ],
+  "java8u51.original.result": "iterations=600000 ok=578436 thrown=21564 repaired=36822 digest=191b7960d81e21b9a29a07ee112d148c0f7804186db97f3cfc163d4d6f4ace9b",
+  "java8u51.barrier.compiled": [],
+  "java8u51.barrier.result": "iterations=600000 ok=578436 thrown=21564 repaired=36822 digest=191b7960d81e21b9a29a07ee112d148c0f7804186db97f3cfc163d4d6f4ace9b",
+  "java8u51.barrier.xcomp.compiled": [],
+  "java8u51.original.bench": "ns/call=1190",
+  "java8u51.barrier.bench": "ns/call=4127",
+  "java8.original.compiled": [
+    "2186 1271       3       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "2208 1278       4       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "604  862       3       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "716  964       4       forestry.core.genetics.Genome::getChromosomes (288 bytes)"
+  ],
+  "java8.original.result": "iterations=600000 ok=578436 thrown=21564 repaired=36822 digest=191b7960d81e21b9a29a07ee112d148c0f7804186db97f3cfc163d4d6f4ace9b",
+  "java8.barrier.compiled": [],
+  "java8.barrier.result": "iterations=600000 ok=578436 thrown=21564 repaired=36822 digest=191b7960d81e21b9a29a07ee112d148c0f7804186db97f3cfc163d4d6f4ace9b",
+  "java8.barrier.xcomp.compiled": [],
+  "java8.original.bench": "ns/call=1349",
+  "java8.barrier.bench": "ns/call=4777",
+  "java21.original.compiled": [
+    "1104 1651       4       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "2063 1880       3       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "2081 1887       4       forestry.core.genetics.Genome::getChromosomes (288 bytes)",
+    "940 1474       3       forestry.core.genetics.Genome::getChromosomes (288 bytes)"
+  ],
+  "java21.original.result": "iterations=600000 ok=578436 thrown=21564 repaired=36822 digest=191b7960d81e21b9a29a07ee112d148c0f7804186db97f3cfc163d4d6f4ace9b",
+  "java21.barrier.compiled": [],
+  "java21.barrier.result": "iterations=600000 ok=578436 thrown=21564 repaired=36822 digest=191b7960d81e21b9a29a07ee112d148c0f7804186db97f3cfc163d4d6f4ace9b",
+  "java21.barrier.xcomp.compiled": [],
+  "java21.original.bench": "ns/call=468",
+  "java21.barrier.bench": "ns/call=3797",
+  "guard.default": [
+    "[Akashic-ThePatcher] [Forestry-C2] Genome compile barrier armed: Forestry's original Genome.getChromosomes will be padded past HugeMethodLimit (8000) when it loads, DontCompileHugeMethods=true, so it is never JIT-compiled; launcher CompileCommand not required (absent); java=1.8.0_51",
+    "GUARD active=false matched=0 rewrite=true barrier=true"
+  ],
+  "guard.hugeMethodsOff": [
+    "[Akashic-ThePatcher] WARN: [Forestry-C2] UNPROTECTED: Genome compile barrier inactive (transformer=true, disabled=false, DontCompileHugeMethods=false) and no -XX:CompileCommand=exclude,forestry/core/genetics/Genome.getChromosomes. Java 8u51 may crash natively in a C2 CompilerThread; java=1.8.0_51",
+    "GUARD active=false matched=0 rewrite=true barrier=false"
+  ],
+  "guard.compileCommandOnly": [
+    "[Akashic-ThePatcher] [Forestry-C2] Genome compile barrier inactive (disabled=false, DontCompileHugeMethods=false) but CompilerOracle exclusion for Genome.getChromosomes is present; java=1.8.0_51",
+    "GUARD active=true matched=1 rewrite=true barrier=false"
+  ]
+}

@@ -1,6 +1,6 @@
 # Changelog
 
-All 39 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 40 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,19 @@ All 39 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.37 - ForestryGenomeBarrier - 2026-10-24
+*Replaces beta.36 in the client.* SHA-256 `2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c` - 329030 B - 158 entries.
+* **Base:** beta.36 (5 entries changed, `ForestryGenomeCompat.class` removed, the other 153 byte-identical).
+* **Goal:** fix the Forestry `Genome` / Java 8u51 C2 crash for good, without side effects. Every earlier fix depended on either the launcher (CompileCommand) or a reimplementation of Forestry's method that was tied to one fingerprint (beta.17-36).
+* **Fix:** `ForestryGenomeC2Transformer` now keeps **Forestry's original `Genome.getChromosomes` unchanged**. It only puts `GOTO body` + an unreachable `NOP` x 8192 + `ATHROW` in front of it, so the method grows from 288 to 8484 bytes, above `HugeMethodLimit`. With the default `DontCompileHugeMethods=true`, HotSpot never compiles it (C1/C2/OSR) or inlines it, so the crashing C2 compilation never starts. The head is 8196 bytes (a multiple of 4), so switch padding cannot shift. Matching is by name and descriptor only (no fingerprint refusal), and the transform is idempotent. Kill-switch: `-Dakashic.forestryGenomeBarrier.disable=true`. `ForestryGenomeCompat` was removed. The guard now logs `Genome compile barrier armed`, and the transformer logs `... applied ... 288 -> 8484 bytes`.
+* **Side effect (measured):** the method itself always runs in the interpreter, about +3 us per genome read from NBT (8u51: 1.2 -> 4.1 us). Its callees stay JIT-compiled.
+* **Gates (offline, PASS):** the real Forestry 4.11.36 `Genome.class` was transformed by the bundled transformer under the real launchwrapper 1.12 + ASM 5.0.3 on 8u51. `BodyCompare` shows the original body and the 16 other methods are identical. `GenomeChaos` (600k calls, `-Xverify:all`) on 8u51, 8u462 and 21: the barrier build is never compiled (also with `-Xcomp`), while the control is compiled, and the result digests (including 21,564 exceptions and 36,822 repairs) match the original exactly. All three guard verdicts check out.
+* **Root cause:** not reproduced outside the game; see `investigations/forestry-c2-8u51-linux-repro/`. The fix does not depend on it.
+* **Evidence:** checkpoint + build audit + source + tests in `versions/Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier/`.
+* **Live status:** pending (gate in the checkpoint).
+
 ## 1.1.0-beta.36 - ForestryC2CompileBarrier - 2026-10-24
-*Replaces beta.35 in the client.* SHA-256 `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4` - 332666 B - 159 entries.
+*Superseded by beta.37.* SHA-256 `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4` - 332666 B - 159 entries.
 * **Base:** beta.35 (verified: 5 of 159 entries differ, the other 154 are byte-identical).
 * **Incident:** with **SKLauncher** the client closes about 20 s after joining the server. The log just stops: no Java exception, no crash report. The JVM is `1.8.0_51` (`jre-legacy`), and the guard logs `[Forestry-C2] INCOMPLETE JVM protection (0/6)`, because SKLauncher does not apply the Technic `version.json` `arguments.jvm` that carried the six CompileCommands. This matches the beta.11 native C2 crash (`Genome::getChromosomes`). No `hs_err` was attached, so the diagnosis is inferred, not proven.
 * **Fix:** the five `ForestryGenomeCompat` helpers now start with `GOTO body` + an unreachable block (`NOP` x 8192 + `ATHROW`), which puts each one above HotSpot's `HugeMethodLimit` (8000). With the default `DontCompileHugeMethods=true`, HotSpot never compiles (C1/C2/OSR) or inlines them. This does the same job as the six CompileCommand exclusions, but from inside the JAR, so it works with any launcher. The runtime cost is one `GOTO` per call; the original code is unchanged.
