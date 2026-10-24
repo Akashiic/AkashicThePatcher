@@ -1,0 +1,827 @@
+[
+ {
+  "class": "com/akashic/compat/iude/CompatRuntime.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/compat/iude/IndustrialUpgradeTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/client/BackhandConnectionEvents.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/config/PatchConfig.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/core/BackhandBackendTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/core/BackhandGuardHooks.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790309284,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.27-ProxyVanillaChunkTrackingCompat\\runs\\policy-test\\src\\com\\akashic\\forbiddenbac"
+  ]
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/core/TransformerState.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/util/PatchLog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbackhand/util/Reflect.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbaubles/core/BaublesHandoffHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbaubles/core/BaublesHandoffTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbaubles/core/TransformerState.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenbaubles/util/PatchLog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/client/ClientHandoffWatchdog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/config/PatchConfig.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/core/HandoffTransitionHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/core/HandoffTransitionState.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/core/HandoffTransitionTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/util/PatchLog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhandoff/util/Reflect.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/client/ClientHologramWatchdog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/config/PatchConfig.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/core/ForbiddenHologramTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/core/HologramHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/core/PatchState.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/util/PatchLog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenhologram/util/Reflect.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenregister/config/PatchConfig.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenregister/core/LegacyRegisterHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenregister/core/LegacyRegisterTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenregister/core/TransformerState.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/forbiddenregister/util/PatchLog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/AkashicThePatcherMod.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/config/BundleConfig.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/core/LegacyPatchDetector.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/core/ModuleGate.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/core/PatchModule.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/core/RuntimeSide.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/botania/BotaniaCacheModule.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/dimdoors/DimDoorsClientAccess.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/dimdoors/DimDoorsClientSyncHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/dimdoors/DimDoorsClientSyncTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/dimdoors/DimDoorsClientTickListener.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790229682,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.11-Async-Forestry\\src\\main\\java\\com\\akashic\\thepatcher\\module\\forestry"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/forestry/ForestryGenomeC2Transformer.class",
+  "exact": 0,
+  "flat_only": 2,
+  "newest": 1790272672,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.16-ForestryUniversal\\src",
+   "Akashic-ThePatcher-1.1.0-beta.17-ForestryUniversalTransformer\\src"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class",
+  "exact": 0,
+  "flat_only": 2,
+  "newest": 1790272456,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.16-ForestryUniversal\\src",
+   "Akashic-ThePatcher-1.1.0-beta.17-ForestryUniversalTransformer\\src"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/hotspotaudit/HotspotAuditTransformer.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790374665,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.32-HotspotAudit\\src\\main\\java\\com\\akashic\\thepatcher\\module\\hotspotaudit"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/industrialupgrade/IndustrialUpgradeOreDictHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/industrialupgrade/IndustrialUpgradeOreDictTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/mekanism/MekanismEnergyCubeHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/mekanism/MekanismEnergyCubeTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/necrotempus/BossNameHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/necrotempus/NecroTempusBossbarTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/network/MotdRuntime.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/network/MotdTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/network/NetworkConfig.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/network/StatusDescription.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/network/StatusWire.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/AngelicaTextCompat.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbBootstrap.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbChatStyleTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbFontBridge.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbFormatBridge.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbFormatPostProcessor.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbMarkup.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbStyleAccess.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbStyleHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbStyleJsonHooks.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbTextTransformer.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/rgb/RgbTrimBridge.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/sampler/ColorCapabilityProbe.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/sampler/GuardedSamplerListener.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/sampler/LwjglColorCapabilityProbe.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/sampler/SamplerGraphAdapterFactory.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/sampler/SamplerHudBootstrap.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/sampler/SamplerHudInstaller.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditHooks.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790365494,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.31-FMLPhaseAudit\\src\\main\\java\\com\\akashic\\thepatcher\\module\\startupaudit"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/startupaudit/FmlPhaseAuditTransformer.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790365503,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.31-FMLPhaseAudit\\src\\main\\java\\com\\akashic\\thepatcher\\module\\startupaudit"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/windowguard/WindowLifecycleGuard.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790377077,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.33-WindowLifecycleFix\\src\\main\\java\\com\\akashic\\thepatcher\\module\\windowguard"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/module/windowguard/WindowLifecycleGuardTransformer.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790377136,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.33-WindowLifecycleFix\\src\\main\\java\\com\\akashic\\thepatcher\\module\\windowguard"
+  ]
+ },
+ {
+  "class": "com/akashic/thepatcher/util/BundleLog.class",
+  "exact": 0,
+  "flat_only": 0,
+  "newest": null,
+  "where": []
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/CompatHooks.class",
+  "exact": 11,
+  "flat_only": 0,
+  "newest": 1790379104,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat",
+   "Akashic-Hodgepodge-AsyncCompat-alpha1-checkpoint\\src\\main\\java\\dev\\akashic\\asynciconcompat",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/CompatState.class",
+  "exact": 10,
+  "flat_only": 0,
+  "newest": 1790226733,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat",
+   "Akashic-Hodgepodge-AsyncCompat-alpha1-checkpoint\\src\\main\\java\\dev\\akashic\\asynciconcompat",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/cache/StitchLayoutCache.class",
+  "exact": 8,
+  "flat_only": 0,
+  "newest": 1790234179,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\cache",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat\\cache",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\cache",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\cache"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/graphics/NuminaFovSafety.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790312913,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.28-NuminaFovFiniteGuard\\src\\dev\\akashic\\asynciconcompat\\graphics"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/graphics/ProxyVanillaChunkTrackingPolicy.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790308953,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.27-ProxyVanillaChunkTrackingCompat\\src\\dev\\akashic\\asynciconcompat\\graphics"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/graphics/TerrainSemanticBlendProbe.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790303367,
+  "where": [
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\graphics"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/graphics/TerrainVertexAlphaProbe.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790303344,
+  "where": [
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\graphics"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinAngelicaChunkBuildContextVertexAlphaProbe.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790303385,
+  "where": [
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinAngelicaMipmapProfiler.class",
+  "exact": 8,
+  "flat_only": 0,
+  "newest": 1790267584,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinAngelicaProxyVanillaChunkTracking.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790308959,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.27-ProxyVanillaChunkTrackingCompat\\src\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinCeleritasTerrainSemanticBlendProbe.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790303379,
+  "where": [
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinDefaultChunkRendererDrawSubmissionProbe.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790305972,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.26-DrawSubmissionProbe\\src\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinForgeHooksClientFovFiniteGuard.class",
+  "exact": 1,
+  "flat_only": 0,
+  "newest": 1790314165,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.28-NuminaFovFiniteGuard\\src\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinStitcherLayoutCache.class",
+  "exact": 8,
+  "flat_only": 0,
+  "newest": 1790234213,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinTextureMapHybridAsync.class",
+  "exact": 9,
+  "flat_only": 0,
+  "newest": 1790266073,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinTextureMapItemsUploadBatch.class",
+  "exact": 10,
+  "flat_only": 0,
+  "newest": 1790362574,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainSemanticProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinTextureUtilItemsUploadBatch.class",
+  "exact": 10,
+  "flat_only": 0,
+  "newest": 1790360066,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainSemanticProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/mixins/MixinTextureUtilUploadProfiler.class",
+  "exact": 8,
+  "flat_only": 0,
+  "newest": 1790266199,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\mixins"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/profile/TextureUploadProfiler.class",
+  "exact": 8,
+  "flat_only": 0,
+  "newest": 1790267734,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\profile",
+   "Akashic-Hodgepodge-AsyncCompat\\src\\main\\java\\dev\\akashic\\asynciconcompat\\profile",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\profile",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\profile"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/upload/BlockAtlasUploadBatcher.class",
+  "exact": 3,
+  "flat_only": 0,
+  "newest": 1790360045,
+  "where": [
+   "Akashic-ThePatcher-1.1.0-beta.30-BlockAtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload",
+   "Akashic-ThePatcher-1.1.0-beta.30.1-BlockAtlasShadowFix\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload",
+   "Akashic-ThePatcher-1.1.0-beta.30.2-BlockAtlasReobfFix\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload"
+  ]
+ },
+ {
+  "class": "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class",
+  "exact": 7,
+  "flat_only": 0,
+  "newest": 1790276488,
+  "where": [
+   "Akashic-AtlasUploadBatcher\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload",
+   "Akashic-StartupLifecycleProfiler\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload",
+   "Akashic-TerrainBlendAlphaProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload",
+   "Akashic-TerrainSemanticProbe-alpha214\\src\\main\\java\\dev\\akashic\\asynciconcompat\\upload"
+  ]
+ }
+]
