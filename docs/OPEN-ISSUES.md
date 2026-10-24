@@ -8,7 +8,7 @@ Everything here is something the repository **cannot prove**. Each item says wha
    *Ruled out by evidence:* Numina `RenderState` push/pop on the failing path (beta.9), Cinematic `RawScope` GL_TEXTURE_2D leak + VSync error as the cause (beta.10), generic GLSM cache-vs-driver divergence (beta.22 probe), VAO and texture-filter-mode settings (beta.23 A/B).
    *Tried without a recorded verdict:* mapped-staging fallback (beta.24, not installed), force opaque-terrain blend off + vertex alpha probe (beta.25), draw-submission telemetry (beta.26), proxy-aware chunk tracking (beta.27), non-finite FOV guard (beta.28).
    *Not in the repository:* any statement that the symptom is fixed. Treat as **unresolved/unconfirmed**. beta.26's telemetry fields and the beta.24 checkpoint list what to read next.
-2. **beta.35 acceptance.** Installed, but no acceptance record; reason for the name "LifecycleFix" is undocumented.
+2. **beta.36 acceptance** (SKLauncher boot; the diagnosis is inferred because no `hs_err` was attached). **beta.35 acceptance.** Installed, but no acceptance record; reason for the name "LifecycleFix" is undocumented.
 3. **beta.34 acceptance.** Checkpoint says pending. (It is the base of beta.35, and beta.35 is the one in use.)
 4. **beta.33 window-lifecycle guard.** Incident was observed once; no document proves the guard prevents it.
 5. **beta.30.2 batcher live gates** (expected: `stagedCalls` ~19336, armed for 4096x4096): listed, outcome not recorded.
@@ -27,7 +27,7 @@ Everything here is something the repository **cannot prove**. Each item says wha
 ## C. Engineering debt
 
 14. Diagnostics left in the shipped JAR (beta.31 FML phase audit, beta.32 hotspot audit).
-15. The pack depends on JVM arguments outside the JAR (six CompileCommands); a fresh pack without them runs the transformer only.
+15. ~~The pack depends on JVM arguments outside the JAR (six CompileCommands).~~ Since beta.36 the protection is carried in the JAR (compile barrier); the arguments are optional defense in depth.
 16. No CI. Tests exist only inside the per-component Gradle projects and the author's local scripts.
 17. No LICENSE chosen.
 18. Third-party build inputs (Angelica, GTNHLib jars) are not vendored.

@@ -1,0 +1,50 @@
+{
+  "version": "1.1.0-beta.36",
+  "base": {
+    "path": "releases/v1.1.0-beta.35-BackhandLifecycleFix/!Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix.jar",
+    "sha256": "c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar",
+    "sha256": "45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4",
+    "bytes": 332666
+  },
+  "deterministic_rebuild": "PASS",
+  "entries": 159,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+    "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class",
+    "mcmod.info"
+  ],
+  "inherited_identical": 154,
+  "java8.padded.compiled": [],
+  "java8.beta35.compiled": [
+    "fillMissingChromosomes",
+    "loadChromosomes",
+    "loadStoredChromosome",
+    "repairInvalidAlleles",
+    "validateChromosome"
+  ],
+  "java21.padded.compiled": [],
+  "java21.beta35.compiled": [
+    "fillMissingChromosomes",
+    "loadChromosomes",
+    "loadStoredChromosome",
+    "repairInvalidAlleles",
+    "validateChromosome"
+  ],
+  "guard.default": [
+    "[Akashic-ThePatcher] [Forestry-C2] In-JAR compile barrier active (5/5 Genome helpers > 8000 bytecode bytes, DontCompileHugeMethods=true): helpers are never JIT-compiled or inlined; launcher CompileCommand exclusions not required (0/6 present); java=1.8.0_462",
+    "GUARD active=false matched=0 rewrite=true barrier=true"
+  ],
+  "guard.hugeMethodsOff": [
+    "[Akashic-ThePatcher] WARN: [Forestry-C2] UNPROTECTED: CompileCommand exclusions 0/6 (missing [forestry/core/genetics/Genome.getChromosomes, com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.loadChromosomes, com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.loadStoredChromosome, com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.repairInvalidAlleles, com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.validateChromosome, com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.fillMissingChromosomes]) and in-JAR compile barrier inactive (DontCompileHugeMethods=false, helpersBelowLimit=[], rewriteBundled=true). Java 8u51 may crash natively in a C2 CompilerThread; java=1.8.0_462",
+    "GUARD active=false matched=0 rewrite=true barrier=false"
+  ],
+  "guard.compileCommands": [
+    "[Akashic-ThePatcher] [Forestry-C2] Full CompilerOracle pack protection active (6/6); in-JAR compile barrier also active; java=1.8.0_462",
+    "GUARD active=true matched=6 rewrite=true barrier=true"
+  ]
+}

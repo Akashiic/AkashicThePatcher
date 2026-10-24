@@ -23,11 +23,11 @@ Written 2026-10-24 from a filesystem snapshot. Read [HISTORY.md](HISTORY.md) fir
 3. Keep the previous JAR somewhere as rollback (every checkpoint lists its rollback set).
 4. Start, then read `logs/latest.log` for the lines listed under the build's "acceptance gates" in the CHANGELOG / its checkpoint.
 
-Current: `!Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix.jar`, SHA-256 `c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17`.
+Current: `!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar`, SHA-256 `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4`.
 
 ## 3. Pack-side requirements that are NOT in the JAR
 
-* **Forestry / Java 8u51 C2 crash protection.** `ForestryC2RuntimeGuard` requires six JVM arguments (it logs `[Forestry-C2] Full CompilerOracle pack protection active (6/6)` when satisfied):
+* **Forestry / Java 8u51 C2 crash protection.** Since **beta.36** this lives in the JAR. The Genome helpers are padded past HotSpot's `HugeMethodLimit`, so they are never JIT-compiled, and the guard logs `[Forestry-C2] In-JAR compile barrier active (5/5 ...)`. No launcher setting is needed (this is what broke SKLauncher). The only thing that disables it is `-XX:-DontCompileHugeMethods`; do not add that flag. Up to beta.35 the guard required six JVM arguments (it logs `[Forestry-C2] Full CompilerOracle pack protection active (6/6)` when satisfied):
 
 ```
 -XX:CompileCommand=exclude,forestry/core/genetics/Genome.getChromosomes
@@ -57,7 +57,7 @@ Current: `!Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix.jar`, SHA-256 `
 
 ## 6. Next actions, in priority order
 
-1. **Live-accept beta.35** and write the result in the CHANGELOG (it is installed but has no acceptance record). In particular confirm Backhand behaves in a real client (see the obfuscation caveat in ARCHITECTURE section 7).
+1. **Live-accept beta.36** through SKLauncher (gate in its checkpoint), then **beta.35** and write the result in the CHANGELOG (it is installed but has no acceptance record). In particular confirm Backhand behaves in a real client (see the obfuscation caveat in ARCHITECTURE section 7).
 2. Decide the fate of the **white/translucent world bug** ([OPEN-ISSUES.md](OPEN-ISSUES.md)). Candidates not yet excluded are listed there.
 3. Recover or rewrite the **core bundle sources** (RGB, DimDoors, Network, Backhand...) - the decompiled beta.35 class is a stopgap.
 4. Decide on a LICENSE (none is chosen; code is therefore "all rights reserved" by default).

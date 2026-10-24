@@ -2,7 +2,7 @@
 
 Client-side bug-patch coremod bundle for the **Forbidden Series** Minecraft **1.7.10** modpack: Forge coremod + Mixins that fix crashes, startup time and compatibility problems in other mods at class-load time.
 
-This repository is the **complete recorded history** of the project, reconstructed from the author's files: **38 builds** from `1.1.0-beta.3` (2026-09-08) to `1.1.0-beta.35-BackhandLifecycleFix` (2026-09-25, currently in use), with each build's checkpoints, audits, tools, source (where it exists), the investigations behind them, and the provenance of every file.
+This repository is the **complete recorded history** of the project, reconstructed from the author's files: **39 builds** from `1.1.0-beta.3` (2026-09-08) to `1.1.0-beta.36-ForestryC2CompileBarrier` (2026-10-24, current), with each build's checkpoints, audits, tools, source (where it exists), the investigations behind them, and the provenance of every file.
 
 > Portuguese version: [README.pt-BR.md](README.pt-BR.md)
 
@@ -21,7 +21,7 @@ This repository is the **complete recorded history** of the project, reconstruct
 ## Layout
 
 ```
-releases/<tag>/        the JARs (38) + releases/SHA256SUMS.txt
+releases/<tag>/        the JARs (39) + releases/SHA256SUMS.txt
 versions/<folder>/     per-build checkpoint docs, audits, build tools, recovered source
 projects/              AsyncCompat-family Gradle projects (source of the dev.akashic.asynciconcompat component)
 investigations/        experiments, A/B configs and test harnesses (world-render hunt, Forestry C2 crash)
@@ -34,7 +34,7 @@ Git tags `v1.1.0-beta.*` correspond to `releases/` folders; every tag also has a
 
 ## Which JAR do I install?
 
-The newest, `!Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix.jar` (SHA-256 `c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17`), is the one in use in the pack. Do **not** install the two builds marked `REJECTED` (beta.28) or the diagnostic/probe builds unless you are reproducing an investigation. The pack also needs JVM arguments outside the JAR - see [docs/HANDOFF.md](docs/HANDOFF.md).
+The newest, `!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar` (SHA-256 `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4`). It replaces beta.35 and no longer depends on the launcher passing JVM arguments for the Forestry C2 crash (works with Technic, SKLauncher and others). Do **not** install the two builds marked `REJECTED` (beta.28) or the diagnostic/probe builds unless you are reproducing an investigation. Other pack-side requirements are in [docs/HANDOFF.md](docs/HANDOFF.md).
 
 ## Honest caveats
 

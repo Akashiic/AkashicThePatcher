@@ -1,6 +1,6 @@
 # Changelog
 
-All 38 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 39 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,19 @@ All 38 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.36 - ForestryC2CompileBarrier - 2026-10-24
+*Replaces beta.35 in the client.* SHA-256 `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4` - 332666 B - 159 entries.
+* **Base:** beta.35 (verified: 5 of 159 entries differ, the other 154 are byte-identical).
+* **Incident:** with **SKLauncher** the client closes about 20 s after joining the server. The log just stops: no Java exception, no crash report. The JVM is `1.8.0_51` (`jre-legacy`), and the guard logs `[Forestry-C2] INCOMPLETE JVM protection (0/6)`, because SKLauncher does not apply the Technic `version.json` `arguments.jvm` that carried the six CompileCommands. This matches the beta.11 native C2 crash (`Genome::getChromosomes`). No `hs_err` was attached, so the diagnosis is inferred, not proven.
+* **Fix:** the five `ForestryGenomeCompat` helpers now start with `GOTO body` + an unreachable block (`NOP` x 8192 + `ATHROW`), which puts each one above HotSpot's `HugeMethodLimit` (8000). With the default `DontCompileHugeMethods=true`, HotSpot never compiles (C1/C2/OSR) or inlines them. This does the same job as the six CompileCommand exclusions, but from inside the JAR, so it works with any launcher. The runtime cost is one `GOTO` per call; the original code is unchanged.
+* **Guard:** `ForestryC2RuntimeGuard` was rewritten with the same API. It reads the helpers' `Code` lengths from the bundled class and reads `DontCompileHugeMethods` from `HotSpotDiagnosticMXBean`. It logs `[Forestry-C2] In-JAR compile barrier active (5/5 ...)` and sets `akashic.forestryC2Guard.compileBarrier`. It warns `UNPROTECTED` only when neither the barrier nor the 6/6 exclusions hold.
+* **Also:** `AkashicThePatcherMod.VERSION` / `@Mod.version` is now `1.1.0-beta.36` (beta.35 had left it at `1.1.0-beta.34`).
+* **Gates (offline, PASS):** deterministic rebuild; class major 52. `GenomeCompatHarness` on Java 8 and 21 (`-XX:+PrintCompilation`, 2M hot calls): padded helpers are never compiled and results are correct, while the beta.35 class (control) gets all 5 compiled. `GuardHarness` covers all three guard verdicts.
+* **Evidence:** checkpoint + build audit + source + tools in `versions/Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier/`.
+* **Live status:** pending. The gate is listed in the checkpoint (boot through SKLauncher, barrier line present, stay in the world past the old crash window, no new `hs_err`).
+
 ## 1.1.0-beta.35 - BackhandLifecycleFix - 2026-09-25 23:54
-*Currently installed in the Forbidden Series client.* SHA-256 `c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17` - 330348 B - 159 entries.
+*Superseded by beta.36.* SHA-256 `c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17` - 330348 B - 159 entries.
 * **Base:** beta.34 (verified: only 3 of 159 entries differ).
 * **Delta:** `com/akashic/forbiddenbackhand/core/BackhandBackendTransformer.class`, `META-INF/MANIFEST.MF` (`Implementation-Version`), `mcmod.info` (`version`).
 * **What the class change is** (from the CFR-decompiled class, see `versions/Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix/recovered-source/`): the transformer's target constants moved from MCP names to obfuscated runtime names -

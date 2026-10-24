@@ -1155,6 +1155,32 @@
   "declared_base_sha256": "fd13dea51ad36b04c2357083b136f1174b4882c572f86c0492875e9b356570a8",
   "declared_base_basis": "verified-diff",
   "nearest_by_content_sha256": "fd13dea51ad36b04c2357083b136f1174b4882c572f86c0492875e9b356570a8",
-  "note": "current version in use; source recovered by decompilation only"
+  "note": "superseded by beta.36; source recovered by decompilation only"
+ },
+ {
+  "id": "1.1.0-beta.36",
+  "kind": "mainline",
+  "sha256": "45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4",
+  "size": 332666,
+  "entries": 159,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.36",
+  "impl_version": "1.1.0-beta.36",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/module/forestry/ForestryC2RuntimeGuard.class",
+   "com/akashic/thepatcher/module/forestry/ForestryGenomeCompat.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [],
+  "tag": "v1.1.0-beta.36-ForestryC2CompileBarrier",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.36-ForestryC2CompileBarrier.jar",
+  "date": "2026-10-24T12:00:00-03:00",
+  "declared_base_sha256": "c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17",
+  "note": "in-JAR Forestry C2 compile barrier (launcher-independent); built in-repo by tools/beta36-build.py"
  }
 ]

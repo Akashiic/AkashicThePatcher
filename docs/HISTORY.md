@@ -51,7 +51,8 @@ beta.20's profiler Mixin crashed ("`LoadController` loaded too early") and was r
 * **beta.31/32** - early ASM per-phase FML audit and 20 named hotspot spans. Diagnostics only.
 * **beta.33** - the client was found alive with no window (`MainWindowHandle=0`); `setDisplayMode` + `setFullscreen` were merged into one LWJGL call.
 * **beta.34** - a crash while registering textures was traced to Ars Magica 2 icon code running on a worker thread; async *item* icons became opt-in.
-* **beta.35 "BackhandLifecycleFix"** (23:54) - the latest. Only the Backhand bytecode transformer changed (obfuscated-name constants). Source of this build exists only as a decompilation; the reasons are not written anywhere.
+* **beta.35 "BackhandLifecycleFix"** (23:54). Only the Backhand bytecode transformer changed (obfuscated-name constants). Source of this build exists only as a decompilation; the reasons are not written anywhere.
+* **beta.36 "ForestryC2CompileBarrier"** (2026-10-24) - the latest. Launched through SKLauncher, the pack lost the six JVM CompileCommands (they only lived in Technic's `version.json`) and the client died natively right after joining. The Genome helpers are now padded past HotSpot's `HugeMethodLimit`, so Java 8u51 never JIT-compiles them, whichever launcher is used.
 
 ## What the history teaches a new maintainer
 

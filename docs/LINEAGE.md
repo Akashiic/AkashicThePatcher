@@ -47,12 +47,13 @@ Where the two differ it is called out in the table and in *Discrepancies* below.
 | 36 | `beta.33-WindowLifecycleFix` | 2026-09-25 20:04 | mainline | 329876 | 159 | beta.32-HotspotAudit (checkpoint) | beta.32-HotspotAudit | 153 / 4 / 2 / 0 | `6957c792cc4555c0de6eecf63d375799942269f976bfca1a2d396f116f31921d` |
 | 37 | `beta.34-ItemIconMainThread` | 2026-09-25 20:35 | mainline | 330139 | 159 | beta.33-WindowLifecycleFix (build-script) | beta.33-WindowLifecycleFix | 155 / 4 / 0 / 0 | `fd13dea51ad36b04c2357083b136f1174b4882c572f86c0492875e9b356570a8` |
 | 38 | `beta.35-BackhandLifecycleFix` | 2026-09-25 23:54 | mainline | 330348 | 159 | beta.34-ItemIconMainThread (verified-diff) | beta.34-ItemIconMainThread | 156 / 3 / 0 / 0 | `c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17` |
+| 39 | `beta.36-ForestryC2CompileBarrier` | 2026-10-24 | mainline | 332666 | 159 | beta.35-BackhandLifecycleFix (build-audit) | beta.35-BackhandLifecycleFix | 154 / 5 / 0 / 0 | `45a00f1ea27778d9d01d392180c1a3980e440370beeb84ec0af9213e836e2bf4` |
 
 ## Mainline (ancestors of the current version)
 
-Following *declared base* backwards from beta.35 gives the line that is actually inherited by the build in use today:
+Following *declared base* backwards from beta.36 gives the line that is actually inherited by the build in use today:
 
-`beta.3` -> `beta.7` -> `beta.8` -> `beta.11-Async-Forestry` -> `beta.12-AtlasProfiler` -> `beta.13-StitchCache` -> `beta.14-UploadProfiler` -> `beta.15-MipmapProbe` -> `beta.17-ForestryUniversalTransformer` -> `beta.18-ItemsAtlasBatch` -> `beta.19-ItemsAtlasBatchPackFix` -> `beta.20-StartupLifecycleProfiler` -> `beta.21-WorldRenderStateRepair` -> `beta.22-WorldRenderStateProbeFix` -> `beta.23-VertexCompatIsolation` -> `beta.25-TerrainBlendAlphaProbe` -> `beta.26-DrawSubmissionProbe` -> `beta.27-ProxyVanillaChunkTrackingCompat` -> `beta.28-NuminaFovFiniteGuard` -> `beta.30.2-BlockAtlasReobfFix` -> `beta.31-FMLPhaseAudit` -> `beta.32-HotspotAudit` -> `beta.33-WindowLifecycleFix` -> `beta.34-ItemIconMainThread` -> `beta.35-BackhandLifecycleFix`
+`beta.3` -> `beta.7` -> `beta.8` -> `beta.11-Async-Forestry` -> `beta.12-AtlasProfiler` -> `beta.13-StitchCache` -> `beta.14-UploadProfiler` -> `beta.15-MipmapProbe` -> `beta.17-ForestryUniversalTransformer` -> `beta.18-ItemsAtlasBatch` -> `beta.19-ItemsAtlasBatchPackFix` -> `beta.20-StartupLifecycleProfiler` -> `beta.21-WorldRenderStateRepair` -> `beta.22-WorldRenderStateProbeFix` -> `beta.23-VertexCompatIsolation` -> `beta.25-TerrainBlendAlphaProbe` -> `beta.26-DrawSubmissionProbe` -> `beta.27-ProxyVanillaChunkTrackingCompat` -> `beta.28-NuminaFovFiniteGuard` -> `beta.30.2-BlockAtlasReobfFix` -> `beta.31-FMLPhaseAudit` -> `beta.32-HotspotAudit` -> `beta.33-WindowLifecycleFix` -> `beta.34-ItemIconMainThread` -> `beta.35-BackhandLifecycleFix` -> `beta.36-ForestryC2CompileBarrier`
 
 Everything else is a side branch, an experiment, a sibling probe or a rejected build (see the *Kind* column).
 
