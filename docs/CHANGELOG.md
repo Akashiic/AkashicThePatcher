@@ -1,0 +1,241 @@
+# Changelog
+
+All 38 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+
+## How to read an entry
+
+* **Date** - modification time of the JAR on the original machine (UTC-3). It is the best timestamp available; it is *not* a release timestamp from a VCS.
+* **Base** - the build this one was made from, as stated by its own build audit / checkpoint / build script.
+* **Delta** - what changed in the JAR compared with the base. Where the base JAR is known this is proven by comparing every ZIP entry's CRC-32 (see `data/lineage.json`).
+* **Evidence** - where the description comes from, so you can judge how much to trust it:
+  * `checkpoint` - a human/agent-written checkpoint document stored in `versions/<folder>/`.
+  * `build-audit` - machine-written `reports/final-build-audit.json` stored in `versions/<folder>/`.
+  * `binary diff` - only the ZIP-entry comparison and the version name exist. Anything beyond the class/resource list is **not claimed**.
+* **Live status** - what the documents record about real-client testing. "Pending" means the checkpoint was written before the test and nothing later in the repository says how it ended.
+* Every version after beta.10 states "Java 8 bytecode (class major <= 52)" and "deterministic rebuild: PASS" in its audits; this is not repeated below.
+* "Inherited regression 16/16" is the 16-gate offline suite created for beta.8 (RGB / Hodgepodge text-format work); it is re-run for every build until beta.28.
+
+---
+
+## 1.1.0-beta.35 - BackhandLifecycleFix - 2026-09-25 23:54
+*Currently installed in the Forbidden Series client.* SHA-256 `c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17` - 330348 B - 159 entries.
+* **Base:** beta.34 (verified: only 3 of 159 entries differ).
+* **Delta:** `com/akashic/forbiddenbackhand/core/BackhandBackendTransformer.class`, `META-INF/MANIFEST.MF` (`Implementation-Version`), `mcmod.info` (`version`).
+* **What the class change is** (from the CFR-decompiled class, see `versions/Akashic-ThePatcher-1.1.0-beta.35-BackhandLifecycleFix/recovered-source/`): the transformer's target constants moved from MCP names to obfuscated runtime names -
+  `NET_HANDLER` `net/minecraft/client/network/NetHandlerPlayClient` -> `bjb`; `PACKET_DESC` `(Lnet/minecraft/network/Packet;)V` -> `(Lft;)V`; the obfuscated alias of `PlayerControllerMP.syncCurrentPlayItem` `j` -> `k` (checked at two call sites); JoinGame descriptor prefix `(Lnet/minecraft/network/play/server/S01PacketJoinGame;` -> `(Lhd;`.
+* **Reading of the code (inference, not documented by the author):** in `patchPlayerController` and `patchNetHandlerPlayClient` the *owner/descriptor* comparisons now use only the obfuscated literals, while method-name alternatives still include the MCP and SRG names. The packet redirect therefore matches an obfuscated runtime; a deobfuscated dev environment would not match it.
+* **Why it is called "LifecycleFix":** not documented anywhere that was found. Do not assume.
+* **Evidence:** binary diff + decompiled class + recovery report. **No source, no checkpoint, no build audit.**
+* **Live status:** it is the build in use; no acceptance document exists.
+
+## 1.1.0-beta.34 - ItemIconMainThread - 2026-09-25 20:35
+SHA-256 `fd13dea51ad36b04c2357083b136f1174b4882c572f86c0492875e9b356570a8` - 330139 B - 159 entries. Base: beta.33.
+* **Incident:** client crash 2026-09-25 20:23:27 during "Registering texture". `FMLClientHandler.trackBrokenTexture` received a `RuntimeException` with a null message; Guava `HashBasedTable` rejects null column keys, which masked the real per-sprite exception. Failing atlas: `textures/atlas/items.png`. The first attempt failed after the hybrid async loader finished, TextureManager removed resource packs and retried; the retry failed the same way and became fatal.
+* **Cause found:** Ars Magica 2 `SpellTextureHelper` ("Located 803 spell IIcons") ran on an `AkashicIconLoader` worker thread (telemetry `asyncItems=6055, syncItems=347`); `AMSpawnEgg` calls `SpellTextureHelper.loadAllIcons` and mutates shared singleton icon state, which is not thread-safe.
+* **Change:** `akashic.asyncItemIcons` now defaults to `false`: every `Item.registerIcons` runs on the client thread. Opt back in for diagnosis with `-Dakashic.asyncItemIcons=true`. Block-icon policy unchanged.
+* **Delta (proven):** only `AkashicThePatcherMod.class` (version) and `dev/akashic/asynciconcompat/CompatHooks.class` differ from beta.33.
+* **Evidence:** checkpoint, build script (`tools/beta34-final-build.py`). **Live status:** acceptance pending at the time of the checkpoint.
+
+## 1.1.0-beta.33 - WindowLifecycleFix - 2026-09-25 20:04
+SHA-256 `6957c792cc4555c0de6eecf63d375799942269f976bfca1a2d396f116f31921d` - 329876 B - 159 entries. Base: beta.32.
+* **Incident:** the Minecraft process stayed alive, responsive, with network/audio activity, while `MainWindowHandle=0`: a full Win32 enumeration found no LWJGL top-level or child window. The client thread sat in `Minecraft.runGameLoop` -> Angelica `FramePacer.beforePresent`. No Windows TDR, driver reset, DWM crash or normal shutdown was recorded. No evidence that either startup optimizer was active at the time.
+* **Change:** vanilla 1.7.10 does `Display.setDisplayMode` and `Display.setFullscreen` as two separate transitions; LWJGL 2.9.1 can destroy and recreate the native window in each. beta.33 redirects only those two validated runtime calls to `Display.setDisplayModeAndFullscreen`. Pre-display startup selection stays vanilla (`Display.isCreated()` false). Fails open if the exact bytecode shape is absent. Telemetry under `Akashic-ThePatcher/WindowGuard`.
+* **New classes:** `module/windowguard/WindowLifecycleGuard`, `WindowLifecycleGuardTransformer`.
+* **Validation:** Gradle clean/test/reobfJar PASS; real SRG `Minecraft.class` smoke: 2 target calls replaced, 1 unrelated startup call preserved; final-JAR smoke PASS; beta.32 critical classes byte-identical.
+* **Evidence:** checkpoint. **Live status:** "runtime production approval pending one real boot/session".
+
+## 1.1.0-beta.32 - HotspotAudit - 2026-09-25 19:43
+SHA-256 `ee26b8b61c1c93e7611a7ad898989356cb9e38bf03c68be09882559a1b107f30` - 324850 B - 157 entries. Base: beta.31. **Diagnostic only.**
+* Adds `module/hotspotaudit/HotspotAuditTransformer` (+`$Target`): passive timing spans around 20 named startup hotspots (Decocraft `Props.loadModels`, GeckoLib `initialize`, ChromatiCraft `CCAPICore.load`, `ChromaRecipes.loadDictionary`/`addRecipes`, `ChromaDimensionManager.initialize`, `ChromaStructures.buildStructures`, `ChromaDescriptions.loadData`, `addTileEntities`, `addEntities`, CustomNPC `LoadConfiguration.init`/`EnchantInterface.load`/`CustomItems.load`/`CommonProxy.load`/`ClientProxy.load`, Eln `ConfigHandler.loadConfig`/`MqttManager.init`, MobsInfo `ClientProxy.loadComplete`/`generateMobRecipeMap`/`generateVillagerTrades`).
+* Contract: nothing is cancelled, redirected, reordered, skipped, cached, parallelized or replaced. Runtime smoke PASS on 18/18 real installed classes and 20/20 span entries.
+* **Evidence:** checkpoint. **Live status:** needs one boot; goal is to find optimization candidates "with semantic equivalence".
+
+## 1.1.0-beta.31 - FMLPhaseAudit - 2026-09-25 16:53
+SHA-256 `45a2c442e9173e33364084b6c73bdd570d570c330a609d6b812ade4d83ee1228` - 318703 B - 155 entries. Base: beta.30.2. **Diagnostic only.**
+* Early ASM transformer on `cpw.mods.fml.common.LoadController` (`propogateStateMessage`, `buildModList`, per-mod `sendEventToModContainer`). Each phase summary: wall time, current-thread CPU time, sum of per-mod callbacks, time outside callbacks, callback count, counts >= 50 / 250 / 1000 ms, heap delta, top-15 slowest mods. Logged once per phase.
+* Replaces the beta.20/29 approaches (a Mixin on `LoadController` fails because the class is loaded too early - see beta.20/21). Registered as a LaunchWrapper `IClassTransformer`.
+* Safety: original `EventBus.post`, `ModContainer.registerBus` and `sendEventToModContainer` calls preserved exactly once; idempotency and hook-sorting tests; runtime smoke against the Technic `modpack.jar` PASS; 4 tests, 0 failures. Inherited batchers/guard/mixin config byte-identical.
+* **Evidence:** checkpoint, build audit. **Live status:** one boot needed.
+
+## 1.1.0-beta.30.2 - BlockAtlasReobfFix - 2026-09-25 16:23
+SHA-256 `a47b80478d5e64736fd624c75569cab00a2dbc11270bef0f24e89e624b5a705b` - 300660 B - 141 entries. Declared base: beta.28 (same feature as beta.30).
+* **Crash fixed:** `NoSuchMethodError Minecraft.getMinecraft` - the compiled classes referenced deobfuscated (MCP) names. The classes now come from RFG `reobfJar`; the build gate requires the runtime symbols `func_71410_x`, `field_71441_e`, `field_71474_y`, `field_74337_g`, `field_94254_c` and forbids `getMinecraft`, `theWorld`, `gameSettings`, `basePath`.
+* **Delta vs beta.30.1:** 10 entries: the `BlockAtlasUploadBatcher` family (5 classes), both items-batch mixins, mod class, MANIFEST, mcmod.info. Tests: 6, 0 failures. `productionInstalled: true` in its audit.
+* **Evidence:** build audit (no checkpoint of its own; the folder reuses the beta.30 checkpoint text via 30.1).
+
+## 1.1.0-beta.30.1 - BlockAtlasShadowFix - 2026-09-25 15:59
+SHA-256 `c906c6dfe9b6c38018eaec0870d6b76878b852f64fe35350f1725a8aa4f0ca77` - 300721 B - 141 entries. Declared base: beta.28. *Superseded by beta.30.2.*
+* "Shadow fix": the audit records `shadowFix: { field: "field_94254_c", remap: false, runtimeGate: true }` - i.e. the `@Shadow` of the SRG field `field_94254_c` is declared without remapping and gated at runtime. Changes both items-batch mixins vs beta.30.
+* Its folder contains a checkpoint file that is **byte-identical to beta.30's** (copied, not updated). Do not read it as a description of 30.1.
+* **Evidence:** build audit + binary diff.
+
+## 1.1.0-beta.30 - BlockAtlasUploadBatcher - 2026-09-25 15:18
+SHA-256 `75499a492a62cc9540f64cf7a30e86abad5310e877a741e5049772d89c089ef6` - 300712 B - 141 entries. Base: beta.28. *Superseded by 30.1 / 30.2.*
+* **Feature:** `upload/BlockAtlasUploadBatcher` (+`$1`, `$2`, `$Rect`, `$State`) - batches the large startup `textures/blocks` atlas upload into far fewer GL calls. Property `akashic.blocksAtlasBatch`.
+* **Safety policy:** startup only; path must be `textures/blocks`; atlas >= 2048x2048; actual allocated mip levels must be 0; upload `mipmaps.length` must be 1; blur=false; clamp=false; bounds valid; overlapping rectangles rejected; first valid upload executed by vanilla; only exact-adjacent rectangles merged; unused atlas padding never written; any unexpected input fails open to vanilla **and disables block batching for the rest of the session**; no threading added.
+* **Inheritance:** beta.28 items batcher, FOV guard, mixin config and refmap byte-identical; beta.29 diagnostics absent. `BlockAtlasUploadBatcherTest`: 6 tests, 0 failures.
+* **Acceptance gates listed for the next boot:** "armed for 4096x4096", `FLUSH reason=normal`, `stagedCalls` about 19336, `cancelled` about 19335, `mergedPixels == stagedPixels`, `batchGlCalls` well below 19336, no fail-open, no GL error/crash.
+* **Evidence:** checkpoint + build audit.
+
+## 1.1.0-beta.29 - StartupAudit - 2026-09-25 13:30
+SHA-256 `45cc1b2d1a8f80e0cc2416050477f17d96a151568fffec73090aeab69b029317` - 311047 B - 152 entries. Base: beta.28. **Diagnostic side branch (not inherited by beta.30).**
+* Contract: "No startup work is skipped, delayed, parallelized, cached, redirected, cancelled, or replaced."
+* Probes: **BlockAtlasEligibility** (mip levels, atlas size/ID/anisotropy, upload count and shape, blur/clamp, out-of-bounds and duplicate rectangles, pixel totals, observer overhead, batch-eligibility verdict); **FMLLifecycle** (per-mod callback time on `LoadController.sendEventToModContainer`, slow threshold 50 ms, phase totals, top 12); **StartupSpan** (`NEI ClientHandler.loadPluginsList`, `MobsInfo.generateMobRecipeMap`, `processMobRecipeMap`, `MobHandler.sortCachedRecipes`, with time and heap delta).
+* 16 added classes, 6 new mixins. Gates: RFG compileJava, deterministic rebuild, inherited beta.28 classes bit-identical except the version class, passive-only static gate (forbidden mutation APIs absent from the new mixins).
+* **Evidence:** checkpoint + build audit. Its findings led directly to beta.30 (block atlas batching) and beta.31/32 (FML phase and hotspot audits).
+
+## 1.1.0-beta.28 - NuminaFovFiniteGuard - 2026-09-25 02:30
+SHA-256 `c84d21a316879b8afe9a50e928caef7788acf769c3d75926cdff1a21fd038443` - 289778 B - 136 entries. Base: beta.27.
+* **Feature:** a finite-safety guard on `ForgeHooksClient.getOffsetFOV(EntityPlayerSP, float)` via `MixinForgeHooksClientFovFiniteGuard` + `graphics/NuminaFovSafety`. Preserves every finite, positive `FOVUpdateEvent` listener result; only an invalid output (NaN / Infinity / non-positive) is repaired before `EntityRenderer` can latch it into `fovModifierHand`. Fallback: the vanilla/Forge input FOV, then 1.0. At most 12 diagnostic warnings (`baseFov`, `invalidResult`, `entityClass`). No direct reference to Numina classes. Root-cause candidate named in the audit: **Numina 0.4.1.105 `FOVUpdateEventHandler`**.
+* Supporting material: `investigations/numina-pre-fov-ab-2026-09-25.cfg` (Numina config with "Ignore speed boosts for field of view" = true, kept as the A/B pre-state) and `rollback-numina-fovfix-off.cfg` in the version folder.
+* Two other builds named beta.28 were **rejected** - see the next two entries.
+* **Evidence:** build audit. **Live status:** not recorded.
+
+### beta.28 - REJECTED: direct-numina-mixin - 2026-09-25 02:08
+SHA-256 `720a14f28df074c5c8ab517a0a0dad8e77390318736f5709212d7e9f1293efe6` - 290377 B. Same version string as beta.28 but contains `MixinNuminaFovFiniteGuard` (a mixin aimed *directly at Numina*) instead of the Forge-hook mixin. The accepted build explicitly records `directNuminaClassReference: false`. **Do not install.** Kept as evidence of the abandoned approach.
+
+### beta.28 - REJECTED: stale-b317103 - 2026-09-25 02:19
+SHA-256 `b317103891f28d5b1e5e9b37447b0acb682d3083da5498302ac17fe18636355b` - 290015 B. Same class names as the accepted beta.28 but different bytes (290015 vs 289778). The word "stale" is the author's file name; no document explains the rejection further. **Do not install.**
+
+## 1.1.0-beta.27 - ProxyVanillaChunkTrackingCompat - 2026-09-25 01:04
+SHA-256 `fd0a88afa9ec037f326be8cc5d702f865d6ded70f80b2c7f3002d330ce43140c` - 287216 B - 134 entries. Base: beta.26. **Behavior change** (not a probe).
+* Network-aware Angelica chunk readiness: the configured Angelica behavior is preserved by default, but aggressive "vanilla" chunk tracking is forced on for **remote** connections whose FML handshake classifies the server as `VANILLA` or `BUKKIT`, using the existing Backhand connection state machine. `MixinAngelicaProxyVanillaChunkTracking` + `graphics/ProxyVanillaChunkTrackingPolicy`. Fail-closed, requires connected + remote, targets Angelica 2.2.18 (4 field reads), never turns off a value the user configured true.
+* The folder keeps `rollback-angelica-modules-pre-beta27.cfg`, so installation also touched Angelica's module config; how is not documented.
+* **Evidence:** build audit. **Live status:** not recorded. The investigation that led here is in HISTORY (chunk tracking behind the proxy was a suspect for the white/translucent terrain).
+
+## 1.1.0-beta.26 - DrawSubmissionProbe - 2026-09-25 00:15
+SHA-256 `8b5b24170ddcf4ad4d1ef88de91e6ef558b2e241146bf02b3f5d91ffc3fcbe0e` - 283752 B - 132 entries. Base: beta.25-TerrainBlendAlphaProbe. **Telemetry only** (`behaviorMutation: false`).
+* `MixinDefaultChunkRendererDrawSubmissionProbe` records, for the Celeritas draw path: render-list regions, pass storages, geometry section counts, matrices, non-empty batch execute calls, draw-command counts, and the GL bindings just before the draw. AsyncCompat component alpha.2.15.
+* Inherits the beta.25 blend/alpha probe bit-identically (including its default-on opaque-blend guard).
+
+## 1.1.0-beta.25 - TerrainBlendAlphaProbe - 2026-09-24 23:35
+SHA-256 `f49b424c4000eb992a42cc9baff66c353d2c86bc28b21d10b19bed83b70766de` - 279857 B - 131 entries. Base: beta.23 (not beta.24). **The beta.25 that beta.26 inherits.**
+* Probes absolute terrain blend semantics, **forces `GL_BLEND` off for opaque terrain layers** (default on; disable with `-Dakashic.forceOpaqueTerrainBlendOff=false`), and samples vertex alpha before the encoder (`-Dakashic.terrainVertexAlphaProbe=false` to disable). Classes: `TerrainSemanticBlendProbe`, `TerrainVertexAlphaProbe`, `MixinCeleritasTerrainSemanticBlendProbe`, `MixinAngelicaChunkBuildContextVertexAlphaProbe`. AsyncCompat component alpha.2.14.
+* `TerrainStagingFallback` (beta.24) is **absent** here; `WorldGLState` probe absent.
+
+## 1.1.0-beta.25 - TerrainSemanticProbe - 2026-09-24 22:52
+SHA-256 `1c06d807ea25832ec0dcb9a42a79feace4d1ce341702576a60562fc8010b05a1` - 277172 B - 129 entries. Base: beta.23. *Sibling probe, not inherited.*
+* Probes terrain blend semantics after pass setup and samples raw terrain vertex alpha, with the same default-on opaque-blend-off guard. Classes: `MixinTerrainRenderPassSemanticBlend`, `MixinAngelicaChunkBuildContextVertexAlpha`. Replaced by the Blend/Alpha variant above, which adds the explicit probe classes.
+
+## 1.1.0-beta.24 - TerrainStagingFallback - 2026-09-24 20:12
+SHA-256 `41c66f3567a66544118e71ed0ab60343fa352c56b89836f8668af959376f5922` - 273707 B - 128 entries. Base: beta.23. *Sibling probe, not inherited by beta.25+.*
+* Hypothesis: Celeritas' persistent-mapped terrain staging buffer (`MappedStagingBuffer`, OpenGL >= 4.4 / `ARB_buffer_storage`) is involved in the white/translucent terrain. `MixinRenderRegionManagerStagingFallback` makes `RenderRegionManager.createStagingBuffer` return the official `FallbackStagingBuffer` when mapped staging is supported; logs `TerrainStaging mappedSupported=... forceFallback=... selected=...`. Default `-Dakashic.forceTerrainFallbackStaging=true`.
+* The checkpoint also records an **audit of Numina 0.4.1.105 and ModularPowersuits QMX.2** concluding they are "secondary/unlikely root causes" (neither is a coremod; MPS' `RenderWorldLast` handler is effectively empty; Numina `RenderState` push/pop only on GUI/HUD paths; "Use Pixel/Vertex Shaders" is dead config in this build), and the **`WorldGLState` result of beta.22**: the only persistent mismatches (`texture2D` cache=true raw=false; `alphaFunc` cache=GL_GREATER vs raw GL_ALWAYS@0.0) are states Angelica 2.2.18 emulates in its fixed-function shader path, so a generic GLSM cache/driver divergence is **not** the cause.
+* **Status in the checkpoint:** built and gated; not installed because the Minecraft process was still running (it refused to replace a loaded JAR and did not force-kill it).
+
+## 1.1.0-beta.23 - VertexCompatIsolation - 2026-09-24 19:11
+SHA-256 `5a3c563b61f26a24d84b3b4fe89e626afa82e87f35e1ccd51bd9e39acd6097c3` - 272076 B - 127 entries. Base: beta.22.
+* Removes the `WorldGLState` probe (2 classes) "for clean vertex-format A/B; no renderer behavior patch".
+* It also marks an **A/B on Angelica's own config**, outside the JAR: `advanced.use_vertex_array_objects` true -> false and `quality.texture_filter_mode` `RGSS_ANISOTROPIC` -> `NONE`. **The translucent world remained**, so VAO and texture filtering were ruled out (per the beta.24 checkpoint). Config snapshots of these experiments are in `investigations/`.
+
+## 1.1.0-beta.22 - WorldRenderStateProbeFix - 2026-09-24 18:38
+SHA-256 `1843eec1e4c0a98b67fcbf74d98f55cef8a51ac33eadff95c07b3010d72f1fff` - 279865 B - 129 entries. Base: beta.21.
+* Fixes the beta.21 probe's buffer contract only: LWJGL2 `glGetBoolean` / `glGetFloat` require a buffer with >= 16 remaining elements. `logicRepairChanged: false`. AsyncCompat component alpha.2.12 (`Akashic-WorldRenderStateProbe-alpha212`).
+* Result of running it is summarized under beta.24.
+
+## 1.1.0-beta.21 - WorldRenderStateRepair - 2026-09-24 18:14
+SHA-256 `79dcb3f15653dc764c7075a06eafd0fb494261c8db35d3af3b5a2d830e1720f7` - 279861 B - 129 entries. Base: beta.20.
+* **Removes** the failed beta.20 startup profiler Mixin and its 7 classes (the error was "LoadController was loaded too early").
+* **Adds** the `WorldGLState` probe + conditional repair: `MixinCeleritasWorldStateProbe` / `graphics/WorldRenderStateProbe` run at the exact head of `CeleritasWorldRenderer.drawChunkLayer(BlockRenderLayer, double, double, double)` and compare the GLSM cache with the real backend (active texture unit, `GL_TEXTURE_2D`, texture binding, blend, depth test, alpha test, cull face, depth mask/func, color mask, blend func/equation/color; current color and alpha func/ref diagnostic-only). When they disagree it makes the backend match the cache for states with safe setters. Samples the first 12 observations of pass 0 and 1 after each new world. Switches `-Dakashic.worldRenderStateProbe=false`, `-Dakashic.worldRenderStateRepair=false`.
+* Build gates pin exact third-party versions: Angelica 2.2.18 (SHA-256 `563d907f...`), GTNHLib 0.11.51 (`9d31e3a5...`); neither is bundled. AsyncCompat component alpha.2.11.
+* **Interpretation key** written in the checkpoint: mismatch + repair + fixed -> divergence isolated; mismatch persists -> next setter; zero mismatches + still broken -> rule out the GLSM cache, look at Celeritas vertex/culling/translucency.
+
+## 1.1.0-beta.20 - StartupLifecycleProfiler - 2026-09-24 17:07
+SHA-256 `00a29e58ebb428e915d3579ba3f6b9bceb6464d29d4f8c08ef7fe20285e3a48a` - 280369 B - 134 entries. Base: beta.19.
+* **Purpose:** explain a ~110 s regression between beta.14 (~5m00 to menu) and beta.19 (~6m51). Measured per phase (config +25 s, PreInit +45 s, Init +77 s, PostInit +96 s, LoadComplete +109 s cumulative; final texture reload only +0.4 s) -> the regression is **before** the final texture reload, so it is neither StitchCache nor items batching.
+* **Change:** passive Mixin profiler on `LoadController` (`propogateStateMessage`, `sendEventToModContainer`), top-15 mods per phase, `-Dakashic.startupLifecycleProfiler=false`. **This Mixin failed at runtime ("LoadController was loaded too early") and was removed in beta.21; beta.31 re-did the idea as an early ASM transformer.**
+* **Forestry C2, pack side:** `ForestryC2RuntimeGuard` now requires **6/6** HotSpot CompileCommand exclusions (`Genome.getChromosomes` plus five `ForestryGenomeCompat` helper methods) and logs `[Forestry-C2] Full CompilerOracle pack protection active (6/6)`. The exclusions are delivered from `modpack.jar!/version.json` `arguments.jvm` (only that file differs from the pre-fix `modpack.jar`; the user's `settings.json` carries none). "The rewrite alone is no longer considered sufficient." Java 8u51 harness: 6/6 accepted, guard active, matched=6, rewrite=true. Details and scripts: `investigations/forestry-c2-runtime-test/`, `investigations/forestry-versionjson-packfix/`.
+* **Evidence of beta.19 items batching** recorded here: `stagedCalls=15980`, `cancelled=15979`, `batchGlCalls=16`, GL flush 227 ms, ~15963 GL calls saved; items upload previously ~20-32 s.
+* Gates: inherited 16/16, JUnit 9/9, guard 6/6 harness, `MixinForestryGenomeC2` absent. AsyncCompat component alpha.2.10.
+
+## 1.1.0-beta.19 - ItemsAtlasBatchPackFix - 2026-09-24 16:23
+SHA-256 `c3d2ef2127080898b0a5b0f54305056ee7deb1b8bbb8f50e9b9cf726aab08472` - 271063 B - 127 entries. Base: beta.18.
+* **Packaging fix only** (`logicChanged: false`): beta.18 shipped without the inner class `ItemsAtlasUploadBatcher$State`; beta.19 includes it. The name "PackFix" means *packaging*, not "resource pack".
+* **Evidence:** build audit.
+
+## 1.1.0-beta.18 - ItemsAtlasBatch - 2026-09-24 16:06
+SHA-256 `12f00211e9f8cd66cad9d9a90da7f809d4e1987a72d31461dfbe42edf5169262` - 270312 B - 126 entries. Base: beta.17.
+* **Feature:** startup-only batching of the `textures/items` atlas upload (`upload/ItemsAtlasUploadBatcher`, `MixinTextureMapItemsUploadBatch`, `MixinTextureUtilItemsUploadBatch`). One-shot; first vanilla upload passes through; stage buffer `int[atlasWidth*atlasHeight]`; stripe capacity 1,048,576 ints; expects 16 stripe calls for a 4096-wide atlas; requires 0 mip levels, no anaglyph, atlas >= 2048. Disable: `-Dakashic.itemsAtlasBatch=false`. AsyncCompat component alpha.2.9.
+* **Known defect:** missing `$State` inner class (fixed by beta.19).
+
+## 1.1.0-beta.17 - ForestryUniversalTransformer - 2026-09-24 15:34
+SHA-256 `18177c88421d675da07ab6dc7ed2b5d1437691d95b1b88eeec4c684814238cc7` - 262793 B - 123 entries. Declared base: beta.15 (content-twin of beta.16-ForestryUniversal).
+* **Forestry 4.11.36 / Java 8u51 C2 crash, zero-config fix:** a LaunchWrapper transformer (`module/forestry/ForestryGenomeC2Transformer`) replaces the 288-byte `forestry.core.genetics.Genome.getChromosomes(NBTTagCompound, ISpeciesRoot)` with a 4-opcode wrapper that calls `ForestryGenomeCompat.loadChromosomes` (helper's largest bytecode offset: 91). Fail-closed on the exact Forestry fingerprint (SHA-256 `78daf273...`). The JVM CompileCommand stays supported as defense in depth but is no longer required.
+* This replaces the Mixin shim approach of beta.16-UniversalForestryC2.
+
+## 1.1.0-beta.16 - ForestryUniversal (alternate) - 2026-09-24 15:03
+SHA-256 `3e0bb92a0e7f78f01a15a555c80e5640d64a6145252eb06078d778821e2afffa` - 262795 B - 123 entries. Base: beta.15.
+* Same transformer approach as beta.17 (differs in 3 entries: version strings and mod class). **Never installed**: its `README-NOT-INSTALLED.txt` says the Mixin variant was the canonical build because it had stronger completed validation (4 Forestry differential tests, 9 JUnit total, zero-config guard, installed checkpoint). Later events reversed that: beta.17 promoted the transformer, and beta.20 asserts "rejected `MixinForestryGenomeC2` absent". **The reason for the reversal is not documented.**
+
+## 1.1.0-beta.16 - UniversalForestryC2 - 2026-09-24 14:47
+SHA-256 `8ec2e72b2fb9488ac759e24705c22a1a05181afb107b861ca67a4c8139a4a483` - 261009 B - 123 entries. Base: beta.15. *Rejected approach.*
+* Mixin `@Overwrite` of the private `Genome.getChromosomes` with a 6-byte delegation to `ForestryGenomeC2Shim`, which preserves the original algorithm split into `loadStoredChromosomes`, `repairAndValidateChromosome`, `fillMissingChromosomes` (semantics kept: invalid-slot skipping, `clearInvalidChromosomes` repair, NBT mutation on repair, invalid-allele `RuntimeException`, species-template fallback). Runtime proof markers: log `ForestryGenomeC2Shim ACTIVE...` and property `akashic.forestryC2Shim.executed=true`.
+* Live test setup: CompileCommand intentionally removed from the launcher settings; launcher restarted without `JAVA_TOOL_OPTIONS` (2026-09-24 14:50:31), to prove the build protects Java 8u51 by itself. Validation: 4 new differential tests, 9 JUnit total, 16/16 inherited. AsyncCompat component alpha.2.8.
+* **Live status:** the checkpoint was written before the result; the approach was dropped by beta.17/20 (see above).
+
+## 1.1.0-beta.15 - MipmapProbe - 2026-09-24 13:40
+SHA-256 `1e7008edf76156c07f19be7151554d87c677b675db723a7c61c89e3d5f09bd0d` - 257162 B - 121 entries. Base: beta.14. **Read-only.**
+* Extends the upload profiler with Angelica mipmap-generation counters per atlas: `mipChecks` (calls of `GLStateManager.maybeGenerateMipmap(int,int)` while profiling), `mipGen` (actual `RenderBackend.generateMipmap(I)V` invocations), `mipGenMs`. Pinned to Angelica 2.2.18 (SHA-256 `563d907f...`). `MixinAngelicaMipmapProfiler`. AsyncCompat component alpha.2.7.
+* Evidence it was built to explain (beta.14 warm boot): FML->menu 5m00; blocks GL path 12.574 s / 19,336 calls / 44.8 MB; items GL path 19.783 s / 15,980 calls / 61.5 MB; all observed uploads at mip level L0.
+
+## 1.1.0-beta.14 - UploadProfiler - 2026-09-24 13:14
+SHA-256 `bb352119296eddd4e6e74c8d46a05cb209fedaefdb8f755c120ee8422a0f0ddc` - 255862 B - 120 entries. Base: beta.13. **Read-only.**
+* `profile/TextureUploadProfiler` + `MixinTextureUtilUploadProfiler` measure `TextureUtil.uploadTextureSub`: total, filter/clamp setup, CPU `copyToBufferPos`, `glTexSubImage2D`, GL call count, bytes, and per-mip-level breakdown. Marker `UploadBreakdown path=textures/blocks|items ...`. AsyncCompat component alpha.2.6.
+* Last accepted performance point (beta.13, cache HIT): FML->menu **6m24**, final texture reload **87.8 s**; remaining cost GL upload blocks 12.3 s + items 18.2 s (~30.5 s).
+
+## 1.1.0-beta.13 - StitchCache - 2026-09-24 04:22
+SHA-256 `4ea949e6962e09cee40cedb2da0bdc862e58e3cd77fede3e09334fedf95a570d` - 250914 B - 118 entries. Base: beta.12.
+* **Feature:** persistent, fail-closed cache of the **Stitcher geometry** (`cache/StitchLayoutCache`, `MixinStitcherLayoutCache`). Stores only final atlas width/height and per sprite: name, packed x/y, packed w/h, final rotation. It never stores pixels, PNG data, GL textures/IDs or mip contents. Validated by a SHA-256 fingerprint over the format version, mip level, max atlas size, power-of-two mode, max tile size, sorted sprite names/dimensions, effective holder dimensions after the current Angelica gutter logic and initial rotation; payload is CRC-32 protected. Any mismatch/corruption/failure -> cache rejected, normal `Stitcher.doStitch` runs, and a successful normal layout reseeds the cache. Disable: `-Dakashic.stitchLayoutCache=false`.
+* Measured baseline from beta.12 (no ParallelMipMap): FML->menu 7m06; final texture reload 115.8 s; blocks stitch 18.8 s + items stitch 11.2 s (~30 s); GL upload blocks 12.6 s + items 18.3 s (~30.8 s). After this build (cache HIT) see beta.14 above. AsyncCompat component alpha.2.5.
+* Run protocol: first boot MISS -> SEEDED; second identical boot HIT.
+
+## 1.1.0-beta.12 - AtlasProfiler - 2026-09-24 03:53
+SHA-256 `ec498ac793af3dfc755a71b71b15b7bb85fae742b5727d1085c41975d5e274ed` - 236711 B - 114 entries. Base: beta.11. **Read-only.**
+* Adds a `TextureMap` atlas profiler inside `MixinTextureMapHybridAsync`: total time, icon registration, ImageIO decode, `Stitcher.doStitch`, GL allocation, GL upload, Forge pre/post-stitch hooks and residual time. AsyncCompat component alpha.2.4. Delta: mod class, that mixin, the refmap, version files (5 entries). No checkpoint; described by its build audit.
+
+## 1.1.0-beta.11 - Async-Forestry - 2026-09-24 03:03
+SHA-256 `1fb3947f88442e4f9ebe6bdc8526e7ed288d31bbfa7f0f04ad8da220fa3a152d` - 234571 B - 114 entries. Base: beta.8 (**not** beta.9 or beta.10).
+* **Merges the AsyncCompat alpha.2.3 hybrid icon scheduler** into ThePatcher (`dev/akashic/asynciconcompat/*`, `MixinTextureMapHybridAsync`, `mixins.akashicasynccompat.json` + refmap). The standalone `Akashic-Hodgepodge-AsyncCompat` mod is no longer installed. Hodgepodge's own async stays off (`B:asyncIconLoading=false`, `B:removeExtraIconLoad=true`). Icon registration whose owner is in an unsafe root runs on the client thread: `team.chisel.`, `com.cricketcraft.chisel.`, `mekanism.`, `powercrystals.minefactoryreloaded.`, `cofh.` (the `cofh` rule comes from an observed `THashMap` corruption in `cofh.core.render.IconRegistry` during Thermal Expansion's `BlockWorkbench` registration). Abort cleanup: cancels pending futures, completes in-flight ones exceptionally, clears state, `shutdownNow`, cleans stale executors on reload, tolerates late worker completions.
+* **Forestry / Java 8u51 native crash:** evidence `EXCEPTION_ACCESS_VIOLATION` on `C2 CompilerThread1`, JRE 1.8.0_51-b16, compile task `forestry.core.genetics.Genome::getChromosomes (288 bytes)`. Mitigation restored: `-XX:CompileCommand=exclude,forestry/core/genetics/Genome.getChromosomes` (exact syntax validated on the Technic Java 8u51: prints `CompilerOracle: exclude forestry/core/genetics/Genome.getChromosomes`). `module/forestry/ForestryC2RuntimeGuard` runs early in the loader, checks the argument and logs whether it is active. Forestry bytecode is **not** rewritten in this build.
+* Delta vs beta.8: mod class + loading plugin changed; 6 added entries (guard, `CompatHooks`, `CompatState`, the mixin, mixin config, refmap). Gates: inherited 16/16; 24 targeted checks (ZIP CRC, Mixin bootstrap, alpha.2.3 bit identity, CoFH/MFR/Chisel/Mekanism guards, abort cleanup, Forestry guard, exclusion of the beta.9/10 experiments, Java 8 bytecode).
+* Benchmark noted: last clean stable baseline FML->first cinematic menu ~7m25; the alpha.2.2 7m13 run is **not** a valid benchmark because its first final texture reload failed and Minecraft performed resource-pack recovery.
+* Full rollback set is described in the checkpoint (beta.8, standalone AsyncCompat alpha.2.2, `settings.json`, `hodgepodge.cfg`).
+
+## 1.1.0-beta.10 - Cinematic-Angelica - 2026-09-23 17:49
+SHA-256 `3182e7e3d6b51854eae008ff8eb8f346a1d0a8b291740ceff8dab9c5fabc9dab` - 232088 B - 111 entries. Base: beta.8 (**not** beta.9). *Experiment, not inherited.*
+* **Why beta.9 was abandoned:** the live test showed the beta.9 transformer registered but its target `net.machinemuse.numina.render.RenderState` was never loaded during a boot that still produced white world blocks, so beta.9 was not on the failing path.
+* **New evidence:** `br.com.redeakashic.cinematic.render.RawScope` (the Akashic Cinematic Menu) was loaded and rewritten by Angelica's redirector (2559 -> 2646 bytes). `RawScope` uses `glPushAttrib(GL_ALL_ATTRIB_BITS)`, disables texture targets on all units and relies on `glPopAttrib()`, which Angelica 2.2.18's GLSM redirector maps to its own state stack - a plausible `GL_TEXTURE_2D` leak. The checkpoint calls this "a hypothesis until live beta.10 acceptance".
+* **Two fixes:** (1) *Cinematic RawScope state fence* - after `RawScope.close()` returns, a reflection call replays GLSM state to the backend, disables lighting, sets texture unit 1 off / unit 0 on, replays again, and logs cache-vs-driver `GL_TEXTURE_2D` before->after (`-Dakashic.cinematicAngelicaStateFence.disable=true`). (2) *Angelica VSync fail-soft* - the single `Display.setVSyncEnabled` call in Angelica 2.2.18 `Lwjgl2GLRenderBackend.applyVSyncMode` is routed through `AngelicaVSyncGuard`, which drains/logs pending GL errors and catches the `OpenGLException` (`GL_INVALID_ENUM`, 1280) instead of crashing (`-Dakashic.angelicaVSyncGuard.disable=true`).
+* Gates: 6 targeted (exact transform, kill-switch byte-identical, shape-mismatch fail-closed, for both patches); inherited 16/16; binary audit +3 classes.
+* **Live result** (from the A/B bundle `investigations/Angelica-Celeritas-AB-2026-09-23/`): "beta.10 loaded and executed its two patches; the world stayed white"; GL error 1280 was already pending before the VSync call; the `texture2D cache=true driver=false` mismatch is *not by itself a bug* (that texture is FFP-emulated). Beta.9/10 "did not fix the symptom and must not stay as an extra variable" during the A/B.
+
+## 1.1.0-beta.9 - MPS-Angelica - 2026-09-23 16:42 (FINAL-CANDIDATE `cefc4f7b`) and 16:40 (earlier build `695d6bd9`)
+SHA-256 `cefc4f7b13e9c9bdba5f3c2c3c4a534d75a7d22096c6ea012737ef671e885e70` (233345 B) and `695d6bd9681070bba8bc8e80bc9bc89d9ac02b2b524725dcbc30dc024e116740` (233341 B), 113 entries each, differing in one class. Base: beta.8. *Experiment, not inherited.*
+* **Hypothesis:** Numina's `RenderState` (`on2D`, `off2D`, `blendingOn`, `blendingOff`, `glowOn`, `glowOff`) relies on `glPushAttrib/glPopAttrib`, which Angelica 2.2.18's copy-on-write GLSM does not restore properly -> invisible/translucent blocks with Modular Powersuits.
+* **Change:** `module/mps/MpsAngelicaCompatTransformer` redirects exactly those six calls to a compatibility push/pop (`MpsAngelica218StateCompat` + `$Snapshot`, `$StateStack`) that explicitly saves/restores the state families Numina mutates. Fail-closed on exact fingerprints (Angelica 2.2.18 GLStateManager incl. Java 8/17/21 multi-release variants; Numina 0.4.1.105 `RenderState`). Kill-switch `-Dakashic.mpsAngelica218.disable=true`. Does not downgrade Angelica or touch GLSM globally.
+* Gates: 7 targeted transformer gates (exact, forced, pre-transformed owners, kill-switch, Angelica mismatch, Numina mismatch, shape mismatch - evidence in `versions/Akashic-ThePatcher-beta9-MPS-Angelica/final-mps-transformer-gate.txt`), inherited 16 gates (the earlier build's README says 17/17), double rebuild identical.
+* **Live result:** did not participate in the failing render path - see beta.10.
+
+## 1.1.0-beta.8 - 2026-09-22 14:05
+SHA-256 `010c3b9f4fdd20528a772904f13238aa836c8af13759aebfe7184ed07beed44b` - 224019 B - 108 entries. Nearest: beta.7. **Binary only** (found as rollback copies and as `...-beta.8-BASELINE.jar`).
+* Delta vs beta.7: `module/rgb/AngelicaTextCompat` added; `AngelicaDecorationPostProcessor`, `RgbFormatBridge`, `RgbFormatPostProcessor`, `RgbTextTransformer` changed. From this point it is the "verified production beta.8" that every later checkpoint rebuilds from, and the origin of the 16-gate inherited regression suite (RGB trim 16128 cases / 327169 checks; wrapping 768 + 10028 cases; format continuation 3072; legacy parity 20256; bridge 5182 + 3003; transformed format 4004).
+* **No source and no checkpoint for beta.8 itself.**
+
+## 1.1.0-beta.7 - 2026-09-14 22:15
+SHA-256 `6b0f6a4dd0cb4a7d06eadcc7211be44aa99bda5e31e3b5720e34a1aaafc4517d` - 220825 B - 107 entries. Nearest: beta.3. **Binary only** (found in AkashicCinematicMenu QA instances).
+* Delta vs beta.3: DimDoors client sync as a different design from beta.4 (`DimDoorsClientAccess`, `DimDoorsClientSyncHooks`(+`$Pending`), `DimDoorsClientSyncTransformer`(+`$ShapeMismatch`), `DimDoorsClientTickListener`; module switch `module.dimDoorsClientSync`); RGB format work (`RgbFormatBridge`, `RgbFormatPostProcessor`, `AngelicaDecorationPostProcessor`; `RgbTextTransformer` and `PatchModule` changed).
+* **beta.5 and beta.6 are missing.** No source, no checkpoint.
+
+## 1.1.0-beta.4 - 2026-09-08 04:12 *(side branch)*
+SHA-256 `38a41936cd3a82dca08c351ae3b4901f13900b2a71a5c1e17c0be66bd0b1ee2c` - 216004 B - 112 entries (110 classes). Base: beta.3.
+* **Crash fixed:** client crash 2026-09-08 03:13:45 in `PocketManager.getDimensionData`, line 494 of Dimensional Doors 2.2.6, called by the watcher of the `TileEntityDimDoor` S35 update; the `dimensionData` map is null. NBT update happens *before* the failing notification.
+* **Design:** preserve NBT reading; intercept only the notification that creates the link; the two dimension queries keep null-returning semantics when the map is absent. The notification is **deferred** until the native map is loaded and connected and the source dimension exists - no fake roots, no early `PocketManager.load`. Replay uses the original watcher. The queue holds weak references to world, tile and connection; drops old state, replaced tiles and duplicates. Limits: 512 notifications, 64 lookups per tick, expiry after 600 ticks (checked per entry). Expiry/overflow are logged and never reported as synchronized. Switch `module.dimDoorsClientSyncGuard` in `config/akashic-thepatcher.properties` (default on).
+* **Preservation:** 94 of beta.3's 96 classes byte-identical; the coordinator gets a registration hook and the main class a version + lifecycle method. Built as a **reproducible binary overlay** on beta.3 (fixed hash), not a full recompile; two clean builds gave the same SHA-256. 17 validation steps all exit code 0; includes a controlled-fixture run of the real DimDoors/NBT/S35/watcher binaries and Java 8 runs. The original defect is reproduced before the fix.
+* **Limits stated by the author:** no graphical client, no authenticated proxy route was run; "approved for isolated homologation only"; does not replace CubicChunks dev.6 fixes; does not promise to fix every dimension-sync divergence.
+* Sources of this overlay: `versions/_workspace-AkashicDev-ThePatcher-1.1.0-beta.4/` (Gradle-less `javac` workspace with `Overlay.java`, `WorldFixture.java`, sources and `evidence/` javap dumps of the beta.3 classes it touched).
+* Superseded: beta.7 solves DimDoors client sync with a different architecture and does not contain beta.4's classes.
+
+## 1.1.0-beta.3 - 2026-09-08 03:28 *(base)*
+SHA-256 `d39feb760fd74b3fd596b50832fd85f80d0d056ec47f33bfa48a244415bd7fb0` - 197009 B - 98 entries (96 classes).
+* The oldest build on disk and the base of everything: a unified client compatibility / handoff patch bundle for the Forbidden Series 1.7.10 network (`mcmod.info`: "Unified client compatibility and handoff patch bundle ... Consolidates the validated Forbidden Series and Akashic compatibility modules"). It already contains the RGB chat/text modules, the Backhand, Baubles, Handoff, Hologram and Register modules, MOTD, Botania cache, Mekanism creative guard, IndustrialUpgrade guards, NecroTempus boss bar and the sampler HUD guard (see [ARCHITECTURE.md](ARCHITECTURE.md)).
+* Found as `base/` inside the beta.4 workspace. **No source, no checkpoint.** beta.1, beta.2, beta.5 and beta.6 are not on disk.
