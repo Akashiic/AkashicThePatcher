@@ -1238,6 +1238,31 @@
   "declared_base_sha256": "2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c",
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c",
-  "note": "Angelica 2.2.24+ font API: NecroTempus mixin/providers rewritten at load time; Angelica 2.2.37 whitespace decoration profile; built by tools/beta38-build.py"
+  "note": "do not install: NecroTempus fix inert under UniMixins' Mixingasm (transformer untrusted); superseded by beta.39. Angelica 2.2.24+ font API: NecroTempus mixin/providers rewritten at load time; Angelica 2.2.37 whitespace decoration profile; built by tools/beta38-build.py"
+ },
+ {
+  "id": "1.1.0-beta.39",
+  "kind": "mainline",
+  "sha256": "8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd",
+  "size": 335978,
+  "entries": 160,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.39",
+  "impl_version": "1.1.0-beta.39",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [],
+  "tag": "v1.1.0-beta.39-AngelicaFontMixinTrust",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar",
+  "date": "2026-10-25T12:30:00-03:00",
+  "declared_base_sha256": "bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701",
+  "note": "@MixinSafeTransformer on the NecroTempus font transformer so Mixingasm lets it run on mixin classes; verified in a headless real client; built by tools/beta39-build.py"
  }
 ]

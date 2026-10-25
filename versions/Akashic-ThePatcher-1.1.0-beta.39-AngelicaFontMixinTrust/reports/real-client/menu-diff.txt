@@ -1,0 +1,1 @@
+menu A vs B differing pixels: 28

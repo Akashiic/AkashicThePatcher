@@ -2,7 +2,7 @@
 
 Client-side bug-patch coremod bundle for the **Forbidden Series** Minecraft **1.7.10** modpack: Forge coremod + Mixins that fix crashes, startup time and compatibility problems in other mods at class-load time.
 
-This repository is the **complete recorded history** of the project, reconstructed from the author's files: **41 builds** from `1.1.0-beta.3` (2026-09-08) to `1.1.0-beta.38-AngelicaFontCompat` (2026-10-25, current), with each build's checkpoints, audits, tools, source (where it exists), the investigations behind them, and the provenance of every file.
+This repository is the **complete recorded history** of the project, reconstructed from the author's files: **42 builds** from `1.1.0-beta.3` (2026-09-08) to `1.1.0-beta.39-AngelicaFontMixinTrust` (2026-10-25, current), with each build's checkpoints, audits, tools, source (where it exists), the investigations behind them, and the provenance of every file.
 
 > Portuguese version: [README.pt-BR.md](README.pt-BR.md)
 
@@ -21,7 +21,7 @@ This repository is the **complete recorded history** of the project, reconstruct
 ## Layout
 
 ```
-releases/<tag>/        the JARs (41) + releases/SHA256SUMS.txt
+releases/<tag>/        the JARs (42) + releases/SHA256SUMS.txt
 versions/<folder>/     per-build checkpoint docs, audits, build tools, recovered source
 projects/              AsyncCompat-family Gradle projects (source of the dev.akashic.asynciconcompat component)
 investigations/        experiments, A/B configs and test harnesses (world-render hunt, Forestry C2 crash)
@@ -34,7 +34,7 @@ Git tags `v1.1.0-beta.*` correspond to `releases/` folders; every tag also has a
 
 ## Which JAR do I install?
 
-The newest, `!Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat.jar` (SHA-256 `bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701`). It keeps everything in beta.37 (the Forestry C2 protection inside the JAR, works with Technic, SKLauncher and others) and makes the pack work with **Angelica 2.2.24+** (tested against 2.2.37): it fixes NecroTempus' Angelica font integration at load time (the `NoClassDefFoundError: BatchingFontRenderer` start-up crash) and restores the RGB whitespace underline fix on Angelica 2.2.37. Do **not** install the two builds marked `REJECTED` (beta.28) or the diagnostic/probe builds unless you are reproducing an investigation. Other pack-side requirements are in [docs/HANDOFF.md](docs/HANDOFF.md).
+The newest, `!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar` (SHA-256 `8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd`). It keeps everything in beta.37 (the Forestry C2 protection inside the JAR, works with Technic, SKLauncher and others) and makes the pack work with **Angelica 2.2.24+** (tested against 2.2.37): it fixes NecroTempus' Angelica font integration at load time (the `NoClassDefFoundError: BatchingFontRenderer` start-up crash) and restores the RGB whitespace underline fix on Angelica 2.2.37. **Do not install beta.38**: its NecroTempus fix is skipped in a real client (UniMixins' Mixingasm does not trust it); beta.39 is the working version, verified in a headless real client. Do **not** install the two builds marked `REJECTED` (beta.28) or the diagnostic/probe builds unless you are reproducing an investigation. Other pack-side requirements are in [docs/HANDOFF.md](docs/HANDOFF.md).
 
 ## Honest caveats
 

@@ -2,7 +2,7 @@
 
 Pacote de coremods de correção de bugs, **client-side**, para o modpack **Forbidden Series** (Minecraft **1.7.10**): coremod Forge + Mixins que corrigem crashes, tempo de inicialização e incompatibilidades de outros mods em tempo de carregamento de classe.
 
-Este repositório é o **histórico completo registrado** do projeto, reconstruído a partir dos arquivos do autor: **41 builds**, de `1.1.0-beta.3` (08/09/2026) até `1.1.0-beta.38-AngelicaFontCompat` (25/10/2026, a atual), com checkpoints, auditorias, ferramentas, código-fonte (quando existe), as investigações por trás de cada build e a procedência de cada arquivo.
+Este repositório é o **histórico completo registrado** do projeto, reconstruído a partir dos arquivos do autor: **42 builds**, de `1.1.0-beta.3` (08/09/2026) até `1.1.0-beta.39-AngelicaFontMixinTrust` (25/10/2026, a atual), com checkpoints, auditorias, ferramentas, código-fonte (quando existe), as investigações por trás de cada build e a procedência de cada arquivo.
 
 > English version: [README.md](README.md). A documentação em `docs/` está em inglês.
 
@@ -20,7 +20,7 @@ Este repositório é o **histórico completo registrado** do projeto, reconstru�
 
 ## Qual JAR instalar?
 
-O mais novo: `!Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat.jar` (SHA-256 `bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701`). Mantém tudo da beta.37 (proteção contra o crash C2 do Forestry dentro do JAR, funciona no Technic, SKLauncher e outros) e faz o pack funcionar com o **Angelica 2.2.24+** (testado com o 2.2.37): corrige em tempo de carga a integração de fontes do NecroTempus com o Angelica (o crash de inicialização `NoClassDefFoundError: BatchingFontRenderer`) e reativa a correção de sublinhado em espaços do módulo RGB no Angelica 2.2.37. **Não** instale os dois builds marcados `REJECTED` (beta.28) nem os builds de diagnóstico, a menos que esteja reproduzindo uma investigação. Outros requisitos do pack estão em [docs/HANDOFF.md](docs/HANDOFF.md).
+O mais novo: `!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar` (SHA-256 `8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd`). Mantém tudo da beta.37 (proteção contra o crash C2 do Forestry dentro do JAR, funciona no Technic, SKLauncher e outros) e faz o pack funcionar com o **Angelica 2.2.24+** (testado com o 2.2.37): corrige em tempo de carga a integração de fontes do NecroTempus com o Angelica (o crash de inicialização `NoClassDefFoundError: BatchingFontRenderer`) e reativa a correção de sublinhado em espaços do módulo RGB no Angelica 2.2.37. **Não instale a beta.38**: no cliente real a correção do NecroTempus dela é ignorada (o Mixingasm do UniMixins não confia no transformer); a beta.39 é a versão que funciona, verificada num cliente real headless. **Não** instale os dois builds marcados `REJECTED` (beta.28) nem os builds de diagnóstico, a menos que esteja reproduzindo uma investigação. Outros requisitos do pack estão em [docs/HANDOFF.md](docs/HANDOFF.md).
 
 ## Ressalvas honestas
 

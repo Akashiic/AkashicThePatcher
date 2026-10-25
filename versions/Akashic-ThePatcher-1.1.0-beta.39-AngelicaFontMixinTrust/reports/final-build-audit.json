@@ -1,0 +1,73 @@
+{
+  "version": "1.1.0-beta.39",
+  "base": {
+    "path": "releases/v1.1.0-beta.38-AngelicaFontCompat/!Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat.jar",
+    "sha256": "bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar",
+    "sha256": "8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd",
+    "bytes": 335978
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "angelica-2.2.23.jar": "a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0",
+    "angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+    "necrotempus-2.0.0.jar": "d220dad5f270b99fd6ad8a42dcdb1d092eb97412f5c4d888aa072ea3fecc374c",
+    "necrotempus-2.1.0.jar": "a34a021fb88a4d3ef1806a9304e1a507ee1535e0e8203d1f5ef43bac4b842b9a",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318"
+  },
+  "entries": 160,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class",
+    "mcmod.info"
+  ],
+  "inherited_identical": 156,
+  "method_diff.com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class": "METHOD_DIFF com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer methods=18 differing=[]",
+  "mixingasm.beta38": "MIXINGASM_TRUST PASS com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer trusted=false",
+  "mixingasm.beta39": "MIXINGASM_TRUST PASS com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer trusted=true",
+  "without_unimixins": "NO_MIXINGASM PASS annotations=1",
+  "necrotempus.2.0.0+2.2.37": [
+    "mixin shape OK: methodShadows=2 fieldShadows=1 redirects=3 injects=3",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin sha256=e41d1e3187abfeee8c91063155f55c3b8fe240d2ecf9f94403a1f97fd96d9301",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider sha256=a1796888bf3eb54ffa3bed149b9e67a5fd48ecd299db15b11684a88f59206809",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider sha256=fec9a3eb17ced513aea4a206ed5dc74849d1c39c846d7e1e6eb4938ca7e9e101",
+    "NT_GATE PASS expect=patch patchedClasses=3 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.37": [
+    "mixin shape OK: methodShadows=2 fieldShadows=1 redirects=3 injects=3",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin sha256=94c68ef19682c03dde614afe6e34e82479d7376791b36b87937a9dc2a4c88624",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider sha256=a1796888bf3eb54ffa3bed149b9e67a5fd48ecd299db15b11684a88f59206809",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider sha256=fec9a3eb17ced513aea4a206ed5dc74849d1c39c846d7e1e6eb4938ca7e9e101",
+    "NT_GATE PASS expect=patch patchedClasses=3 killSwitch=PASS"
+  ],
+  "necrotempus.2.0.0+2.2.23": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.23": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.18": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.37.server": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.source-fix+2.2.37": {
+    "jar_sha256": "9f23b43e3c9e4a36e8f7c5fa3c5bc6c69c71cc20a9380fa8daf626ad1ad45c27",
+    "result": [
+      "mixin shape OK: methodShadows=2 fieldShadows=1 redirects=3 injects=3",
+      "NT_GATE PASS expect=fixed patchedClasses=0 killSwitch=PASS"
+    ]
+  },
+  "hooks": "PASS"
+}

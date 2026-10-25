@@ -1,6 +1,6 @@
 # Changelog
 
-All 41 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 42 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,18 @@ All 41 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.39 - AngelicaFontMixinTrust - 2026-10-25
+*Replaces beta.37/38 in the client.* SHA-256 `8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd` - 335978 B - 160 entries.
+* **Base:** beta.38 (4 entries changed, the other 156 byte-identical).
+* **Incident:** the first real-client run of beta.38 (headless Forge 1614 client, Angelica 2.2.37, official NecroTempus 2.0.0) still crashed with `NoClassDefFoundError: BatchingFontRenderer`. The log said `[mixingasm/]: Not trusting transformer com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer`: UniMixins' Mixingasm excludes untrusted transformers from the chain Mixin runs on mixin classes, so beta.38's rewrite never reached the mixin.
+* **Fix:** `@makamys.mixingasm.api.MixinSafeTransformer` on `NecroTempusAngelicaFontTransformer` (runtime annotation, ignored when UniMixins is absent). Code unchanged (18 methods instruction-identical to beta.38).
+* **Gates (offline, PASS):** deterministic build; Mixingasm's own trust rule with the real UniMixins 0.3.1 jar (beta.38 false, beta.39 true); loads without UniMixins; beta.38's NecroTempus x Angelica gates re-run on the new jar.
+* **Real client (headless, PASS):** Angelica 2.2.37 + NecroTempus 2.0.0 and 2.1.0 + CinematicMenu 0.7.0-alpha.4: `Trusting transformer`, `font fix armed/applied`, Mixin applied the rewritten mixin, whitespace fix installed, Forge splash with CinematicMenu's overlay, cinematic menu, no crash. Controls: without ThePatcher and with beta.38 the pack's crash reproduces. Angelica 2.2.18 vs 2.2.37 with CinematicMenu alone: same splash and menu (28 differing pixels). Harness in `tools/headless-client/`, evidence in `reports/real-client/`.
+* **Evidence:** checkpoint + build audit + real-client report + source + tests + tools in `versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.38 - AngelicaFontCompat - 2026-10-25
-*Replaces beta.37 in the client.* SHA-256 `bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701` - 335934 B - 160 entries.
+*Do not install: its NecroTempus fix is inert in a real client (Mixingasm); superseded by beta.39.* SHA-256 `bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701` - 335934 B - 160 entries.
 * **Base:** beta.37 (5 entries changed, 2 added, the other 153 byte-identical).
 * **Incident:** with **Angelica 2.2.37** the client crashed during start-up with `NoClassDefFoundError: com/gtnewhorizons/angelica/client/font/BatchingFontRenderer` in the `FontRenderer` constructor. The real error was earlier: `Mixin apply for mod necrotempus failed ... @Shadow method pushDrawCmd ... was not located`.
 * **Root cause:** Angelica 2.2.24 (PR #2165) changed `BatchingFontRenderer.pushDrawCmd` and `FontProvider.getTexture` from `ResourceLocation` to the GL texture id (`int`). NecroTempus 2.0.0 and 2.1.0 still shadow/redirect the old method (required mixin config, so `BatchingFontRenderer` failed to load) and implement the old `getTexture` (would be `AbstractMethodError`). A reference scan of both NecroTempus jars against Angelica 2.2.37 found exactly these three breaks.
