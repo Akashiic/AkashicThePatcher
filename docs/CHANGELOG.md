@@ -1,6 +1,6 @@
 # Changelog
 
-All 42 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 43 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,19 @@ All 42 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.40 - ItemsAtlasAngelicaGuard - 2026-10-25
+*Replaces beta.39 in the client.* SHA-256 `242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2` - 337237 B - 161 entries.
+* **Base:** beta.39 (4 entries changed, 1 added, the other 156 byte-identical).
+* **Incident:** with beta.39 and Angelica 2.2.37 part of the items were invisible in NEI, the inventory and the hand (blocks fine). Log: `ItemsAtlasBatch FLUSH path=textures/items ... atlas=4096x4096 stagedCalls=1 cancelled=0 ... uploadedBytes=67108864` while the atlas profile counted 16518 uploads.
+* **Root cause:** `ItemsAtlasUploadBatcher` (beta.18) stages sprites from `TextureUtil.uploadTextureMipmap` in a CPU copy of the whole atlas and uploads that copy over the full atlas. Angelica 2.2.24+ (`AtlasAssembler`, PR #2167 "Parallelize atlas loading") uploads the sprites itself and skips that call, so the copy held one 16x16 sprite and the flush overwrote Angelica's finished atlas with transparent texels. The blocks batcher (exact regions) was not affected.
+* **Fix:** new `ItemsAtlasAngelicaGuard`, called from two points inserted into `ItemsAtlasUploadBatcher` bytecode: `begin` does not arm when `AtlasAssembler` is on the class path (`ItemsAtlasBatch bypass ... reason=angelica-atlas-assembler`); `flush` uploads nothing when no staged upload was cancelled (`ItemsAtlasBatch skip-flush`). Kill-switch `-Dakashic.itemsAtlasBatch.guard=false`. Workaround for beta.39: `-Dakashic.itemsAtlasBatch=false`.
+* **Gates (offline, PASS):** deterministic build; only `begin`/`flush` differ (MethodDiff); simulated-atlas gate with the real batcher: beta.39 wipes a filled atlas (bug reproduced), beta.40 keeps it and still flushes a vanilla batch; the real Angelica 2.2.37 jar disables the batch, 2.2.23/2.2.18 do not; the kill-switch restores beta.39.
+* **Real client (headless, PASS):** Angelica 2.2.37 + NecroTempus 2.0.0 + CinematicMenu: `bypass reason=angelica-atlas-assembler`, font fix applied, splash, menu, no crash; Angelica 2.2.18: unchanged behaviour. The test instance's items atlas is too small to arm the batcher, so the NEI scenario itself is covered by the gate, not by the run.
+* **Evidence:** checkpoint + build audit + real-client report + source + tests + tools in `versions/Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.39 - AngelicaFontMixinTrust - 2026-10-25
-*Replaces beta.37/38 in the client.* SHA-256 `8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd` - 335978 B - 160 entries.
+*Superseded by beta.40 (with Angelica 2.2.24+ items drawn from the items atlas are invisible; workaround `-Dakashic.itemsAtlasBatch=false`).* SHA-256 `8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd` - 335978 B - 160 entries.
 * **Base:** beta.38 (4 entries changed, the other 156 byte-identical).
 * **Incident:** the first real-client run of beta.38 (headless Forge 1614 client, Angelica 2.2.37, official NecroTempus 2.0.0) still crashed with `NoClassDefFoundError: BatchingFontRenderer`. The log said `[mixingasm/]: Not trusting transformer com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer`: UniMixins' Mixingasm excludes untrusted transformers from the chain Mixin runs on mixin classes, so beta.38's rewrite never reached the mixin.
 * **Fix:** `@makamys.mixingasm.api.MixinSafeTransformer` on `NecroTempusAngelicaFontTransformer` (runtime annotation, ignored when UniMixins is absent). Code unchanged (18 methods instruction-identical to beta.38).

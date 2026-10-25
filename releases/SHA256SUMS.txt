@@ -40,3 +40,4 @@ c48d3ec3b1ef35f907baca47cd78ead48730b4cd556592e529c0140d7a869c17  releases/v1.1.
 2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c  releases/v1.1.0-beta.37-ForestryGenomeBarrier/!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar
 bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701  releases/v1.1.0-beta.38-AngelicaFontCompat/!Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat.jar
 8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd  releases/v1.1.0-beta.39-AngelicaFontMixinTrust/!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar
+242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2  releases/v1.1.0-beta.40-ItemsAtlasAngelicaGuard/!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar

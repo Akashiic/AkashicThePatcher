@@ -2,7 +2,7 @@
 
 Client-side bug-patch coremod bundle for the **Forbidden Series** Minecraft **1.7.10** modpack: Forge coremod + Mixins that fix crashes, startup time and compatibility problems in other mods at class-load time.
 
-This repository is the **complete recorded history** of the project, reconstructed from the author's files: **42 builds** from `1.1.0-beta.3` (2026-09-08) to `1.1.0-beta.39-AngelicaFontMixinTrust` (2026-10-25, current), with each build's checkpoints, audits, tools, source (where it exists), the investigations behind them, and the provenance of every file.
+This repository is the **complete recorded history** of the project, reconstructed from the author's files: **43 builds** from `1.1.0-beta.3` (2026-09-08) to `1.1.0-beta.40-ItemsAtlasAngelicaGuard` (2026-10-25, current), with each build's checkpoints, audits, tools, source (where it exists), the investigations behind them, and the provenance of every file.
 
 > Portuguese version: [README.pt-BR.md](README.pt-BR.md)
 
@@ -21,7 +21,7 @@ This repository is the **complete recorded history** of the project, reconstruct
 ## Layout
 
 ```
-releases/<tag>/        the JARs (42) + releases/SHA256SUMS.txt
+releases/<tag>/        the JARs (43) + releases/SHA256SUMS.txt
 versions/<folder>/     per-build checkpoint docs, audits, build tools, recovered source
 projects/              AsyncCompat-family Gradle projects (source of the dev.akashic.asynciconcompat component)
 investigations/        experiments, A/B configs and test harnesses (world-render hunt, Forestry C2 crash)
@@ -34,7 +34,7 @@ Git tags `v1.1.0-beta.*` correspond to `releases/` folders; every tag also has a
 
 ## Which JAR do I install?
 
-The newest, `!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar` (SHA-256 `8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd`). It keeps everything in beta.37 (the Forestry C2 protection inside the JAR, works with Technic, SKLauncher and others) and makes the pack work with **Angelica 2.2.24+** (tested against 2.2.37): it fixes NecroTempus' Angelica font integration at load time (the `NoClassDefFoundError: BatchingFontRenderer` start-up crash) and restores the RGB whitespace underline fix on Angelica 2.2.37. **Do not install beta.38**: its NecroTempus fix is skipped in a real client (UniMixins' Mixingasm does not trust it); beta.39 is the working version, verified in a headless real client. Do **not** install the two builds marked `REJECTED` (beta.28) or the diagnostic/probe builds unless you are reproducing an investigation. Other pack-side requirements are in [docs/HANDOFF.md](docs/HANDOFF.md).
+The newest, `!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar` (SHA-256 `242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2`). beta.40 = beta.39 plus a fix for **invisible items (NEI, inventory, hand) with Angelica 2.2.24+**: the items-atlas upload batcher no longer overwrites the atlas Angelica already uploaded. It keeps everything in beta.37 (the Forestry C2 protection inside the JAR, works with Technic, SKLauncher and others) and makes the pack work with **Angelica 2.2.24+** (tested against 2.2.37): it fixes NecroTempus' Angelica font integration at load time (the `NoClassDefFoundError: BatchingFontRenderer` start-up crash) and restores the RGB whitespace underline fix on Angelica 2.2.37. **Do not install beta.38**: its NecroTempus fix is skipped in a real client (UniMixins' Mixingasm does not trust it); beta.39 is the working version, verified in a headless real client. Do **not** install the two builds marked `REJECTED` (beta.28) or the diagnostic/probe builds unless you are reproducing an investigation. Other pack-side requirements are in [docs/HANDOFF.md](docs/HANDOFF.md).
 
 ## Honest caveats
 
@@ -51,4 +51,4 @@ sha256sum -c releases/SHA256SUMS.txt      # run from the repository root; on Win
 ```
 Every other file's expected hash is in `data/manifest.tsv` (`python3 tools/ci/check_manifest.py` checks them all).
 
-**CI (GitHub Actions, `.github/workflows/ci.yml`):** every push checks both, downloads the hash-pinned third-party inputs (`tools/ci/fetch_build_libs.sh`) and rebuilds beta.38 and beta.39 from scratch, comparing them byte for byte with the committed JARs. Each run also uploads the newest build as four separate, un-zipped Actions artifacts: the JAR, a `-dev` JAR (Minecraft members mapped to MCP names), a `-sources` JAR (with `SOURCES.md` saying, per class, whether the source is the one stored with that build, an older recorded one, or missing) and `SHA256SUMS.txt` (`tools/ci/make_artifacts.py`). On `main` it then publishes a GitHub Release for every `releases/<tag>/` folder that has none (`tools/ci/publish_releases.py`): tag on the commit that added the JAR, notes from the CHANGELOG. Two files under `versions/...beta.9-MPS-Angelica/` were moved to a shorter directory so the repository clones on Windows; see `data/relocated.tsv`.
+**CI (GitHub Actions, `.github/workflows/ci.yml`):** every push checks both, downloads the hash-pinned third-party inputs (`tools/ci/fetch_build_libs.sh`) and rebuilds beta.38, beta.39 and beta.40 from scratch, comparing them byte for byte with the committed JARs. Each run also uploads the newest build as four separate, un-zipped Actions artifacts: the JAR, a `-dev` JAR (Minecraft members mapped to MCP names), a `-sources` JAR (with `SOURCES.md` saying, per class, whether the source is the one stored with that build, an older recorded one, or missing) and `SHA256SUMS.txt` (`tools/ci/make_artifacts.py`). On `main` it then publishes a GitHub Release for every `releases/<tag>/` folder that has none (`tools/ci/publish_releases.py`): tag on the commit that added the JAR, notes from the CHANGELOG. Two files under `versions/...beta.9-MPS-Angelica/` were moved to a shorter directory so the repository clones on Windows; see `data/relocated.tsv`.

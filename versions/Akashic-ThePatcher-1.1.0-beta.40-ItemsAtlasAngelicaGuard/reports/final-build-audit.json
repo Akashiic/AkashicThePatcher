@@ -1,0 +1,62 @@
+{
+  "version": "1.1.0-beta.40",
+  "base": {
+    "path": "releases/v1.1.0-beta.39-AngelicaFontMixinTrust/!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar",
+    "sha256": "8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar",
+    "sha256": "242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2",
+    "bytes": 337237
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "angelica-2.2.23.jar": "a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0",
+    "angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+    "log4j-api.jar": "eb0ca9bdd938f80711152a758d6bc331a8b0d769199d457294dc67ed03f73498",
+    "log4j-core.jar": "dcde6033b205433d6e9855c93740f798951fa3a3f252035a768d9f356fde806d"
+  },
+  "entries": 161,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "dev/akashic/asynciconcompat/upload/ItemsAtlasAngelicaGuard.class"
+  ],
+  "inherited_identical": 156,
+  "method_diff.dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class": "METHOD_DIFF dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher methods=12 differing=[10 flush(Ldev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher$State;Ljava/lang/String;)V, 9 begin(Ljava/lang/String;IIII)V]",
+  "items_atlas.beta39": [
+    "A assembler subImageCalls=4 intactTexels=0",
+    "B vanilla cancelled=true,true subImageCalls=4",
+    "ITEMS_ATLAS_GATE PASS expect=broken"
+  ],
+  "items_atlas.beta40": [
+    "A assembler subImageCalls=0 intactTexels=4194304",
+    "B vanilla cancelled=true,true subImageCalls=4",
+    "ITEMS_ATLAS_GATE PASS expect=fixed"
+  ],
+  "items_atlas.beta40+angelica-2.2.37": [
+    "A assembler subImageCalls=0 intactTexels=4194304",
+    "B vanilla cancelled=false,false subImageCalls=0",
+    "ITEMS_ATLAS_GATE PASS expect=angelica"
+  ],
+  "items_atlas.beta40+angelica-2.2.23": [
+    "A assembler subImageCalls=0 intactTexels=4194304",
+    "B vanilla cancelled=true,true subImageCalls=4",
+    "ITEMS_ATLAS_GATE PASS expect=fixed"
+  ],
+  "items_atlas.beta40+angelica-2.2.18": [
+    "A assembler subImageCalls=0 intactTexels=4194304",
+    "B vanilla cancelled=true,true subImageCalls=4",
+    "ITEMS_ATLAS_GATE PASS expect=fixed"
+  ],
+  "items_atlas.beta40+angelica-2.2.37.guard-off": [
+    "A assembler subImageCalls=4 intactTexels=0",
+    "B vanilla cancelled=true,true subImageCalls=4",
+    "ITEMS_ATLAS_GATE PASS expect=broken"
+  ]
+}

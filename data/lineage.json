@@ -1263,6 +1263,33 @@
   "declared_base_sha256": "bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701",
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701",
-  "note": "@MixinSafeTransformer on the NecroTempus font transformer so Mixingasm lets it run on mixin classes; verified in a headless real client; built by tools/beta39-build.py"
+  "note": "superseded by beta.40: with Angelica 2.2.24+ the items atlas batcher erases the items atlas (workaround -Dakashic.itemsAtlasBatch=false). @MixinSafeTransformer on the NecroTempus font transformer so Mixingasm lets it run on mixin classes; verified in a headless real client; built by tools/beta39-build.py"
+ },
+ {
+  "id": "1.1.0-beta.40",
+  "kind": "mainline",
+  "sha256": "242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2",
+  "size": 337237,
+  "entries": 161,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.40",
+  "impl_version": "1.1.0-beta.40",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "dev/akashic/asynciconcompat/upload/ItemsAtlasAngelicaGuard.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.40-ItemsAtlasAngelicaGuard",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar",
+  "date": "2026-10-25T13:30:00-03:00",
+  "declared_base_sha256": "8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd",
+  "note": "items atlas batcher guard: off with Angelica's AtlasAssembler (2.2.24+), no flush when nothing was cancelled; fixes invisible items; built by tools/beta40-build.py"
  }
 ]

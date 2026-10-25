@@ -33,6 +33,7 @@ Source coverage of the beta.34 jar: 30 of 104 top-level classes have sources on 
 | `akashic.asyncItemIcons` [false] | run `Item.registerIcons` on worker threads (opt-in) | beta.11 (default flipped in beta.34) |
 | `akashic.stitchLayoutCache` [true] | persistent Stitcher geometry cache | beta.13 |
 | `akashic.itemsAtlasBatch` [true] | batch the items atlas GL upload | beta.18 |
+| `akashic.itemsAtlasBatch.guard` [true] | items batch: stay off with Angelica's `AtlasAssembler`, skip a flush with nothing cancelled | beta.40 |
 | `akashic.blocksAtlasBatch` [true] | batch the blocks atlas GL upload | beta.30 |
 | `akashic.forceOpaqueTerrainBlendOff` [true] | force `GL_BLEND` off on opaque terrain | beta.25 |
 | `akashic.terrainVertexAlphaProbe` | vertex-alpha telemetry | beta.25 |

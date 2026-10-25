@@ -1,0 +1,43 @@
+[
+  {
+    "run": "G",
+    "mods_sha256": {
+      "!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar": "242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2",
+      "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+      "AkashicCinematicMenu-0.7.0-alpha.4.jar": "7dbf5177c4e26edea3c0d5caceafac6d4ec013eee6d543d2dbe80066d4c0fb4a",
+      "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+      "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+      "necrotempus-2.0.0.jar": "d220dad5f270b99fd6ad8a42dcdb1d092eb97412f5c4d888aa072ea3fecc374c",
+      "omniconfig.jar": "f0e7d47e5ae081b78de5f0754b6db629f0bba567767ad7071c81846c494f1feb"
+    },
+    "key_log_lines": [
+      "[main/INFO] [STDOUT/]: [com.akashic.thepatcher.util.BundleLog:info:10]: [Akashic-ThePatcher] NecroTempus Angelica font fix applied: io.github.cruciblemc.necrotempus.modules.mixin.mixins.angelica.BatchingFontRendererMixin (pushDrawCmd shadow",
+      "[Client thread/INFO] [AkashicAsyncCompat/BlocksAtlasBatch/]: BlocksAtlasBatch bypass path=textures/blocks reason=mipmap-levels levels=4",
+      "[Client thread/INFO] [AkashicAsyncCompat/ItemsAtlasBatch/]: ItemsAtlasBatch bypass path=textures/items reason=angelica-atlas-assembler",
+      "[Client thread/INFO] [AkashicAsyncCompat/BlocksAtlasBatch/]: BlocksAtlasBatch bypass path=textures/blocks reason=mipmap-levels levels=4",
+      "[Client thread/INFO] [AkashicAsyncCompat/ItemsAtlasBatch/]: ItemsAtlasBatch bypass path=textures/items reason=angelica-atlas-assembler"
+    ],
+    "crash_reports": false,
+    "splash_enabled_after": true,
+    "screenshot": "b40-angelica--2.2.37-t147.jpg"
+  },
+  {
+    "run": "H",
+    "mods_sha256": {
+      "!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar": "242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2",
+      "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+      "AkashicCinematicMenu-0.7.0-alpha.4.jar": "7dbf5177c4e26edea3c0d5caceafac6d4ec013eee6d543d2dbe80066d4c0fb4a",
+      "angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+      "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7"
+    },
+    "key_log_lines": [
+      "[Client thread/INFO] [AkashicAsyncCompat/BlocksAtlasBatch/]: BlocksAtlasBatch bypass path=textures/blocks reason=mipmap-levels levels=4",
+      "[Client thread/INFO] [AkashicAsyncCompat/ItemsAtlasBatch/]: ItemsAtlasBatch bypass path=textures/items reason=small-atlas atlas=16x16",
+      "[Client thread/INFO] [AkashicAsyncCompat/BlocksAtlasBatch/]: BlocksAtlasBatch bypass path=textures/blocks reason=mipmap-levels levels=4",
+      "[Client thread/INFO] [AkashicAsyncCompat/ItemsAtlasBatch/]: ItemsAtlasBatch bypass path=textures/items reason=small-atlas atlas=256x256"
+    ],
+    "crash_reports": false,
+    "splash_enabled_after": true,
+    "screenshot": "b40-angelica--2.2.18-t147.jpg"
+  }
+]
