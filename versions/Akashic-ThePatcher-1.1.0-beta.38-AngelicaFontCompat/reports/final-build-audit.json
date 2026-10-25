@@ -1,0 +1,104 @@
+{
+  "version": "1.1.0-beta.38",
+  "base": {
+    "path": "releases/v1.1.0-beta.37-ForestryGenomeBarrier/!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar",
+    "sha256": "2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat.jar",
+    "sha256": "bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701",
+    "bytes": 335934
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "angelica-2.2.23.jar": "a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0",
+    "angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+    "necrotempus-2.0.0.jar": "d220dad5f270b99fd6ad8a42dcdb1d092eb97412f5c4d888aa072ea3fecc374c",
+    "necrotempus-2.1.0.jar": "a34a021fb88a4d3ef1806a9304e1a507ee1535e0e8203d1f5ef43bac4b842b9a",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 160,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontHooks.class",
+    "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class"
+  ],
+  "inherited_identical": 153,
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "method_diff.com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class": "METHOD_DIFF com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor methods=15 differing=[10 hasEndpointFix(Lorg/objectweb/asm/tree/MethodNode;)Z, 8 <clinit>()V]",
+  "registration.beta37.CLIENT": "REGISTRATION side=CLIENT count=17 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer]",
+  "registration.beta37.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "registration.beta38.CLIENT": "REGISTRATION side=CLIENT count=18 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer]",
+  "registration.beta38.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "necrotempus.2.0.0+2.2.37": [
+    "redirect nt$redirectGetFontProvider -> Lcom/gtnewhorizons/angelica/client/font/FontStrategist;getFontProvider(Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;CZZ)Lcom/gtnewhorizons/angelica/client/font/FontProvider; hits=1",
+    "redirect nt$redirectPushTexRect -> Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;pushTexRect(FFFFFIFFFFZ)V hits=4",
+    "redirect nt$redirectPushDrawCmd -> Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;pushDrawCmd(IIIZ)V hits=7",
+    "mixin shape OK: methodShadows=2 fieldShadows=1 redirects=3 injects=3",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin sha256=e41d1e3187abfeee8c91063155f55c3b8fe240d2ecf9f94403a1f97fd96d9301",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider sha256=a1796888bf3eb54ffa3bed149b9e67a5fd48ecd299db15b11684a88f59206809",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider sha256=fec9a3eb17ced513aea4a206ed5dc74849d1c39c846d7e1e6eb4938ca7e9e101",
+    "NT_GATE PASS expect=patch patchedClasses=3 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.37": [
+    "redirect nt$redirectGetFontProvider -> Lcom/gtnewhorizons/angelica/client/font/FontStrategist;getFontProvider(Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;CZZ)Lcom/gtnewhorizons/angelica/client/font/FontProvider; hits=1",
+    "redirect nt$redirectPushTexRect -> Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;pushTexRect(FFFFFIFFFFZ)V hits=4",
+    "redirect nt$redirectPushDrawCmd -> Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;pushDrawCmd(IIIZ)V hits=7",
+    "mixin shape OK: methodShadows=2 fieldShadows=1 redirects=3 injects=3",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin sha256=94c68ef19682c03dde614afe6e34e82479d7376791b36b87937a9dc2a4c88624",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider sha256=a1796888bf3eb54ffa3bed149b9e67a5fd48ecd299db15b11684a88f59206809",
+    "provider implements every FontProvider method",
+    "PATCHED io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider sha256=fec9a3eb17ced513aea4a206ed5dc74849d1c39c846d7e1e6eb4938ca7e9e101",
+    "NT_GATE PASS expect=patch patchedClasses=3 killSwitch=PASS"
+  ],
+  "necrotempus.2.0.0+2.2.23": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.23": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.18": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.2.1.0+2.2.37.server": [
+    "NT_GATE PASS expect=untouched patchedClasses=0 killSwitch=PASS"
+  ],
+  "necrotempus.source-fix+2.2.37": {
+    "jar_sha256": "9f23b43e3c9e4a36e8f7c5fa3c5bc6c69c71cc20a9380fa8daf626ad1ad45c27",
+    "result": [
+      "mixin shape OK: methodShadows=2 fieldShadows=1 redirects=3 injects=3",
+      "NT_GATE PASS expect=fixed patchedClasses=0 killSwitch=PASS"
+    ]
+  },
+  "hooks": "PASS",
+  "decoration.beta37.2.2.37": [
+    "[Akashic-ThePatcher] WARN: Angelica whitespace decoration fix skipped: unsupported drawString fingerprint e79b061107b9b31255e08eb202a7aeb8040e9566d413335df551aed23566a088.",
+    "DECORATION changed=false endpointFix=false verified=70"
+  ],
+  "decoration.beta37.2.2.18": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=62"
+  ],
+  "decoration.beta38.2.2.37": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=70"
+  ],
+  "decoration.beta38.2.2.18": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=62"
+  ],
+  "decoration.2.2.18_identical_to_beta37": "9d1963b5cf14cecaa649736f7ed96fa7057de5e92c97045634bd1729c1d4eaa2",
+  "decoration.beta38.2.2.37.idempotent": "PASS",
+  "decoration.beta38.2.2.37.sha256": "9cfa19aad7728c027afdaf648eb78234119292e42a7d8029ee143b3f7fd01f7f"
+}

@@ -23,7 +23,7 @@ Written 2026-10-24 from a filesystem snapshot. Read [HISTORY.md](HISTORY.md) fir
 3. Keep the previous JAR somewhere as rollback (every checkpoint lists its rollback set).
 4. Start, then read `logs/latest.log` for the lines listed under the build's "acceptance gates" in the CHANGELOG / its checkpoint.
 
-Current: `!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar`, SHA-256 `2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c`.
+Current: `!Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat.jar`, SHA-256 `bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701`.
 
 ## 3. Pack-side requirements that are NOT in the JAR
 
@@ -39,8 +39,9 @@ Current: `!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar`, SHA-256 
 ```
 
   The author delivered them through the **modpack's `version.json` `arguments.jvm`** (not the user launcher settings) with `investigations/forestry-versionjson-packfix/`. Every launcher setting file in the original folders contained a client id and server address, so none is committed - recreate yours.
+* **Angelica 2.2.24+ and NecroTempus.** Since **beta.38** ThePatcher rewrites NecroTempus' Angelica font mixin and providers at load time when the installed Angelica uses GL texture ids (2.2.24+). Logs: `NecroTempus Angelica font fix armed` / `... applied`. Kill-switch: `-Dakashic.necroTempusAngelicaFont.disable=true`; if you use it with Angelica 2.2.24+, set `angelicaGlyphsIntegration=false` and `angelicaModernFontsIntegration=false` in NecroTempus' config (category `Angelica`) or the client crashes at start-up. A NecroTempus release with the source fix in `versions/*beta.38*/necrotempus-source-fix/` makes the patch a no-op.
 * **Hodgepodge** `asyncIconLoading=false` (ThePatcher's own scheduler replaces it).
-* **Angelica 2.2.18 / GTNHLib 0.11.51** are the targets of several fail-closed patches. Different versions = those patches silently do nothing.
+* **Angelica 2.2.18 / GTNHLib 0.11.51** are the targets of several fail-closed patches. Different versions = those patches silently do nothing. beta.38 was checked against **Angelica 2.2.37**: the NecroTempus font fix and the whitespace decoration profile cover it, three AsyncCompat Angelica mixins still resolve, and `MixinAngelicaProxyVanillaChunkTracking` (beta.27) is skipped because Angelica 2.2.22 removed its target (see OPEN-ISSUES).
 
 ## 4. Building
 
@@ -57,7 +58,7 @@ Current: `!Akashic-ThePatcher-1.1.0-beta.37-ForestryGenomeBarrier.jar`, SHA-256 
 
 ## 6. Next actions, in priority order
 
-1. **Live-accept beta.37** through SKLauncher (gate in its checkpoint), then **beta.35** and write the result in the CHANGELOG (it is installed but has no acceptance record). In particular confirm Backhand behaves in a real client (see the obfuscation caveat in ARCHITECTURE section 7).
+1. **Live-accept beta.38** with Angelica 2.2.37 (gate in its checkpoint) and **beta.37** through SKLauncher, then **beta.35** and write the result in the CHANGELOG (it is installed but has no acceptance record). In particular confirm Backhand behaves in a real client (see the obfuscation caveat in ARCHITECTURE section 7).
 2. Decide the fate of the **white/translucent world bug** ([OPEN-ISSUES.md](OPEN-ISSUES.md)). Candidates not yet excluded are listed there.
 3. Recover or rewrite the **core bundle sources** (RGB, DimDoors, Network, Backhand...) - the decompiled beta.35 class is a stopgap.
 4. Decide on a LICENSE (none is chosen; code is therefore "all rights reserved" by default).

@@ -1,6 +1,6 @@
 # Changelog
 
-All 40 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 41 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,21 @@ All 40 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.38 - AngelicaFontCompat - 2026-10-25
+*Replaces beta.37 in the client.* SHA-256 `bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701` - 335934 B - 160 entries.
+* **Base:** beta.37 (5 entries changed, 2 added, the other 153 byte-identical).
+* **Incident:** with **Angelica 2.2.37** the client crashed during start-up with `NoClassDefFoundError: com/gtnewhorizons/angelica/client/font/BatchingFontRenderer` in the `FontRenderer` constructor. The real error was earlier: `Mixin apply for mod necrotempus failed ... @Shadow method pushDrawCmd ... was not located`.
+* **Root cause:** Angelica 2.2.24 (PR #2165) changed `BatchingFontRenderer.pushDrawCmd` and `FontProvider.getTexture` from `ResourceLocation` to the GL texture id (`int`). NecroTempus 2.0.0 and 2.1.0 still shadow/redirect the old method (required mixin config, so `BatchingFontRenderer` failed to load) and implement the old `getTexture` (would be `AbstractMethodError`). A reference scan of both NecroTempus jars against Angelica 2.2.37 found exactly these three breaks.
+* **Fix 1, new `NecroTempusAngelicaFontTransformer` (+ `NecroTempusAngelicaFontHooks`):** Mixin reads mixin classes through the LaunchWrapper transformers, so ThePatcher rewrites NecroTempus' `BatchingFontRendererMixin` (shadow, redirect target and handler take an `int` texture; null checks become zero checks) and adds `int getTexture(char)` to `AngelicaGlyphProvider` / `AngelicaModernFontProvider` (GL id if `TextureManager` has the texture, else `-1`; the value only reaches NecroTempus' own redirect). Fail-closed: only when the installed Angelica has the int API (class files read, nothing loaded), only for the exact old NecroTempus shape, only if the result passes ASM's verifier; already-fixed NecroTempus is left alone; client only. Kill-switch: `-Dakashic.necroTempusAngelicaFont.disable=true`. Registered first in the client block of `AkashicThePatcherLoadingPlugin.getASMTransformerClass` (bytecode-level edit, no source exists).
+* **Fix 2, RGB whitespace decoration on Angelica 2.2.37:** `AngelicaDecorationPostProcessor` skipped Angelica 2.2.37 (`unsupported drawString fingerprint e79b0611...` in the pack's log). The bug it fixes is still in 2.2.37. Added profile `e79b0611...` -> locals `{11, 42, 45}` and the matching `hasEndpointFix` layout (bytecode-level edit).
+* **Found, not changed:** the RGB bridge never installs on `FontRenderer` (transformer registered before FML's deobfuscation transformer; pre-existing, not Angelica), and beta.27's `MixinAngelicaProxyVanillaChunkTracking` is skipped because Angelica 2.2.22 removed `AngelicaChunkTracker`. Both in OPEN-ISSUES.
+* **NecroTempus upstream:** a source patch with the same fix (plus an API probe so older Angelica no longer crashes) is in `necrotempus-source-fix/`; `./gradlew build` passes and the built jar resolves against Angelica 2.2.37.
+* **Gates (offline, PASS):** deterministic double build; class major <= 52; new sources `-Xlint:all -Werror` against the real ASM 5.0.3; instruction-level diff shows only the intended methods changed; registration under `-Xverify:all` (client +1, server unchanged); the bundled transformer on the **real** NecroTempus 2.0.0/2.1.0 and **real** Angelica 2.2.37 under the real `LaunchClassLoader`: patched, verified, idempotent, every `@Shadow`/`@Redirect`/`@Inject` resolves against the real `BatchingFontRenderer` with the descriptors Mixin requires, providers implement `FontProvider`, kill-switch works; Angelica 2.2.23/2.2.18 and the server: untouched; decoration installs on 2.2.37 (verified, idempotent) and gives byte-identical output to beta.37 on 2.2.18. Not covered: Mixin applying it inside a running client; Java 8u51 itself (gates on 8u512).
+* **Evidence:** checkpoint + build audit + source + tests + tools in `versions/Akashic-ThePatcher-1.1.0-beta.38-AngelicaFontCompat/`.
+* **Live status:** pending (gate in the checkpoint).
+
 ## 1.1.0-beta.37 - ForestryGenomeBarrier - 2026-10-24
-*Replaces beta.36 in the client.* SHA-256 `2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c` - 329030 B - 158 entries.
+*Superseded by beta.38.* SHA-256 `2209938684e5ae9f0f86946a2ae3612fcf2bb9528d590fd29e268eb47a3e483c` - 329030 B - 158 entries.
 * **Base:** beta.36 (5 entries changed, `ForestryGenomeCompat.class` removed, the other 153 byte-identical).
 * **Goal:** fix the Forestry `Genome` / Java 8u51 C2 crash for good, without side effects. Every earlier fix depended on either the launcher (CompileCommand) or a reimplementation of Forestry's method that was tied to one fingerprint (beta.17-36).
 * **Fix:** `ForestryGenomeC2Transformer` now keeps **Forestry's original `Genome.getChromosomes` unchanged**. It only puts `GOTO body` + an unreachable `NOP` x 8192 + `ATHROW` in front of it, so the method grows from 288 to 8484 bytes, above `HugeMethodLimit`. With the default `DontCompileHugeMethods=true`, HotSpot never compiles it (C1/C2/OSR) or inlines it, so the crashing C2 compilation never starts. The head is 8196 bytes (a multiple of 4), so switch padding cannot shift. Matching is by name and descriptor only (no fingerprint refusal), and the transform is idempotent. Kill-switch: `-Dakashic.forestryGenomeBarrier.disable=true`. `ForestryGenomeCompat` was removed. The guard now logs `Genome compile barrier armed`, and the transformer logs `... applied ... 288 -> 8484 bytes`.

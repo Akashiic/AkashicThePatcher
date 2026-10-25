@@ -63,7 +63,7 @@ previous release jar  +  overlay of changed/added classes  ->  version-patch  ->
 ## 6. Runtime-environment contract
 
 * Minecraft 1.7.10 with Forge (exact build not recorded in these documents), Java **8u51** (the Technic launcher JRE).
-* Rendering stack: Angelica 2.2.18, Celeritas, GTNHLib 0.11.51, Hodgepodge (its own `asyncIconLoading` must stay `false`).
+* Rendering stack: Angelica 2.2.18 (the fingerprinted patches were written for it; beta.38 adds Angelica 2.2.37 support for the NecroTempus font fix and the whitespace decoration profile), Celeritas, GTNHLib 0.11.51, Hodgepodge (its own `asyncIconLoading` must stay `false`).
 * Pack-side: six HotSpot `CompileCommand` exclusions (see [HANDOFF.md](HANDOFF.md)).
 * Remote server network sits behind a proxy; handoff/backhand modules rely on the FML handshake classification (VANILLA/BUKKIT).
 

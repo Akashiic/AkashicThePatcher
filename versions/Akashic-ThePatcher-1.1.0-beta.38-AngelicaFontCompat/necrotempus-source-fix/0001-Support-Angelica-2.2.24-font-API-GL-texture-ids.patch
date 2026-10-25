@@ -1,0 +1,266 @@
+From 261311f8163f92b8d3ede85d9a8ed06dda356f12 Mon Sep 17 00:00:00 2001
+From: Akashic <noreply@anthropic.com>
+Date: Sun, 25 Oct 2026 01:33:38 +0000
+Subject: [PATCH] Support Angelica 2.2.24+ font API (GL texture ids)
+
+Angelica 2.2.24 (GTNewHorizons/Angelica#2165) changed
+BatchingFontRenderer.pushDrawCmd and FontProvider.getTexture from a
+ResourceLocation to a GL texture id. With Angelica 2.2.24 or newer the
+BatchingFontRendererMixin shadow is not found, the required mixin config
+fails, BatchingFontRenderer never loads and the client crashes with
+NoClassDefFoundError in the FontRenderer constructor. The glyph and modern
+font providers would also throw AbstractMethodError.
+
+- BatchingFontRendererMixin: shadow and redirect pushDrawCmd(IIIZ)V;
+  the handler checks texture != 0 instead of != null.
+- AngelicaGlyphProvider / AngelicaModernFontProvider: getTexture returns
+  the texture's GL id (AngelicaFontCompat.textureId). Only NecroTempus'
+  own pushDrawCmd redirect sees it, so a texture that is not uploaded yet
+  returns -1 instead of being loaded.
+- AngelicaFontApiProbe: the Angelica mixin is applied only when the
+  installed Angelica has this API (read from the class file, nothing is
+  loaded), so an older Angelica no longer crashes the client.
+- Compile against Angelica 2.2.37.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RD5uoSXfPn79cVtUa14MMa
+---
+ dependencies.gradle                           |  5 +-
+ .../features/font/AngelicaFontCompat.java     | 30 +++++++++++
+ .../angelica/AngelicaGlyphProvider.java       |  7 ++-
+ .../angelica/AngelicaModernFontProvider.java  |  7 ++-
+ .../modules/mixin/AngelicaFontApiProbe.java   | 51 +++++++++++++++++++
+ .../modules/mixin/NecroTempusMixins.java      |  3 +-
+ .../angelica/BatchingFontRendererMixin.java   | 11 ++--
+ 7 files changed, 97 insertions(+), 17 deletions(-)
+ create mode 100644 src/main/java/io/github/cruciblemc/necrotempus/modules/features/font/AngelicaFontCompat.java
+ create mode 100644 src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/AngelicaFontApiProbe.java
+
+diff --git a/dependencies.gradle b/dependencies.gradle
+index 920a171..bf0e029 100644
+--- a/dependencies.gradle
++++ b/dependencies.gradle
+@@ -18,7 +18,8 @@ dependencies {
+     compileOnly deobfCurse('customnpc-plus-480951:4606060')
+     compileOnly deobfCurse('crafttweaker-239197:2838720')
+     compileOnly deobfCurse('skinport-234948:3212017')
+-    compileOnly deobfCurse("angelica-988067:8419617")
++    // 2.2.24+ font API: draw commands and FontProvider#getTexture use GL texture ids
++    compileOnly('com.github.GTNewHorizons:Angelica:2.2.37:dev') { transitive = false }
+ 
+     runtimeOnlyNonPublishable(rfg.deobf('com.github.GTNewHorizons:Hodgepodge:2.7.153'))
+     runtimeOnlyNonPublishable(rfg.deobf('com.github.GTNewHorizons:GTNHLib:0.11.30'))
+@@ -28,7 +29,7 @@ dependencies {
+     runtimeOnlyNonPublishable deobfCurse('customnpc-plus-480951:4606060')
+     runtimeOnlyNonPublishable deobfCurse('crafttweaker-239197:2838720')
+     runtimeOnlyNonPublishable deobfCurse('skinport-234948:3212017')
+-    runtimeOnlyNonPublishable deobfCurse("angelica-988067:8419617")
++    runtimeOnlyNonPublishable('com.github.GTNewHorizons:Angelica:2.2.37:dev')
+ 
+     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+diff --git a/src/main/java/io/github/cruciblemc/necrotempus/modules/features/font/AngelicaFontCompat.java b/src/main/java/io/github/cruciblemc/necrotempus/modules/features/font/AngelicaFontCompat.java
+new file mode 100644
+index 0000000..4b290cc
+--- /dev/null
++++ b/src/main/java/io/github/cruciblemc/necrotempus/modules/features/font/AngelicaFontCompat.java
+@@ -0,0 +1,30 @@
++package io.github.cruciblemc.necrotempus.modules.features.font;
++
++import net.minecraft.client.Minecraft;
++import net.minecraft.client.renderer.texture.ITextureObject;
++import net.minecraft.util.ResourceLocation;
++
++public final class AngelicaFontCompat {
++
++    /**
++     * Returned for a glyph whose texture has not been uploaded yet. Angelica only treats 0 as "untextured", and the
++     * glyph draw commands that carry this value are taken over by {@code BatchingFontRendererMixin}, so it is never
++     * bound.
++     */
++    public static final int PENDING_TEXTURE = -1;
++
++    private AngelicaFontCompat() {}
++
++    /**
++     * Angelica 2.2.24+ identifies font textures by GL id instead of {@link ResourceLocation}. This only looks the
++     * texture up: NecroTempus binds (and so loads) it itself when it renders the glyph.
++     */
++    public static int textureId(ResourceLocation location) {
++        if (location == null) return 0;
++        final ITextureObject texture = Minecraft.getMinecraft()
++            .getTextureManager()
++            .getTexture(location);
++        final int id = texture != null ? texture.getGlTextureId() : 0;
++        return id > 0 ? id : PENDING_TEXTURE;
++    }
++}
+diff --git a/src/main/java/io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider.java b/src/main/java/io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider.java
+index b9cd0a4..c1ca4c1 100644
+--- a/src/main/java/io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider.java
++++ b/src/main/java/io/github/cruciblemc/necrotempus/modules/features/glyphs/compat/angelica/AngelicaGlyphProvider.java
+@@ -1,9 +1,8 @@
+ package io.github.cruciblemc.necrotempus.modules.features.glyphs.compat.angelica;
+ 
+-import net.minecraft.util.ResourceLocation;
+-
+ import com.gtnewhorizons.angelica.client.font.FontProvider;
+ 
++import io.github.cruciblemc.necrotempus.modules.features.font.AngelicaFontCompat;
+ import io.github.cruciblemc.necrotempus.modules.features.glyphs.CustomGlyphs;
+ import io.github.cruciblemc.necrotempus.modules.features.glyphs.GlyphsRegistry;
+ import io.github.cruciblemc.necrotempus.utils.MathUtils;
+@@ -81,9 +80,9 @@ public class AngelicaGlyphProvider implements FontProvider {
+     }
+ 
+     @Override
+-    public ResourceLocation getTexture(char chr) {
++    public int getTexture(char chr) {
+         final CustomGlyphs g = glyph(chr);
+-        return g != null ? g.getResource() : null;
++        return g != null ? AngelicaFontCompat.textureId(g.getResource()) : 0;
+     }
+ 
+     @Override
+diff --git a/src/main/java/io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider.java b/src/main/java/io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider.java
+index d6ee089..cd6cf60 100644
+--- a/src/main/java/io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider.java
++++ b/src/main/java/io/github/cruciblemc/necrotempus/modules/features/modernfonts/compat/angelica/AngelicaModernFontProvider.java
+@@ -1,9 +1,8 @@
+ package io.github.cruciblemc.necrotempus.modules.features.modernfonts.compat.angelica;
+ 
+-import net.minecraft.util.ResourceLocation;
+-
+ import com.gtnewhorizons.angelica.client.font.FontProvider;
+ 
++import io.github.cruciblemc.necrotempus.modules.features.font.AngelicaFontCompat;
+ import io.github.cruciblemc.necrotempus.modules.features.modernfonts.ModernFontEntry;
+ import io.github.cruciblemc.necrotempus.modules.features.modernfonts.ModernFontSupport;
+ 
+@@ -71,9 +70,9 @@ public class AngelicaModernFontProvider implements FontProvider {
+     }
+ 
+     @Override
+-    public ResourceLocation getTexture(char chr) {
++    public int getTexture(char chr) {
+         final ModernFontEntry entry = font(chr);
+-        return entry != null ? entry.location : null;
++        return entry != null ? AngelicaFontCompat.textureId(entry.location) : 0;
+     }
+ 
+     @Override
+diff --git a/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/AngelicaFontApiProbe.java b/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/AngelicaFontApiProbe.java
+new file mode 100644
+index 0000000..ba04637
+--- /dev/null
++++ b/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/AngelicaFontApiProbe.java
+@@ -0,0 +1,51 @@
++package io.github.cruciblemc.necrotempus.modules.mixin;
++
++import java.io.IOException;
++import java.io.InputStream;
++
++import org.objectweb.asm.ClassReader;
++import org.objectweb.asm.ClassVisitor;
++import org.objectweb.asm.MethodVisitor;
++import org.objectweb.asm.Opcodes;
++
++/**
++ * Tells whether the installed Angelica has the font API {@code BatchingFontRendererMixin} is written against
++ * (Angelica 2.2.24+, where draw commands carry a GL texture id). Reads the class file only, so nothing is loaded
++ * before Mixin gets to transform it.
++ */
++public final class AngelicaFontApiProbe {
++
++    private static final String TARGET = "com/gtnewhorizons/angelica/client/font/BatchingFontRenderer.class";
++    private static final String PUSH_DRAW_CMD_DESC = "(IIIZ)V";
++
++    private static Boolean supported;
++
++    private AngelicaFontApiProbe() {}
++
++    public static synchronized boolean isSupported() {
++        if (supported == null) {
++            supported = probe();
++        }
++        return supported;
++    }
++
++    private static boolean probe() {
++        try (InputStream in = AngelicaFontApiProbe.class.getClassLoader()
++            .getResourceAsStream(TARGET)) {
++            if (in == null) return false;
++            final boolean[] found = { false };
++            new ClassReader(in).accept(new ClassVisitor(Opcodes.ASM5) {
++
++                @Override
++                public MethodVisitor visitMethod(int access, String name, String desc, String signature,
++                    String[] exceptions) {
++                    if ("pushDrawCmd".equals(name) && PUSH_DRAW_CMD_DESC.equals(desc)) found[0] = true;
++                    return null;
++                }
++            }, ClassReader.SKIP_CODE | ClassReader.SKIP_DEBUG | ClassReader.SKIP_FRAMES);
++            return found[0];
++        } catch (IOException | RuntimeException e) {
++            return false;
++        }
++    }
++}
+diff --git a/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/NecroTempusMixins.java b/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/NecroTempusMixins.java
+index 1091612..32c01cf 100644
+--- a/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/NecroTempusMixins.java
++++ b/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/NecroTempusMixins.java
+@@ -35,7 +35,8 @@ public enum NecroTempusMixins implements IMixins {
+     CUSTOM_NPCS_RENDER_NPC((new MixinBuilder()).addRequiredMod(MixinTargetedMod.CUSTOM_NPCS)
+         .addClientMixins("customnpcs.MixinRenderNPCInterface")),
+ 
+-    BATCHING_FONT_RENDERER((new MixinBuilder()).setApplyIf(() -> FontFeatureToggles.isAngelicaFontMixinEnabled())
++    BATCHING_FONT_RENDERER((new MixinBuilder())
++        .setApplyIf(() -> FontFeatureToggles.isAngelicaFontMixinEnabled() && AngelicaFontApiProbe.isSupported())
+         .addRequiredMod(MixinTargetedMod.ANGELICA)
+         .addClientMixins("angelica.BatchingFontRendererMixin")),
+ 
+diff --git a/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin.java b/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin.java
+index 52db401..fb0ba1c 100644
+--- a/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin.java
++++ b/src/main/java/io/github/cruciblemc/necrotempus/modules/mixin/mixins/angelica/BatchingFontRendererMixin.java
+@@ -7,7 +7,6 @@ import java.util.List;
+ import net.minecraft.client.Minecraft;
+ import net.minecraft.client.renderer.OpenGlHelper;
+ import net.minecraft.client.renderer.texture.TextureManager;
+-import net.minecraft.util.ResourceLocation;
+ 
+ import org.lwjgl.BufferUtils;
+ import org.lwjgl.opengl.GL11;
+@@ -47,7 +46,7 @@ public abstract class BatchingFontRendererMixin {
+         float uSz, float vSz, boolean flipV) {}
+ 
+     @Shadow
+-    private void pushDrawCmd(int startIdx, int idxCount, ResourceLocation texture, boolean isUnicode) {}
++    private void pushDrawCmd(int startIdx, int idxCount, int texture, boolean isUnicode) {}
+ 
+     @Unique
+     private boolean nt$isGlyph = false;
+@@ -213,15 +212,15 @@ public abstract class BatchingFontRendererMixin {
+         method = "drawString",
+         at = @At(
+             value = "INVOKE",
+-            target = "Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;pushDrawCmd(IILnet/minecraft/util/ResourceLocation;Z)V"))
+-    private void nt$redirectPushDrawCmd(BatchingFontRenderer self, int startIdx, int idxCount, ResourceLocation texture,
++            target = "Lcom/gtnewhorizons/angelica/client/font/BatchingFontRenderer;pushDrawCmd(IIIZ)V"))
++    private void nt$redirectPushDrawCmd(BatchingFontRenderer self, int startIdx, int idxCount, int texture,
+         boolean isUnicode) {
+-        if (this.nt$isGlyph && texture != null) {
++        if (this.nt$isGlyph && texture != 0) {
+             if (this.nt$pendingGlyphQuad != null) {
+                 this.nt$glyphQuads.add(this.nt$pendingGlyphQuad);
+                 this.nt$pendingGlyphQuad = null;
+             }
+-        } else if (this.nt$isModernFont && texture != null) {
++        } else if (this.nt$isModernFont && texture != 0) {
+             this.nt$modernFontQuads.addAll(this.nt$pendingModernFontQuads);
+             this.nt$pendingModernFontQuads.clear();
+         } else {
+-- 
+2.43.0
+
