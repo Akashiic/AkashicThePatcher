@@ -46,6 +46,7 @@ Current: `!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar`, SHA-256
 ## 4. Building
 
 * The Gradle projects in `projects/` need compile-time dependencies (Angelica, GTNHLib, UniMixins, ...) that are **not committed** (third-party). Put them in the project's `libs/` as each `build.gradle` expects. Use JDK 8-compatible output (class major <= 52) and the **`reobfJar`** artifact.
+* **CI publishes releases.** Commit the new `releases/<tag>/` JAR together with its `SHA256SUMS.txt`, `data/lineage.json` (with `tag`/`jar`) and CHANGELOG entry and push to `main`: `.github/workflows/ci.yml` verifies, then creates the tag and the GitHub Release. A lineage note starting with "do not install" makes it a pre-release. Add the new build script to the workflow's rebuild steps when it is self-contained.
 * To make a release: take the previous release JAR, replace/add the changed classes, patch version strings with `PatchThePatcherVersion.java`, build twice and compare SHA-256, then run the gates listed in [ARCHITECTURE.md](ARCHITECTURE.md) section 5. Examples of the whole procedure scripted: `versions/*beta34*/tools/beta34-final-build.py` and the beta.4 `Overlay.java`.
 * **Never** edit a release JAR by hand without recording the hash change in `data/` and a changelog entry.
 

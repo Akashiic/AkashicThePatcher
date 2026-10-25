@@ -49,4 +49,6 @@ The newest, `!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar` (SHA-
 ```
 sha256sum -c releases/SHA256SUMS.txt      # run from the repository root; on Windows: certutil -hashfile <jar> SHA256
 ```
-Every other file's expected hash is in `data/manifest.tsv`. Two files under `versions/...beta.9-MPS-Angelica/` were moved to a shorter directory so the repository clones on Windows; see `data/relocated.tsv`.
+Every other file's expected hash is in `data/manifest.tsv` (`python3 tools/ci/check_manifest.py` checks them all).
+
+**CI (GitHub Actions, `.github/workflows/ci.yml`):** every push checks both, downloads the hash-pinned third-party inputs (`tools/ci/fetch_build_libs.sh`) and rebuilds beta.38 and beta.39 from scratch, comparing them byte for byte with the committed JARs. On `main` it then publishes a GitHub Release for every `releases/<tag>/` folder that has none (`tools/ci/publish_releases.py`): tag on the commit that added the JAR, notes from the CHANGELOG. Two files under `versions/...beta.9-MPS-Angelica/` were moved to a shorter directory so the repository clones on Windows; see `data/relocated.tsv`.
