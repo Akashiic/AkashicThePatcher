@@ -11,7 +11,7 @@ GTNH=https://nexus.gtnewhorizons.com/repository/public/com/github/GTNewHorizons
 while read -r name sha url; do
   [ -z "$name" ] && continue
   if [ ! -f "$DIR/$name" ] || ! echo "$sha  $DIR/$name" | sha256sum -c --status; then
-    curl -fsSL --retry 4 --retry-delay 3 -o "$DIR/$name" "$url" || { echo "download failed: $url" >&2; exit 1; }
+    curl -fsSL -A fetch-build-libs --retry 4 --retry-delay 3 -o "$DIR/$name" "$url" || { echo "download failed: $url" >&2; exit 1; }
   fi
   echo "$sha  $DIR/$name" | sha256sum -c --quiet
 done <<LIST
@@ -31,5 +31,7 @@ angelica-2.2.18.jar 563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f1
 necrotempus-2.0.0.jar d220dad5f270b99fd6ad8a42dcdb1d092eb97412f5c4d888aa072ea3fecc374c https://github.com/CrucibleMC/NecroTempus/releases/download/v2.0.0/necrotempus-2.0.0.jar
 necrotempus-2.1.0.jar a34a021fb88a4d3ef1806a9304e1a507ee1535e0e8203d1f5ef43bac4b842b9a https://github.com/CrucibleMC/NecroTempus/releases/download/v2.1.0/necrotempus-v2.1.0.jar
 +unimixins-all-1.7.10-0.3.1.jar ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318 https://github.com/LegacyModdingMC/UniMixins/releases/download/0.3.1/+unimixins-all-1.7.10-0.3.1.jar
+asm-commons-9.7.jar 389bc247958e049fc9a0408d398c92c6d370c18035120395d4cba1d9d9304b7a $CENTRAL/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar
+mcp_stable-12-1.7.10.zip 83d303a80071582cd07d41b35aa77c178d609a27c69c8472b794636eb50905b0 https://maven.minecraftforge.net/de/oceanlabs/mcp/mcp_stable/12-1.7.10/mcp_stable-12-1.7.10.zip
 LIST
 echo "FETCH_BUILD_LIBS OK $(ls "$DIR" | wc -l) files in $DIR"

@@ -1283,7 +1283,9 @@ versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/beta39-bu
 versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client/run.sh	claude-code session 2026-10-25	1598	07115194b6f8afed110fc50d710ccc085c68a099660d6acb786ca318d2a5ecc4
 versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client/setup.py	claude-code session 2026-10-25	4449	72177a8eb4d8341132443757d39d754162e46c5804e9ebc4bb46ef75d5c3b3ae
 releases/v1.1.0-beta.39-AngelicaFontMixinTrust/!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/beta39-build.py	335978	8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd
-.github/workflows/ci.yml	claude-code session 2026-10-25	3287	639a47b1194fafe1d8640dd45b671ae90784b542115e734b1c231c37f33582fe
+.github/workflows/ci.yml	claude-code session 2026-10-25	4643	1ec83b5e961690fb26c6ebf34b75ec48793762297693dc45d0b35789aa01edac
+tools/ci/DevJar.java	claude-code session 2026-10-25	4544	f2f00d7f3bb7596afc04cff6a0363d0f10cc4765920d88b0199fb7bf3d054148
 tools/ci/check_manifest.py	claude-code session 2026-10-25	1481	fcfd2cb57114e18e2e89af4f5cc1350e2818fe34dc33c48af0877191cf09a64b
-tools/ci/fetch_build_libs.sh	claude-code session 2026-10-25	3290	3fea8e57df319095ece6a01ceceaaee6a325769c59bbd2a0b3a9644d4e91d469
+tools/ci/fetch_build_libs.sh	claude-code session 2026-10-25	3638	47b199ec11241c6b5582ef96f6c69954fc43c658ab496565342f54dd74c74ebb
+tools/ci/make_artifacts.py	claude-code session 2026-10-25	7129	35ea8093e02c0b57b16c0897e88cb2b90f3af25519be69834a7ae0e5c13342cc
 tools/ci/publish_releases.py	claude-code session 2026-10-25	5207	583ef3a736918bb0f7a43f82e0a0013f4e8c375db63d13733170cf7f49464e0f

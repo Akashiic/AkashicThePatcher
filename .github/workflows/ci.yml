@@ -2,7 +2,9 @@ name: CI
 
 # verify: on every push and pull request - release checksums, data/manifest.tsv, and a from-scratch
 #         rebuild of the newest builds that have a self-contained build script (beta.38, beta.39),
-#         compared byte for byte with the JARs committed under releases/.
+#         compared byte for byte with the JARs committed under releases/. Then uploads, as four separate
+#         un-zipped artifacts (archive: false), the newest build's JAR, -dev JAR (MCP names), -sources JAR
+#         and SHA256SUMS.txt (tools/ci/make_artifacts.py).
 # release: on main only, after verify - publishes a GitHub Release (tag on the commit that added the JAR)
 #          for every releases/<tag>/ folder that has none yet. See tools/ci/publish_releases.py.
 
@@ -66,13 +68,41 @@ jobs:
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta39.jar" --report "$RUNNER_TEMP/beta39-audit.json"
           cmp "$RUNNER_TEMP/beta39.jar" "releases/v1.1.0-beta.39-AngelicaFontMixinTrust/!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar"
 
-      - name: Upload build audits
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
+        run: |
+          python3 tools/ci/make_artifacts.py --libs ~/thepatcher-libs --java "${{ steps.jdk21.outputs.path }}" \
+            --out "$RUNNER_TEMP/artifacts"
+          cd "$RUNNER_TEMP/artifacts" && sha256sum -c SHA256SUMS.txt
+          echo "STEM=$(basename "$(ls *-dev.jar)" -dev.jar)" >> "$GITHUB_ENV"
+
+      # One artifact per file, uploaded as-is (archive: false): each one downloads as the file itself, not a zip.
+      - name: Artifact - jar
+        uses: actions/upload-artifact@v7
         with:
-          name: build-audits
-          path: ${{ runner.temp }}/*-audit.json
-          if-no-files-found: ignore
+          path: ${{ runner.temp }}/artifacts/${{ env.STEM }}.jar
+          archive: false
+          if-no-files-found: error
+
+      - name: Artifact - dev jar
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ runner.temp }}/artifacts/${{ env.STEM }}-dev.jar
+          archive: false
+          if-no-files-found: error
+
+      - name: Artifact - sources jar
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ runner.temp }}/artifacts/${{ env.STEM }}-sources.jar
+          archive: false
+          if-no-files-found: error
+
+      - name: Artifact - checksums
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ runner.temp }}/artifacts/SHA256SUMS.txt
+          archive: false
+          if-no-files-found: error
 
   release:
     needs: verify
