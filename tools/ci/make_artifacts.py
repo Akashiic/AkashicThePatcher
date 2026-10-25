@@ -98,7 +98,8 @@ def main():
         for name in entry.get("changed", []) + entry.get("added", []):
             origin[name] = entry["id"]
     candidates = {}
-    for java_file in list((ROOT / "versions").rglob("*.java")) + list((ROOT / "projects").rglob("*.java")):
+    # sorted: rglob order depends on the file system, and the choice below must not
+    for java_file in sorted(list((ROOT / "versions").rglob("*.java")) + list((ROOT / "projects").rglob("*.java"))):
         parts = set(java_file.relative_to(ROOT).parts)
         if parts & {"test", "tests", "tools", "runs", "stubs"} or "/src/test/" in str(java_file):
             continue
