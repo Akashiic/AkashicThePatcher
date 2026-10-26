@@ -125,6 +125,18 @@ jobs:
           archive: false
           if-no-files-found: error
 
+      # The elytra fix (Et Futurum x ChromatiCraft x PlayerAPI) as its own coremod JAR; beta.42's folded-in copy
+      # arms before ChromatiCraft registers its transformer, so this JAR is still needed next to beta.42.
+      - name: Artifact - Akashic-ChromaPlayerApiPreloadFix jar
+        run: cd projects/Akashic-ChromaPlayerApiPreloadFix/dist && sha256sum -c SHA256SUMS.txt
+
+      - name: Artifact - Akashic-ChromaPlayerApiPreloadFix jar (upload)
+        uses: actions/upload-artifact@v7
+        with:
+          path: projects/Akashic-ChromaPlayerApiPreloadFix/dist/Akashic-ChromaPlayerApiPreloadFix-1.0.0.jar
+          archive: false
+          if-no-files-found: error
+
   release:
     needs: verify
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
