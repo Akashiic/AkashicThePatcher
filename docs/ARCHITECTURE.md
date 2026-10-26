@@ -37,6 +37,9 @@ Source coverage of the beta.34 jar: 30 of 104 top-level classes have sources on 
 | `akashic.dragonApiResourcePack.disable` [false] | DragonAPI: stop skipping resource packs that are not `AbstractResourcePack` | beta.41 |
 | `akashic.crashRecoveryBridge.disable` [false] | CoreTweaks crash recovery: stop resetting Angelica/Iris render state | beta.41 |
 | `akashic.crashRecoveryBridge.angelicaReset` [true] | CoreTweaks crash recovery: also run Angelica's `RenderRecovery.resetAfterCrash()` | beta.41 |
+| `akashic.miraiShaderBridge.disable` [false] | Mirai x Angelica shaders: stop pointing Angelica's DH probe at Mirai's coremod and drawing the deferred translucent LODs | beta.42 |
+| `akashic.angelicaShaderPackFolders.disable` [false] | Angelica: stop stripping the trailing `/` of `world0/` folder names in `.zip` shader packs (Java 8) | beta.42 |
+| `akashic.chromaPlayerApiPreload.disable` [false] | ChromatiCraft x PlayerAPI: stop holding back `ENTITYPUSHOUT` from Mixin's `EntityPlayerSP` pre-read (Et Futurum elytra) | beta.42 (standalone jar 1.0.0 before) |
 | `akashic.blocksAtlasBatch` [true] | batch the blocks atlas GL upload | beta.30 |
 | `akashic.forceOpaqueTerrainBlendOff` [true] | force `GL_BLEND` off on opaque terrain | beta.25 |
 | `akashic.terrainVertexAlphaProbe` | vertex-alpha telemetry | beta.25 |

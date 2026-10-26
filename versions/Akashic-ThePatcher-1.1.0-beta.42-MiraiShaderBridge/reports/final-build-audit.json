@@ -1,0 +1,326 @@
+{
+  "version": "1.1.0-beta.42",
+  "base": {
+    "path": "releases/v1.1.0-beta.41-RenderCrashRecovery/!Akashic-ThePatcher-1.1.0-beta.41-RenderCrashRecovery.jar",
+    "sha256": "8d7fddf3f2b00d3d97e5480dc3538e53a9b969fda745b99ec17edce7f52a4f6e"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar",
+    "sha256": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
+    "bytes": 364197
+  },
+  "deterministic_rebuild": "PASS",
+  "real_mirai_gates": "PASS (Mirai 0.1.19 481d6f7b0f175465b00b278c37837cf65d7af90b3ba6d065c65819bf647986ea)",
+  "third_party_sha256": {
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "angelica-2.2.23.jar": "a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0",
+    "angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 173,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.class",
+    "com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderTransformer.class",
+    "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$1.class",
+    "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$Hide.class",
+    "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$Restore.class",
+    "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix.class",
+    "com/akashic/thepatcher/module/mirai/MiraiShaderBridgeHooks.class",
+    "com/akashic/thepatcher/module/mirai/MiraiShaderBridgeTransformer.class"
+  ],
+  "inherited_identical": 161,
+  "lineage_composition": {
+    "steps": [
+      {
+        "build": "1.1.0-beta.38",
+        "added": [
+          "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontHooks.class",
+          "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.39",
+        "added": [],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.40",
+        "added": [
+          "dev/akashic/asynciconcompat/upload/ItemsAtlasAngelicaGuard.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.41",
+        "added": [
+          "com/akashic/thepatcher/module/crashrecovery/AngelicaCrashRecoveryHooks.class",
+          "com/akashic/thepatcher/module/crashrecovery/CoreTweaksCrashRecoveryTransformer.class",
+          "com/akashic/thepatcher/module/dragonapi/DragonApiResourcePackHooks.class",
+          "com/akashic/thepatcher/module/dragonapi/DragonApiResourcePackTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.42",
+        "added": [
+          "com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.class",
+          "com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderTransformer.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$1.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$Hide.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$Restore.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix.class",
+          "com/akashic/thepatcher/module/mirai/MiraiShaderBridgeHooks.class",
+          "com/akashic/thepatcher/module/mirai/MiraiShaderBridgeTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "mcmod.info"
+        ]
+      }
+    ],
+    "carried_entries": 21,
+    "result": "every entry added or changed by beta.38..beta.42 is in beta.42 as its newest version"
+  },
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;, 1 injectData(Ljava/util/Map;)V]",
+  "registration.beta41.CLIENT": "REGISTRATION side=CLIENT count=20 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer]",
+  "registration.beta41.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "registration.beta42.CLIENT": "REGISTRATION side=CLIENT count=22 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer]",
+  "registration.beta42.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "mirai_bridge.beta42": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge armed: Angelica's Distant Horizons shader support will accept com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin (no com.seibel.distanthorizons.DistantHorizonsTweaker in this DH build).",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.Iris now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.Iris changed=true",
+    "A   net/coderbot/iris/Iris.onRenderSystemInit()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.compat.dh.DHCompat now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=true",
+    "A   net/coderbot/iris/compat/dh/DHCompat.run()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal now draws the deferred (translucent) LODs after enableLightmap in sortAndRender pass 1.",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=true",
+    "A   handler akashic$renderDeferredLodsDuringTranslucentSetup @Inject(method=[sortAndRender], at=[@At(value=INVOKE, target=Lnet/minecraft/client/renderer/EntityRenderer;func_78463_b(D)V, shift=AFTER)], require=0)",
+    "MIRAI_BRIDGE_GATE PASS expect=patched"
+  ],
+  "mirai_bridge.beta41": [
+    "A transformer not in the jar under test",
+    "A net.coderbot.iris.Iris changed=false",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=false",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=false",
+    "MIRAI_BRIDGE_GATE PASS expect=untouched"
+  ],
+  "mirai_bridge.beta42.disabled": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge off: disabled by -Dakashic.miraiShaderBridge.disable=true.",
+    "A net.coderbot.iris.Iris changed=false",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=false",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=false",
+    "MIRAI_BRIDGE_GATE PASS expect=untouched"
+  ],
+  "mirai_bridge.beta42.server": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge off: not a client.",
+    "A net.coderbot.iris.Iris changed=false",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=false",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=false",
+    "MIRAI_BRIDGE_GATE PASS expect=untouched"
+  ],
+  "mirai_bridge.beta42.no-mirai": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge off: Akashic: Horizons of The Mirai is not installed (com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin missing).",
+    "A net.coderbot.iris.Iris changed=false",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=false",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal absent",
+    "MIRAI_BRIDGE_GATE PASS expect=untouched"
+  ],
+  "mirai_bridge.beta42.upstream-tweaker": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge off: com.seibel.distanthorizons.DistantHorizonsTweaker is present, Angelica detects this Distant Horizons by itself.",
+    "A net.coderbot.iris.Iris changed=false",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=false",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=false",
+    "MIRAI_BRIDGE_GATE PASS expect=untouched"
+  ],
+  "mirai_bridge.beta42.no-angelica": [
+    "A net.coderbot.iris.Iris absent",
+    "A net.coderbot.iris.compat.dh.DHCompat absent",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge off: Angelica with Distant Horizons shader support is not installed (net.coderbot.iris.Iris missing).",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=false",
+    "MIRAI_BRIDGE_GATE PASS expect=untouched"
+  ],
+  "mirai_bridge.beta42.angelica-2.2.23": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge armed: Angelica's Distant Horizons shader support will accept com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin (no com.seibel.distanthorizons.DistantHorizonsTweaker in this DH build).",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.Iris now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.Iris changed=true",
+    "A   net/coderbot/iris/Iris.onRenderSystemInit()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.compat.dh.DHCompat now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=true",
+    "A   net/coderbot/iris/compat/dh/DHCompat.run()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal now draws the deferred (translucent) LODs after enableLightmap in sortAndRender pass 1.",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=true",
+    "A   handler akashic$renderDeferredLodsDuringTranslucentSetup @Inject(method=[sortAndRender], at=[@At(value=INVOKE, target=Lnet/minecraft/client/renderer/EntityRenderer;func_78463_b(D)V, shift=AFTER)], require=0)",
+    "MIRAI_BRIDGE_GATE PASS expect=patched"
+  ],
+  "mirai_bridge.beta42.angelica-2.2.18": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge armed: Angelica's Distant Horizons shader support will accept com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin (no com.seibel.distanthorizons.DistantHorizonsTweaker in this DH build).",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.Iris now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.Iris changed=true",
+    "A   net/coderbot/iris/Iris.onRenderSystemInit()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.compat.dh.DHCompat now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=true",
+    "A   net/coderbot/iris/compat/dh/DHCompat.run()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal now draws the deferred (translucent) LODs after enableLightmap in sortAndRender pass 1.",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=true",
+    "A   handler akashic$renderDeferredLodsDuringTranslucentSetup @Inject(method=[sortAndRender], at=[@At(value=INVOKE, target=Lnet/minecraft/client/renderer/EntityRenderer;func_78463_b(D)V, shift=AFTER)], require=0)",
+    "MIRAI_BRIDGE_GATE PASS expect=patched"
+  ],
+  "mirai_bridge.beta42.real-mirai-0.1.19": [
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge armed: Angelica's Distant Horizons shader support will accept com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin (no com.seibel.distanthorizons.DistantHorizonsTweaker in this DH build).",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.Iris now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.Iris changed=true",
+    "A   net/coderbot/iris/Iris.onRenderSystemInit()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: net.coderbot.iris.compat.dh.DHCompat now detects Distant Horizons through com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin.",
+    "A net.coderbot.iris.compat.dh.DHCompat changed=true",
+    "A   net/coderbot/iris/compat/dh/DHCompat.run()V: LDC com.seibel.distanthorizons.DistantHorizonsTweaker -> com.seibel.distanthorizons.forge17.DistantHorizonsLoadingPlugin",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge applied: com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal now draws the deferred (translucent) LODs after enableLightmap in sortAndRender pass 1.",
+    "A com.seibel.distanthorizons.forge17.mixin.MixinRenderGlobal changed=true",
+    "A   handler akashic$renderDeferredLodsDuringTranslucentSetup @Inject(method=[sortAndRender], at=[@At(value=INVOKE, target=Lnet/minecraft/client/renderer/EntityRenderer;func_78463_b(D)V, shift=AFTER)], require=0)",
+    "MIRAI_BRIDGE_GATE PASS expect=patched"
+  ],
+  "hooks": [
+    "A proxy=false defer=false pass=1 deferredCalls=0",
+    "A proxy=true defer=false pass=0 deferredCalls=0",
+    "A proxy=true defer=false pass=1 deferredCalls=0",
+    "A proxy=true defer=true pass=0 deferredCalls=0",
+    "[Akashic-ThePatcher] Mirai x Angelica shader bridge: first deferred translucent LOD pass (the shaderpack's DH water program draws the distant translucent terrain).",
+    "A proxy=true defer=true pass=1 deferredCalls=1",
+    "A proxy=true defer=true pass=1 deferredCalls=2",
+    "A proxy=true defer=false pass=1 deferredCalls=2",
+    "A proxy=false defer=true pass=1 deferredCalls=2",
+    "HOOKS_GATE PASS"
+  ],
+  "link.hooks_to_real_mirai_0.1.19": [
+    "A ok      F com/seibel/distanthorizons/api/DhApi$Delayed.renderProxy:Lcom/seibel/distanthorizons/api/interfaces/render/IDhApiRenderProxy;",
+    "A ok      M com/seibel/distanthorizons/api/interfaces/render/IDhApiRenderProxy.getDeferTransparentRendering()Z",
+    "A ok      M com/seibel/distanthorizons/forge17/RenderHelper.renderDeferredLods()V",
+    "LINK_GATE PASS refs=3"
+  ],
+  "link.angelica-2.2.18_to_real_mirai_0.1.19": [
+    "LINK_GATE PASS refs=67"
+  ],
+  "link.angelica-2.2.23_to_real_mirai_0.1.19": [
+    "LINK_GATE PASS refs=67"
+  ],
+  "link.angelica-2.2.37_to_real_mirai_0.1.19": [
+    "LINK_GATE PASS refs=67"
+  ],
+  "angelica_zip_folders.beta42.java8": [
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 1.8.",
+    "A angelica-2.2.18.jar ShaderPack changed=true [java/nio/file/Path.toString()Ljava/lang/String; -> com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.folderName(Ljava/nio/file/Path;)Ljava/lang/String;]",
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 1.8.",
+    "A angelica-2.2.23.jar ShaderPack changed=true [java/nio/file/Path.toString()Ljava/lang/String; -> com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.folderName(Ljava/nio/file/Path;)Ljava/lang/String;]",
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 1.8.",
+    "A angelica-2.2.37.jar ShaderPack changed=true [java/nio/file/Path.toString()Ljava/lang/String; -> com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.folderName(Ljava/nio/file/Path;)Ljava/lang/String;]",
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 1.8.",
+    "A Java 1.8 zip pack folders found=[world-1, world0, world1] (shape changed=true)",
+    "FOLDER_GATE PASS expect=fixed java=1.8"
+  ],
+  "angelica_zip_folders.beta41.java8": [
+    "A transformer not in the jar under test",
+    "A angelica-2.2.18.jar ShaderPack changed=false []",
+    "A angelica-2.2.23.jar ShaderPack changed=false []",
+    "A angelica-2.2.37.jar ShaderPack changed=false []",
+    "A Java 1.8 zip pack folders found=[] (shape changed=false)",
+    "FOLDER_GATE PASS expect=broken java=1.8"
+  ],
+  "angelica_zip_folders.beta42.java8.disabled": [
+    "[Akashic-ThePatcher] Angelica shader pack folder fix DISABLED by -Dakashic.angelicaShaderPackFolders.disable=true.",
+    "A angelica-2.2.18.jar ShaderPack changed=false []",
+    "A angelica-2.2.23.jar ShaderPack changed=false []",
+    "A angelica-2.2.37.jar ShaderPack changed=false []",
+    "A Java 1.8 zip pack folders found=[] (shape changed=false)",
+    "FOLDER_GATE PASS expect=broken java=1.8"
+  ],
+  "angelica_zip_folders.beta42.java8.server": [
+    "A angelica-2.2.18.jar ShaderPack changed=false []",
+    "A angelica-2.2.23.jar ShaderPack changed=false []",
+    "A angelica-2.2.37.jar ShaderPack changed=false []",
+    "A Java 1.8 zip pack folders found=[] (shape changed=false)",
+    "FOLDER_GATE PASS expect=broken java=1.8"
+  ],
+  "angelica_zip_folders.beta42.java21": [
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 21.",
+    "A angelica-2.2.18.jar ShaderPack changed=true [java/nio/file/Path.toString()Ljava/lang/String; -> com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.folderName(Ljava/nio/file/Path;)Ljava/lang/String;]",
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 21.",
+    "A angelica-2.2.23.jar ShaderPack changed=true [java/nio/file/Path.toString()Ljava/lang/String; -> com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.folderName(Ljava/nio/file/Path;)Ljava/lang/String;]",
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 21.",
+    "A angelica-2.2.37.jar ShaderPack changed=true [java/nio/file/Path.toString()Ljava/lang/String; -> com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.folderName(Ljava/nio/file/Path;)Ljava/lang/String;]",
+    "[Akashic-ThePatcher] Angelica shader pack folder fix applied: net.coderbot.iris.shaderpack.ShaderPack now finds world0/ world-1/ world1/ folders inside .zip shader packs on Java 21.",
+    "A Java 21 zip pack folders found=[world-1, world0, world1] (shape changed=true)",
+    "FOLDER_GATE PASS expect=fixed java=21"
+  ],
+  "angelica_zip_folders.beta41.java21": [
+    "A transformer not in the jar under test",
+    "A angelica-2.2.18.jar ShaderPack changed=false []",
+    "A angelica-2.2.23.jar ShaderPack changed=false []",
+    "A angelica-2.2.37.jar ShaderPack changed=false []",
+    "A Java 21 zip pack folders found=[world-1, world0, world1] (shape changed=false)",
+    "FOLDER_GATE PASS expect=broken java=21"
+  ],
+  "chroma.beta42": [
+    "[Akashic-ThePatcher] ChromaPlayerApiPreload fix armed around Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor (index 1)",
+    "A list before=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after] after=[before, com.akashic.thepatcher.module.chroma.ChromaPlayerApiPreloadFix$Hide, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, com.akashic.thepatcher.module.chroma.ChromaPlayerApiPreloadFix$Restore, after]",
+    "[Akashic-ThePatcher] ChromaPlayerApiPreload fix held back ChromatiCraft ENTITYPUSHOUT from EntityPlayerSP bytes without PlayerAPI's localPushOutOfBlocks (Mixin pre-read); it stays pending for the real class load",
+    "A pre-read (no PlayerAPI body): passed; ENTITYPUSHOUT pending=true",
+    "A real load (with PlayerAPI body): applied=1 pending=false",
+    "CHROMA_GATE PASS expect=fixed"
+  ],
+  "chroma.beta41": [
+    "A fix not in the jar under test",
+    "A list before=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after] after=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after]",
+    "A pre-read (no PlayerAPI body): threw java.lang.IllegalStateException: NoSuchASMMethodException: Method localPushOutOfBlocks (DDD)Z not found in class net.minecraft.client.entity.EntityPlayerSP; ENTITYPUSHOUT pending=true",
+    "CHROMA_GATE PASS expect=broken"
+  ],
+  "chroma.beta42.disabled": [
+    "[Akashic-ThePatcher] ChromaPlayerApiPreload fix disabled by -Dakashic.chromaPlayerApiPreload.disable=true",
+    "A list before=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after] after=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after]",
+    "A pre-read (no PlayerAPI body): threw java.lang.IllegalStateException: NoSuchASMMethodException: Method localPushOutOfBlocks (DDD)Z not found in class net.minecraft.client.entity.EntityPlayerSP; ENTITYPUSHOUT pending=true",
+    "CHROMA_GATE PASS expect=broken"
+  ],
+  "chroma.beta42.server": [
+    "A list before=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after] after=[before, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after]",
+    "A pre-read (no PlayerAPI body): threw java.lang.IllegalStateException: NoSuchASMMethodException: Method localPushOutOfBlocks (DDD)Z not found in class net.minecraft.client.entity.EntityPlayerSP; ENTITYPUSHOUT pending=true",
+    "CHROMA_GATE PASS expect=broken"
+  ],
+  "chroma.beta42.standalone-jar-armed": [
+    "[Akashic-ThePatcher] ChromaPlayerApiPreload fix: the standalone Akashic-ChromaPlayerApiPreloadFix jar is armed; ThePatcher's copy stays off (remove the standalone jar, ThePatcher includes it).",
+    "A list before=[before, com.akashic.chromaplayerapifix.ChromaPlayerApiPreloadFixPlugin$Hide, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after] after=[before, com.akashic.chromaplayerapifix.ChromaPlayerApiPreloadFixPlugin$Hide, Reika.ChromatiCraft.Auxiliary.ChromaASMHandler$ASMExecutor, after]",
+    "A pre-read (no PlayerAPI body): threw java.lang.IllegalStateException: NoSuchASMMethodException: Method localPushOutOfBlocks (DDD)Z not found in class net.minecraft.client.entity.EntityPlayerSP; ENTITYPUSHOUT pending=true",
+    "CHROMA_GATE PASS expect=standalone"
+  ]
+}

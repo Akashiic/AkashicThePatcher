@@ -1,7 +1,7 @@
 name: CI
 
 # verify: on every push and pull request - release checksums, data/manifest.tsv, and a from-scratch
-#         rebuild of the newest builds that have a self-contained build script (beta.38 to beta.41),
+#         rebuild of the newest builds that have a self-contained build script (beta.38 to beta.42),
 #         compared byte for byte with the JARs committed under releases/. Then uploads, as four separate
 #         un-zipped artifacts (archive: false), the newest build's JAR, -dev JAR (MCP names), -sources JAR
 #         and SHA256SUMS.txt (tools/ci/make_artifacts.py).
@@ -81,6 +81,13 @@ jobs:
             --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta41.jar" --report "$RUNNER_TEMP/beta41-audit.json"
           cmp "$RUNNER_TEMP/beta41.jar" "releases/v1.1.0-beta.41-RenderCrashRecovery/!Akashic-ThePatcher-1.1.0-beta.41-RenderCrashRecovery.jar"
+
+      - name: Rebuild beta.42 and compare
+        run: |
+          python3 versions/Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge/tools/beta42-build.py \
+            --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
+            --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta42.jar" --report "$RUNNER_TEMP/beta42-audit.json"
+          cmp "$RUNNER_TEMP/beta42.jar" "releases/v1.1.0-beta.42-MiraiShaderBridge/!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar"
 
       - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
         run: |

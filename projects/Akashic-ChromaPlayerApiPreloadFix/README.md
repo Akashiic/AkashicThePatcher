@@ -1,7 +1,12 @@
 # Akashic-ChromaPlayerApiPreloadFix
 
 Small client/server coremod that makes the **Et Futurum Requiem elytra take off again** in the TEOF 4.0 pack.
-It is a separate JAR (like the other `Akashic-*-Fix` mods in the pack), not part of ThePatcher.
+
+> **Since ThePatcher 1.1.0-beta.42 this fix is part of ThePatcher** (`com.akashic.thepatcher.module.chroma.ChromaPlayerApiPreloadFix`,
+> same logic, same kill-switch). Do not install this JAR next to beta.42+; if both are present, ThePatcher's copy stays off.
+> This folder is kept as the record of the 1.0.0 JAR and its verification.
+
+It was a separate JAR (like the other `Akashic-*-Fix` mods in the pack), not part of ThePatcher, until beta.42.
 
 ## Symptom
 
