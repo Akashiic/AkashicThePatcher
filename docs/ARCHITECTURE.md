@@ -34,6 +34,9 @@ Source coverage of the beta.34 jar: 30 of 104 top-level classes have sources on 
 | `akashic.stitchLayoutCache` [true] | persistent Stitcher geometry cache | beta.13 |
 | `akashic.itemsAtlasBatch` [true] | batch the items atlas GL upload | beta.18 |
 | `akashic.itemsAtlasBatch.guard` [true] | items batch: stay off with Angelica's `AtlasAssembler`, skip a flush with nothing cancelled | beta.40 |
+| `akashic.dragonApiResourcePack.disable` [false] | DragonAPI: stop skipping resource packs that are not `AbstractResourcePack` | beta.41 |
+| `akashic.crashRecoveryBridge.disable` [false] | CoreTweaks crash recovery: stop resetting Angelica/Iris render state | beta.41 |
+| `akashic.crashRecoveryBridge.angelicaReset` [true] | CoreTweaks crash recovery: also run Angelica's `RenderRecovery.resetAfterCrash()` | beta.41 |
 | `akashic.blocksAtlasBatch` [true] | batch the blocks atlas GL upload | beta.30 |
 | `akashic.forceOpaqueTerrainBlendOff` [true] | force `GL_BLEND` off on opaque terrain | beta.25 |
 | `akashic.terrainVertexAlphaProbe` | vertex-alpha telemetry | beta.25 |

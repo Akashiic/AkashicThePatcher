@@ -33,5 +33,7 @@ necrotempus-2.1.0.jar a34a021fb88a4d3ef1806a9304e1a507ee1535e0e8203d1f5ef43bac4b
 +unimixins-all-1.7.10-0.3.1.jar ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318 https://github.com/LegacyModdingMC/UniMixins/releases/download/0.3.1/+unimixins-all-1.7.10-0.3.1.jar
 asm-commons-9.7.jar 389bc247958e049fc9a0408d398c92c6d370c18035120395d4cba1d9d9304b7a $CENTRAL/org/ow2/asm/asm-commons/9.7/asm-commons-9.7.jar
 mcp_stable-12-1.7.10.zip 83d303a80071582cd07d41b35aa77c178d609a27c69c8472b794636eb50905b0 https://maven.minecraftforge.net/de/oceanlabs/mcp/mcp_stable/12-1.7.10/mcp_stable-12-1.7.10.zip
+coretweaks-0.3.4.7-GTNH.jar 89c117aeee723df3a31d8d341626e7d080b78e50e23564c889e59b198f9bde9b $GTNH/CoreTweaks/0.3.4.7-GTNH/CoreTweaks-0.3.4.7-GTNH.jar
+fastutil-core-8.5.12.jar f31c20f5b06312f3d5e06e6160a32e274d819aa6cebf27528b26b6b5c0c1df19 $CENTRAL/it/unimi/dsi/fastutil-core/8.5.12/fastutil-core-8.5.12.jar
 LIST
 echo "FETCH_BUILD_LIBS OK $(ls "$DIR" | wc -l) files in $DIR"

@@ -1,7 +1,7 @@
 name: CI
 
 # verify: on every push and pull request - release checksums, data/manifest.tsv, and a from-scratch
-#         rebuild of the newest builds that have a self-contained build script (beta.38, beta.39, beta.40),
+#         rebuild of the newest builds that have a self-contained build script (beta.38 to beta.41),
 #         compared byte for byte with the JARs committed under releases/. Then uploads, as four separate
 #         un-zipped artifacts (archive: false), the newest build's JAR, -dev JAR (MCP names), -sources JAR
 #         and SHA256SUMS.txt (tools/ci/make_artifacts.py).
@@ -74,6 +74,13 @@ jobs:
             --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta40.jar" --report "$RUNNER_TEMP/beta40-audit.json"
           cmp "$RUNNER_TEMP/beta40.jar" "releases/v1.1.0-beta.40-ItemsAtlasAngelicaGuard/!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar"
+
+      - name: Rebuild beta.41 and compare
+        run: |
+          python3 versions/Akashic-ThePatcher-1.1.0-beta.41-RenderCrashRecovery/tools/beta41-build.py \
+            --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
+            --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta41.jar" --report "$RUNNER_TEMP/beta41-audit.json"
+          cmp "$RUNNER_TEMP/beta41.jar" "releases/v1.1.0-beta.41-RenderCrashRecovery/!Akashic-ThePatcher-1.1.0-beta.41-RenderCrashRecovery.jar"
 
       - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
         run: |

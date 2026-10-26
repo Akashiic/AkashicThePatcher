@@ -23,7 +23,7 @@ Written 2026-10-24 from a filesystem snapshot. Read [HISTORY.md](HISTORY.md) fir
 3. Keep the previous JAR somewhere as rollback (every checkpoint lists its rollback set).
 4. Start, then read `logs/latest.log` for the lines listed under the build's "acceptance gates" in the CHANGELOG / its checkpoint.
 
-Current: `!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar`, SHA-256 `242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2`. (beta.38 must not be installed: see the CHANGELOG.)
+Current: `!Akashic-ThePatcher-1.1.0-beta.41-RenderCrashRecovery.jar`, SHA-256 `8d7fddf3f2b00d3d97e5480dc3538e53a9b969fda745b99ec17edce7f52a4f6e`. (beta.38 must not be installed: see the CHANGELOG.)
 
 ## 3. Pack-side requirements that are NOT in the JAR
 
@@ -41,6 +41,8 @@ Current: `!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar`, SHA-25
   The author delivered them through the **modpack's `version.json` `arguments.jvm`** (not the user launcher settings) with `investigations/forestry-versionjson-packfix/`. Every launcher setting file in the original folders contained a client id and server address, so none is committed - recreate yours.
 * **Angelica 2.2.24+ and NecroTempus.** Since **beta.38** (working from **beta.39**, which is trusted by UniMixins' Mixingasm) ThePatcher rewrites NecroTempus' Angelica font mixin and providers at load time when the installed Angelica uses GL texture ids (2.2.24+). Logs: `NecroTempus Angelica font fix armed` / `... applied`. Kill-switch: `-Dakashic.necroTempusAngelicaFont.disable=true`; if you use it with Angelica 2.2.24+, set `angelicaGlyphsIntegration=false` and `angelicaModernFontsIntegration=false` in NecroTempus' config (category `Angelica`) or the client crashes at start-up. A NecroTempus release with the source fix in `versions/*beta.38*/necrotempus-source-fix/` makes the patch a no-op.
 * **Angelica 2.2.24+ and the items atlas batcher.** Since **beta.40** the items-atlas upload batcher (beta.18) stays off when Angelica's `AtlasAssembler` is present (log `ItemsAtlasBatch bypass ... reason=angelica-atlas-assembler`); with beta.39 it erased the items atlas (invisible items). Kill-switch `-Dakashic.itemsAtlasBatch.guard=false`.
+* **DragonAPI and resource packs that are not `AbstractResourcePack`** (Waystones' "Modernity Textures"). Since **beta.41** DragonAPI skips them instead of crashing ChromatiCraft/RotaryCraft TESRs (logs `DragonAPI resource pack guard applied: ...` and one `... is not an AbstractResourcePack ...` warning per pack class). Kill-switch `-Dakashic.dragonApiResourcePack.disable=true`; without beta.41, deselect that pack.
+* **CoreTweaks' crash handler and Angelica.** Since **beta.41** a crash recovered by CoreTweaks also resets Angelica (`RenderRecovery.resetAfterCrash`) and Iris' `GbufferPrograms` phase state (logs `CoreTweaks crash recovery bridge ...`). Kill-switches `-Dakashic.crashRecoveryBridge.disable=true` (all) and `-Dakashic.crashRecoveryBridge.angelicaReset=false` (keep only the Iris reset). Without beta.41, restart the game after any CoreTweaks error screen.
 * **Hodgepodge** `asyncIconLoading=false` (ThePatcher's own scheduler replaces it).
 * **Angelica 2.2.18 / GTNHLib 0.11.51** are the targets of several fail-closed patches. Different versions = those patches silently do nothing. beta.38 was checked against **Angelica 2.2.37**: the NecroTempus font fix and the whitespace decoration profile cover it, three AsyncCompat Angelica mixins still resolve, and `MixinAngelicaProxyVanillaChunkTracking` (beta.27) is skipped because Angelica 2.2.22 removed its target (see OPEN-ISSUES).
 
@@ -60,7 +62,7 @@ Current: `!Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard.jar`, SHA-25
 
 ## 6. Next actions, in priority order
 
-1. **Live-accept beta.40** with Angelica 2.2.37 (gates in its checkpoint and beta.39's: items visible in NEI, no `ItemsAtlasBatch FLUSH`; headless real-client runs already passed, beta.39's `tools/headless-client/` reproduces them) and **beta.37** through SKLauncher, then **beta.35** and write the result in the CHANGELOG (it is installed but has no acceptance record). In particular confirm Backhand behaves in a real client (see the obfuscation caveat in ARCHITECTURE section 7).
+1. **Live-accept beta.41** (gate in its checkpoint: ChromatiCraft loot chest/altar with Waystones' pack selected, and a block outline after a recovered crash) and **beta.40** with Angelica 2.2.37 (gates in its checkpoint and beta.39's: items visible in NEI, no `ItemsAtlasBatch FLUSH`; headless real-client runs already passed, beta.39's `tools/headless-client/` reproduces them) and **beta.37** through SKLauncher, then **beta.35** and write the result in the CHANGELOG (it is installed but has no acceptance record). In particular confirm Backhand behaves in a real client (see the obfuscation caveat in ARCHITECTURE section 7).
 2. Decide the fate of the **white/translucent world bug** ([OPEN-ISSUES.md](OPEN-ISSUES.md)). Candidates not yet excluded are listed there.
 3. Recover or rewrite the **core bundle sources** (RGB, DimDoors, Network, Backhand...) - the decompiled beta.35 class is a stopgap.
 4. Decide on a LICENSE (none is chosen; code is therefore "all rights reserved" by default).

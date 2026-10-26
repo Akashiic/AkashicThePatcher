@@ -1,6 +1,6 @@
 # Changelog
 
-All 43 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 44 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,22 @@ All 43 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.41 - RenderCrashRecovery - 2026-10-26
+*Replaces beta.40 in the client.* SHA-256 `8d7fddf3f2b00d3d97e5480dc3538e53a9b969fda745b99ec17edce7f52a4f6e` - 348552 B - 165 entries.
+* **Base:** beta.40 (4 entries changed, 4 added, the other 157 byte-identical).
+* **Incident:** five crash reports of 2026-10-25 (Angelica 2.2.37, DragonAPI V33b, ChromatiCraft V33a, Waystones-X 1.0.15 with its "Waystones Modernity Textures" pack selected, CoreTweaks 0.3.4.7-GTNH crash handler): `ClassCastException: WaystonesAlternateResourcePack cannot be cast to AbstractResourcePack` in `ReikaImageLoader.getImageFromResourcePack` from ChromatiCraft TESRs (10:19 in the world, 18:27 in the creative tab); right after the recovered 10:19 crash, `IllegalStateException: GbufferPrograms in weird state, tried to call begin function when entities = false, blockEntities = true, outline = false` at every block outline (10:21, 10:22); and one `NullPointerException` in `RenderGlobal.renderSky` (10:07, not explained, see OPEN-ISSUES).
+* **Root cause 1:** DragonAPI casts every selected resource pack to `AbstractResourcePack` without a check (it reads files by raw path); Waystones' alternate pack only implements `IResourcePack`.
+* **Root cause 2:** Angelica's `celeritas$renderTileEntities` has no `finally` between `GbufferPrograms.beginBlockEntities()` and `endBlockEntities()`; a TESR exception leaves `blockEntities = true`. Angelica resets its render state after a recovered crash only for BetterCrashes (`RenderRecovery.resetAfterCrash`, which does not touch `GbufferPrograms` either); CoreTweaks' `CrashHandler.resetState()` resets GL and the Tessellator only.
+* **Fix 1, new `DragonApiResourcePackTransformer` (+ hooks):** `getImageFromResourcePack` returns `null` ("not in this pack") for a pack that is not an `AbstractResourcePack`, so DragonAPI uses the next pack or the mod's texture; `initializeColorOverrides` reads only `AbstractResourcePack` packs. One warning per pack class. Fail-closed (only methods that still have the unchecked cast; ASM verifier). Kill-switch `-Dakashic.dragonApiResourcePack.disable=true`.
+* **Fix 2, new `CoreTweaksCrashRecoveryTransformer` (+ hooks):** CoreTweaks' `CrashHandler.resetState()` also runs Angelica's `RenderRecovery.resetAfterCrash()` (skip with `-Dakashic.crashRecoveryBridge.angelicaReset=false`) and resets `GbufferPrograms`' phase flags and stacks, logging what the crash left set. Every step catches its own failure. Kill-switch `-Dakashic.crashRecoveryBridge.disable=true`.
+* Both registered on the client right after NecroTempus' transformer (bytecode edit of `AkashicThePatcherLoadingPlugin`); server list unchanged.
+* **Gates (offline, PASS):** deterministic build; only `getASMTransformerClass` differs in the plugin; registration under `-Xverify:all`; DragonAPI shape gate: beta.40 / kill-switch / server reproduce the `ClassCastException`, beta.41 keeps the real pack's texture and dye colours and falls back to the mod texture; crash-recovery gate on the **real** Angelica 2.2.37 `GbufferPrograms`: the 10:21 message is reproduced, beta.41 clears it after CoreTweaks' reset (also when `RenderRecovery` throws or is disabled), beta.40 / kill-switch / server keep it; the transformer on the **real** CoreTweaks 0.3.4.7 `CrashHandler` adds only the hook call. Not covered: the real DragonAPI V33b bytecode (not redistributable; the shape follows its published source, whose line numbers match the crash report), a real client.
+* **Workarounds without beta.41:** deselect "Waystones Modernity Textures"; restart the game after any CoreTweaks error screen.
+* **Evidence:** checkpoint + build audit + source + tests + tools in `versions/Akashic-ThePatcher-1.1.0-beta.41-RenderCrashRecovery/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.40 - ItemsAtlasAngelicaGuard - 2026-10-25
-*Replaces beta.39 in the client.* SHA-256 `242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2` - 337237 B - 161 entries.
+*Superseded by beta.41 (ChromatiCraft TESR crash with Waystones' resource pack; repeated `GbufferPrograms in weird state` after a crash CoreTweaks recovered).* SHA-256 `242f07422c1a8013ca72755b8cc3765636a2cc1a3f04b98075475707b78676f2` - 337237 B - 161 entries.
 * **Base:** beta.39 (4 entries changed, 1 added, the other 156 byte-identical).
 * **Incident:** with beta.39 and Angelica 2.2.37 part of the items were invisible in NEI, the inventory and the hand (blocks fine). Log: `ItemsAtlasBatch FLUSH path=textures/items ... atlas=4096x4096 stagedCalls=1 cancelled=0 ... uploadedBytes=67108864` while the atlas profile counted 16518 uploads.
 * **Root cause:** `ItemsAtlasUploadBatcher` (beta.18) stages sprites from `TextureUtil.uploadTextureMipmap` in a CPU copy of the whole atlas and uploads that copy over the full atlas. Angelica 2.2.24+ (`AtlasAssembler`, PR #2167 "Parallelize atlas loading") uploads the sprites itself and skips that call, so the copy held one 16x16 sprite and the flush overwrote Angelica's finished atlas with transparent texels. The blocks batcher (exact regions) was not affected.
