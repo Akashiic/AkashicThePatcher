@@ -39,6 +39,8 @@ Source coverage of the beta.34 jar: 30 of 104 top-level classes have sources on 
 | `akashic.crashRecoveryBridge.angelicaReset` [true] | CoreTweaks crash recovery: also run Angelica's `RenderRecovery.resetAfterCrash()` | beta.41 |
 | `akashic.miraiShaderBridge.disable` [false] | Mirai x Angelica shaders: stop pointing Angelica's DH probe at Mirai's coremod and drawing the deferred translucent LODs | beta.42 |
 | `akashic.angelicaShaderPackFolders.disable` [false] | Angelica: stop stripping the trailing `/` of `world0/` folder names in `.zip` shader packs (Java 8) | beta.42 |
+| `akashic.hologramFastPath.disable` [false] | HolographicDisplays-style holograms: stop freezing the carriers (horse/item/slime on a wither skull) and drawing their text in one pass | beta.43 |
+| `akashic.hologramFastPath.range` [unset] | hologram text range in blocks measured from the line (unset: the vanilla 1.7 rule, viewer within 64 blocks of the horse) | beta.43 |
 | `akashic.chromaPlayerApiPreload.disable` [false] | ChromatiCraft x PlayerAPI: stop holding back `ENTITYPUSHOUT` from Mixin's `EntityPlayerSP` pre-read (Et Futurum elytra) | beta.42 (standalone jar 1.0.0 before) |
 | `akashic.blocksAtlasBatch` [true] | batch the blocks atlas GL upload | beta.30 |
 | `akashic.forceOpaqueTerrainBlendOff` [true] | force `GL_BLEND` off on opaque terrain | beta.25 |

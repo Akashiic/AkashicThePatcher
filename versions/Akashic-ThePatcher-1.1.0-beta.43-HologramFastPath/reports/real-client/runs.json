@@ -1,0 +1,226 @@
+{
+ "harness": "versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client (Linux, Xvfb+openbox, Mesa llvmpipe 25.2 GL 4.5 core, Java 8u504-b01 Temurin, 4 CPUs), 1280x720 window",
+ "bench": "tools/holobench/ (HoloBench.java: HolographicDisplays 2.2.6's packets replayed through NetHandlerPlayClient; holograms of 6 lines (first an item line) in rows of 9, 5 blocks apart, rows 6 blocks apart in front of the player, flat creative world, render distance 6; per phase 100 warm-up ticks then 300 measured ticks (200 with shaders); beyond 90 holograms the rows wrap and overlap, identically for every build)",
+ "columns": "lines = hologram lines spawned; vanillaTags = text lines whose horse is within 64 blocks of the player (what a 1.7 client shows); avgFps/avgMs/p50Ms/p99Ms over the measured frames; particles = EffectRenderer statistics",
+ "config": "the pack's angelica-modules.cfg, angelica.cfg, angelica-options.json, entityculling.json, akashic-thepatcher.properties, forbiddenseries-hologram-fix.properties, options.txt (TEOF-4.1-MANUAL)",
+ "runs": {
+  "beta42": {
+   "note": "beta.42, module.hologram=true (pack default), no shaders",
+   "mods_sha256": {
+    "!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "entityculling-1.6.4-mc1.7.10.jar": "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7",
+    "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "holobench.jar": "4347cad86c46c244f4933298f1ec7cfd9a9cde08685273f2b857e7879828392c"
+   },
+   "results": [
+    {
+     "lines": "0",
+     "vanillaTags": "0",
+     "frames": "1535",
+     "avgFps": "102.2",
+     "avgMs": "9.78",
+     "p50Ms": "9.49",
+     "p99Ms": "15.54",
+     "horses": "0",
+     "skulls": "0",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "27"
+    },
+    {
+     "lines": "300",
+     "vanillaTags": "204",
+     "frames": "641",
+     "avgFps": "42.8",
+     "avgMs": "23.38",
+     "p50Ms": "23.05",
+     "p99Ms": "34.40",
+     "horses": "250",
+     "skulls": "300",
+     "nanSkulls": "0",
+     "particles": "3812",
+     "entities": "627"
+    },
+    {
+     "lines": "900",
+     "vanillaTags": "408",
+     "frames": "359",
+     "avgFps": "24.0",
+     "avgMs": "41.66",
+     "p50Ms": "41.35",
+     "p99Ms": "53.00",
+     "horses": "750",
+     "skulls": "900",
+     "nanSkulls": "0",
+     "particles": "4000",
+     "entities": "1827"
+    }
+   ]
+  },
+  "beta43": {
+   "note": "beta.43, module.hologram=true, no shaders",
+   "mods_sha256": {
+    "!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "entityculling-1.6.4-mc1.7.10.jar": "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7",
+    "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "holobench.jar": "4347cad86c46c244f4933298f1ec7cfd9a9cde08685273f2b857e7879828392c"
+   },
+   "results": [
+    {
+     "lines": "0",
+     "vanillaTags": "0",
+     "frames": "1427",
+     "avgFps": "95.0",
+     "avgMs": "10.53",
+     "p50Ms": "10.08",
+     "p99Ms": "18.42",
+     "horses": "8",
+     "skulls": "0",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "70"
+    },
+    {
+     "lines": "300",
+     "vanillaTags": "204",
+     "frames": "956",
+     "avgFps": "63.8",
+     "avgMs": "15.68",
+     "p50Ms": "15.19",
+     "p99Ms": "23.35",
+     "horses": "258",
+     "skulls": "300",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "670"
+    },
+    {
+     "lines": "900",
+     "vanillaTags": "408",
+     "frames": "715",
+     "avgFps": "47.7",
+     "avgMs": "20.97",
+     "p50Ms": "20.48",
+     "p99Ms": "26.36",
+     "horses": "758",
+     "skulls": "900",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "1870"
+    }
+   ]
+  },
+  "beta42-bsl": {
+   "note": "beta.42 + BSL 8.2.09 .zip",
+   "mods_sha256": {
+    "!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "entityculling-1.6.4-mc1.7.10.jar": "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7",
+    "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "holobench.jar": "4347cad86c46c244f4933298f1ec7cfd9a9cde08685273f2b857e7879828392c"
+   },
+   "results": [
+    {
+     "lines": "0",
+     "vanillaTags": "0",
+     "frames": "67",
+     "avgFps": "6.8",
+     "avgMs": "147.72",
+     "p50Ms": "131.78",
+     "p99Ms": "510.65",
+     "horses": "1",
+     "skulls": "0",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "78"
+    },
+    {
+     "lines": "300",
+     "vanillaTags": "204",
+     "frames": "50",
+     "avgFps": "5.1",
+     "avgMs": "195.75",
+     "p50Ms": "190.73",
+     "p99Ms": "253.96",
+     "horses": "251",
+     "skulls": "300",
+     "nanSkulls": "0",
+     "particles": "3786",
+     "entities": "678"
+    }
+   ]
+  },
+  "beta43-bsl": {
+   "note": "beta.43 + BSL 8.2.09 .zip",
+   "mods_sha256": {
+    "!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "entityculling-1.6.4-mc1.7.10.jar": "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7",
+    "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "holobench.jar": "4347cad86c46c244f4933298f1ec7cfd9a9cde08685273f2b857e7879828392c"
+   },
+   "results": [
+    {
+     "lines": "0",
+     "vanillaTags": "0",
+     "frames": "71",
+     "avgFps": "7.2",
+     "avgMs": "138.79",
+     "p50Ms": "131.28",
+     "p99Ms": "225.24",
+     "horses": "4",
+     "skulls": "0",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "38"
+    },
+    {
+     "lines": "300",
+     "vanillaTags": "204",
+     "frames": "67",
+     "avgFps": "6.8",
+     "avgMs": "146.60",
+     "p50Ms": "135.39",
+     "p99Ms": "259.13",
+     "horses": "254",
+     "skulls": "300",
+     "nanSkulls": "0",
+     "particles": "0",
+     "entities": "638"
+    }
+   ]
+  },
+  "beta43-module-hologram-off": {
+   "note": "beta.43 with module.hologram=false (candidate jar, same classes): 85.1 / 57.1 / 44.9 FPS; items and text still visible",
+   "mods_sha256": {
+    "!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "entityculling-1.6.4-mc1.7.10.jar": "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7",
+    "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "holobench.jar": "4347cad86c46c244f4933298f1ec7cfd9a9cde08685273f2b857e7879828392c"
+   }
+  },
+  "beta42-module-hologram-off": {
+   "note": "beta.42 with module.hologram=false: 84.2 / 82.3 / 82.6 FPS - the holograms are NOT drawn (culled), see the CHANGELOG",
+   "mods_sha256": {
+    "!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "entityculling-1.6.4-mc1.7.10.jar": "dd1b15c1abfe3756051987c17924810a4e433a26c29b5defdeccedced15567e7",
+    "gtnhlib-0.11.51.jar": "9d31e3a5011b39a111536a43f1c2bf74e83a037f5789cf66da3d482e2686adf7",
+    "holobench.jar": "4347cad86c46c244f4933298f1ec7cfd9a9cde08685273f2b857e7879828392c"
+   }
+  }
+ },
+ "pictures": {
+  "no-shader-900-lines-beta42-vs-beta43.jpg": "900 lines, same frame position; identical holograms",
+  "bsl-300-lines-beta42-vs-beta43.jpg": "BSL 8.2.09, 300 lines; text drawn through the shader pipeline as before"
+ }
+}

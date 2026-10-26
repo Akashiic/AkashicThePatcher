@@ -1,0 +1,191 @@
+{
+  "version": "1.1.0-beta.43",
+  "base": {
+    "path": "releases/v1.1.0-beta.42-MiraiShaderBridge/!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar",
+    "sha256": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar",
+    "sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+    "bytes": 376566
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff",
+    "lwjgl-2.9.1.jar": "c118f8d84313980f79e1e7f7ae4b14b10c2f20c77ea4a1c29f6f0b02bc139077"
+  },
+  "entries": 177,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/hologramfastpath/HologramFastPath.class",
+    "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer$Names.class",
+    "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer$Prologue.class",
+    "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer.class"
+  ],
+  "inherited_identical": 169,
+  "lineage_composition": {
+    "steps": [
+      {
+        "build": "1.1.0-beta.38",
+        "added": [
+          "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontHooks.class",
+          "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.39",
+        "added": [],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/module/necrotempus/NecroTempusAngelicaFontTransformer.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.40",
+        "added": [
+          "dev/akashic/asynciconcompat/upload/ItemsAtlasAngelicaGuard.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "dev/akashic/asynciconcompat/upload/ItemsAtlasUploadBatcher.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.41",
+        "added": [
+          "com/akashic/thepatcher/module/crashrecovery/AngelicaCrashRecoveryHooks.class",
+          "com/akashic/thepatcher/module/crashrecovery/CoreTweaksCrashRecoveryTransformer.class",
+          "com/akashic/thepatcher/module/dragonapi/DragonApiResourcePackHooks.class",
+          "com/akashic/thepatcher/module/dragonapi/DragonApiResourcePackTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.42",
+        "added": [
+          "com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderHooks.class",
+          "com/akashic/thepatcher/module/angelica/AngelicaShaderPackFolderTransformer.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$1.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$Hide.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix$Restore.class",
+          "com/akashic/thepatcher/module/chroma/ChromaPlayerApiPreloadFix.class",
+          "com/akashic/thepatcher/module/mirai/MiraiShaderBridgeHooks.class",
+          "com/akashic/thepatcher/module/mirai/MiraiShaderBridgeTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "mcmod.info"
+        ]
+      },
+      {
+        "build": "1.1.0-beta.43",
+        "added": [
+          "com/akashic/hologramfastpath/HologramFastPath.class",
+          "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer$Names.class",
+          "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer$Prologue.class",
+          "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer.class"
+        ],
+        "changed": [
+          "META-INF/MANIFEST.MF",
+          "com/akashic/thepatcher/AkashicThePatcherMod.class",
+          "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+          "mcmod.info"
+        ]
+      }
+    ],
+    "carried_entries": 25,
+    "result": "every entry added or changed by beta.38..beta.43 is in beta.43 as its newest version"
+  },
+  "reobf_hooks": "REOBF_HOOKS PASS classes=4 references=59",
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta42.CLIENT": "REGISTRATION side=CLIENT count=22 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer]",
+  "registration.beta42.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "registration.beta43.CLIENT": "REGISTRATION side=CLIENT count=23 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer]",
+  "registration.beta43.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "transform.beta43": [
+    "[Akashic-ThePatcher] Hologram fast path armed: 1.7 hologram carriers (horse/item/slime on a wither skull) stop ticking and their text is drawn in one pass.",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.Entity (hologram carriers out of the range check).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.entity.Entity: already patched; original bytecode retained.",
+    "A net.minecraft.entity.Entity changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.projectile.EntityFireball (line vehicles keep still).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.entity.projectile.EntityFireball: already patched; original bytecode retained.",
+    "A net.minecraft.entity.projectile.EntityFireball changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.passive.EntityHorse (text lines keep still).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.entity.passive.EntityHorse: already patched; original bytecode retained.",
+    "A net.minecraft.entity.passive.EntityHorse changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.item.EntityItem (item lines keep still, still spin).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.entity.item.EntityItem: already patched; original bytecode retained.",
+    "A net.minecraft.entity.item.EntityItem changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.monster.EntitySlime (touch lines keep still).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.entity.monster.EntitySlime: already patched; original bytecode retained.",
+    "A net.minecraft.entity.monster.EntitySlime changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.client.renderer.entity.RenderManager (hologram carriers draw nothing).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.client.renderer.entity.RenderManager: already patched; original bytecode retained.",
+    "A net.minecraft.client.renderer.entity.RenderManager changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.client.renderer.entity.RendererLivingEntity (no second name tag for hologram text lines).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.client.renderer.entity.RendererLivingEntity: already patched; original bytecode retained.",
+    "A net.minecraft.client.renderer.entity.RendererLivingEntity changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.client.renderer.RenderGlobal (hologram text lines drawn in one pass).",
+    "[Akashic-ThePatcher] WARN: Hologram fast path skipped net.minecraft.client.renderer.RenderGlobal: already patched; original bytecode retained.",
+    "A net.minecraft.client.renderer.RenderGlobal changed=true",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.projectile.EntityFireball (line vehicles keep still).",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.Entity (hologram carriers out of the range check).",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.passive.EntityHorse (text lines keep still).",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.item.EntityItem (item lines keep still, still spin).",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.client.renderer.entity.RenderManager (hologram carriers draw nothing).",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.client.renderer.entity.RendererLivingEntity (no second name tag for hologram text lines).",
+    "A text line: frozen, out of the entity pipeline, tag at line+0.7433305358886741",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.entity.monster.EntitySlime (touch lines keep still).",
+    "A normal foal, lone skull, dropped item, server-side carriers: vanilla",
+    "[Akashic-ThePatcher] Hologram fast path applied: net.minecraft.client.renderer.RenderGlobal (hologram text lines drawn in one pass).",
+    "A renderEntities: renderLines once, sections [entities, blockentities, done]",
+    "TRANSFORM_GATE PASS expect=patched"
+  ],
+  "transform.beta43.disabled": [
+    "[Akashic-ThePatcher] Hologram fast path off: disabled by -Dakashic.hologramFastPath.disable=true.",
+    "A net.minecraft.entity.Entity changed=false",
+    "A net.minecraft.entity.projectile.EntityFireball changed=false",
+    "A net.minecraft.entity.passive.EntityHorse changed=false",
+    "A net.minecraft.entity.item.EntityItem changed=false",
+    "A net.minecraft.entity.monster.EntitySlime changed=false",
+    "A net.minecraft.client.renderer.entity.RenderManager changed=false",
+    "A net.minecraft.client.renderer.entity.RendererLivingEntity changed=false",
+    "A net.minecraft.client.renderer.RenderGlobal changed=false",
+    "TRANSFORM_GATE PASS expect=untouched"
+  ],
+  "transform.beta43.server": [
+    "A net.minecraft.entity.Entity changed=false",
+    "A net.minecraft.entity.projectile.EntityFireball changed=false",
+    "A net.minecraft.entity.passive.EntityHorse changed=false",
+    "A net.minecraft.entity.item.EntityItem changed=false",
+    "A net.minecraft.entity.monster.EntitySlime changed=false",
+    "A net.minecraft.client.renderer.entity.RenderManager changed=false",
+    "A net.minecraft.client.renderer.entity.RendererLivingEntity changed=false",
+    "A net.minecraft.client.renderer.RenderGlobal changed=false",
+    "TRANSFORM_GATE PASS expect=untouched"
+  ]
+}
