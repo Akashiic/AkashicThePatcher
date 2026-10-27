@@ -1355,5 +1355,35 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "8d7fddf3f2b00d3d97e5480dc3538e53a9b969fda745b99ec17edce7f52a4f6e",
   "note": "Akashic: Horizons of The Mirai x Angelica shaders: Angelica's Iris DH support now detects Mirai (its probe looks for upstream's DistantHorizonsTweaker) and Mirai draws the deferred translucent LODs; Angelica finds world0/ folders of .zip shader packs on Java 8; Akashic-ChromaPlayerApiPreloadFix 1.0.0 (Et Futurum elytra) folded in; built by tools/beta42-build.py"
+ },
+ {
+  "id": "1.1.0-beta.43",
+  "kind": "mainline",
+  "sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+  "size": 376566,
+  "entries": 177,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.43",
+  "impl_version": "1.1.0-beta.43",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/hologramfastpath/HologramFastPath.class",
+   "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer$Names.class",
+   "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer$Prologue.class",
+   "com/akashic/thepatcher/module/hologram/HologramFastPathTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.43-HologramFastPath",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar",
+  "date": "2026-10-26T21:00:00-03:00",
+  "declared_base_sha256": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
+  "note": "HolographicDisplays-style 1.7 holograms (horse age -1700000 / item / slime on a wither skull): carriers stop ticking (no skull ray traces or smoke), leave the entity pipeline (no horse model, no shadow-pass draw) and all text lines are drawn in one pass with the vanilla 1.7 range; built by tools/beta43-build.py"
  }
 ]

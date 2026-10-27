@@ -35,5 +35,6 @@ asm-commons-9.7.jar 389bc247958e049fc9a0408d398c92c6d370c18035120395d4cba1d9d930
 mcp_stable-12-1.7.10.zip 83d303a80071582cd07d41b35aa77c178d609a27c69c8472b794636eb50905b0 https://maven.minecraftforge.net/de/oceanlabs/mcp/mcp_stable/12-1.7.10/mcp_stable-12-1.7.10.zip
 coretweaks-0.3.4.7-GTNH.jar 89c117aeee723df3a31d8d341626e7d080b78e50e23564c889e59b198f9bde9b $GTNH/CoreTweaks/0.3.4.7-GTNH/CoreTweaks-0.3.4.7-GTNH.jar
 fastutil-core-8.5.12.jar f31c20f5b06312f3d5e06e6160a32e274d819aa6cebf27528b26b6b5c0c1df19 $CENTRAL/it/unimi/dsi/fastutil-core/8.5.12/fastutil-core-8.5.12.jar
+lwjgl-2.9.1.jar c118f8d84313980f79e1e7f7ae4b14b10c2f20c77ea4a1c29f6f0b02bc139077 $MC/org/lwjgl/lwjgl/lwjgl/2.9.1/lwjgl-2.9.1.jar
 LIST
 echo "FETCH_BUILD_LIBS OK $(ls "$DIR" | wc -l) files in $DIR"
