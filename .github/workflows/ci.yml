@@ -137,6 +137,23 @@ jobs:
           archive: false
           if-no-files-found: error
 
+      # Server-only guard: plugin GUIs (Crucible) lost items to InventoryTweaks' and Avaritiaddons' own click packets.
+      - name: Rebuild Akashic-ContainerClickGuard and compare
+        run: |
+          L=~/thepatcher-libs
+          python3 projects/Akashic-ContainerClickGuard/build.py --javac "${{ steps.jdk21.outputs.path }}/bin/javac" \
+            --cp "$L/forge-universal.jar:$L/launchwrapper-1.12.jar:$L/asm-all-5.0.3.jar:$L/log4j-api.jar" \
+            --out "$RUNNER_TEMP/containerclickguard.jar"
+          cmp "$RUNNER_TEMP/containerclickguard.jar" projects/Akashic-ContainerClickGuard/dist/Akashic-ContainerClickGuard-1.0.0-serveronly.jar
+          cd projects/Akashic-ContainerClickGuard/dist && sha256sum -c SHA256SUMS.txt
+
+      - name: Artifact - Akashic-ContainerClickGuard jar (upload)
+        uses: actions/upload-artifact@v7
+        with:
+          path: projects/Akashic-ContainerClickGuard/dist/Akashic-ContainerClickGuard-1.0.0-serveronly.jar
+          archive: false
+          if-no-files-found: error
+
   release:
     needs: verify
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

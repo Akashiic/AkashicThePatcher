@@ -35,5 +35,7 @@ asm-commons-9.7.jar 389bc247958e049fc9a0408d398c92c6d370c18035120395d4cba1d9d930
 mcp_stable-12-1.7.10.zip 83d303a80071582cd07d41b35aa77c178d609a27c69c8472b794636eb50905b0 https://maven.minecraftforge.net/de/oceanlabs/mcp/mcp_stable/12-1.7.10/mcp_stable-12-1.7.10.zip
 coretweaks-0.3.4.7-GTNH.jar 89c117aeee723df3a31d8d341626e7d080b78e50e23564c889e59b198f9bde9b $GTNH/CoreTweaks/0.3.4.7-GTNH/CoreTweaks-0.3.4.7-GTNH.jar
 fastutil-core-8.5.12.jar f31c20f5b06312f3d5e06e6160a32e274d819aa6cebf27528b26b6b5c0c1df19 $CENTRAL/it/unimi/dsi/fastutil-core/8.5.12/fastutil-core-8.5.12.jar
+forge-universal.jar 00d1ca02192c7efb87da95552ebf247021f1e1d642f86d0a03076314def11529 https://maven.minecraftforge.net/net/minecraftforge/forge/1.7.10-10.13.4.1614-1.7.10/forge-1.7.10-10.13.4.1614-1.7.10-universal.jar
+netty-all-4.0.10.Final.jar 96eaa32232b5a5b0f9afc121a0e1b2416e3dca50657b31e5431c0a04ae650552 $MC/io/netty/netty-all/4.0.10.Final/netty-all-4.0.10.Final.jar
 LIST
 echo "FETCH_BUILD_LIBS OK $(ls "$DIR" | wc -l) files in $DIR"
