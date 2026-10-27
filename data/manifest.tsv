@@ -1375,11 +1375,11 @@ versions/Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge/tools/shader-probe/R
 versions/Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge/tools/shader-probe/mkinst.sh	claude-code session 2026-10-26	1413	f92861fda18d8634e969fc4266bc6229e24ca3adbf7dc12b515397a317ca57b9
 releases/v1.1.0-beta.42-MiraiShaderBridge/!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge/tools/beta42-build.py	364197	245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df
 releases/v1.1.0-beta.43-HologramFastPath/!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/beta43-build.py	376566	38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a
-versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/CHECKPOINT-BETA43-HOLOGRAM-FAST-PATH-2026-10-26.md	claude-code session 2026-10-26	12732	2b75a6f7bfb96fa1cc02b78dafd543c0e0bdbe313361cbd59e203b3e89fe38f8
+versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/CHECKPOINT-BETA43-HOLOGRAM-FAST-PATH-2026-10-26.md	claude-code session 2026-10-26	13252	8f889392c8f73871f4f1a047b52c5319ca860d63972dda3cd349edfd648bfe0b
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/final-build-audit.json	claude-code session 2026-10-26	15288	b72fddd0f726f02c20ee9d8348082a9c8424429a1a7a19128786c21fb23458f9
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/real-client/bsl-300-lines-beta42-vs-beta43.jpg	claude-code session 2026-10-26	87581	7ef2c47c0e6e82e646a5be2b73be9f13bf34dea2e4bcd035894153c72782a867
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/real-client/no-shader-900-lines-beta42-vs-beta43.jpg	claude-code session 2026-10-26	97160	5fe5732dad114daae0dee6b7dcd803250cd0b6fce3851b6e8201a517e9ea701f
-versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/real-client/runs.json	claude-code session 2026-10-26	55453	461481acbe713758f9bcc50df2bf5fe08b2597b7a807ef6554bd1621f481cf30
+versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/real-client/runs.json	claude-code session 2026-10-26	55639	85632f1c200563c9d93e5d2f3ffac0ddf15285504b1e94220542a68c4b37d180
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/src/com/akashic/hologramfastpath/HologramFastPath.java	claude-code session 2026-10-26	16882	1578d07e5b8ed26ec087e7d90813211cc1631a79230f53ba2221c0ab42bb4145
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/src/com/akashic/thepatcher/module/hologram/HologramFastPathTransformer.java	claude-code session 2026-10-26	15001	6caeb53c6efc8b8d18733ace881d17cb23f2fe2759a78f6a1d714e677ec9d1e3
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/stubs/cpw/mods/fml/common/asm/transformers/deobf/FMLDeobfuscatingRemapper.java	claude-code session 2026-10-26	437	14ec5af922c39af63ef8047db4bf4d8f89fe434256f90f2ba84cc4d200fb561f
@@ -1439,10 +1439,11 @@ versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/PatchThePatcher
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/ReobfHooks.java	claude-code session 2026-10-26	4483	6219d1a0fa2ea654a285098b8d51918870645f032efad8732f0c34ec10c0c265
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/beta43-build.py	claude-code session 2026-10-26	15423	521381ddcb025289cd56742366e19323d1a6f3855b7dfc1b7b9ee3df40821dc9
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/Deobf.java	claude-code session 2026-10-26	2907	9f49117067f067e8cbc6bd2adc77b682d3ae7cc8f5ee706a296771fc8baa5a0c
-versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/HoloBench.java	claude-code session 2026-10-26	11425	c2ee66a69ca389233dcadb89b12297eaa2f81424924c2215291d1040baf3978a
+versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/HoloBench.java	claude-code session 2026-10-26	12557	f0897297f20e96400b80285e65735231b873c903adace0943ee0d0ae1bb43a8d
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/Reobf.java	claude-code session 2026-10-26	3310	17468feb0efcca70bc0d7e91b117ccd66db58106d217a940fdbac9661d5d6ee6
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/bench.sh	claude-code session 2026-10-26	689	9fc12a42188d75c04383f6ca6aad39ce46620d387fec61539fecc611f55757cc
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/build-holobench.sh	claude-code session 2026-10-26	1528	b6df8f602b816fd76c5e0cf608a68fa6b4e529993ff186149e6420e8ec54aaa5
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/srg-members.txt	claude-code session 2026-10-26	4879	b4d840a4e981e267e6562754a7b503757b9378353fd57a0ae5d8ab56f58ece65
-versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/README.md	claude-code session 2026-10-26	1673	26f0c01fd9f6084577e016a464ad7c5fcb834d3980c2fa58119f776e8eb3ca50
+versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/tools/holobench/README.md	claude-code session 2026-10-26	1860	375ab36ad10f5c5eb9f46e4048e560f78f543d8a39574bbe0886c9610d398df1
 versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/real-client/full-pack-900-lines-beta42-vs-beta43.jpg	claude-code session 2026-10-27	140253	bf1edb80647d07aec2d94293d8fc74c018874c6dbbb1df175aef01bed1491317
+versions/Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath/reports/real-client/counter-updates-every-second-beta43.jpg	claude-code session 2026-10-27	43163	56ddcd40a60320a39e76851daf9793734779dc582b98a5af1dd0fd1e1a1cd26d

@@ -120,6 +120,11 @@ load). All eight hooks `applied` next to Hodgepodge, ArchaicFix, DynamicSurround
 report (LLibrary logs a "crash report" for a blocked pastebin version check, unrelated). Picture:
 `full-pack-900-lines-beta42-vs-beta43.jpg`.
 
+**Text that changes (placeholders, animations, counters):** the fast path reads each line's custom name from the horse's data watcher
+every frame (no text cache). `-Dholobench.counter=true` renames one line every second with an `S1C` metadata packet, as
+HolographicDisplays does for placeholders: with beta.43 the client received all 20 updates in order and the screenshots show the drawn
+text following them (`counter-updates-every-second-beta43.jpg`: "Tempo jogado: 0d 9s / 12s / 15s / 19s", one picture every ~3 s).
+
 ## Live acceptance gate (pack)
 
 1. Install beta.43 as the only ThePatcher JAR.

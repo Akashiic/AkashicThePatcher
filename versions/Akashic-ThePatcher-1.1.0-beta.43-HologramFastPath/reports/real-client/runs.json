@@ -736,6 +736,7 @@
  "pictures": {
   "no-shader-900-lines-beta42-vs-beta43.jpg": "900 lines, same frame position; identical holograms",
   "bsl-300-lines-beta42-vs-beta43.jpg": "BSL 8.2.09, 300 lines; text drawn through the shader pipeline as before",
-  "full-pack-900-lines-beta42-vs-beta43.jpg": "full pack, 900 lines (ChromatiCraft's version-check message and JourneyMap's minimap are the pack's own HUD)"
+  "full-pack-900-lines-beta42-vs-beta43.jpg": "full pack, 900 lines (ChromatiCraft's version-check message and JourneyMap's minimap are the pack's own HUD)",
+  "counter-updates-every-second-beta43.jpg": "beta.43, -Dholobench.counter=true: one line renamed every second by S1C; client logged clientName 0d 1s .. 0d 20s, the drawn text follows"
  }
 }

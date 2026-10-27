@@ -14,6 +14,7 @@ them. It then records frame times per phase and writes `holobench-results.txt` i
 4. `MC=<MC> JAVA8_HOME=<jdk8> ./bench.sh <inst> <display> 0,300,900`
 
 Flags: `-Dholobench.phases=0,300,900` (lines per phase), `-Dholobench.linesPer=6`, `-Dholobench.items=true`,
-`-Dholobench.warmup=100 -Dholobench.measure=300` (ticks). The RESULT line reports `vanillaTags` (text lines whose horse is within
+`-Dholobench.warmup=100 -Dholobench.measure=300` (ticks), `-Dholobench.counter=true` (the second line of the front hologram
+becomes a play-time counter, renamed every second with an `S1C` metadata packet like a HolographicDisplays placeholder). The RESULT line reports `vanillaTags` (text lines whose horse is within
 64 blocks of the player, i.e. what a 1.7 client shows) and the particle count. Beyond 90 holograms the rows wrap (same for every
 build). Results of beta.42/beta.43: `../../reports/real-client/runs.json`.

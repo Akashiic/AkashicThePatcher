@@ -121,6 +121,14 @@ public class HoloBench {
                 return;
             }
             phaseTick++;
+            if (counterHorse != null && phaseTick % 20 == 0) {
+                counterSeconds++;
+                // what HolographicDisplays does for a placeholder/animation: a new custom name in an S1C metadata packet
+                counterHorse.setCustomNameTag("\u00a7eTempo jogado: \u00a7f" + (counterSeconds / 86400) + "d " + (counterSeconds % 86400) + "s");
+                process(mc, new S1CPacketEntityMetadata(counterHorse.getEntityId(), counterHorse.getDataWatcher(), false));
+                Entity client = mc.theWorld.getEntityByID(counterHorse.getEntityId());
+                log("counter sent=" + counterSeconds + " clientName=" + (client instanceof EntityHorse ? ((EntityHorse) client).getCustomNameTag() : null));
+            }
             if (phaseTick == warmup) {
                 measuring = true;
                 nFrames = 0;
@@ -175,6 +183,7 @@ public class HoloBench {
                     ids[2 * l] = spawnItemLine(mc, x, ly, z);
                 } else {
                     ids[2 * l] = spawnTextLine(mc, x, ly, z, String.format(TEXTS[l % TEXTS.length], index * 7 + l));
+                    if (counter && index == 4 && l == 1) counterHorse = lastHorse;
                 }
                 ids[2 * l + 1] = lastSkull;
             }
@@ -185,6 +194,11 @@ public class HoloBench {
     }
 
     int lastSkull;
+    EntityHorse lastHorse;
+    /** -Dholobench.counter=true: the second line of the front hologram becomes a play-time counter updated every second. */
+    final boolean counter = Boolean.getBoolean("holobench.counter");
+    EntityHorse counterHorse;
+    int counterSeconds;
 
     int spawnTextLine(Minecraft mc, double x, double y, double z, String text) throws Exception {
         World w = mc.theWorld;
@@ -199,6 +213,7 @@ public class HoloBench {
         process(mc, new S0FPacketSpawnMob(horse));
         process(mc, new S1BPacketEntityAttach(0, horse, skull));
         lastSkull = skull.getEntityId();
+        lastHorse = horse;
         return horse.getEntityId();
     }
 
