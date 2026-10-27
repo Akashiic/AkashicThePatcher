@@ -105,9 +105,20 @@ needs the GL11 calls redirected (the first JAR crashed with "Function is not sup
 the excluded package). A first version measured the 64-block range from the line itself and drew ~690 lines at 900 (9 FPS); the
 default is now the 1.7 rule, so exactly the lines a 1.7 client showed are drawn.
 
-**Full pack (TEOF-4.1, 210 mods):** with beta.43 the eight hooks were `applied` during start-up next to Hodgepodge, ArchaicFix,
-EntityCulling, DynamicSurroundings and the rest (no `skipped`/`rejected`); the run did not reach the world within this environment's
-memory (the container was restarted during mod loading), so the full pack is not measured here.
+**Full pack (TEOF-4.1-MANUAL `.minecraft`, all 210 mod JARs - 286 mods loaded - and configs, FpsReducer off, `-Xmx5G`)**, same
+harness, each build the only ThePatcher JAR (a first attempt with `-Xmx6G` ended when the container was restarted during mod loading):
+
+| Build (full pack) | 0 lines | 300 lines | 900 lines | smoke particles at 900 |
+|---|---|---|---|---|
+| beta.42 | 9.1 FPS | 7.2 FPS (p99 648 ms) | **3.5 FPS** (p99 831 ms) | 4007 |
+| **beta.43** | 11.0 FPS | **14.4 FPS** (p99 130 ms) | **11.4 FPS** (p99 224 ms) | 49 (other mods') |
+
+With every mod loaded the holograms cost far more than in the small instance (the pack's entity hooks - DynamicSurroundings,
+EntityCulling, Angelica's entity batching, the old module's scan - run per carrier); beta.43 removes almost all of it: at 900 lines it is
+3.3x faster and its 900-line frame is no slower than its own empty one (the 0-line phase starts right after joining, while chunks
+load). All eight hooks `applied` next to Hodgepodge, ArchaicFix, DynamicSurroundings and the rest; no `skipped`/`rejected`, no crash
+report (LLibrary logs a "crash report" for a blocked pastebin version check, unrelated). Picture:
+`full-pack-900-lines-beta42-vs-beta43.jpg`.
 
 ## Live acceptance gate (pack)
 
