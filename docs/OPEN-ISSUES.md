@@ -35,3 +35,10 @@ Everything here is something the repository **cannot prove**. Each item says wha
 20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.43; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
 21. No LICENSE chosen.
 22. Third-party build inputs (Angelica, GTNHLib jars) are not vendored.
+
+## D. Seen in the pack log of 2026-10-29 (beta.43, Angelica 2.2.40) - not fixed by beta.44
+
+23. **The whitespace decoration fix needs a profile per Angelica release.** beta.44 adds 2.2.40; the next `drawString` change will log `Angelica whitespace decoration fix skipped: unsupported drawString fingerprint ...` again and the tab separators will shrink again. How to add a profile: beta.44's checkpoint. Upstream fix (two assignments in Angelica's whitespace branch) not reported yet.
+24. **Handoff boundaries not installed.** `[Akashic-ThePatcher/Handoff] WARN: Minecraft displayGuiScreen boundary differed from the validated target: hooks=0` and the same for `NetHandlerPlayClient safe-fallback`; the original bytes are kept. Not checked whether this is new or the same Notch-names ordering as item 17.
+25. **Legacy hologram module (beta.3) misses two targets.** `Entity.isInRangeToRender3d was not found` and `EntityItem.getEntityItem was not found` (the beta.43 fast path itself applied all its hooks). Likely the same naming issue as item 17.
+26. **Mirai (Distant Horizons fork) stops LOD networking.** `DH-Network Client Handler Thread: Failed to handle the message. New messages will be ignored.` after `IllegalArgumentException: Duplicate or excessive LOD transfer` (`FullDataPayloadReceiver.receiveChunk`, Mirai 0.1.19-dev): after it the client receives no more server LODs in that session. Mirai's own code, not ThePatcher's.

@@ -1385,5 +1385,30 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
   "note": "HolographicDisplays-style 1.7 holograms (horse age -1700000 / item / slime on a wither skull): carriers stop ticking (no skull ray traces or smoke), leave the entity pipeline (no horse model, no shadow-pass draw) and all text lines are drawn in one pass with the vanilla 1.7 range; built by tools/beta43-build.py"
+ },
+ {
+  "id": "1.1.0-beta.44",
+  "kind": "mainline",
+  "sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+  "size": 376644,
+  "entries": 177,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.44",
+  "impl_version": "1.1.0-beta.44",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [],
+  "tag": "v1.1.0-beta.44-Angelica240Decoration",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar",
+  "date": "2026-10-29T18:00:00-03:00",
+  "declared_base_sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+  "note": "Angelica 2.2.40 drawString profile for the whitespace decoration endpoint fix (struck/underlined spaces keep their line, e.g. the NecroTempus tab separators); built by tools/beta44-build.py"
  }
 ]

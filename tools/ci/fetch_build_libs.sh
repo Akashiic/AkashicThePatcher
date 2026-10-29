@@ -25,6 +25,7 @@ asm-9.7.jar adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d $CE
 asm-tree-9.7.jar 62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1 $CENTRAL/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar
 asm-analysis-9.7.jar 7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f $CENTRAL/org/ow2/asm/asm-analysis/9.7/asm-analysis-9.7.jar
 asm-util-9.7.jar 37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211 $CENTRAL/org/ow2/asm/asm-util/9.7/asm-util-9.7.jar
+angelica-2.2.40.jar c91adf2712aa65f8d99f5378a3027f538ab8e027c0b5b2aa261cc632ae937c54 $GTNH/Angelica/2.2.40/Angelica-2.2.40.jar
 angelica-2.2.37.jar 2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b $GTNH/Angelica/2.2.37/Angelica-2.2.37.jar
 angelica-2.2.23.jar a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0 $GTNH/Angelica/2.2.23/Angelica-2.2.23.jar
 angelica-2.2.18.jar 563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50 $GTNH/Angelica/2.2.18/Angelica-2.2.18.jar

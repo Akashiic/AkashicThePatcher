@@ -1,7 +1,7 @@
 name: CI
 
 # verify: on every push and pull request - release checksums, data/manifest.tsv, and a from-scratch
-#         rebuild of the newest builds that have a self-contained build script (beta.38 to beta.43),
+#         rebuild of the newest builds that have a self-contained build script (beta.38 to beta.44),
 #         compared byte for byte with the JARs committed under releases/. Then uploads, as four separate
 #         un-zipped artifacts (archive: false), the newest build's JAR, -dev JAR (MCP names), -sources JAR
 #         and SHA256SUMS.txt (tools/ci/make_artifacts.py).
@@ -95,6 +95,13 @@ jobs:
             --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta43.jar" --report "$RUNNER_TEMP/beta43-audit.json"
           cmp "$RUNNER_TEMP/beta43.jar" "releases/v1.1.0-beta.43-HologramFastPath/!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar"
+
+      - name: Rebuild beta.44 and compare
+        run: |
+          python3 versions/Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration/tools/beta44-build.py \
+            --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
+            --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta44.jar" --report "$RUNNER_TEMP/beta44-audit.json"
+          cmp "$RUNNER_TEMP/beta44.jar" "releases/v1.1.0-beta.44-Angelica240Decoration/!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar"
 
       - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
         run: |

@@ -1,6 +1,6 @@
 # Changelog
 
-All 46 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 47 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,18 @@ All 46 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.44 - Angelica240Decoration - 2026-10-29
+*Replaces beta.43 in the client.* SHA-256 `de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027` - 376644 B - 177 entries.
+* **Base:** beta.43 (4 entries changed, the other 173 byte-identical).
+* **Incident:** after updating Angelica to 2.2.40, the struck-through separators of the NecroTempus tab list header are cut short on the right; the log says `Angelica whitespace decoration fix skipped: unsupported drawString fingerprint dba827d8...`.
+* **Root cause:** Angelica 2.2.40 still has the whitespace decoration bug (spaces advance `curX` without moving `underlineEndX`/`strikethroughEndX`), but its `drawString` was rewritten, so the fail-closed post-processor has no profile for it (fingerprint `dba827d8...`, locals `curX=12`, `underlineEndX=46`, `strikethroughEndX=49`).
+* **Fix:** `AngelicaDecorationPostProcessor` gains the 2.2.40 profile and recognises that layout in `hasEndpointFix(MethodNode)` (bytecode-level edit, `tools/PatchBeta44Classes.java`, as beta.38 did for 2.2.37).
+* **Gates (offline, PASS):** deterministic build; only `<clinit>` and `hasEndpointFix(MethodNode)` differ; on Angelica 2.2.40 beta.43 reproduces the pack's warning and beta.44 installs the fix (all methods verify, exactly one site in the whitespace branch, idempotent); on 2.2.37 / 2.2.23 / 2.2.18 the output is byte-identical to beta.43's.
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.43 - HologramFastPath - 2026-10-26
-*Replaces beta.42 in the client.* SHA-256 `38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a` - 376566 B - 177 entries.
+*Superseded by beta.44 (Angelica 2.2.40 decoration profile).* SHA-256 `38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a` - 376566 B - 177 entries.
 * **Base:** beta.42 (4 entries changed, 4 added, the other 169 byte-identical); `lineage_composition` checks that everything beta.38..43 added or changed is in it.
 * **Incident:** with HolographicDisplays 2.2.6 on the server, FPS collapses where there are many holograms (hub/spawn).
 * **Root cause:** a 1.7 server has no armor stands, so HD (and every 1.7 hologram plugin built like it) makes each text line an `EntityHorse` with growing age -1700000 (model, width and height scaled by about -34) riding an `EntityWitherSkull` 54.56 blocks above the line, and each item line an `EntityItem` riding a skull. Every tick each skull ray-traces, queries entities and spawns smoke (300 lines keep the particle engine at its 4000 cap); every frame each horse draws a giant inverted model and its own name tag (and again in the shader shadow pass). Angelica/EntityCulling cull the inverted horse box, so the bundled hologram module (beta.3) forces every carrier visible - which is why they are all drawn. Measured in a headless real client (Angelica 2.2.37, EntityCulling, HD's exact packets replayed through the client net handler, `tools/holobench/`): beta.42 102 FPS with no hologram, 42.8 FPS with 300 lines, 24.0 FPS with 900; with `module.hologram=false` the FPS stays high only because nothing is drawn.
