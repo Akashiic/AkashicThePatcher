@@ -1,6 +1,6 @@
 # Changelog
 
-All 47 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 48 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,18 @@ All 47 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.45 - AgriCraftIrrigationGuard - 2026-10-29
+*Replaces beta.44 in the client.* SHA-256 `d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035` - 380277 B - 179 entries.
+* **Base:** beta.44 (4 entries changed, 2 added, the other 173 byte-identical).
+* **Incident:** a player cannot join the server: after the lobby, the switch to the Forge backend ends with "Connection Lost - Fatally missing blocks and items"; the log lists `Found a missing id from the world AgriCraft:waterChannelFull` (and `waterChannel`, `channelValve`, `waterTank`, `sprinkler`) and `Failed to connect to server: there are 10 missing blocks and items`.
+* **Root cause:** AgriCraft 1.7.10 only registers its five irrigation blocks when `config/agricraft/Configuration.cfg` has `"Disable Irrigation"=false`; that player's file says `true`, the server has the blocks, and FML refuses a client that lacks ids the server has.
+* **Fix:** new client transformer `AgriCraftIrrigationTransformer` (registered last): the single write of `ConfigurationHandler.disableIrrigation` goes through `AgriCraftIrrigationHooks.clientIrrigationDisabled`, which stores `false` (warning logged once when the file said `true`). Extra client blocks never fail FML's handshake, so this matches a server with or without irrigation. Kill-switch `-Dakashic.agricraftIrrigation.disable=true`.
+* **Gates (offline, PASS):** deterministic build; plugin: only `getASMTransformerClass` differs; client registration = beta.44's + the new transformer last, server unchanged; on the real AgriCraft 1.5.0 `ConfigurationHandler` exactly one instruction is added between `Configuration.getBoolean` and `PUTSTATIC disableIrrigation`, all methods verify, a second pass is a no-op, and beta.44 / kill-switch / server leave it unchanged; on a shape run with `-Xverify:all` `"Disable Irrigation"=true` stores `false` (also after a config reload) and the neighbouring fields keep their values.
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.44 - Angelica240Decoration - 2026-10-29
-*Replaces beta.43 in the client.* SHA-256 `de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027` - 376644 B - 177 entries.
+*Superseded by beta.45 (AgriCraft irrigation guard).* SHA-256 `de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027` - 376644 B - 177 entries.
 * **Base:** beta.43 (4 entries changed, the other 173 byte-identical).
 * **Incident:** after updating Angelica to 2.2.40, the struck-through separators of the NecroTempus tab list header are cut short on the right; the log says `Angelica whitespace decoration fix skipped: unsupported drawString fingerprint dba827d8...`.
 * **Root cause:** Angelica 2.2.40 still has the whitespace decoration bug (spaces advance `curX` without moving `underlineEndX`/`strikethroughEndX`), but its `drawString` was rewritten, so the fail-closed post-processor has no profile for it (fingerprint `dba827d8...`, locals `curX=12`, `underlineEndX=46`, `strikethroughEndX=49`).

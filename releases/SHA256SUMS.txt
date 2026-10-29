@@ -45,3 +45,4 @@ bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701  releases/v1.1.
 245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df  releases/v1.1.0-beta.42-MiraiShaderBridge/!Akashic-ThePatcher-1.1.0-beta.42-MiraiShaderBridge.jar
 38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a  releases/v1.1.0-beta.43-HologramFastPath/!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar
 de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027  releases/v1.1.0-beta.44-Angelica240Decoration/!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar
+d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035  releases/v1.1.0-beta.45-AgriCraftIrrigationGuard/!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar

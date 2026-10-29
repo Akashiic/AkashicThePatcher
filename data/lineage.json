@@ -1410,5 +1410,33 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
   "note": "Angelica 2.2.40 drawString profile for the whitespace decoration endpoint fix (struck/underlined spaces keep their line, e.g. the NecroTempus tab separators); built by tools/beta44-build.py"
+ },
+ {
+  "id": "1.1.0-beta.45",
+  "kind": "mainline",
+  "sha256": "d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035",
+  "size": 380277,
+  "entries": 179,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.45",
+  "impl_version": "1.1.0-beta.45",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/agricraft/AgriCraftIrrigationHooks.class",
+   "com/akashic/thepatcher/module/agricraft/AgriCraftIrrigationTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.45-AgriCraftIrrigationGuard",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar",
+  "date": "2026-10-29T21:00:00-03:00",
+  "declared_base_sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+  "note": "AgriCraft irrigation guard: the client always registers AgriCraft's irrigation blocks, so a client config with \"Disable Irrigation\"=true no longer fails the FML handshake with \"Fatally missing blocks and items\"; built by tools/beta45-build.py"
  }
 ]
