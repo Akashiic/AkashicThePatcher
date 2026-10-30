@@ -1,6 +1,6 @@
 # Changelog
 
-All 49 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 50 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,21 @@ All 49 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.47 - BaublesApiAngelicaLookup - 2026-10-30
+*Replaces beta.46 in the client.* SHA-256 `e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f` - 392607 B - 184 entries.
+* **Base:** beta.46 (4 entries changed, 3 added, the other 177 byte-identical).
+* **Incident 1:** a PC player's game crashes (CoreTweaks catches it) when Et Futurum Requiem's elytra goes into a bauble slot: `java.lang.NoSuchMethodError: baubles.api.expanded.IBaubleExpanded.onSlotContentsChanged(ItemStack, EntityLivingBase)V at baubles.common.container.SlotBauble.func_75218_e(SlotBauble.java:85)`.
+* **Root cause 1:** Baubles Expanded 2.2.26 added that default method and calls it from `SlotBauble`; the `IBaubleExpanded` loaded is an older copy embedded in another jar earlier on the class path (several jars embed `baubles.api`; the log does not name the source, `akashicbaubleslayout-1.0.0.jar` is the first suspect). EFR's elytra and lanterns implement `IBaubleExpanded`, so they reach the call.
+* **Fix 1:** `BaublesExpandedApiTransformer` (both sides): a loaded `IBaubleExpanded` without the method gets 2.2.26's empty `public default void onSlotContentsChanged(ItemStack, EntityLivingBase)`; the WARN names every jar carrying the class, the first being the copy in use. The real 2.2.26 copy is untouched. Kill-switch `-Dakashic.baublesExpandedApi.disable=true`.
+* **Incident 2:** a phone player (and the PC player's log too) crashes when the inventory draws the player wearing an Adventure Backpack: `ExceptionInInitializerError` at `br.com.akashic.backpackcompat.client.RenderHooks.renderPart`, `Missing GL API glPushMatrix in class com.gtnewhorizons.angelica.glsm.GLStateManager`; on the phone it was followed by `OutOfMemoryError` and an Android ANR.
+* **Root cause 2:** Angelica 2.2.40 moved most GL entry points out of `GLStateManager` (918 -> 86 public static methods; owners listed in `GLSMOwners.METHODS`); AkashicBackpackCompat 1.0.0-rc1 resolves them reflectively with `Lookup.findStatic(GLStateManager, ...)`, which Angelica's call redirection cannot rewrite.
+* **Fix 2:** `AngelicaGlLookupTransformer` (client): `GlApi`'s `Lookup.findStatic` calls go through `AngelicaGlLookupHooks.findStatic`, which resolves a method missing from `GLStateManager` in the class `GLSMOwners` names. Kill-switch `-Dakashic.angelicaGlLookup.disable=true`.
+* **Gates (offline, PASS):** deterministic build; plugin: only `getASMTransformerClass` differs; registration: client = beta.46's + both, server = beta.46's + the Baubles guard; on the real 2.2.22 `IBaubleExpanded` exactly the empty default method is added (idempotent), 2.2.26 / beta.46 / kill-switch untouched; with `-Xverify:all` the elytra in a bauble slot reproduces the `NoSuchMethodError` on beta.46 and passes on beta.47 (overriding baubles still called); with real Angelica 2.2.40 a GlApi shape reproduces `Missing GL API glPushMatrix` on beta.46 and resolves in `GLSMMatrices`/`GLSMEnable` on beta.47; on 2.2.37 nothing changes.
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.46 - ProjectorOffhandGuard - 2026-10-29
-*Replaces beta.45 in the client.* SHA-256 `e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5` - 384631 B - 181 entries.
+*Superseded by beta.47 (Baubles API guard, Angelica GL lookup bridge).* SHA-256 `e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5` - 384631 B - 181 entries.
 * **Base:** beta.45 (4 entries changed, 2 added, the other 175 byte-identical).
 * **Incident:** the beta.45 player's client crashes in the Thermos server: `java.lang.ArrayIndexOutOfBoundsException: 36` at `flaxbeard.immersivepetroleum.client.projector.ProjectorClient.selectedView(ProjectorClient.java:50)`, called by its `RenderGameOverlayEvent.Text` handler `overlay` (crash report 2026-10-29 21:09, beta.43).
 * **Root cause:** the pack's Immersive Petroleum backport (0.1.0-alpha.10 catalyst WIP) returns `VIEWS[mc.thePlayer.inventory.currentItem]` with `VIEWS = new ProjectorView[9]`. Backhand 1.8.13 appends the offhand as slot 36 of `mainInventory` and points `currentItem` at it while it runs an offhand action, so the HUD text drawn in that window indexed `VIEWS[36]`.

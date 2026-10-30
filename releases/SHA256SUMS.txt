@@ -47,3 +47,4 @@ bef913778167a2fb540b638bf8276981073eb39b014b30ca07df1d94bf2ff701  releases/v1.1.
 de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027  releases/v1.1.0-beta.44-Angelica240Decoration/!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar
 d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035  releases/v1.1.0-beta.45-AgriCraftIrrigationGuard/!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar
 e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5  releases/v1.1.0-beta.46-ProjectorOffhandGuard/!Akashic-ThePatcher-1.1.0-beta.46-ProjectorOffhandGuard.jar
+e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f  releases/v1.1.0-beta.47-BaublesApiAngelicaLookup/!Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup.jar

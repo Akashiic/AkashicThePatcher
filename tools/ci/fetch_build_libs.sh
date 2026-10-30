@@ -39,5 +39,9 @@ fastutil-core-8.5.12.jar f31c20f5b06312f3d5e06e6160a32e274d819aa6cebf27528b26b6b
 lwjgl-2.9.1.jar c118f8d84313980f79e1e7f7ae4b14b10c2f20c77ea4a1c29f6f0b02bc139077 $MC/org/lwjgl/lwjgl/lwjgl/2.9.1/lwjgl-2.9.1.jar
 AgriCraft-1.7.10-1.5.0.jar b1d847e0b3ef0286dcf40b5793e7a7057af79740d83797f70d45b9906f1af102 https://mediafilez.forgecdn.net/files/2284/130/AgriCraft-1.7.10-1.5.0.jar
 immersivepetroleum-0.1.0-alpha.10-catalyst-wip-1ec598d.jar d5065d03a3e4ea65b518e523a5809161c486ccd4ad5c456ffc91a9770ce1c72c https://github.com/Akashiic/ImmersivePetroleum/releases/download/1.7.10-0.1.0-alpha.10-catalyst-wip-1ec598d/immersivepetroleum-0.1.0-alpha.10-feature-catalyst-refinery-20260915T1300.24%2B1ec598dd1c-dirty.jar
+BaublesExpanded-2.2.22-GTNH.jar beb573d425a583c8cec1ee6e19815cdcff44d1e8982fc2ed3ff140f86b2e8e99 $GTNH/Baubles-Expanded/2.2.22-GTNH/Baubles-Expanded-2.2.22-GTNH.jar
+BaublesExpanded-2.2.26-GTNH.jar 554624dd865489d852dd463abe17cebc546961f1a288a78f5712aeb6d8253d8d $GTNH/Baubles-Expanded/2.2.26-GTNH/Baubles-Expanded-2.2.26-GTNH.jar
+gtnhlib-0.11.54.jar 61340948f200ce52f210380ec00ec763fe867fac10c6342743e04c1688e85039 $GTNH/GTNHLib/0.11.54/GTNHLib-0.11.54.jar
+joml-1.10.5.jar cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a $CENTRAL/org/joml/joml/1.10.5/joml-1.10.5.jar
 LIST
 echo "FETCH_BUILD_LIBS OK $(ls "$DIR" | wc -l) files in $DIR"
