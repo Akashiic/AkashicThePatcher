@@ -1,0 +1,93 @@
+{
+  "version": "1.1.0-beta.46",
+  "base": {
+    "path": "releases/v1.1.0-beta.45-AgriCraftIrrigationGuard/!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar",
+    "sha256": "d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.46-ProjectorOffhandGuard.jar",
+    "sha256": "e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5",
+    "bytes": 384631
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "immersivepetroleum-0.1.0-alpha.10-catalyst-wip-1ec598d.jar": "d5065d03a3e4ea65b518e523a5809161c486ccd4ad5c456ffc91a9770ce1c72c",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 181,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/immersivepetroleum/ProjectorSlotHooks.class",
+    "com/akashic/thepatcher/module/immersivepetroleum/ProjectorSlotTransformer.class"
+  ],
+  "inherited_identical": 175,
+  "gate_jvm": "openjdk version \"1.8.0_432\"",
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta45.CLIENT": "REGISTRATION side=CLIENT count=24 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer]",
+  "registration.beta45.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "registration.beta46.CLIENT": "REGISTRATION side=CLIENT count=25 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer]",
+  "registration.beta46.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "real_projector.beta46": [
+    "[Akashic-ThePatcher] Immersive Petroleum projector slot guard applied: flaxbeard.immersivepetroleum.client.projector.ProjectorClient (a selected slot outside the hotbar, e.g. Backhand's offhand slot 36, means no projection instead of a crash).",
+    "A changed=true",
+    "A hook: GETFIELD field_70461_c -> view -> CHECKCAST ProjectorView -> ARETURN",
+    "[Akashic-ThePatcher] WARN: Immersive Petroleum projector slot guard skipped for flaxbeard.immersivepetroleum.client.projector.ProjectorClient: already patched; original bytecode retained.",
+    "A second pass: unchanged",
+    "REAL_PROJECTOR PASS expect=patched"
+  ],
+  "real_projector.beta45": [
+    "A transformer not in the jar under test",
+    "A changed=false",
+    "REAL_PROJECTOR PASS expect=untouched"
+  ],
+  "real_projector.beta46.disabled": [
+    "[Akashic-ThePatcher] Immersive Petroleum projector slot guard DISABLED by -Dakashic.projectorSlotGuard.disable=true.",
+    "A changed=false",
+    "REAL_PROJECTOR PASS expect=untouched"
+  ],
+  "real_projector.beta46.server": [
+    "A changed=false",
+    "REAL_PROJECTOR PASS expect=untouched"
+  ],
+  "projector.beta46": [
+    "[Akashic-ThePatcher] Immersive Petroleum projector slot guard applied: flaxbeard.immersivepetroleum.client.projector.ProjectorClient (a selected slot outside the hotbar, e.g. Backhand's offhand slot 36, means no projection instead of a crash).",
+    "A player=null -> null",
+    "A slots 0..8 -> their own projection",
+    "[Akashic-ThePatcher] WARN: Immersive Petroleum projector slot guard: selected slot 36 is outside the 9 hotbar slots (Backhand's offhand slot while it runs an offhand action); no projection is shown for it instead of the ArrayIndexOutOfBoundsException crash (-Dakashic.projectorSlotGuard.disable=true restores the original lookup).",
+    "A slot=36 -> null",
+    "A slot=-1 -> null",
+    "A slot=9 -> null",
+    "PROJECTOR_GATE PASS expect=guarded transformed=1"
+  ],
+  "projector.beta45": [
+    "A player=null -> null",
+    "A slots 0..8 -> their own projection",
+    "A slot=36 -> java.lang.ArrayIndexOutOfBoundsException: 36",
+    "A slot=-1 -> java.lang.ArrayIndexOutOfBoundsException: -1",
+    "A slot=9 -> java.lang.ArrayIndexOutOfBoundsException: 9",
+    "PROJECTOR_GATE PASS expect=crash transformed=0"
+  ],
+  "projector.beta46.disabled": [
+    "[Akashic-ThePatcher] Immersive Petroleum projector slot guard DISABLED by -Dakashic.projectorSlotGuard.disable=true.",
+    "A player=null -> null",
+    "A slots 0..8 -> their own projection",
+    "A slot=36 -> java.lang.ArrayIndexOutOfBoundsException: 36",
+    "A slot=-1 -> java.lang.ArrayIndexOutOfBoundsException: -1",
+    "A slot=9 -> java.lang.ArrayIndexOutOfBoundsException: 9",
+    "PROJECTOR_GATE PASS expect=crash transformed=0"
+  ],
+  "projector.beta46.server": [
+    "A player=null -> null",
+    "A slots 0..8 -> their own projection",
+    "A slot=36 -> java.lang.ArrayIndexOutOfBoundsException: 36",
+    "A slot=-1 -> java.lang.ArrayIndexOutOfBoundsException: -1",
+    "A slot=9 -> java.lang.ArrayIndexOutOfBoundsException: 9",
+    "PROJECTOR_GATE PASS expect=crash transformed=0"
+  ]
+}

@@ -1,6 +1,6 @@
 # Changelog
 
-All 48 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 49 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,19 @@ All 48 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.46 - ProjectorOffhandGuard - 2026-10-29
+*Replaces beta.45 in the client.* SHA-256 `e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5` - 384631 B - 181 entries.
+* **Base:** beta.45 (4 entries changed, 2 added, the other 175 byte-identical).
+* **Incident:** the beta.45 player's client crashes in the Thermos server: `java.lang.ArrayIndexOutOfBoundsException: 36` at `flaxbeard.immersivepetroleum.client.projector.ProjectorClient.selectedView(ProjectorClient.java:50)`, called by its `RenderGameOverlayEvent.Text` handler `overlay` (crash report 2026-10-29 21:09, beta.43).
+* **Root cause:** the pack's Immersive Petroleum backport (0.1.0-alpha.10 catalyst WIP) returns `VIEWS[mc.thePlayer.inventory.currentItem]` with `VIEWS = new ProjectorView[9]`. Backhand 1.8.13 appends the offhand as slot 36 of `mainInventory` and points `currentItem` at it while it runs an offhand action, so the HUD text drawn in that window indexed `VIEWS[36]`.
+* **Fix:** new client transformer `ProjectorSlotTransformer` (registered last): the single `AALOAD` of `selectedView` becomes `ProjectorSlotHooks.view(VIEWS, slot)` + `CHECKCAST ProjectorView`, which answers `null` ("no projection held", already handled by `overlay`) for a slot outside the array and logs one warning. Kill-switch `-Dakashic.projectorSlotGuard.disable=true`.
+* **Also diagnosed (not a ThePatcher fix):** the player's other install (beta.42, Hodgepodge 2.7.189) is dropped by the lobby every time with `DecoderException: java.io.EOFException` in `S35PacketUpdateTileEntity` and then `Bad packet id 91`: Hodgepodge 2.7.194 added a leading byte to the S35 NBT field (`directTileEntityArraySerialization`, default on), the sender has it and 2.7.189 does not; `91` is the low byte of the real NBT length, read as a packet id. Fix: the pack's Hodgepodge (2.7.219) on the client.
+* **Gates (offline, PASS):** deterministic build; plugin: only `getASMTransformerClass` differs; client registration = beta.45's + the new transformer last, server unchanged; on the real `ProjectorClient` of the pack's Immersive Petroleum only `selectedView` changes (`AALOAD` -> hook + `CHECKCAST`, fed by `GETFIELD currentItem`, followed by `ARETURN`), all methods verify, a second pass is a no-op, and beta.45 / kill-switch / server leave it unchanged; on a shape run with `-Xverify:all` slots 0..8 keep their projection and slots 36 / -1 / 9 give `null` instead of the original `ArrayIndexOutOfBoundsException`.
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.46-ProjectorOffhandGuard/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.45 - AgriCraftIrrigationGuard - 2026-10-29
-*Replaces beta.44 in the client.* SHA-256 `d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035` - 380277 B - 179 entries.
+*Superseded by beta.46 (Immersive Petroleum projector guard).* SHA-256 `d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035` - 380277 B - 179 entries.
 * **Base:** beta.44 (4 entries changed, 2 added, the other 173 byte-identical).
 * **Incident:** a player cannot join the server: after the lobby, the switch to the Forge backend ends with "Connection Lost - Fatally missing blocks and items"; the log lists `Found a missing id from the world AgriCraft:waterChannelFull` (and `waterChannel`, `channelValve`, `waterTank`, `sprinkler`) and `Failed to connect to server: there are 10 missing blocks and items`.
 * **Root cause:** AgriCraft 1.7.10 only registers its five irrigation blocks when `config/agricraft/Configuration.cfg` has `"Disable Irrigation"=false`; that player's file says `true`, the server has the blocks, and FML refuses a client that lacks ids the server has.
