@@ -1,2 +1,0 @@
-[06:55:23] [main/INFO]: loaded copy of baubles.api.expanded.IBaubleExpanded lacks onSlotContentsChanged; added the empty default from BaublesExpanded 2.2.26
-[06:55:23] [main/INFO]: baubles.api.expanded.IBaubleExpanded already declares onSlotContentsChanged, nothing to do
