@@ -24,6 +24,7 @@ This repository is the **complete recorded history** of the project, reconstruct
 releases/<tag>/        the JARs (43) + releases/SHA256SUMS.txt
 versions/<folder>/     per-build checkpoint docs, audits, build tools, recovered source
 projects/              AsyncCompat-family Gradle projects (source of the dev.akashic.asynciconcompat component)
+                       and standalone fix JARs (e.g. Akashic-ElnEndlessIdsFix: Electrical Age x EndlessIDs crash)
 investigations/        experiments, A/B configs and test harnesses (world-render hunt, Forestry C2 crash)
 analysis-tools/        scripts used to diff and compare builds
 data/                  machine-readable: manifest, excluded files, lineage, commit plan

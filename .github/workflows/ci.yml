@@ -179,6 +179,20 @@ jobs:
           archive: false
           if-no-files-found: error
 
+      # Electrical Age x EndlessIDs fix (separate coremod JAR): rebuild + compare with dist/, hook test, and the
+      # transformer applied to the real Eln 1.24.6/1.24.8 classes (ASM + HotSpot verifier).
+      - name: Akashic-ElnEndlessIdsFix - rebuild, compare and verify against Electrical Age
+        run: |
+          projects/Akashic-ElnEndlessIdsFix/tools/check.sh ~/thepatcher-libs \
+            "${{ steps.jdk21.outputs.path }}/bin/javac" "${{ steps.jdk21.outputs.path }}/bin/java"
+
+      - name: Artifact - Akashic-ElnEndlessIdsFix jar (upload)
+        uses: actions/upload-artifact@v7
+        with:
+          path: projects/Akashic-ElnEndlessIdsFix/dist/Akashic-ElnEndlessIdsFix-1.0.0.jar
+          archive: false
+          if-no-files-found: error
+
   release:
     needs: verify
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
