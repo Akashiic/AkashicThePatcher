@@ -48,3 +48,4 @@ de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027  releases/v1.1.
 d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035  releases/v1.1.0-beta.45-AgriCraftIrrigationGuard/!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar
 e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5  releases/v1.1.0-beta.46-ProjectorOffhandGuard/!Akashic-ThePatcher-1.1.0-beta.46-ProjectorOffhandGuard.jar
 e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f  releases/v1.1.0-beta.47-BaublesApiAngelicaLookup/!Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup.jar
+b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5  releases/v1.1.0-beta.48-BackhandProxyReturn/!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar

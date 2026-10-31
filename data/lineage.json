@@ -1495,5 +1495,30 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5",
   "note": "Baubles Expanded API guard (an older embedded IBaubleExpanded gets 2.2.26's default onSlotContentsChanged: Et Futurum's elytra in a bauble slot no longer throws NoSuchMethodError) and Angelica 2.2.40 GL lookup bridge for AkashicBackpackCompat's GlApi (inventory/player rendering with an Adventure Backpack no longer crashes); built by tools/beta47-build.py"
+ },
+ {
+  "id": "1.1.0-beta.48",
+  "kind": "mainline",
+  "sha256": "b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5",
+  "size": 392702,
+  "entries": 184,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.48",
+  "impl_version": "1.1.0-beta.48",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/forbiddenbackhand/core/BackhandGuardHooks.class",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [],
+  "tag": "v1.1.0-beta.48-BackhandProxyReturn",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar",
+  "date": "2026-10-31T12:00:00-03:00",
+  "declared_base_sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f",
+  "note": "Backhand behind the proxy: after backend -> vanilla lobby -> backend on one connection the backend's FML mod list counts for the JoinGame that follows it (before, the proof was spent early and the offhand stayed blocked for the session); built by tools/beta48-build.py"
  }
 ]

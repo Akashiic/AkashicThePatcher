@@ -1283,7 +1283,7 @@ versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/beta39-bu
 versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client/run.sh	claude-code session 2026-10-25	1598	07115194b6f8afed110fc50d710ccc085c68a099660d6acb786ca318d2a5ecc4
 versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client/setup.py	claude-code session 2026-10-25	4449	72177a8eb4d8341132443757d39d754162e46c5804e9ebc4bb46ef75d5c3b3ae
 releases/v1.1.0-beta.39-AngelicaFontMixinTrust/!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/beta39-build.py	335978	8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd
-.github/workflows/ci.yml	claude-code session 2026-10-26	9462	a7160321b2605ebc77d5d2be3272f2ddaf3e3176f3b00db6148268696c156c3f
+.github/workflows/ci.yml	claude-code session 2026-10-31	9975	54c3f7b75557e952082b90aea50ec2db953c880e880f9dd13593112db178831a
 tools/ci/DevJar.java	claude-code session 2026-10-25	4544	f2f00d7f3bb7596afc04cff6a0363d0f10cc4765920d88b0199fb7bf3d054148
 tools/ci/check_manifest.py	claude-code session 2026-10-25	1481	fcfd2cb57114e18e2e89af4f5cc1350e2818fe34dc33c48af0877191cf09a64b
 tools/ci/fetch_build_libs.sh	claude-code session 2026-10-26	5285	10f15d0f70346acfa9ed9c41e3319f28a4e487d3eb2602a5692394da6c95bbc7
@@ -1525,3 +1525,10 @@ versions/Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup/test/stubs/cp
 versions/Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup/tools/PatchBeta47Classes.java	claude-code session 2026-10-30	5607	d656ff8e7c4034f10e3a7622bf06c44793bf5e1b5c767d31b638b54c57597a49
 versions/Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup/tools/PatchThePatcherVersion.java	claude-code session 2026-10-30	2755	13e99f8d2a84234b66c11b8886b7db5c8e508269d89c3bbb696f37b4bc7482f8
 versions/Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup/tools/beta47-build.py	claude-code session 2026-10-30	18788	1442e44e7912c6b3525e11f18c92e7a6449afdae3adf428f0230242c46678a4e
+releases/v1.1.0-beta.48-BackhandProxyReturn/!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/tools/beta48-build.py	392702	b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5
+versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/CHECKPOINT-BETA48-BACKHAND-PROXY-RETURN-2026-10-31.md	claude-code session 2026-10-31	6442	b774713752cf973d8f5a44cf06a101a21923288b3a5d8cd3ef6b4bfcd5738ef2
+versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/reports/final-build-audit.json	claude-code session 2026-10-31	5179	0e7337a7e89d1e888923305afa26a82ddcdbfc32af1827b19f477f324300adb1
+versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/test/BackhandGate.java	claude-code session 2026-10-31	6809	71c07b5a0dd9395b77cdfae4f4e8b28852fd8f6b9c5d684f1d3360f933115aa4
+versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/test/HooksDiff.java	claude-code session 2026-10-31	3117	b055efb1bcebeb094ae9f5fd33268ded17046bfb1ee2f3203b592611f0b5b56e
+versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/tools/PatchBeta48Backhand.java	claude-code session 2026-10-31	11155	acc921f6800d304d8ca11c465e34d91d56971d9f357f8ff6ecee42415626e168
+versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/tools/beta48-build.py	claude-code session 2026-10-31	9300	c19fb35869e88ed42204b430e4cda235983c8102f7f111e4d13db877823ea6f0

@@ -42,6 +42,7 @@ Source coverage of the beta.34 jar: 30 of 104 top-level classes have sources on 
 | `akashic.hologramFastPath.disable` [false] | HolographicDisplays-style holograms: stop freezing the carriers (horse/item/slime on a wither skull) and drawing their text in one pass | beta.43 |
 | `akashic.hologramFastPath.range` [unset] | hologram text range in blocks measured from the line (unset: the vanilla 1.7 rule, viewer within 64 blocks of the horse) | beta.43 |
 | `akashic.agricraftIrrigation.disable` [false] | AgriCraft: keep the client config's "Disable Irrigation" instead of always registering the irrigation blocks | beta.45 |
+| `akashic.backhandProxyReturn.disable` [false] | Backhand: stop accepting a mod list captured since the previous JoinGame as the proof for the next one (the return from a vanilla lobby behind the proxy ends in TRANSITION again, offhand blocked) | beta.48 |
 | `akashic.baublesExpandedApi.disable` [false] | Baubles Expanded: do not add 2.2.26's default `onSlotContentsChanged` to an older embedded `IBaubleExpanded` copy (both sides) | beta.47 |
 | `akashic.angelicaGlLookup.disable` [false] | AkashicBackpackCompat: do not resolve GL methods that Angelica 2.2.40 moved out of `GLStateManager` in their new class | beta.47 |
 | `akashic.projectorSlotGuard.disable` [false] | Immersive Petroleum: keep the original `VIEWS[currentItem]` lookup of the projector HUD (crashes with Backhand's offhand slot 36) | beta.46 |

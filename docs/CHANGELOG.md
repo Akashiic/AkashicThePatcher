@@ -1,6 +1,6 @@
 # Changelog
 
-All 50 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 51 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,18 @@ All 50 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.48 - BackhandProxyReturn - 2026-10-31
+*Replaces beta.47 in the client.* SHA-256 `b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5` - 392702 B - 184 entries.
+* **Base:** beta.47 (4 entries changed, none added or removed, the other 180 byte-identical).
+* **Incident (player log 2026-10-31, client on beta.43; the Backhand class is the same from beta.35 to beta.47):** behind the Velocity proxy, Forge backend -> vanilla lobby (Paper 1.21.1 + ViaVersion) -> back to the backend on the same connection: after the return Backhand logged `remote FML mod list captured: type=MODDED ... proof=6/6` and then `join game/backend switch: type=TRANSITION ... offhandAllowed=false`, so the offhand stayed blocked for the rest of the session (fresh connections end with `join game consumed fresh FML capability proof: type=MODDED` and were fine). The player's actual complaint in that session was a black screen after the return; that is **not** explained by this defect (see the checkpoint and OPEN-ISSUES).
+* **Root cause (`BackhandGuardHooks`):** after the lobby JoinGame the state is `TRANSITION` with `awaitingJoinGame=false`; the backend's mod list then takes `captureRemoteModMap`'s promotion branch, which sets MODDED **and marks the new proof consumed**; the backend's JoinGame, forwarded by the proxy right after, finds no fresh proof and `onJoinGamePacket` goes back to `TRANSITION`, clearing the capability. The HandshakeReset hook that would set `awaitingJoinGame` did not fire in that log.
+* **Fix (`tools/PatchBeta48Backhand.java`, ASM, fail-closed on the exact class bytes):** new field `akashic$proofJoinSerial` (the JoinGame count when the last mod list was captured); `onJoinGamePacket`'s freshness test becomes `akashic$freshProofLocked()`: the old test, or a MODDED state whose mod list was captured after the previous JoinGame. A JoinGame without a new mod list still never reuses a proof. Kill-switch `-Dakashic.backhandProxyReturn.disable=true` (exactly the beta.47 test).
+* **Gates (offline, PASS):** deterministic build; `HooksDiff`: one field and one method added, only `captureRemoteModMap` and `onJoinGamePacket` changed; `BackhandGate` under `-Xverify:all` replays the log's event order through the shipped classes: beta.47 reproduces the defect, beta.48 keeps MODDED/offhand on the return and drops to TRANSITION on later JoinGames without a mod list, the kill-switch gives beta.47's results.
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/`.
+* **Live status:** pending in the pack (gate in the checkpoint).
+
 ## 1.1.0-beta.47 - BaublesApiAngelicaLookup - 2026-10-30
-*Replaces beta.46 in the client.* SHA-256 `e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f` - 392607 B - 184 entries.
+*Superseded by beta.48 (Backhand proxy return).* SHA-256 `e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f` - 392607 B - 184 entries.
 * **Base:** beta.46 (4 entries changed, 3 added, the other 177 byte-identical).
 * **Incident 1:** a PC player's game crashes (CoreTweaks catches it) when Et Futurum Requiem's elytra goes into a bauble slot: `java.lang.NoSuchMethodError: baubles.api.expanded.IBaubleExpanded.onSlotContentsChanged(ItemStack, EntityLivingBase)V at baubles.common.container.SlotBauble.func_75218_e(SlotBauble.java:85)`.
 * **Root cause 1:** Baubles Expanded 2.2.26 added that default method and calls it from `SlotBauble`; the `IBaubleExpanded` loaded is an older copy embedded in another jar earlier on the class path (several jars embed `baubles.api`; the log does not name the source, `akashicbaubleslayout-1.0.0.jar` is the first suspect). EFR's elytra and lanterns implement `IBaubleExpanded`, so they reach the call.

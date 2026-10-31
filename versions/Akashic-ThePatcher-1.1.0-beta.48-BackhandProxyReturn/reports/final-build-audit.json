@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0-beta.48",
+  "base": {
+    "path": "releases/v1.1.0-beta.47-BaublesApiAngelicaLookup/!Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup.jar",
+    "sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar",
+    "sha256": "b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5",
+    "bytes": 392702
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-9.7.jar": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d",
+    "asm-tree-9.7.jar": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1",
+    "asm-analysis-9.7.jar": "7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f",
+    "asm-util-9.7.jar": "37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211"
+  },
+  "entries": 184,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/forbiddenbackhand/core/BackhandGuardHooks.class",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "mcmod.info"
+  ],
+  "added": [],
+  "inherited_identical": 180,
+  "hooks_diff.com/akashic/forbiddenbackhand/core/BackhandGuardHooks.class": "HOOKS_DIFF com/akashic/forbiddenbackhand/core/BackhandGuardHooks methods=32->33 fields+=[4106 akashic$proofJoinSerialJ null] differing=[+4106 akashic$freshProofLocked()Z, 10 captureRemoteModMap(Ljava/util/Map;)V, 9 onJoinGamePacket(Ljava/lang/Object;Ljava/lang/Object;)V]",
+  "backhand_gate.beta47": [
+    "GATE ok   fresh connect, vanilla first server: type=VANILLA offhand=false (want VANILLA/false)",
+    "GATE ok   fresh connect, backend JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   switch to the vanilla lobby: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   lobby channel register: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   return, mod list captured: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   return, backend JoinGame: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   next switch, no new mod list: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   and the one after: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   FML handshake reset: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   after reset: mod list then JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   return to a backend without backhand: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   disconnect: type=DISCONNECTED offhand=false (want DISCONNECTED/false)",
+    "BACKHAND_GATE PASS expect=bug failures=0"
+  ],
+  "backhand_gate.beta48": [
+    "GATE ok   fresh connect, vanilla first server: type=VANILLA offhand=false (want VANILLA/false)",
+    "GATE ok   fresh connect, backend JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   switch to the vanilla lobby: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   lobby channel register: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   return, mod list captured: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   return, backend JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   next switch, no new mod list: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   and the one after: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   FML handshake reset: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   after reset: mod list then JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   return to a backend without backhand: type=MODDED offhand=false (want MODDED/false)",
+    "GATE ok   disconnect: type=DISCONNECTED offhand=false (want DISCONNECTED/false)",
+    "BACKHAND_GATE PASS expect=fixed failures=0"
+  ],
+  "backhand_gate.beta48.disabled": [
+    "GATE ok   fresh connect, vanilla first server: type=VANILLA offhand=false (want VANILLA/false)",
+    "GATE ok   fresh connect, backend JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   switch to the vanilla lobby: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   lobby channel register: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   return, mod list captured: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   return, backend JoinGame: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   next switch, no new mod list: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   and the one after: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   FML handshake reset: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   after reset: mod list then JoinGame: type=MODDED offhand=true (want MODDED/true)",
+    "GATE ok   return to a backend without backhand: type=TRANSITION offhand=false (want TRANSITION/false)",
+    "GATE ok   disconnect: type=DISCONNECTED offhand=false (want DISCONNECTED/false)",
+    "BACKHAND_GATE PASS expect=bug failures=0"
+  ]
+}
