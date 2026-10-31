@@ -1288,7 +1288,7 @@ tools/ci/DevJar.java	claude-code session 2026-10-25	4544	f2f00d7f3bb7596afc04cff
 tools/ci/check_manifest.py	claude-code session 2026-10-25	1481	fcfd2cb57114e18e2e89af4f5cc1350e2818fe34dc33c48af0877191cf09a64b
 tools/ci/fetch_build_libs.sh	claude-code session 2026-10-26	5285	10f15d0f70346acfa9ed9c41e3319f28a4e487d3eb2602a5692394da6c95bbc7
 tools/ci/make_artifacts.py	claude-code session 2026-10-25	7221	1c4ee39ad5cc1bc353bf1330140e403bdb476fc5b16370d4c67b6ae9064d4317
-tools/ci/publish_releases.py	claude-code session 2026-10-25	5207	583ef3a736918bb0f7a43f82e0a0013f4e8c375db63d13733170cf7f49464e0f
+tools/ci/publish_releases.py	claude-code session 2026-10-31	6406	1b80d0093dca8b421267b07816656c91eaa61d6515aaa2aee3e2d67924001b39
 versions/Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard/CHECKPOINT-BETA40-ITEMS-ATLAS-ANGELICA-GUARD-2026-10-25.md	claude-code session 2026-10-25	5262	9e44258eb585fc7cb1ae6b935205de09b5086a4a8a7a5b8d37da7a736903581e
 versions/Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard/reports/final-build-audit.json	claude-code session 2026-10-25	2776	e8dfe34f8c33bdf7da3d792c5d74e0738229117d2731f6ac22e45522fb1665a2
 versions/Akashic-ThePatcher-1.1.0-beta.40-ItemsAtlasAngelicaGuard/reports/real-client/b40-angelica-2.2.18-t147.jpg	claude-code session 2026-10-25	25316	425ee5da83e94162b748a224fe07f76bd43ce13f21b110c75112391b0718deaf

@@ -4,7 +4,11 @@
 
 Run by .github/workflows/release.yml (GH_TOKEN = the workflow token, contents: write); `gh` must be on PATH.
 For each build in data/lineage.json order whose folder exists and has no release:
-  * the tag points at the commit that added the JAR (so the history stays chronological);
+  * the tag points at the commit that added the JAR (so the history stays chronological), unless that commit's
+    .github/ differs from HEAD's: the workflow token may not create a ref whose workflow files differ from the
+    branch's ("Resource not accessible by integration", first seen 2026-10-31 for beta.44-47, whose commits carry
+    an older ci.yml), so the tag goes on the first later commit whose .github/ matches HEAD's (often the merge);
+    the body still names the commit that added the JAR;
   * the body is the build's table (hash, size, base) plus its docs/CHANGELOG.md section;
   * the asset is the JAR, uploaded without the leading "!" (GitHub would rename it anyway);
   * builds whose lineage note starts with "do not install" are published as pre-releases;
@@ -28,6 +32,19 @@ def sh(*cmd, check=True):
     if check and proc.returncode != 0:
         raise SystemExit("FAILED: %s\n%s%s" % (" ".join(cmd), proc.stdout, proc.stderr))
     return proc
+
+
+def tag_target(commit):
+    """commit, or the first later commit on the way to HEAD whose .github/ tree equals HEAD's."""
+    def github_tree(rev):
+        return sh("git", "rev-parse", rev + ":.github", check=False).stdout.strip()
+    head = github_tree("HEAD")
+    if github_tree(commit) == head:
+        return commit
+    for later in sh("git", "rev-list", "--reverse", "--ancestry-path", commit + "..HEAD").stdout.split():
+        if github_tree(later) == head:
+            return later
+    return sh("git", "rev-parse", "HEAD").stdout.strip()
 
 
 def changelog_section(version):
@@ -68,6 +85,7 @@ def main():
         assert sums.get(path) == entry["sha256"], "SHA256SUMS and lineage disagree for " + path
         commit = sh("git", "log", "--diff-filter=A", "--format=%H", "-1", "--", path).stdout.strip()
         assert commit, "no commit added " + path
+        target = tag_target(commit)
         prerelease = entry.get("note", "").lower().startswith("do not install")
         base = by_sha.get(entry.get("declared_base_sha256"), {}).get("tag", entry.get("declared_base_sha256", "?"))
         version = entry["id"]
@@ -85,7 +103,9 @@ def main():
                   "| Size | %s bytes, %s ZIP entries |" % (entry.get("size"), entry.get("entries")),
                   "| Declared base | %s |" % base,
                   "| Build date | %s |" % entry.get("date", "?"),
-                  "| Commit | %s |" % commit, "",
+                  "| Commit | %s |" % commit] + (
+                     ["| Tagged at | %s (the workflow files changed after the JAR's commit) |" % target]
+                     if target != commit else []) + ["",
                   changelog_section(version), "",
                   "Details: [CHANGELOG](https://github.com/%s/blob/main/docs/CHANGELOG.md), "
                   "[LINEAGE](https://github.com/%s/blob/main/docs/LINEAGE.md)." % (repo, repo),
@@ -93,7 +113,8 @@ def main():
         body = "\n".join(lines) + "\n"
         flags = ["--prerelease"] if prerelease else []
         flags.append("--latest" if tag == latest else "--latest=false")
-        print("PUBLISH %s commit=%s prerelease=%s latest=%s" % (tag, commit[:7], prerelease, tag == latest))
+        print("PUBLISH %s commit=%s target=%s prerelease=%s latest=%s"
+              % (tag, commit[:7], target[:7], prerelease, tag == latest))
         if args.dry_run:
             print(body)
             continue
@@ -102,7 +123,7 @@ def main():
             shutil.copyfile(ROOT / path, asset)
             notes = pathlib.Path(tmp) / "notes.md"
             notes.write_text(body, encoding="utf-8")
-            sh("gh", "release", "create", tag, str(asset), "--repo", repo, "--target", commit,
+            sh("gh", "release", "create", tag, str(asset), "--repo", repo, "--target", target,
                "--title", name, "--notes-file", str(notes), *flags)
     print("PUBLISH_RELEASES done: %d release(s)" % len(pending))
 
