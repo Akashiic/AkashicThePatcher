@@ -1,0 +1,71 @@
+{
+  "version": "1.1.0-beta.44",
+  "base": {
+    "path": "releases/v1.1.0-beta.43-HologramFastPath/!Akashic-ThePatcher-1.1.0-beta.43-HologramFastPath.jar",
+    "sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar",
+    "sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+    "bytes": 376644
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff",
+    "angelica-2.2.40.jar": "c91adf2712aa65f8d99f5378a3027f538ab8e027c0b5b2aa261cc632ae937c54",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "angelica-2.2.23.jar": "a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0",
+    "angelica-2.2.18.jar": "563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50"
+  },
+  "entries": 177,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+    "mcmod.info"
+  ],
+  "inherited_identical": 173,
+  "gate_jvm": "openjdk version \"21.0.12.1\" 2026-08-18",
+  "method_diff.com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class": "METHOD_DIFF com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor methods=15 differing=[10 hasEndpointFix(Lorg/objectweb/asm/tree/MethodNode;)Z, 8 <clinit>()V]",
+  "decoration.beta43.2.2.40": [
+    "[Akashic-ThePatcher] WARN: Angelica whitespace decoration fix skipped: unsupported drawString fingerprint dba827d81374f97b0de687e6fdc9e11b45b6a9ff79d2255cb73c12a74b1489a2.",
+    "DECORATION changed=false endpointFix=false verified=96"
+  ],
+  "decoration.beta44.2.2.40": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=96"
+  ],
+  "decoration.beta44.2.2.40.sha256": "c4257273073da4e0aa86371e954ffbe87c70b123c6dd82b5a77e8122bb490e50",
+  "decoration.beta44.2.2.40.placement": "PLACEMENT PASS sites=1",
+  "decoration.beta44.2.2.40.again": [
+    "DECORATION changed=false endpointFix=true verified=96"
+  ],
+  "decoration.beta44.2.2.40.idempotent": "PASS",
+  "decoration.beta43.2.2.37": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=70"
+  ],
+  "decoration.beta44.2.2.37": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=70"
+  ],
+  "decoration.2.2.37_identical_to_beta43": "9cfa19aad7728c027afdaf648eb78234119292e42a7d8029ee143b3f7fd01f7f",
+  "decoration.beta43.2.2.23": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=63"
+  ],
+  "decoration.beta44.2.2.23": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=63"
+  ],
+  "decoration.2.2.23_identical_to_beta43": "b7e0b12335947338374c0a760c2bf425c01dd55d33c6e0f2345d49eb033b593b",
+  "decoration.beta43.2.2.18": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=62"
+  ],
+  "decoration.beta44.2.2.18": [
+    "[Akashic-ThePatcher] Angelica whitespace decoration endpoint fix installed: BatchingFontRenderer.drawString.",
+    "DECORATION changed=true endpointFix=true verified=62"
+  ],
+  "decoration.2.2.18_identical_to_beta43": "9d1963b5cf14cecaa649736f7ed96fa7057de5e92c97045634bd1729c1d4eaa2"
+}

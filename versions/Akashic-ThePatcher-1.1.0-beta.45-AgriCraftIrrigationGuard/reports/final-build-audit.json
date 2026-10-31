@@ -1,0 +1,94 @@
+{
+  "version": "1.1.0-beta.45",
+  "base": {
+    "path": "releases/v1.1.0-beta.44-Angelica240Decoration/!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar",
+    "sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar",
+    "sha256": "d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035",
+    "bytes": 380277
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "AgriCraft-1.7.10-1.5.0.jar": "b1d847e0b3ef0286dcf40b5793e7a7057af79740d83797f70d45b9906f1af102",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 179,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/agricraft/AgriCraftIrrigationHooks.class",
+    "com/akashic/thepatcher/module/agricraft/AgriCraftIrrigationTransformer.class"
+  ],
+  "inherited_identical": 173,
+  "gate_jvm": "openjdk version \"1.8.0_432\"",
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta44.CLIENT": "REGISTRATION side=CLIENT count=23 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer]",
+  "registration.beta44.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "registration.beta45.CLIENT": "REGISTRATION side=CLIENT count=24 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer]",
+  "registration.beta45.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "real_agricraft.beta45": [
+    "[Akashic-ThePatcher] AgriCraft irrigation guard applied: com.InfinityRaider.AgriCraft.handler.ConfigurationHandler (the client always registers the irrigation blocks, whatever \"Disable Irrigation\" says).",
+    "A changed=true",
+    "A hook: getBoolean -> clientIrrigationDisabled -> PUTSTATIC disableIrrigation",
+    "[Akashic-ThePatcher] WARN: AgriCraft irrigation guard skipped for com.InfinityRaider.AgriCraft.handler.ConfigurationHandler: already patched; original bytecode retained.",
+    "A second pass: unchanged",
+    "REAL_AGRICRAFT PASS expect=patched"
+  ],
+  "real_agricraft.beta44": [
+    "A transformer not in the jar under test",
+    "A changed=false",
+    "REAL_AGRICRAFT PASS expect=untouched"
+  ],
+  "real_agricraft.beta45.disabled": [
+    "[Akashic-ThePatcher] AgriCraft irrigation guard DISABLED by -Dakashic.agricraftIrrigation.disable=true.",
+    "A changed=false",
+    "REAL_AGRICRAFT PASS expect=untouched"
+  ],
+  "real_agricraft.beta45.server": [
+    "A changed=false",
+    "REAL_AGRICRAFT PASS expect=untouched"
+  ],
+  "irrigation.beta45.config-true": [
+    "[Akashic-ThePatcher] AgriCraft irrigation guard applied: com.InfinityRaider.AgriCraft.handler.ConfigurationHandler (the client always registers the irrigation blocks, whatever \"Disable Irrigation\" says).",
+    "[Akashic-ThePatcher] WARN: AgriCraft irrigation guard: config/agricraft/Configuration.cfg has \"Disable Irrigation\"=true; ignored on the client, so the irrigation blocks (water tank, channels, valve, sprinkler) stay registered and joining a server that has them no longer fails with \"Fatally missing blocks and items\" (-Dakashic.agricraftIrrigation.disable=true keeps the config value).",
+    "A init config=true disableIrrigation=false disableSeedWarehouse=false channelCapacity=500",
+    "A reload config=true disableIrrigation=false disableSeedWarehouse=false channelCapacity=500",
+    "IRRIGATION_GATE PASS expect=false transformed=1"
+  ],
+  "irrigation.beta45.config-true.warehouse": [
+    "[Akashic-ThePatcher] AgriCraft irrigation guard applied: com.InfinityRaider.AgriCraft.handler.ConfigurationHandler (the client always registers the irrigation blocks, whatever \"Disable Irrigation\" says).",
+    "[Akashic-ThePatcher] WARN: AgriCraft irrigation guard: config/agricraft/Configuration.cfg has \"Disable Irrigation\"=true; ignored on the client, so the irrigation blocks (water tank, channels, valve, sprinkler) stay registered and joining a server that has them no longer fails with \"Fatally missing blocks and items\" (-Dakashic.agricraftIrrigation.disable=true keeps the config value).",
+    "A init config=true disableIrrigation=false disableSeedWarehouse=true channelCapacity=500",
+    "A reload config=true disableIrrigation=false disableSeedWarehouse=true channelCapacity=500",
+    "IRRIGATION_GATE PASS expect=false transformed=1"
+  ],
+  "irrigation.beta45.config-false": [
+    "[Akashic-ThePatcher] AgriCraft irrigation guard applied: com.InfinityRaider.AgriCraft.handler.ConfigurationHandler (the client always registers the irrigation blocks, whatever \"Disable Irrigation\" says).",
+    "A init config=false disableIrrigation=false disableSeedWarehouse=false channelCapacity=500",
+    "A reload config=false disableIrrigation=false disableSeedWarehouse=false channelCapacity=500",
+    "IRRIGATION_GATE PASS expect=false transformed=1"
+  ],
+  "irrigation.beta44.config-true": [
+    "A init config=true disableIrrigation=true disableSeedWarehouse=false channelCapacity=500",
+    "A reload config=true disableIrrigation=true disableSeedWarehouse=false channelCapacity=500",
+    "IRRIGATION_GATE PASS expect=true transformed=0"
+  ],
+  "irrigation.beta45.disabled.config-true": [
+    "[Akashic-ThePatcher] AgriCraft irrigation guard DISABLED by -Dakashic.agricraftIrrigation.disable=true.",
+    "A init config=true disableIrrigation=true disableSeedWarehouse=false channelCapacity=500",
+    "A reload config=true disableIrrigation=true disableSeedWarehouse=false channelCapacity=500",
+    "IRRIGATION_GATE PASS expect=true transformed=0"
+  ],
+  "irrigation.beta45.server.config-true": [
+    "A init config=true disableIrrigation=true disableSeedWarehouse=false channelCapacity=500",
+    "A reload config=true disableIrrigation=true disableSeedWarehouse=false channelCapacity=500",
+    "IRRIGATION_GATE PASS expect=true transformed=0"
+  ]
+}

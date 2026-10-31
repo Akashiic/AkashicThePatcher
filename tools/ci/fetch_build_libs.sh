@@ -25,6 +25,7 @@ asm-9.7.jar adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d $CE
 asm-tree-9.7.jar 62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1 $CENTRAL/org/ow2/asm/asm-tree/9.7/asm-tree-9.7.jar
 asm-analysis-9.7.jar 7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f $CENTRAL/org/ow2/asm/asm-analysis/9.7/asm-analysis-9.7.jar
 asm-util-9.7.jar 37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211 $CENTRAL/org/ow2/asm/asm-util/9.7/asm-util-9.7.jar
+angelica-2.2.40.jar c91adf2712aa65f8d99f5378a3027f538ab8e027c0b5b2aa261cc632ae937c54 $GTNH/Angelica/2.2.40/Angelica-2.2.40.jar
 angelica-2.2.37.jar 2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b $GTNH/Angelica/2.2.37/Angelica-2.2.37.jar
 angelica-2.2.23.jar a7b82ca3a193f6737ebb36650f7287b883cf6985a30608c8fed0a6a9c1d4a5f0 $GTNH/Angelica/2.2.23/Angelica-2.2.23.jar
 angelica-2.2.18.jar 563d907f3035aedc7761be0f882674d6e736b63c5860e126e7af7df0d9f15c50 $GTNH/Angelica/2.2.18/Angelica-2.2.18.jar
@@ -36,5 +37,11 @@ mcp_stable-12-1.7.10.zip 83d303a80071582cd07d41b35aa77c178d609a27c69c8472b794636
 coretweaks-0.3.4.7-GTNH.jar 89c117aeee723df3a31d8d341626e7d080b78e50e23564c889e59b198f9bde9b $GTNH/CoreTweaks/0.3.4.7-GTNH/CoreTweaks-0.3.4.7-GTNH.jar
 fastutil-core-8.5.12.jar f31c20f5b06312f3d5e06e6160a32e274d819aa6cebf27528b26b6b5c0c1df19 $CENTRAL/it/unimi/dsi/fastutil-core/8.5.12/fastutil-core-8.5.12.jar
 lwjgl-2.9.1.jar c118f8d84313980f79e1e7f7ae4b14b10c2f20c77ea4a1c29f6f0b02bc139077 $MC/org/lwjgl/lwjgl/lwjgl/2.9.1/lwjgl-2.9.1.jar
+AgriCraft-1.7.10-1.5.0.jar b1d847e0b3ef0286dcf40b5793e7a7057af79740d83797f70d45b9906f1af102 https://mediafilez.forgecdn.net/files/2284/130/AgriCraft-1.7.10-1.5.0.jar
+immersivepetroleum-0.1.0-alpha.10-catalyst-wip-1ec598d.jar d5065d03a3e4ea65b518e523a5809161c486ccd4ad5c456ffc91a9770ce1c72c https://github.com/Akashiic/ImmersivePetroleum/releases/download/1.7.10-0.1.0-alpha.10-catalyst-wip-1ec598d/immersivepetroleum-0.1.0-alpha.10-feature-catalyst-refinery-20260915T1300.24%2B1ec598dd1c-dirty.jar
+BaublesExpanded-2.2.22-GTNH.jar beb573d425a583c8cec1ee6e19815cdcff44d1e8982fc2ed3ff140f86b2e8e99 $GTNH/Baubles-Expanded/2.2.22-GTNH/Baubles-Expanded-2.2.22-GTNH.jar
+BaublesExpanded-2.2.26-GTNH.jar 554624dd865489d852dd463abe17cebc546961f1a288a78f5712aeb6d8253d8d $GTNH/Baubles-Expanded/2.2.26-GTNH/Baubles-Expanded-2.2.26-GTNH.jar
+gtnhlib-0.11.54.jar 61340948f200ce52f210380ec00ec763fe867fac10c6342743e04c1688e85039 $GTNH/GTNHLib/0.11.54/GTNHLib-0.11.54.jar
+joml-1.10.5.jar cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a $CENTRAL/org/joml/joml/1.10.5/joml-1.10.5.jar
 LIST
 echo "FETCH_BUILD_LIBS OK $(ls "$DIR" | wc -l) files in $DIR"

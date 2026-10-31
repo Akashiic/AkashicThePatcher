@@ -1,0 +1,144 @@
+{
+  "version": "1.1.0-beta.47",
+  "base": {
+    "path": "releases/v1.1.0-beta.46-ProjectorOffhandGuard/!Akashic-ThePatcher-1.1.0-beta.46-ProjectorOffhandGuard.jar",
+    "sha256": "e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5"
+  },
+  "output": {
+    "name": "b47.jar",
+    "sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f",
+    "bytes": 392607
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "BaublesExpanded-2.2.22-GTNH.jar": "beb573d425a583c8cec1ee6e19815cdcff44d1e8982fc2ed3ff140f86b2e8e99",
+    "BaublesExpanded-2.2.26-GTNH.jar": "554624dd865489d852dd463abe17cebc546961f1a288a78f5712aeb6d8253d8d",
+    "angelica-2.2.40.jar": "c91adf2712aa65f8d99f5378a3027f538ab8e027c0b5b2aa261cc632ae937c54",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "gtnhlib-0.11.54.jar": "61340948f200ce52f210380ec00ec763fe867fac10c6342743e04c1688e85039",
+    "joml-1.10.5.jar": "cac9f22f83a7aa33eebda73c16ff5261e3cb4911b6bafcf4c79ea486099d0c9a",
+    "fastutil-core-8.5.12.jar": "f31c20f5b06312f3d5e06e6160a32e274d819aa6cebf27528b26b6b5c0c1df19",
+    "lwjgl-2.9.1.jar": "c118f8d84313980f79e1e7f7ae4b14b10c2f20c77ea4a1c29f6f0b02bc139077",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 184,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/angelica/AngelicaGlLookupHooks.class",
+    "com/akashic/thepatcher/module/angelica/AngelicaGlLookupTransformer.class",
+    "com/akashic/thepatcher/module/baubles/BaublesExpandedApiTransformer.class"
+  ],
+  "inherited_identical": 177,
+  "gate_jvm": "openjdk version \"1.8.0_432\"",
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta46.CLIENT": "REGISTRATION side=CLIENT count=25 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer]",
+  "registration.beta46.SERVER": "REGISTRATION side=SERVER count=6 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer]",
+  "registration.beta47.CLIENT": "REGISTRATION side=CLIENT count=27 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer]",
+  "registration.beta47.SERVER": "REGISTRATION side=SERVER count=7 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer]",
+  "real_baubles.beta47.2.2.22": [
+    "[Akashic-ThePatcher] WARN: Baubles Expanded API guard applied: the loaded baubles.api.expanded.IBaubleExpanded is an older copy without onSlotContentsChanged (Baubles Expanded 2.2.26 calls it when an item enters a bauble slot, e.g. Et Futurum's elytra); the empty default method was added. Jars carrying this class, the first one is in use: unknown. Remove the embedded baubles/api/expanded classes from the jar(s) other than BaublesExpanded.",
+    "A changed=true",
+    "A added: public default onSlotContentsChanged(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;)V { return; } version=52",
+    "A second pass: unchanged",
+    "REAL_BAUBLES PASS expect=patched"
+  ],
+  "real_baubles.beta47.server.2.2.22": [
+    "[Akashic-ThePatcher] WARN: Baubles Expanded API guard applied: the loaded baubles.api.expanded.IBaubleExpanded is an older copy without onSlotContentsChanged (Baubles Expanded 2.2.26 calls it when an item enters a bauble slot, e.g. Et Futurum's elytra); the empty default method was added. Jars carrying this class, the first one is in use: unknown. Remove the embedded baubles/api/expanded classes from the jar(s) other than BaublesExpanded.",
+    "A changed=true",
+    "A added: public default onSlotContentsChanged(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;)V { return; } version=52",
+    "A second pass: unchanged",
+    "REAL_BAUBLES PASS expect=patched"
+  ],
+  "real_baubles.beta47.2.2.26": [
+    "A changed=false",
+    "REAL_BAUBLES PASS expect=untouched"
+  ],
+  "real_baubles.beta46.2.2.22": [
+    "A transformer not in the jar under test",
+    "A changed=false",
+    "REAL_BAUBLES PASS expect=untouched"
+  ],
+  "real_baubles.beta47.disabled.2.2.22": [
+    "[Akashic-ThePatcher] Baubles Expanded API guard DISABLED by -Dakashic.baublesExpandedApi.disable=true.",
+    "A changed=false",
+    "REAL_BAUBLES PASS expect=untouched"
+  ],
+  "real_baubles.beta47.2.2.22.sources": [
+    "[Akashic-ThePatcher] WARN: Baubles Expanded API guard applied: the loaded baubles.api.expanded.IBaubleExpanded is an older copy without onSlotContentsChanged (Baubles Expanded 2.2.26 calls it when an item enters a bauble slot, e.g. Et Futurum's elytra); the empty default method was added. Jars carrying this class, the first one is in use: [BaublesExpanded-2.2.22-GTNH.jar, BaublesExpanded-2.2.26-GTNH.jar]. Remove the embedded baubles/api/expanded classes from the jar(s) other than BaublesExpanded.",
+    "A changed=true",
+    "A added: public default onSlotContentsChanged(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;)V { return; } version=52",
+    "A second pass: unchanged",
+    "REAL_BAUBLES PASS expect=patched"
+  ],
+  "baubles.beta47.api-2.2.22": [
+    "[Akashic-ThePatcher] WARN: Baubles Expanded API guard applied: the loaded baubles.api.expanded.IBaubleExpanded is an older copy without onSlotContentsChanged (Baubles Expanded 2.2.26 calls it when an item enters a bauble slot, e.g. Et Futurum's elytra); the empty default method was added. Jars carrying this class, the first one is in use: unknown. Remove the embedded baubles/api/expanded classes from the jar(s) other than BaublesExpanded.",
+    "A IBaubleExpanded declares onSlotContentsChanged=true",
+    "A elytra in a bauble slot -> ok",
+    "A overriding bauble in a bauble slot -> onSlotContentsChanged called 1x",
+    "BAUBLES_GATE PASS expect=guarded transformed=1"
+  ],
+  "baubles.beta47.server.api-2.2.22": [
+    "[Akashic-ThePatcher] WARN: Baubles Expanded API guard applied: the loaded baubles.api.expanded.IBaubleExpanded is an older copy without onSlotContentsChanged (Baubles Expanded 2.2.26 calls it when an item enters a bauble slot, e.g. Et Futurum's elytra); the empty default method was added. Jars carrying this class, the first one is in use: unknown. Remove the embedded baubles/api/expanded classes from the jar(s) other than BaublesExpanded.",
+    "A IBaubleExpanded declares onSlotContentsChanged=true",
+    "A elytra in a bauble slot -> ok",
+    "A overriding bauble in a bauble slot -> onSlotContentsChanged called 1x",
+    "BAUBLES_GATE PASS expect=guarded transformed=1"
+  ],
+  "baubles.beta46.api-2.2.22": [
+    "A IBaubleExpanded declares onSlotContentsChanged=false",
+    "A elytra in a bauble slot -> java.lang.NoSuchMethodError: baubles.api.expanded.IBaubleExpanded.onSlotContentsChanged(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;)V",
+    "BAUBLES_GATE PASS expect=crash transformed=0"
+  ],
+  "baubles.beta47.disabled.api-2.2.22": [
+    "[Akashic-ThePatcher] Baubles Expanded API guard DISABLED by -Dakashic.baublesExpandedApi.disable=true.",
+    "A IBaubleExpanded declares onSlotContentsChanged=false",
+    "A elytra in a bauble slot -> java.lang.NoSuchMethodError: baubles.api.expanded.IBaubleExpanded.onSlotContentsChanged(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EntityLivingBase;)V",
+    "BAUBLES_GATE PASS expect=crash transformed=0"
+  ],
+  "baubles.beta47.api-2.2.26": [
+    "A IBaubleExpanded declares onSlotContentsChanged=true",
+    "A elytra in a bauble slot -> ok",
+    "A overriding bauble in a bauble slot -> onSlotContentsChanged called 1x",
+    "BAUBLES_GATE PASS expect=guarded transformed=0"
+  ],
+  "baubles.beta46.api-2.2.26": [
+    "A IBaubleExpanded declares onSlotContentsChanged=true",
+    "A elytra in a bauble slot -> ok",
+    "A overriding bauble in a bauble slot -> onSlotContentsChanged called 1x",
+    "BAUBLES_GATE PASS expect=guarded transformed=0"
+  ],
+  "glapi.beta47.angelica-2.2.40": [
+    "[Akashic-ThePatcher] Angelica GL lookup bridge applied: br.com.akashic.backpackcompat.client.GlApi (1 findStatic call(s); GL methods that Angelica 2.2.40 moved out of GLStateManager are found in their new class).",
+    "[Akashic-ThePatcher] Angelica GL lookup bridge: glPushMatrix()void is no longer in GLStateManager (Angelica 2.2.40+); resolved in com.gtnewhorizons.angelica.glsm.GLSMMatrices (further moved methods are resolved the same way, silently).",
+    "A GlApi -> {glPushMatrix=com.gtnewhorizons.angelica.glsm.GLSMMatrices, glPopMatrix=com.gtnewhorizons.angelica.glsm.GLSMMatrices, glTranslatef=com.gtnewhorizons.angelica.glsm.GLSMMatrices, glRotatef=com.gtnewhorizons.angelica.glsm.GLSMMatrices, glScalef=com.gtnewhorizons.angelica.glsm.GLSMMatrices, glEnable=com.gtnewhorizons.angelica.glsm.GLSMEnable, glDisable=com.gtnewhorizons.angelica.glsm.GLSMEnable, glColor4f=com.gtnewhorizons.angelica.glsm.GLSMCurrentAttribs, glBindTexture=com.gtnewhorizons.angelica.glsm.GLSMTextures}",
+    "GLAPI_GATE PASS expect=moved transformed=1"
+  ],
+  "glapi.beta46.angelica-2.2.40": [
+    "A GlApi -> java.lang.IllegalStateException: Missing GL API glPushMatrix in class com.gtnewhorizons.angelica.glsm.GLStateManager",
+    "GLAPI_GATE PASS expect=crash transformed=0"
+  ],
+  "glapi.beta47.disabled.angelica-2.2.40": [
+    "[Akashic-ThePatcher] Angelica GL lookup bridge DISABLED by -Dakashic.angelicaGlLookup.disable=true.",
+    "A GlApi -> java.lang.IllegalStateException: Missing GL API glPushMatrix in class com.gtnewhorizons.angelica.glsm.GLStateManager",
+    "GLAPI_GATE PASS expect=crash transformed=0"
+  ],
+  "glapi.beta47.server.angelica-2.2.40": [
+    "A GlApi -> java.lang.IllegalStateException: Missing GL API glPushMatrix in class com.gtnewhorizons.angelica.glsm.GLStateManager",
+    "GLAPI_GATE PASS expect=crash transformed=0"
+  ],
+  "glapi.beta47.angelica-2.2.37": [
+    "[Akashic-ThePatcher] Angelica GL lookup bridge applied: br.com.akashic.backpackcompat.client.GlApi (1 findStatic call(s); GL methods that Angelica 2.2.40 moved out of GLStateManager are found in their new class).",
+    "A GlApi -> {glPushMatrix=com.gtnewhorizons.angelica.glsm.GLStateManager, glPopMatrix=com.gtnewhorizons.angelica.glsm.GLStateManager, glTranslatef=com.gtnewhorizons.angelica.glsm.GLStateManager, glRotatef=com.gtnewhorizons.angelica.glsm.GLStateManager, glScalef=com.gtnewhorizons.angelica.glsm.GLStateManager, glEnable=com.gtnewhorizons.angelica.glsm.GLStateManager, glDisable=com.gtnewhorizons.angelica.glsm.GLStateManager, glColor4f=com.gtnewhorizons.angelica.glsm.GLStateManager, glBindTexture=com.gtnewhorizons.angelica.glsm.GLStateManager}",
+    "GLAPI_GATE PASS expect=glsm transformed=1"
+  ],
+  "glapi.beta46.angelica-2.2.37": [
+    "A GlApi -> {glPushMatrix=com.gtnewhorizons.angelica.glsm.GLStateManager, glPopMatrix=com.gtnewhorizons.angelica.glsm.GLStateManager, glTranslatef=com.gtnewhorizons.angelica.glsm.GLStateManager, glRotatef=com.gtnewhorizons.angelica.glsm.GLStateManager, glScalef=com.gtnewhorizons.angelica.glsm.GLStateManager, glEnable=com.gtnewhorizons.angelica.glsm.GLStateManager, glDisable=com.gtnewhorizons.angelica.glsm.GLStateManager, glColor4f=com.gtnewhorizons.angelica.glsm.GLStateManager, glBindTexture=com.gtnewhorizons.angelica.glsm.GLStateManager}",
+    "GLAPI_GATE PASS expect=glsm transformed=0"
+  ]
+}

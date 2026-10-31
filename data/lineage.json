@@ -1385,5 +1385,140 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "245e67cbf8f82e4395a9706c21bbee2ebd94911774600aa1e06f188adc0415df",
   "note": "HolographicDisplays-style 1.7 holograms (horse age -1700000 / item / slime on a wither skull): carriers stop ticking (no skull ray traces or smoke), leave the entity pipeline (no horse model, no shadow-pass draw) and all text lines are drawn in one pass with the vanilla 1.7 range; built by tools/beta43-build.py"
+ },
+ {
+  "id": "1.1.0-beta.44",
+  "kind": "mainline",
+  "sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+  "size": 376644,
+  "entries": 177,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.44",
+  "impl_version": "1.1.0-beta.44",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/module/rgb/AngelicaDecorationPostProcessor.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [],
+  "tag": "v1.1.0-beta.44-Angelica240Decoration",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.44-Angelica240Decoration.jar",
+  "date": "2026-10-29T18:00:00-03:00",
+  "declared_base_sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "38f97b919e59011c9ee4fdf0829e958c3b5a3828e68aa25177dbad5b685da59a",
+  "note": "Angelica 2.2.40 drawString profile for the whitespace decoration endpoint fix (struck/underlined spaces keep their line, e.g. the NecroTempus tab separators); built by tools/beta44-build.py"
+ },
+ {
+  "id": "1.1.0-beta.45",
+  "kind": "mainline",
+  "sha256": "d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035",
+  "size": 380277,
+  "entries": 179,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.45",
+  "impl_version": "1.1.0-beta.45",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/agricraft/AgriCraftIrrigationHooks.class",
+   "com/akashic/thepatcher/module/agricraft/AgriCraftIrrigationTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.45-AgriCraftIrrigationGuard",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.45-AgriCraftIrrigationGuard.jar",
+  "date": "2026-10-29T21:00:00-03:00",
+  "declared_base_sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "de1822940a65eef3a83297822a0fca143562dcda1afedae84cc2ce13d1064027",
+  "note": "AgriCraft irrigation guard: the client always registers AgriCraft's irrigation blocks, so a client config with \"Disable Irrigation\"=true no longer fails the FML handshake with \"Fatally missing blocks and items\"; built by tools/beta45-build.py"
+ },
+ {
+  "id": "1.1.0-beta.46",
+  "kind": "mainline",
+  "sha256": "e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5",
+  "size": 384631,
+  "entries": 181,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.46",
+  "impl_version": "1.1.0-beta.46",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/immersivepetroleum/ProjectorSlotHooks.class",
+   "com/akashic/thepatcher/module/immersivepetroleum/ProjectorSlotTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.46-ProjectorOffhandGuard",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.46-ProjectorOffhandGuard.jar",
+  "date": "2026-10-29T22:30:00-03:00",
+  "declared_base_sha256": "d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "d2b5e3076881cba1c8f5d1179c75b126574a16c269dce17768bc5104a93fe035",
+  "note": "Immersive Petroleum projector slot guard: ProjectorClient.selectedView returns no projection instead of throwing ArrayIndexOutOfBoundsException: 36 when Backhand points the selected slot at its offhand slot; built by tools/beta46-build.py"
+ },
+ {
+  "id": "1.1.0-beta.47",
+  "kind": "mainline",
+  "sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f",
+  "size": 392607,
+  "entries": 184,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.47",
+  "impl_version": "1.1.0-beta.47",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/angelica/AngelicaGlLookupHooks.class",
+   "com/akashic/thepatcher/module/angelica/AngelicaGlLookupTransformer.class",
+   "com/akashic/thepatcher/module/baubles/BaublesExpandedApiTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.47-BaublesApiAngelicaLookup",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.47-BaublesApiAngelicaLookup.jar",
+  "date": "2026-10-30T03:30:00-03:00",
+  "declared_base_sha256": "e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "e813946b3b4ead550dc38ae147ae60a7454ddaa338e81fee332e6a74ad7306d5",
+  "note": "Baubles Expanded API guard (an older embedded IBaubleExpanded gets 2.2.26's default onSlotContentsChanged: Et Futurum's elytra in a bauble slot no longer throws NoSuchMethodError) and Angelica 2.2.40 GL lookup bridge for AkashicBackpackCompat's GlApi (inventory/player rendering with an Adventure Backpack no longer crashes); built by tools/beta47-build.py"
+ },
+ {
+  "id": "1.1.0-beta.48",
+  "kind": "mainline",
+  "sha256": "b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5",
+  "size": 392702,
+  "entries": 184,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.48",
+  "impl_version": "1.1.0-beta.48",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/forbiddenbackhand/core/BackhandGuardHooks.class",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "mcmod.info"
+  ],
+  "added": [],
+  "removed": [],
+  "tag": "v1.1.0-beta.48-BackhandProxyReturn",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar",
+  "date": "2026-10-31T12:00:00-03:00",
+  "declared_base_sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "e137855579a9950377ac24a538f744c6df9879a7a042e61e7f97860b60563c0f",
+  "note": "Backhand behind the proxy: after backend -> vanilla lobby -> backend on one connection the backend's FML mod list counts for the JoinGame that follows it (before, the proof was spent early and the offhand stayed blocked for the session); built by tools/beta48-build.py"
  }
 ]
