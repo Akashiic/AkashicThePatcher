@@ -1283,7 +1283,7 @@ versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/beta39-bu
 versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client/run.sh	claude-code session 2026-10-25	1598	07115194b6f8afed110fc50d710ccc085c68a099660d6acb786ca318d2a5ecc4
 versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/headless-client/setup.py	claude-code session 2026-10-25	4449	72177a8eb4d8341132443757d39d754162e46c5804e9ebc4bb46ef75d5c3b3ae
 releases/v1.1.0-beta.39-AngelicaFontMixinTrust/!Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.39-AngelicaFontMixinTrust/tools/beta39-build.py	335978	8054509c0dc5067e2e043b34f6b93480e29aca285eabb1fcb3d7d8ac9ca73cbd
-.github/workflows/ci.yml	claude-code session 2026-10-31	9975	54c3f7b75557e952082b90aea50ec2db953c880e880f9dd13593112db178831a
+.github/workflows/ci.yml	claude-code session 2026-11-01	10485	2b2aee0c736542412fc9b4ca709e79c023fb731606ed4d539cbd89305d302247
 tools/ci/DevJar.java	claude-code session 2026-10-25	4544	f2f00d7f3bb7596afc04cff6a0363d0f10cc4765920d88b0199fb7bf3d054148
 tools/ci/check_manifest.py	claude-code session 2026-10-25	1481	fcfd2cb57114e18e2e89af4f5cc1350e2818fe34dc33c48af0877191cf09a64b
 tools/ci/fetch_build_libs.sh	claude-code session 2026-10-26	5285	10f15d0f70346acfa9ed9c41e3319f28a4e487d3eb2602a5692394da6c95bbc7
@@ -1532,3 +1532,18 @@ versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/test/BackhandGate.
 versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/test/HooksDiff.java	claude-code session 2026-10-31	3117	b055efb1bcebeb094ae9f5fd33268ded17046bfb1ee2f3203b592611f0b5b56e
 versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/tools/PatchBeta48Backhand.java	claude-code session 2026-10-31	11155	acc921f6800d304d8ca11c465e34d91d56971d9f357f8ff6ecee42415626e168
 versions/Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn/tools/beta48-build.py	claude-code session 2026-10-31	9300	c19fb35869e88ed42204b430e4cda235983c8102f7f111e4d13db877823ea6f0
+releases/v1.1.0-beta.49-BlockIconCrossDeps/!Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/tools/beta49-build.py	394231	c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/CHECKPOINT-BETA49-BLOCK-ICON-CROSS-DEPS-2026-11-01.md	claude-code session 2026-11-01	7777	76a0771366f36aa788117b650fe46c9063c24d68f4445b928b91514ba4c6ba87
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/reports/final-build-audit.json	claude-code session 2026-11-01	6846	76f6ee5567ec6dd7ac848f99ea30e2380c60193c68f7b266a0769bce99d5f3be
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/reports/icon-cross-deps-scan-teof55.txt	claude-code session 2026-11-01	7956	4823d480644eee4c7bf65831b733b2b464feda32451d4de63328173437037dff
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/src/dev/akashic/asynciconcompat/CompatHooks.java	claude-code session 2026-11-01	7819	0434b4f5dd07e324a2fe6e2f3b65490f6dc47f190d9ce4869cbd263f6edab0a9
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/CrossDepsGate.java	claude-code session 2026-11-01	6348	24e5488c75fda46c0df39e43730ebb2358461344b0970ef1f6babe61bb5cddea
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/HooksDiff.java	claude-code session 2026-11-01	3117	b055efb1bcebeb094ae9f5fd33268ded17046bfb1ee2f3203b592611f0b5b56e
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/stubs/ganymedes01/etfuturum/blocks/BlockMagma.java	claude-code session 2026-11-01	176	a1ddd0cb6869d0f974c3214b025bd666c944f8c591a226209abf0832355d3977
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/stubs/ganymedes01/etfuturum/blocks/BlockRedSandstoneSlab.java	claude-code session 2026-11-01	194	aa2a5233348a5acdb742f9a4cc87aaf8ab508656309641e867406555a9531009
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/stubs/net/minecraft/block/Block.java	claude-code session 2026-11-01	112	5057b8aeb38835748a0a37c723fa712deea1e94c7392da8f81aefea77110ebe8
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/stubs/net/minecraft/item/Item.java	claude-code session 2026-11-01	110	0675680c2c8a2b36b790c864ca3482f3aa0a9dc76a55c725bf4105fff39e9a23
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/test/stubs/team/chisel/block/BlockCarvable.java	claude-code session 2026-11-01	176	bf8fe85ee8493b42d52f431639227a43fe530d34ede85fc14d7651060241a4b9
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/tools/IconCrossDepsScan.java	claude-code session 2026-11-01	5496	bc3c6301095d231eecf92462e52dfbd64198dfb3d14d46edd8f63269f5546634
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/tools/PatchThePatcherVersion.java	claude-code session 2026-11-01	2755	13e99f8d2a84234b66c11b8886b7db5c8e508269d89c3bbb696f37b4bc7482f8
+versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/tools/beta49-build.py	claude-code session 2026-11-01	10575	9afe3b25e58ffd4bd475c47533e27eea9f05b4a202575c54d9459eebbc34b5b9

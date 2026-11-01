@@ -1,0 +1,107 @@
+Reika.ChromatiCraft.Block.BlockRFNode  [ChromatiCraft 1.7.10 V33a.jar]
+    field net/minecraft/block/Block.field_149761_L on net/minecraft/init/Blocks.field_150451_bX
+Reika.ChromatiCraft.Block.BlockSpawnerShutdown  [ChromatiCraft 1.7.10 V33a.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150426_aN
+Reika.ChromatiCraft.Block.Dimension.BlockBedrockCrack  [ChromatiCraft 1.7.10 V33a.jar]
+    field net/minecraft/block/Block.field_149761_L on net/minecraft/init/Blocks.field_150357_h
+Reika.ChromatiCraft.Block.Dimension.BlockLightedLeaf  [ChromatiCraft 1.7.10 V33a.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150362_t
+Reika.ChromatiCraft.Block.Dimension.Structure.Water.BlockEverFluid  [ChromatiCraft 1.7.10 V33a.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150355_j
+Reika.ChromatiCraft.Block.Worldgen.BlockTieredOre  [ChromatiCraft 1.7.10 V33a.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150348_b
+Reika.ReactorCraft.Blocks.BlockDuct  [ReactorCraft 1.7.10 V33a.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150340_R
+    getter func_149691_a on net/minecraft/init/Blocks.field_150359_w
+    getter func_149691_a on net/minecraft/init/Blocks.field_150362_t
+    getter func_149691_a on net/minecraft/init/Blocks.field_150405_ch
+Reika.ReactorCraft.Blocks.BlockReactorOre  [ReactorCraft 1.7.10 V33a.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150348_b
+Reika.RotaryCraft.Blocks.BlockPiping  [RotaryCraft 1.7.10 V33a-ForbiddenFix1.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150322_A
+    getter func_149691_a on net/minecraft/init/Blocks.field_150343_Z
+    getter func_149691_a on net/minecraft/init/Blocks.field_150344_f
+    getter func_149691_a on net/minecraft/init/Blocks.field_150359_w
+    getter func_149691_a on net/minecraft/init/Blocks.field_150368_y
+    getter func_149691_a on net/minecraft/init/Blocks.field_150385_bj
+    getter func_149691_a on net/minecraft/init/Blocks.field_150451_bX
+binnie.extratrees.block.BlockETDoor  [binnie-mods-2.6.43.jar]
+    field binnie/extratrees/block/DoorType.iconDoorLower on local5
+    field binnie/extratrees/block/DoorType.iconDoorUpper on local5
+com.kentington.thaumichorizons.common.blocks.BlockGatewayPortal  [ThaumicHorizons-1.8.22.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150368_y
+    getter func_149691_a on thaumcraft/common/config/ConfigBlocks.blockCosmeticSolid
+com.rwtema.extrautils.block.BlockCobblestoneCompressed  [extrautilities-1.2.13a.jar]
+    getter func_149691_a on ret com/rwtema/extrautils/block/BlockCobblestoneCompressed.getBlock
+ganymedes01.etfuturum.blocks.BlockEndGateway  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150343_Z
+ganymedes01.etfuturum.blocks.BlockNylium  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150424_aL
+ganymedes01.etfuturum.blocks.BlockPurpurSlab  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on ret ganymedes01/etfuturum/ModBlocks.get
+ganymedes01.etfuturum.blocks.BlockRedSandstoneSlab  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on ret ganymedes01/etfuturum/ModBlocks.get
+ganymedes01.etfuturum.blocks.BlockSmoothQuartzSlab  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on ret ganymedes01/etfuturum/ModBlocks.get
+ganymedes01.etfuturum.blocks.BlockSmoothSandstoneSlab  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on ret ganymedes01/etfuturum/ModBlocks.get
+ganymedes01.etfuturum.blocks.BlockStoneSlab1  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150322_A
+    getter func_149691_a on net/minecraft/init/Blocks.field_150341_Y
+    getter func_149691_a on net/minecraft/init/Blocks.field_150348_b
+    getter func_149691_a on net/minecraft/init/Blocks.field_150417_aV
+ganymedes01.etfuturum.blocks.BlockStoneWall  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150322_A
+    getter func_149691_a on net/minecraft/init/Blocks.field_150336_V
+    getter func_149691_a on net/minecraft/init/Blocks.field_150417_aV
+ganymedes01.etfuturum.blocks.BlockWoodBarkNew  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150363_s
+ganymedes01.etfuturum.blocks.BlockWoodBarkOld  [etfuturum-2.6.64-GTNH-git.1+77e9997e09.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150364_r
+magicbees.block.BlockEffectJar  [magicbees-2.10.12-GTNH.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150359_w
+magicbees.block.BlockVisAuraProvider  [magicbees-2.10.12-GTNH.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150344_f
+mekanism.common.block.BlockBasic  [Mekanism-1.7.10-9.10.48-AkashicPerf.3-ALL.jar]
+    field mekanism/common/CTMTextureData.icon on mekanism/common/CTMData.facingOverride
+    field mekanism/common/CTMTextureData.icon on mekanism/common/CTMData.mainTextureData
+mekanism.common.block.BlockMachine  [Mekanism-1.7.10-9.10.48-AkashicPerf.3-ALL.jar]
+    field mekanism/common/CTMTextureData.icon on mekanism/common/CTMData.mainTextureData
+mekanism.generators.common.block.BlockGenerator  [Mekanism-1.7.10-9.10.48-AkashicPerf.3-ALL.jar]
+    field mekanism/common/CTMTextureData.icon on mekanism/common/CTMData.mainTextureData
+mekanism.generators.common.block.BlockReactor  [Mekanism-1.7.10-9.10.48-AkashicPerf.3-ALL.jar]
+    field mekanism/common/CTMTextureData.icon on mekanism/common/CTMData.mainTextureData
+    field mekanism/common/CTMTextureData.icon on op50
+openblocks.common.block.BlockBlockBreaker  [OpenBlocks-1.12.20-GTNH.jar]
+    static field openblocks/common/block/BlockBlockBreaker$Icons.bottom
+    static field openblocks/common/block/BlockBlockBreaker$Icons.side
+    static field openblocks/common/block/BlockBlockBreaker$Icons.top
+openblocks.common.block.BlockBlockPlacer  [OpenBlocks-1.12.20-GTNH.jar]
+    static field openblocks/common/block/BlockBlockPlacer$Icons.bottom
+    static field openblocks/common/block/BlockBlockPlacer$Icons.sides
+    static field openblocks/common/block/BlockBlockPlacer$Icons.top
+openblocks.common.block.BlockPaintCan  [OpenBlocks-1.12.20-GTNH.jar]
+    static field openblocks/common/block/BlockPaintCan$Icons.back
+    static field openblocks/common/block/BlockPaintCan$Icons.bottom
+    static field openblocks/common/block/BlockPaintCan$Icons.front
+    static field openblocks/common/block/BlockPaintCan$Icons.left
+    static field openblocks/common/block/BlockPaintCan$Icons.right
+    static field openblocks/common/block/BlockPaintCan$Icons.top
+openblocks.common.block.BlockXPBottler  [OpenBlocks-1.12.20-GTNH.jar]
+    static field openblocks/common/block/BlockXPBottler$Icons.back
+    static field openblocks/common/block/BlockXPBottler$Icons.bottom
+    static field openblocks/common/block/BlockXPBottler$Icons.front
+    static field openblocks/common/block/BlockXPBottler$Icons.side
+    static field openblocks/common/block/BlockXPBottler$Icons.top
+twilightforest.block.BlockTFAuroraSlab  [TwilightForest-2.7.39.jar]
+    getter func_149691_a on twilightforest/block/TFBlocks.auroraPillar
+twilightforest.block.BlockTFGiantBlock  [TwilightForest-2.7.39.jar]
+    getter func_149733_h on twilightforest/block/BlockTFGiantBlock.baseBlock
+twilightforest.block.BlockTFPlant  [TwilightForest-2.7.39.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150329_H
+    getter func_149733_h on net/minecraft/init/Blocks.field_150330_I
+twilightforest.block.BlockTFTrollLjos  [TwilightForest-2.7.39.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150374_bv
+vazkii.botania.common.block.BlockFelPumpkin  [Botania+r1.8-249.jar]
+    getter func_149691_a on net/minecraft/init/Blocks.field_150423_aK
+TOTAL_CLASSES 37

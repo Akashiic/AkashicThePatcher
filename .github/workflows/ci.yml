@@ -131,6 +131,13 @@ jobs:
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta48.jar" --report "$RUNNER_TEMP/beta48-audit.json"
           cmp "$RUNNER_TEMP/beta48.jar" "releases/v1.1.0-beta.48-BackhandProxyReturn/!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar"
 
+      - name: Rebuild beta.49 and compare
+        run: |
+          python3 versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/tools/beta49-build.py \
+            --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
+            --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta49.jar" --report "$RUNNER_TEMP/beta49-audit.json"
+          cmp "$RUNNER_TEMP/beta49.jar" "releases/v1.1.0-beta.49-BlockIconCrossDeps/!Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps.jar"
+
       - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
         run: |
           python3 tools/ci/make_artifacts.py --libs ~/thepatcher-libs --java "${{ steps.jdk21.outputs.path }}" \

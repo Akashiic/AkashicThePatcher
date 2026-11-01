@@ -32,7 +32,7 @@ Everything here is something the repository **cannot prove**. Each item says wha
 17. **RGB bridge never installs on `FontRenderer`.** The log says `RGB bridge NOT installed: no recognized boundary in net.minecraft.client.gui.FontRenderer`. ThePatcher's transformers are registered during the MixinTweaker coremod injection, before `FMLDeobfTweaker` adds the deobfuscation transformer, so `@SortingIndex(100300)` does not apply and `RgbTextTransformer` sees Notch member names while it matches MCP/SRG names. Not caused by Angelica; found during the beta.38 diagnosis, not fixed (changes text rendering everywhere, needs its own build).
 18. **beta.27 proxy-aware chunk tracking is inactive on Angelica 2.2.22+.** `MixinAngelicaProxyVanillaChunkTracking` targets `AngelicaChunkTracker`, removed in Angelica 2.2.22 (PR #2151); the optional mixin is skipped with `Error loading class`. Porting it means re-reading the beta.27 policy against `CeleritasWorldRenderer` / `CubeStatusTracker`.
 19. **NecroTempus upstream.** beta.38 patches NecroTempus 2.0.0/2.1.0 at load time; the source fix in `versions/*beta.38*/necrotempus-source-fix/` has not been proposed to CrucibleMC yet.
-20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.48; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
+20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.49; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
 21. No LICENSE chosen.
 22. Third-party build inputs (Angelica, GTNHLib jars) are not vendored.
 
@@ -62,3 +62,8 @@ Everything here is something the repository **cannot prove**. Each item says wha
 
 33. **Black screen after backend -> lobby -> backend behind the proxy (unresolved).** Same Velocity connection, Paper 1.21.1 + ViaVersion lobby, Forge backend. No crash; the FML handshake, the world (DIM2, player at y ~ 32), chat, players, holograms and the gamemode packet came through and the terrain pass ran. Whether chunks were missing (proxy forwarding) or not drawn (renderer after the double world swap of the switch) is not in the log. Next occurrence: F3 `C:` chunk count and F3+A. The Backhand defect found in the same log is fixed in beta.48 and is not expected to cause it.
 34. **beta.48 acceptance in the pack** (lobby round trip, offhand works after it; gate in its checkpoint). The fix was checked only offline (`BackhandGate`, the log's event order through the shipped classes).
+
+## I. Seen in the TEOF 5.5 headless test client (2026-11-01) - after beta.49
+
+35. **beta.49 acceptance in the pack** (gate in its checkpoint: the `cross-dependent block` lines, `crossDependentSyncBlocks` in the `Finished hybrid async icon loading` line, never `Parallel block icon registration failed`). The race cannot be forced in a real client; the fix was checked offline (`CrossDepsGate`) and by real boots without the error.
+36. **The cross-dependent list is static.** It comes from a bytecode scan of TEOF 5.5's mods (`versions/*beta.49*/tools/IconCrossDepsScan.java`); a block that reaches another block's icon through a helper of another class, or a mod added later, is not covered. Re-run the scan when the pack's mods change and add new classes to `CompatHooks.CROSS_DEPENDENT_BLOCKS`.

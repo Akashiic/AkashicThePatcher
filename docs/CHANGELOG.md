@@ -1,6 +1,6 @@
 # Changelog
 
-All 51 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 52 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,18 @@ All 51 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.49 - BlockIconCrossDeps - 2026-11-01
+*Replaces beta.48 in the client.* SHA-256 `c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef` - 394231 B - 184 entries.
+* **Base:** beta.48 (4 entries changed, none added or removed, the other 180 byte-identical).
+* **Incident (TEOF 5.5 headless test client, 2026-11-01, beta.48):** one boot aborted the texture reload with `Parallel block icon registration failed`: `NullPointerException` in `BlockSandStone.getIcon`, called from Et Futurum's `BlockRedSandstoneSlab.registerBlockIcons` on a worker of the hybrid async icon loader.
+* **Root cause (`CompatHooks`, the same class from beta.34 to beta.48):** the slab reads vanilla sandstone's icon while registering its own; only blocks under five compatibility roots (Chisel, Mekanism, MFR, CoFH) run on the client thread, so the slab ran on a worker, possibly before sandstone's job had set its icon. A timing race that can hit any player. A bytecode scan of the pack's 215 jars found 28 block classes with the same pattern (Et Futurum, ChromatiCraft, ReactorCraft, RotaryCraft, Twilight Forest, Magic Bees, Botania, Thaumic Horizons, Extra Utilities).
+* **Fix (`src/.../CompatHooks.java` = the beta.34 source + this, compiled in the build):** blocks of those 28 classes, or of a subclass, run on the client thread; the hybrid loop then first waits for every job submitted before them, and the blocks they read come earlier in the registry. Log `Main-thread icon fallback activated for cross-dependent block <class> ...` once per class; telemetry gains `crossDependentSyncBlocks`. Kill-switch `-Dakashic.iconCrossDeps.disable=true` (exactly beta.48's decisions).
+* **Gates (offline, PASS):** deterministic build; `HooksDiff`: the methods beta.48 had are unchanged except `<clinit>`, `beginReload`, `shouldRunBlockSynchronously`, `telemetry`; `CrossDepsGate` under `-Xverify:all` through the shipped class: beta.48 sends the slab to a worker and a replay of the mixin's block loop reads null; beta.49 keeps it (and a subclass) on the client thread, leaves unlisted and vanilla blocks parallel, the replay reads the icon; the kill-switch gives beta.48's results.
+* **Evidence:** checkpoint + build audit + tools (build, scanner) + tests in `versions/Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps/`.
+* **Live status:** two real boots of TEOF 5.5 in the headless client (same instance as beta.48): menu reached, no `Parallel block icon registration failed`, the 25 listed classes present in the pack logged their fallback (`crossDependentSyncBlocks=36`), block icon registration time within the run-to-run noise of beta.48. Pending in the players' pack (gate in the checkpoint).
+
 ## 1.1.0-beta.48 - BackhandProxyReturn - 2026-10-31
-*Replaces beta.47 in the client.* SHA-256 `b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5` - 392702 B - 184 entries.
+*Superseded by beta.49 (block icon race).* SHA-256 `b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5` - 392702 B - 184 entries.
 * **Base:** beta.47 (4 entries changed, none added or removed, the other 180 byte-identical).
 * **Incident (player log 2026-10-31, client on beta.43; the Backhand class is the same from beta.35 to beta.47):** behind the Velocity proxy, Forge backend -> vanilla lobby (Paper 1.21.1 + ViaVersion) -> back to the backend on the same connection: after the return Backhand logged `remote FML mod list captured: type=MODDED ... proof=6/6` and then `join game/backend switch: type=TRANSITION ... offhandAllowed=false`, so the offhand stayed blocked for the rest of the session (fresh connections end with `join game consumed fresh FML capability proof: type=MODDED` and were fine). The player's actual complaint in that session was a black screen after the return; that is **not** explained by this defect (see the checkpoint and OPEN-ISSUES).
 * **Root cause (`BackhandGuardHooks`):** after the lobby JoinGame the state is `TRANSITION` with `awaitingJoinGame=false`; the backend's mod list then takes `captureRemoteModMap`'s promotion branch, which sets MODDED **and marks the new proof consumed**; the backend's JoinGame, forwarded by the proxy right after, finds no fresh proof and `onJoinGamePacket` goes back to `TRANSITION`, clearing the capability. The HandshakeReset hook that would set `awaitingJoinGame` did not fire in that log.
