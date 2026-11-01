@@ -1,0 +1,75 @@
+{
+  "version": "1.1.0-beta.49",
+  "base": {
+    "path": "releases/v1.1.0-beta.48-BackhandProxyReturn/!Akashic-ThePatcher-1.1.0-beta.48-BackhandProxyReturn.jar",
+    "sha256": "b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps.jar",
+    "sha256": "c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef",
+    "bytes": 394231
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-9.7.jar": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d",
+    "asm-tree-9.7.jar": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1",
+    "asm-analysis-9.7.jar": "7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f",
+    "asm-util-9.7.jar": "37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211",
+    "log4j-api.jar": "eb0ca9bdd938f80711152a758d6bc331a8b0d769199d457294dc67ed03f73498",
+    "log4j-core.jar": "dcde6033b205433d6e9855c93740f798951fa3a3f252035a768d9f356fde806d"
+  },
+  "entries": 184,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "dev/akashic/asynciconcompat/CompatHooks.class",
+    "mcmod.info"
+  ],
+  "added": [],
+  "inherited_identical": 180,
+  "hooks_diff.dev/akashic/asynciconcompat/CompatHooks.class": "HOOKS_DIFF dev/akashic/asynciconcompat/CompatHooks methods=9->12 fields+=[26 CROSS_DEPENDENT_BLOCKSLjava/util/Set; null, 26 CROSS_DEPENDENT_MATCHLjava/util/Map; null, 26 CROSS_DEPENDENT_SYNC_BLOCKSLjava/util/concurrent/atomic/AtomicInteger; null, 26 CROSS_DEPS_ENABLEDZ null] differing=[+10 crossDependentAncestor(Ljava/lang/Class;)Ljava/lang/String;, +10 isCrossDependentBlock(Lnet/minecraft/block/Block;)Z, +8 crossDependentBlockClassNames()Ljava/util/Set;, 8 <clinit>()V, 9 beginReload(Ljava/lang/String;)V, 9 shouldRunBlockSynchronously(Lnet/minecraft/block/Block;)Z, 9 telemetry()Ljava/lang/String;]",
+  "cross_deps_gate.beta48": [
+    "GATE ok   Et Futurum BlockRedSandstoneSlab on client thread = false",
+    "GATE ok   subclass of a listed block on client thread = false",
+    "GATE ok   unlisted Et Futurum block stays parallel",
+    "GATE ok   vanilla block stays parallel",
+    "GATE ok   Chisel root still on client thread",
+    "GATE ok   items still on client thread",
+    "GATE ok   null block is not forced",
+    "GATE ok   no cross-dependent list (beta.48)",
+    "RACE failed: java.lang.NullPointerException: sandstone icon not registered yet",
+    "GATE ok   race replay: slab reads null (the defect)",
+    "TELEMETRY asyncBlocks=7, syncBlocks=1, asyncItems=0, syncItems=1",
+    "CROSS_DEPS_GATE PASS expect=bug"
+  ],
+  "cross_deps_gate.beta49": [
+    "GATE ok   Et Futurum BlockRedSandstoneSlab on client thread = true",
+    "GATE ok   subclass of a listed block on client thread = true",
+    "GATE ok   unlisted Et Futurum block stays parallel",
+    "GATE ok   vanilla block stays parallel",
+    "GATE ok   Chisel root still on client thread",
+    "GATE ok   items still on client thread",
+    "GATE ok   null block is not forced",
+    "LIST size=28 [Reika.ChromatiCraft.Block.BlockRFNode, Reika.ChromatiCraft.Block.BlockSpawnerShutdown, Reika.ChromatiCraft.Block.Dimension.BlockBedrockCrack, Reika.ChromatiCraft.Block.Dimension.BlockLightedLeaf, Reika.ChromatiCraft.Block.Dimension.Structure.Water.BlockEverFluid, Reika.ChromatiCraft.Block.Worldgen.BlockTieredOre, Reika.ReactorCraft.Blocks.BlockDuct, Reika.ReactorCraft.Blocks.BlockReactorOre, Reika.RotaryCraft.Blocks.BlockPiping, com.kentington.thaumichorizons.common.blocks.BlockGatewayPortal, com.rwtema.extrautils.block.BlockCobblestoneCompressed, ganymedes01.etfuturum.blocks.BlockEndGateway, ganymedes01.etfuturum.blocks.BlockNylium, ganymedes01.etfuturum.blocks.BlockPurpurSlab, ganymedes01.etfuturum.blocks.BlockRedSandstoneSlab, ganymedes01.etfuturum.blocks.BlockSmoothQuartzSlab, ganymedes01.etfuturum.blocks.BlockSmoothSandstoneSlab, ganymedes01.etfuturum.blocks.BlockStoneSlab1, ganymedes01.etfuturum.blocks.BlockStoneWall, ganymedes01.etfuturum.blocks.BlockWoodBarkNew, ganymedes01.etfuturum.blocks.BlockWoodBarkOld, magicbees.block.BlockEffectJar, magicbees.block.BlockVisAuraProvider, twilightforest.block.BlockTFAuroraSlab, twilightforest.block.BlockTFGiantBlock, twilightforest.block.BlockTFPlant, twilightforest.block.BlockTFTrollLjos, vazkii.botania.common.block.BlockFelPumpkin]",
+    "GATE ok   cross-dependent list: 28 classes including BlockRedSandstoneSlab",
+    "RACE ok",
+    "GATE ok   race replay: slab reads sandstone's icon",
+    "TELEMETRY asyncBlocks=4, syncBlocks=4, crossDependentSyncBlocks=3, asyncItems=0, syncItems=1",
+    "CROSS_DEPS_GATE PASS expect=fixed"
+  ],
+  "cross_deps_gate.beta49.disabled": [
+    "GATE ok   Et Futurum BlockRedSandstoneSlab on client thread = false",
+    "GATE ok   subclass of a listed block on client thread = false",
+    "GATE ok   unlisted Et Futurum block stays parallel",
+    "GATE ok   vanilla block stays parallel",
+    "GATE ok   Chisel root still on client thread",
+    "GATE ok   items still on client thread",
+    "GATE ok   null block is not forced",
+    "LIST size=28 [Reika.ChromatiCraft.Block.BlockRFNode, Reika.ChromatiCraft.Block.BlockSpawnerShutdown, Reika.ChromatiCraft.Block.Dimension.BlockBedrockCrack, Reika.ChromatiCraft.Block.Dimension.BlockLightedLeaf, Reika.ChromatiCraft.Block.Dimension.Structure.Water.BlockEverFluid, Reika.ChromatiCraft.Block.Worldgen.BlockTieredOre, Reika.ReactorCraft.Blocks.BlockDuct, Reika.ReactorCraft.Blocks.BlockReactorOre, Reika.RotaryCraft.Blocks.BlockPiping, com.kentington.thaumichorizons.common.blocks.BlockGatewayPortal, com.rwtema.extrautils.block.BlockCobblestoneCompressed, ganymedes01.etfuturum.blocks.BlockEndGateway, ganymedes01.etfuturum.blocks.BlockNylium, ganymedes01.etfuturum.blocks.BlockPurpurSlab, ganymedes01.etfuturum.blocks.BlockRedSandstoneSlab, ganymedes01.etfuturum.blocks.BlockSmoothQuartzSlab, ganymedes01.etfuturum.blocks.BlockSmoothSandstoneSlab, ganymedes01.etfuturum.blocks.BlockStoneSlab1, ganymedes01.etfuturum.blocks.BlockStoneWall, ganymedes01.etfuturum.blocks.BlockWoodBarkNew, ganymedes01.etfuturum.blocks.BlockWoodBarkOld, magicbees.block.BlockEffectJar, magicbees.block.BlockVisAuraProvider, twilightforest.block.BlockTFAuroraSlab, twilightforest.block.BlockTFGiantBlock, twilightforest.block.BlockTFPlant, twilightforest.block.BlockTFTrollLjos, vazkii.botania.common.block.BlockFelPumpkin]",
+    "GATE ok   cross-dependent list: 28 classes including BlockRedSandstoneSlab",
+    "RACE failed: java.lang.NullPointerException: sandstone icon not registered yet",
+    "GATE ok   race replay: slab reads null (the defect)",
+    "TELEMETRY asyncBlocks=7, syncBlocks=1, crossDependentSyncBlocks=0, asyncItems=0, syncItems=1",
+    "CROSS_DEPS_GATE PASS expect=bug"
+  ]
+}
