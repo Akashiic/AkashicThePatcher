@@ -6,8 +6,8 @@
   },
   "output": {
     "name": "!Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex.jar",
-    "sha256": "41adb135f9217c3dfb79f444fce5f52c6301c972c21b77cbd29bbe02f679563e",
-    "bytes": 408133
+    "sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948",
+    "bytes": 408516
   },
   "deterministic_rebuild": "PASS",
   "third_party_sha256": {
@@ -43,10 +43,10 @@
     "[Akashic-ThePatcher] Thaumcraft recipe index applied: thaumcraft.common.lib.crafting.ThaumcraftCraftingManager (1 recipe list filtered by output item).",
     "[Akashic-ThePatcher] Eln recipe check index applied: mods.eln.craft.CraftingRecipes (1 recipeExists call(s) answered from an output index).",
     "GATE ok   shapes transformed by the jar under test: 2 (want 2)",
-    "[Akashic-ThePatcher] Recipe index: Thaumcraft calls=1 builds=1 recipes handed 915 of 3000 verifyFailures=0; Eln checks=0 fallbacks=0 verifyFailures=0",
+    "[Akashic-ThePatcher] Recipe index: Thaumcraft calls=1 builds=1 recipes handed 1080 of 3000 (untrusted recipes in the last index: 1029) verifyFailures=0; Eln checks=0 fallbacks=0 verifyFailures=0",
     "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
-    "GATE ok   Eln shape: 6 lists, 251 items without recipe, 0 different lists",
-    "COUNTERS {elnCalls=1800, tcHanded=3626376, tcCalls=3840, tcBuilds=3840, elnFallbacks=112, tcVerifyFail=0, elnVerifyFail=0}",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
+    "COUNTERS {elnCalls=1800, tcHanded=4081540, tcCalls=3840, tcBuilds=3840, elnFallbacks=125, tcVerifyFail=0, elnVerifyFail=0}",
     "GATE ok   hooks were called",
     "GATE ok   Thaumcraft hook handed fewer recipes than the list has",
     "GATE ok   Eln fallback path exercised (null-item / throwing getDamage)",
@@ -57,10 +57,10 @@
     "[Akashic-ThePatcher] Thaumcraft recipe index applied: thaumcraft.common.lib.crafting.ThaumcraftCraftingManager (1 recipe list filtered by output item).",
     "[Akashic-ThePatcher] Eln recipe check index applied: mods.eln.craft.CraftingRecipes (1 recipeExists call(s) answered from an output index).",
     "GATE ok   shapes transformed by the jar under test: 2 (want 2)",
-    "[Akashic-ThePatcher] Recipe index: Thaumcraft calls=1 builds=1 recipes handed 915 of 3000; Eln checks=0 fallbacks=0",
+    "[Akashic-ThePatcher] Recipe index: Thaumcraft calls=1 builds=1 recipes handed 1080 of 3000 (untrusted recipes in the last index: 1029); Eln checks=0 fallbacks=0",
     "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
-    "GATE ok   Eln shape: 6 lists, 251 items without recipe, 0 different lists",
-    "COUNTERS {elnCalls=1800, tcHanded=3626376, tcCalls=3840, tcBuilds=3840, elnFallbacks=112, tcVerifyFail=0, elnVerifyFail=0}",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
+    "COUNTERS {elnCalls=1800, tcHanded=4081540, tcCalls=3840, tcBuilds=3840, elnFallbacks=125, tcVerifyFail=0, elnVerifyFail=0}",
     "GATE ok   hooks were called",
     "GATE ok   Thaumcraft hook handed fewer recipes than the list has",
     "GATE ok   Eln fallback path exercised (null-item / throwing getDamage)",
@@ -70,7 +70,7 @@
   "recipe_index_gate.beta49": [
     "GATE ok   shapes transformed by the jar under test: 0 (want 0)",
     "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
-    "GATE ok   Eln shape: 6 lists, 251 items without recipe, 0 different lists",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
     "RECIPE_INDEX_GATE PASS expect=unpatched"
   ],
   "recipe_index_gate.beta50.disabled": [
@@ -78,7 +78,7 @@
     "[Akashic-ThePatcher] Eln recipe check index DISABLED by -Dakashic.elnRecipeCheckIndex.disable=true.",
     "GATE ok   shapes transformed by the jar under test: 0 (want 0)",
     "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
-    "GATE ok   Eln shape: 6 lists, 251 items without recipe, 0 different lists",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
     "COUNTERS {elnCalls=0, tcHanded=0, tcCalls=0, tcBuilds=0, elnFallbacks=0, tcVerifyFail=0, elnVerifyFail=0}",
     "RECIPE_INDEX_GATE PASS expect=unpatched"
   ]

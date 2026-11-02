@@ -26,9 +26,10 @@ import com.akashic.thepatcher.util.BundleLog;
  * Thaumcraft: ThaumcraftCraftingManager.generateTagsFromCraftingRecipes(item, meta, history) walks the whole crafting
  * recipe list for every item whose aspects it derives, and only looks further at recipes whose output is that item.
  * thaumcraftRecipes() hands it a list with the same recipes in the same order, minus the recipes of the four plain
- * recipe classes (ShapedRecipes, ShapelessRecipes, ShapedOreRecipe, ShapelessOreRecipe, exact classes) whose output
- * is null or another item: those it would skip anyway. Recipes of any other class, and entries that are not
- * recipes, stay in every list, so the method sees them exactly as before.
+ * recipe classes (ShapedRecipes, ShapelessRecipes, ShapedOreRecipe, ShapelessOreRecipe) and of their subclasses that
+ * do not override getRecipeOutput (so it returns the plain class's output field) whose output is null or another
+ * item: those it would skip anyway. Recipes of any other class, and entries that are not recipes, stay in every
+ * list, so the method sees them exactly as before.
  *
  * Eln: CraftingRecipes.checkRecipe() logs "No recipe for" items, asking recipeExists(stack) for each of its items, which
  * walks the whole list calling Utils.areSame(stack, output). elnRecipeExists() answers from an index of the outputs'
@@ -52,6 +53,7 @@ public final class RecipeIndexHooks {
         "net.minecraftforge.oredict.ShapelessOreRecipe"));
 
     private static final boolean VERIFY_ON = Boolean.getBoolean(VERIFY);
+    private static final Map<Class<?>, Boolean> TRUSTED = new IdentityHashMap<Class<?>, Boolean>();
     private static volatile boolean thaumcraftBroken;
     private static volatile boolean elnBroken;
 
@@ -60,6 +62,7 @@ public final class RecipeIndexHooks {
     static final AtomicLong TC_SCANNED = new AtomicLong();
     static final AtomicLong TC_HANDED = new AtomicLong();
     static final AtomicLong TC_VERIFY_FAIL = new AtomicLong();
+    static volatile int tcAlways;
     static final AtomicLong ELN_CALLS = new AtomicLong();
     static final AtomicLong ELN_FALLBACKS = new AtomicLong();
     static final AtomicLong ELN_VERIFY_FAIL = new AtomicLong();
@@ -126,8 +129,8 @@ public final class RecipeIndexHooks {
         }
         for (Object recipe : recipes) {
             if (recipe == null || kept.containsKey(recipe)) continue;
-            if (!PLAIN_RECIPE_CLASSES.contains(recipe.getClass().getName())) {
-                fail("non-plain recipe left out", recipe);
+            if (!trusted(recipe)) {
+                fail("untrusted recipe left out", recipe);
                 return;
             }
             final ItemStack output = ((IRecipe) recipe).func_77571_b();
@@ -135,6 +138,27 @@ public final class RecipeIndexHooks {
                 fail("matching recipe left out", recipe);
                 return;
             }
+        }
+    }
+
+    /** A plain recipe class, or a subclass whose getRecipeOutput (func_77571_b) is still the plain class's. */
+    static boolean trusted(Object recipe) {
+        if (!(recipe instanceof IRecipe)) {
+            return false;
+        }
+        final Class<?> type = recipe.getClass();
+        synchronized (TRUSTED) {
+            Boolean known = TRUSTED.get(type);
+            if (known == null) {
+                known = Boolean.FALSE;
+                try {
+                    known = PLAIN_RECIPE_CLASSES.contains(type.getMethod("func_77571_b").getDeclaringClass().getName());
+                } catch (Exception | LinkageError e) {
+                    // untrusted: always handed to the method
+                }
+                TRUSTED.put(type, known);
+            }
+            return known;
         }
     }
 
@@ -167,7 +191,7 @@ public final class RecipeIndexHooks {
             final IntList always = new IntList();
             for (int i = 0; i < recipes.size(); i++) {
                 final Object recipe = recipes.get(i);
-                if (recipe == null || !PLAIN_RECIPE_CLASSES.contains(recipe.getClass().getName())) {
+                if (recipe == null || !trusted(recipe)) {
                     always.add(i);
                     continue;
                 }
@@ -187,7 +211,9 @@ public final class RecipeIndexHooks {
             for (Map.Entry<Item, IntList> entry : lists.entrySet()) {
                 byOutput.put(entry.getKey(), entry.getValue().toArray());
             }
-            return new ThaumcraftIndex(state, byOutput, always.toArray());
+            final int[] alwaysArray = always.toArray();
+            tcAlways = alwaysArray.length;
+            return new ThaumcraftIndex(state, byOutput, alwaysArray);
         }
 
         List<Object> candidates(List<?> recipes, Item item) {
@@ -431,7 +457,7 @@ public final class RecipeIndexHooks {
         final long scanned = TC_SCANNED.get();
         final long handed = TC_HANDED.get();
         return "Recipe index: Thaumcraft calls=" + calls + " builds=" + TC_BUILDS.get() + " recipes handed "
-            + handed + " of " + scanned + (VERIFY_ON ? " verifyFailures=" + TC_VERIFY_FAIL.get() : "")
+            + handed + " of " + scanned + " (untrusted recipes in the last index: " + tcAlways + ")" + (VERIFY_ON ? " verifyFailures=" + TC_VERIFY_FAIL.get() : "")
             + "; Eln checks=" + ELN_CALLS.get() + " fallbacks=" + ELN_FALLBACKS.get()
             + (VERIFY_ON ? " verifyFailures=" + ELN_VERIFY_FAIL.get() : "");
     }

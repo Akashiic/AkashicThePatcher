@@ -26,7 +26,8 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
  *
  * patched: both shape classes must be transformed (and give the reference answers); unpatched: neither (beta.49, or
  * the kill-switches). Thaumcraft: 6 random lists (plain recipes of the four trusted classes, outputs with null items,
- * metas incl. 32767, a recipe class the index does not trust whose output changes between calls), every item x meta
+ * metas incl. 32767, a trusted subclass, an overriding subclass and a recipe class the index does not trust whose
+ * outputs change between calls), every item x meta
  * queried, the list mutated between rounds (add, remove, set). Eln: 6 random lists with ore ids, an output with a
  * null item and an item whose getDamage throws (fallback path).
  */
@@ -142,13 +143,22 @@ public final class RecipeIndexGate {
     }
 
     static Object randomRecipe(Random random, Item[] items, boolean dynamic) {
-        final int kind = random.nextInt(dynamic ? 7 : 6);
+        final int kind = random.nextInt(dynamic ? 9 : 7);
         final int cost = random.nextInt(50);
-        if (kind == 6) {
+        if (kind == 8) {
+            return new akashic.gate.OverridingSubRecipe(cost, stack(random, items), stack(random, items));
+        }
+        if (kind == 7) {
+            return new akashic.gate.PlainSubRecipe(stack(random, items), cost);
+        }
+        if (kind == 6 && dynamic) {
             return new OtherRecipe(cost, stack(random, items), stack(random, items));
         }
         if (kind == 5) {
             return new OtherRecipe(cost, stack(random, items));
+        }
+        if (kind == 6) {
+            return new akashic.gate.PlainSubRecipe(random.nextInt(40) == 0 ? null : stack(random, items), cost);
         }
         final ItemStack output = random.nextInt(40) == 0 ? null : stack(random, items);
         switch (kind) {
@@ -173,6 +183,9 @@ public final class RecipeIndexGate {
             if (recipe instanceof OtherRecipe) {
                 final OtherRecipe other = (OtherRecipe) recipe;
                 out.add(new OtherRecipe(other.cost, other.outputs));
+            } else if (recipe instanceof akashic.gate.OverridingSubRecipe) {
+                final akashic.gate.OverridingSubRecipe sub = (akashic.gate.OverridingSubRecipe) recipe;
+                out.add(new akashic.gate.OverridingSubRecipe(sub.cost, sub.outputs));
             } else {
                 out.add(recipe);
             }
