@@ -1,6 +1,6 @@
 # Changelog
 
-All 52 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 53 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,25 @@ All 52 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.50 - RecipeIndex - 2026-11-02
+*Replaces beta.49 in the client.* SHA-256 `2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948` - 408516 B - 190 entries.
+* **Base:** beta.49 (4 entries changed, 6 added, the other 180 byte-identical).
+* **Problem (boot time, TEOF 5.5):** a JFR profile of the client boot put 9.7% of the main thread's Java samples in Thaumcraft's `ThaumcraftCraftingManager.generateTags` (RotaryCraft, Thermal, MFR, ChromatiCraft, Extra Utilities and others call it while registering aspects) and 5.4% in Eln's `CraftingRecipes.recipeExists` (`checkRecipe`, which only logs items without a recipe). Both walk the whole crafting recipe list (~16,500 recipes) once per item.
+* **Fix (`RecipeIndexTransformer` + `RecipeIndexHooks`, both sides, registered last):**
+  * **Thaumcraft:** `generateTagsFromCraftingRecipes` gets the recipe list filtered by output item. Trusted recipes are the four plain classes and subclasses that keep their `getRecipeOutput`; untrusted recipes stay in every list. Same recipes, same order; the method reads the list only with `get(i)`/`size()`.
+  * **Eln:** `checkRecipe`'s `recipeExists` calls are answered from an index of outputs and ore ids built per `checkRecipe` call; any exception-dependent case runs the original loop.
+  * Indexes rebuild when the list changes and switch off on any error.
+  * Kill-switches `-Dakashic.thaumcraftRecipeIndex.disable=true`, `-Dakashic.elnRecipeCheckIndex.disable=true`; `-Dakashic.recipeIndex.verify=true` checks every answer against a full scan.
+* **Gates (offline, PASS):** deterministic build; plugin: only `getASMTransformerClass` differs; registration client/server = beta.49's + the transformer last; `RecipeIndexGate` under `-Xverify:all`: shapes of both methods give identical answers as compiled and through the shipped transformer (3,840 Thaumcraft queries on mutated random lists with trusted/overriding/untrusted recipe classes; 6 Eln lists with ore ids, null items and a throwing `getDamage`); verify mode 0 failures; beta.49 and the kill-switches untouched.
+* **Real client (headless TEOF 5.5):**
+  * Verification boot: 775+ Thaumcraft calls and 373 Eln checks compared with full scans, 0 failures.
+  * Each Thaumcraft call now gets 18% of the list.
+  * A/B (3+3 alternating boots): Eln's PostInit callback 4.4 s -> below 1 s; RotaryCraft, Extra Utilities, Thaumcraft and Thermal Foundation together 2-3 s less. About 6-7 s per boot, inside the whole-boot noise (±25 s).
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex/`.
+* **Live status:** real headless boots as above; pending in the players' pack (gate in the checkpoint).
+
 ## 1.1.0-beta.49 - BlockIconCrossDeps - 2026-11-01
-*Replaces beta.48 in the client.* SHA-256 `c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef` - 394231 B - 184 entries.
+*Superseded by beta.50 (recipe indexes).* SHA-256 `c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef` - 394231 B - 184 entries.
 * **Base:** beta.48 (4 entries changed, none added or removed, the other 180 byte-identical).
 * **Incident (TEOF 5.5 headless test client, 2026-11-01, beta.48):** one boot aborted the texture reload with `Parallel block icon registration failed`: `NullPointerException` in `BlockSandStone.getIcon`, called from Et Futurum's `BlockRedSandstoneSlab.registerBlockIcons` on a worker of the hybrid async icon loader.
 * **Root cause (`CompatHooks`, the same class from beta.34 to beta.48):** the slab reads vanilla sandstone's icon while registering its own; only blocks under five compatibility roots (Chisel, Mekanism, MFR, CoFH) run on the client thread, so the slab ran on a worker, possibly before sandstone's job had set its icon. A timing race that can hit any player. A bytecode scan of the pack's 215 jars found 28 block classes with the same pattern (Et Futurum, ChromatiCraft, ReactorCraft, RotaryCraft, Twilight Forest, Magic Bees, Botania, Thaumic Horizons, Extra Utilities).

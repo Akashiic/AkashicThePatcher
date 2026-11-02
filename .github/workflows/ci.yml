@@ -138,6 +138,13 @@ jobs:
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta49.jar" --report "$RUNNER_TEMP/beta49-audit.json"
           cmp "$RUNNER_TEMP/beta49.jar" "releases/v1.1.0-beta.49-BlockIconCrossDeps/!Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps.jar"
 
+      - name: Rebuild beta.50 and compare
+        run: |
+          python3 versions/Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex/tools/beta50-build.py \
+            --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
+            --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta50.jar" --report "$RUNNER_TEMP/beta50-audit.json"
+          cmp "$RUNNER_TEMP/beta50.jar" "releases/v1.1.0-beta.50-RecipeIndex/!Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex.jar"
+
       - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
         run: |
           python3 tools/ci/make_artifacts.py --libs ~/thepatcher-libs --java "${{ steps.jdk21.outputs.path }}" \

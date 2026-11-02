@@ -1,0 +1,85 @@
+{
+  "version": "1.1.0-beta.50",
+  "base": {
+    "path": "releases/v1.1.0-beta.49-BlockIconCrossDeps/!Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps.jar",
+    "sha256": "c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex.jar",
+    "sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948",
+    "bytes": 408516
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-9.7.jar": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d",
+    "asm-tree-9.7.jar": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1",
+    "asm-analysis-9.7.jar": "7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f",
+    "asm-util-9.7.jar": "37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 190,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$ElnIndex.class",
+    "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$IntList.class",
+    "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$ListState.class",
+    "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$ThaumcraftIndex.class",
+    "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks.class",
+    "com/akashic/thepatcher/module/recipeindex/RecipeIndexTransformer.class"
+  ],
+  "inherited_identical": 180,
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta49.CLIENT": "REGISTRATION side=CLIENT count=27 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer]",
+  "registration.beta49.SERVER": "REGISTRATION side=SERVER count=7 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer]",
+  "registration.beta50.CLIENT": "REGISTRATION side=CLIENT count=28 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer]",
+  "registration.beta50.SERVER": "REGISTRATION side=SERVER count=8 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer]",
+  "recipe_index_gate.beta50.verify": [
+    "[Akashic-ThePatcher] Thaumcraft recipe index applied: thaumcraft.common.lib.crafting.ThaumcraftCraftingManager (1 recipe list filtered by output item).",
+    "[Akashic-ThePatcher] Eln recipe check index applied: mods.eln.craft.CraftingRecipes (1 recipeExists call(s) answered from an output index).",
+    "GATE ok   shapes transformed by the jar under test: 2 (want 2)",
+    "[Akashic-ThePatcher] Recipe index: Thaumcraft calls=1 builds=1 recipes handed 1080 of 3000 (untrusted recipes in the last index: 1029) verifyFailures=0; Eln checks=0 fallbacks=0 verifyFailures=0",
+    "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
+    "COUNTERS {elnCalls=1800, tcHanded=4081540, tcCalls=3840, tcBuilds=3840, elnFallbacks=125, tcVerifyFail=0, elnVerifyFail=0}",
+    "GATE ok   hooks were called",
+    "GATE ok   Thaumcraft hook handed fewer recipes than the list has",
+    "GATE ok   Eln fallback path exercised (null-item / throwing getDamage)",
+    "GATE ok   verify mode: no failures",
+    "RECIPE_INDEX_GATE PASS expect=patched"
+  ],
+  "recipe_index_gate.beta50": [
+    "[Akashic-ThePatcher] Thaumcraft recipe index applied: thaumcraft.common.lib.crafting.ThaumcraftCraftingManager (1 recipe list filtered by output item).",
+    "[Akashic-ThePatcher] Eln recipe check index applied: mods.eln.craft.CraftingRecipes (1 recipeExists call(s) answered from an output index).",
+    "GATE ok   shapes transformed by the jar under test: 2 (want 2)",
+    "[Akashic-ThePatcher] Recipe index: Thaumcraft calls=1 builds=1 recipes handed 1080 of 3000 (untrusted recipes in the last index: 1029); Eln checks=0 fallbacks=0",
+    "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
+    "COUNTERS {elnCalls=1800, tcHanded=4081540, tcCalls=3840, tcBuilds=3840, elnFallbacks=125, tcVerifyFail=0, elnVerifyFail=0}",
+    "GATE ok   hooks were called",
+    "GATE ok   Thaumcraft hook handed fewer recipes than the list has",
+    "GATE ok   Eln fallback path exercised (null-item / throwing getDamage)",
+    "GATE ok   verify mode: no failures",
+    "RECIPE_INDEX_GATE PASS expect=patched"
+  ],
+  "recipe_index_gate.beta49": [
+    "GATE ok   shapes transformed by the jar under test: 0 (want 0)",
+    "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
+    "RECIPE_INDEX_GATE PASS expect=unpatched"
+  ],
+  "recipe_index_gate.beta50.disabled": [
+    "[Akashic-ThePatcher] Thaumcraft recipe index DISABLED by -Dakashic.thaumcraftRecipeIndex.disable=true.",
+    "[Akashic-ThePatcher] Eln recipe check index DISABLED by -Dakashic.elnRecipeCheckIndex.disable=true.",
+    "GATE ok   shapes transformed by the jar under test: 0 (want 0)",
+    "GATE ok   Thaumcraft shape: 3840 queries, 0 different answers",
+    "GATE ok   Eln shape: 6 lists, 264 items without recipe, 0 different lists",
+    "COUNTERS {elnCalls=0, tcHanded=0, tcCalls=0, tcBuilds=0, elnFallbacks=0, tcVerifyFail=0, elnVerifyFail=0}",
+    "RECIPE_INDEX_GATE PASS expect=unpatched"
+  ]
+}
