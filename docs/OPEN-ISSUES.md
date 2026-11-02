@@ -32,7 +32,7 @@ Everything here is something the repository **cannot prove**. Each item says wha
 17. **RGB bridge never installs on `FontRenderer`.** The log says `RGB bridge NOT installed: no recognized boundary in net.minecraft.client.gui.FontRenderer`. ThePatcher's transformers are registered during the MixinTweaker coremod injection, before `FMLDeobfTweaker` adds the deobfuscation transformer, so `@SortingIndex(100300)` does not apply and `RgbTextTransformer` sees Notch member names while it matches MCP/SRG names. Not caused by Angelica; found during the beta.38 diagnosis, not fixed (changes text rendering everywhere, needs its own build).
 18. **beta.27 proxy-aware chunk tracking is inactive on Angelica 2.2.22+.** `MixinAngelicaProxyVanillaChunkTracking` targets `AngelicaChunkTracker`, removed in Angelica 2.2.22 (PR #2151); the optional mixin is skipped with `Error loading class`. Porting it means re-reading the beta.27 policy against `CeleritasWorldRenderer` / `CubeStatusTracker`.
 19. **NecroTempus upstream.** beta.38 patches NecroTempus 2.0.0/2.1.0 at load time; the source fix in `versions/*beta.38*/necrotempus-source-fix/` has not been proposed to CrucibleMC yet.
-20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.49; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
+20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.50; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
 21. No LICENSE chosen.
 22. Third-party build inputs (Angelica, GTNHLib jars) are not vendored.
 
@@ -67,3 +67,8 @@ Everything here is something the repository **cannot prove**. Each item says wha
 
 35. **beta.49 acceptance in the pack** (gate in its checkpoint: the `cross-dependent block` lines, `crossDependentSyncBlocks` in the `Finished hybrid async icon loading` line, never `Parallel block icon registration failed`). The race cannot be forced in a real client; the fix was checked offline (`CrossDepsGate`) and by real boots without the error.
 36. **The cross-dependent list is static.** It comes from a bytecode scan of TEOF 5.5's mods (`versions/*beta.49*/tools/IconCrossDepsScan.java`); a block that reaches another block's icon through a helper of another class, or a mod added later, is not covered. Re-run the scan when the pack's mods change and add new classes to `CompatHooks.CROSS_DEPENDENT_BLOCKS`.
+
+## J. Boot time (TEOF 5.5) - after beta.50
+
+37. **beta.50 acceptance in the pack** (gate in its checkpoint). Verified in the headless client only.
+38. **3,732 recipes stay untrusted by the Thaumcraft index** (their classes override `getRecipeOutput`), so each `generateTags` call still goes through 18% of the list, plus the untouched recursion over ingredients. Trusting more classes needs a per-class review of their `getRecipeOutput`.

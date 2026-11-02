@@ -1545,5 +1545,37 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5",
   "note": "Hybrid async icon loader: 28 block classes that read another block's icon while registering (Et Futurum slabs/walls/bark, ChromatiCraft, ReactorCraft, RotaryCraft, Twilight Forest, Magic Bees, Botania, Thaumic Horizons, Extra Utilities) run on the client thread after the jobs before them (before, Et Futurum's red sandstone slab could read sandstone's icon before it was set: 'Parallel block icon registration failed'); built by tools/beta49-build.py"
+ },
+ {
+  "id": "1.1.0-beta.50",
+  "kind": "mainline",
+  "sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948",
+  "size": 408516,
+  "entries": 190,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.50",
+  "impl_version": "1.1.0-beta.50",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$ElnIndex.class",
+   "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$IntList.class",
+   "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$ListState.class",
+   "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks$ThaumcraftIndex.class",
+   "com/akashic/thepatcher/module/recipeindex/RecipeIndexHooks.class",
+   "com/akashic/thepatcher/module/recipeindex/RecipeIndexTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.50-RecipeIndex",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex.jar",
+  "date": "2026-11-02T12:00:00-03:00",
+  "declared_base_sha256": "c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef",
+  "note": "Boot time: Thaumcraft's generateTagsFromCraftingRecipes gets the crafting recipe list filtered by output item and Eln's checkRecipe is answered from an output/ore-id index (same results, checked against a full scan in a real client); about 6-7 s less per TEOF 5.5 boot; built by tools/beta50-build.py"
  }
 ]
