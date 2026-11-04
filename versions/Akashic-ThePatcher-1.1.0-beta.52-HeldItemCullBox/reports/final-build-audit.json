@@ -1,0 +1,70 @@
+{
+  "version": "1.1.0-beta.52",
+  "base": {
+    "path": "releases/v1.1.0-beta.51-GeckoAnimationCopy/!Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy.jar",
+    "sha256": "5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar",
+    "sha256": "9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af",
+    "bytes": 419456
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-9.7.jar": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d",
+    "asm-tree-9.7.jar": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1",
+    "asm-analysis-9.7.jar": "7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f",
+    "asm-util-9.7.jar": "37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff",
+    "angelica-2.2.37.jar": "2125183d9f3c11a401be61e6273e1e813a51e41d892ba035b99cdfdb83e2677b",
+    "angelica-2.2.40.jar": "c91adf2712aa65f8d99f5378a3027f538ab8e027c0b5b2aa261cc632ae937c54"
+  },
+  "entries": 194,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/helditemcull/HeldItemCullHooks.class",
+    "com/akashic/thepatcher/module/helditemcull/HeldItemCullTransformer$Names.class",
+    "com/akashic/thepatcher/module/helditemcull/HeldItemCullTransformer.class"
+  ],
+  "inherited_identical": 187,
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta51.CLIENT": "REGISTRATION side=CLIENT count=29 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "registration.beta51.SERVER": "REGISTRATION side=SERVER count=9 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "registration.beta52.CLIENT": "REGISTRATION side=CLIENT count=30 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer, com.akashic.thepatcher.module.helditemcull.HeldItemCullTransformer]",
+  "registration.beta52.SERVER": "REGISTRATION side=SERVER count=9 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "held_item_cull_gate.beta52": [
+    "[Akashic-ThePatcher] Held item cull box applied: net.minecraft.client.renderer.RenderGlobal (2 frustum test(s) in renderEntities).",
+    "[Akashic-ThePatcher] Held item cull box: first grown box (net.minecraft.entity.EntityLivingBase holding net.minecraft.item.Item, +3.0 blocks).",
+    "[Akashic-ThePatcher] Held item cull box applied: com.gtnewhorizons.angelica.rendering.celeritas.CeleritasWorldRenderer (isEntityVisible).",
+    "GATE transformed=2 renderEntities=[in-view, edge-rod, leashed-out] isEntityVisible=[in-view, edge-rod]",
+    "HELD_ITEM_CULL_GATE PASS expect=patched"
+  ],
+  "held_item_cull_gate.beta51": [
+    "GATE transformed=0 renderEntities=[in-view] isEntityVisible=[in-view]",
+    "HELD_ITEM_CULL_GATE PASS expect=unpatched"
+  ],
+  "held_item_cull_gate.beta52.disabled": [
+    "[Akashic-ThePatcher] Held item cull box disabled by -Dakashic.heldItemCull.disable=true.",
+    "GATE transformed=0 renderEntities=[in-view] isEntityVisible=[in-view]",
+    "HELD_ITEM_CULL_GATE PASS expect=unpatched"
+  ],
+  "held_item_cull_gate.beta52.other-shape": [
+    "[Akashic-ThePatcher] WARN: Held item cull box skipped for net.minecraft.client.renderer.RenderGlobal: 1 entity.boundingBox -> isBoundingBoxInFrustum site(s), expected 2; original bytecode retained.",
+    "GATE transformed=0 renderEntities=[in-view] isEntityVisible=[]",
+    "HELD_ITEM_CULL_GATE PASS expect=unpatched shape=other"
+  ],
+  "held_item_cull_gate.real.angelica-2.2.37.jar": [
+    "[Akashic-ThePatcher] Held item cull box applied: com.gtnewhorizons.angelica.rendering.celeritas.CeleritasWorldRenderer (isEntityVisible).",
+    "HELD_ITEM_CULL_GATE PASS real=angelica-2.2.37.jar bytes=32530->32724"
+  ],
+  "held_item_cull_gate.real.angelica-2.2.40.jar": [
+    "[Akashic-ThePatcher] Held item cull box applied: com.gtnewhorizons.angelica.rendering.celeritas.CeleritasWorldRenderer (isEntityVisible).",
+    "HELD_ITEM_CULL_GATE PASS real=angelica-2.2.40.jar bytes=32636->32830"
+  ]
+}
