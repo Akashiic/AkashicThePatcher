@@ -1,7 +1,7 @@
 # beta.52 - HeldItemCullBox - 2026-11-05
 
-`!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar`, SHA-256 `@SHA@`,
-@BYTES@ B, 194 entries. Base: beta.51 (`5e2fce96...`). Built and gated by `tools/beta52-build.py` (report:
+`!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar`, SHA-256 `9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af`,
+419456 B, 194 entries. Base: beta.51 (`5e2fce96...`). Built and gated by `tools/beta52-build.py` (report:
 `reports/final-build-audit.json`).
 
 ## Problem
@@ -82,7 +82,21 @@ Kill-switch: `-Dakashic.heldItemCull.disable=true`.
 
 ## Real client (TEOF 4.8, headless, Angelica 2.2.43)
 
-@REAL@
+AkashicFishing 1.4.0 rods + Kunftig (3D rods) + GeckoLib Unofficial 1.0.4 + ThePatcher beta.52, harness "edge" mode:
+another player stands at the left edge of the view, holding the Akáshica irídio m6 across it (pointing right), and the
+camera turns right in steps (0, 6, 10, 14, 18 and 24 degrees) until the body has left the view. The same is then done
+with the line out (the hook in view).
+
+* `latest.log`:
+  * `Held item cull box applied: net.minecraft.client.renderer.RenderGlobal (2 frustum test(s) in renderEntities).`
+    This is the notch class, mapped through FML.
+  * `Held item cull box applied: com.gtnewhorizons.angelica.rendering.celeritas.CeleritasWorldRenderer (isEntityVisible).`
+  * `Held item cull box: first grown box (net.minecraft.client.entity.EntityOtherPlayerMP holding net.minecraft.item.ItemFishingRod, +3.0 blocks).`
+* **beta.51, same instance (the bug):** once the body leaves the view (14 degrees and more), the 3D rod is gone. Only
+  vanilla's black line is left, coming from the hand outside the view.
+* **beta.52:** the rod stays at every step until it leaves the view itself, and the line keeps starting at the rod's
+  tip.
+* No ThePatcher, Kunftig or GeckoLib exception in the log.
 
 ## Acceptance gate in the pack
 

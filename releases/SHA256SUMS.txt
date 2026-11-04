@@ -52,3 +52,4 @@ b750f8109dff722e2f91195573d5c80668555553645ee621fed0e95c6f4253e5  releases/v1.1.
 c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef  releases/v1.1.0-beta.49-BlockIconCrossDeps/!Akashic-ThePatcher-1.1.0-beta.49-BlockIconCrossDeps.jar
 2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948  releases/v1.1.0-beta.50-RecipeIndex/!Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex.jar
 5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1  releases/v1.1.0-beta.51-GeckoAnimationCopy/!Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy.jar
+9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af  releases/v1.1.0-beta.52-HeldItemCullBox/!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar

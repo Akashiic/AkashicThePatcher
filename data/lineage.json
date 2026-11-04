@@ -1604,5 +1604,34 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948",
   "note": "Frame spikes: GeckoLib 1.0.4's Animation.copy (a serialization deep copy, paid at every loop of every looping animation) becomes a field copy; the AkashicFishing 3D rods' aura loop went from 81 ms and 18 MB per copy to 0.00 ms in a real TEOF 4.8 client; built by tools/beta51-build.py"
+ },
+ {
+  "id": "1.1.0-beta.52",
+  "kind": "mainline",
+  "sha256": "9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af",
+  "size": 419456,
+  "entries": 194,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.52",
+  "impl_version": "1.1.0-beta.52",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/helditemcull/HeldItemCullHooks.class",
+   "com/akashic/thepatcher/module/helditemcull/HeldItemCullTransformer$Names.class",
+   "com/akashic/thepatcher/module/helditemcull/HeldItemCullTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.52-HeldItemCullBox",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar",
+  "date": "2026-11-05T12:00:00-03:00",
+  "declared_base_sha256": "5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1",
+  "note": "Held 3D items no longer vanish at the edge of the view: vanilla's renderEntities frustum tests and Angelica's isEntityVisible cull a living entity holding an item with a custom EQUIPPED renderer by its box grown by 3 blocks (the AkashicFishing 3D rods of another player at the side of the screen); built by tools/beta52-build.py"
  }
 ]

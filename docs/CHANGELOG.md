@@ -1,6 +1,6 @@
 # Changelog
 
-All 54 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 55 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,41 @@ All 54 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.52 - HeldItemCullBox - 2026-11-05
+*Replaces beta.51 in the client.* SHA-256 `9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af` - 419456 B - 194 entries.
+* **Base:** beta.51 (4 entries changed, 3 added, the other 187 byte-identical).
+* **Problem (AkashicFishing 3D rods, TEOF 4.8):** another player's 3D fishing rod vanished at the side of the screen,
+  leaving vanilla's black line.
+  * An entity is drawn only when its own box is in view: vanilla `RenderGlobal.renderEntities` tests
+    `isBoundingBoxInFrustum(entity.boundingBox)`, and Angelica's `CeleritasWorldRenderer.isEntityVisible` tests the same
+    box against the visible chunk sections.
+  * A player's 0.6-block box leaves the view while the 2-3 block rod in its hand is still in it.
+  * The line is drawn by the hook, a separate entity; with no rod drawn, Kunftig's captured tip expires and the line
+    falls back to the hand.
+* **Fix (`HeldItemCullTransformer` + `HeldItemCullHooks`, client only, registered last):**
+  * Both frustum tests of `renderEntities` (the entity and its leash holder) and Angelica's `isEntityVisible` read the
+    box through `cullBox(entity, box)`.
+  * `cullBox` returns the same box, or a copy grown by 3 blocks (`-Dakashic.heldItemCull.margin`) when the entity is
+    living and holds an item whose `IItemRenderer` handles `EQUIPPED`. The entity's own box is never changed.
+  * No branch is added. Fails closed on the exact sites (2 / 1) and runs the ASM verifier.
+  * Kill-switch `-Dakashic.heldItemCull.disable=true`.
+* **Gates (offline, PASS):**
+  * Deterministic build; plugin: only `getASMTransformerClass` differs; registration: client = beta.51's +
+    the transformer last, server = beta.51's.
+  * `HeldItemCullGate` under `-Xverify:all`, on shapes of both methods. Drawn: a player just outside the view with a
+    3D item, and a mob on its leash. Not drawn: empty hand, an item without an `EQUIPPED` renderer, a plain item, a
+    player far out, a non-living entity. The boxes are untouched. beta.51, the kill-switch and another
+    `renderEntities` shape stay as before.
+  * The real `CeleritasWorldRenderer` of Angelica 2.2.37 and 2.2.40 is patched once and verifies.
+* **Real client (headless TEOF 4.8, Angelica 2.2.43, harness "edge" mode):**
+  * Both classes are patched, and the first grown box is for `EntityOtherPlayerMP` holding `ItemFishingRod`.
+  * beta.51: the rod vanishes once the body leaves the view. beta.52: the rod and the line from its tip stay until the
+    rod itself leaves the view.
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox/`.
+* **Live status:** real headless client as above; pending in the players' pack (gate in the checkpoint).
+
 ## 1.1.0-beta.51 - GeckoAnimationCopy - 2026-11-04
-*Replaces beta.50 in the client.* SHA-256 `5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1` - 412200 B - 191 entries.
+*Superseded by beta.52 (held item cull box).* SHA-256 `5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1` - 412200 B - 191 entries.
 * **Base:** beta.50 (4 entries changed, 1 added, the other 186 byte-identical).
 * **Problem (frame spikes, AkashicFishing 3D rods drawn by Kunftig through GeckoLib Unofficial 1.7.10 1.0.4):** the most animated rod stutters every few seconds. `AnimationController.setAnimation` copies every `Animation` it starts with `Animation.copy`, a deep copy by serialization (`ObjectOutputStream` -> Base64 -> `ObjectInputStream`), and the port restarts each looping animation through `setAnimation` at every loop. Measured in a TEOF 4.8 client: 74-118 ms and 17-25 MB per copy for the 2,952-keyframe aura (every 4 s), 36 ms for the 239-keyframe fight loop (every 2 s).
 * **Fix (`GeckoAnimationCopyTransformer`, both sides, registered last):** `copy`'s body becomes a field copy (null stays null; a new `Animation` with every instance field assigned). The copy keeps its own loop type; the keyframe lists are shared, which GeckoLib only reads, and `AnimationController.process` already swaps the copy for the model's shared cached animation on the next frame. Fails closed on the exact shape (static `copy` with the exact descriptor calling `writeObject` and `readObject`, public no-argument constructor) and runs the ASM verifier. Kill-switch `-Dakashic.geckoAnimationCopy.disable=true`.
