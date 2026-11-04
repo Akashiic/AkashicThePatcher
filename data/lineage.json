@@ -1577,5 +1577,32 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "c0b533a9756eb7b26b3ba050226dbc2a4c953d7ad9d222a7016ce14963fd2fef",
   "note": "Boot time: Thaumcraft's generateTagsFromCraftingRecipes gets the crafting recipe list filtered by output item and Eln's checkRecipe is answered from an output/ore-id index (same results, checked against a full scan in a real client); about 6-7 s less per TEOF 5.5 boot; built by tools/beta50-build.py"
+ },
+ {
+  "id": "1.1.0-beta.51",
+  "kind": "mainline",
+  "sha256": "5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1",
+  "size": 412200,
+  "entries": 191,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.51",
+  "impl_version": "1.1.0-beta.51",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/geckolib/GeckoAnimationCopyTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.51-GeckoAnimationCopy",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy.jar",
+  "date": "2026-11-04T12:00:00-03:00",
+  "declared_base_sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948",
+  "note": "Frame spikes: GeckoLib 1.0.4's Animation.copy (a serialization deep copy, paid at every loop of every looping animation) becomes a field copy; the AkashicFishing 3D rods' aura loop went from 81 ms and 18 MB per copy to 0.00 ms in a real TEOF 4.8 client; built by tools/beta51-build.py"
  }
 ]

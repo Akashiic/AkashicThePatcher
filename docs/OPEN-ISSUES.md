@@ -32,7 +32,7 @@ Everything here is something the repository **cannot prove**. Each item says wha
 17. **RGB bridge never installs on `FontRenderer`.** The log says `RGB bridge NOT installed: no recognized boundary in net.minecraft.client.gui.FontRenderer`. ThePatcher's transformers are registered during the MixinTweaker coremod injection, before `FMLDeobfTweaker` adds the deobfuscation transformer, so `@SortingIndex(100300)` does not apply and `RgbTextTransformer` sees Notch member names while it matches MCP/SRG names. Not caused by Angelica; found during the beta.38 diagnosis, not fixed (changes text rendering everywhere, needs its own build).
 18. **beta.27 proxy-aware chunk tracking is inactive on Angelica 2.2.22+.** `MixinAngelicaProxyVanillaChunkTracking` targets `AngelicaChunkTracker`, removed in Angelica 2.2.22 (PR #2151); the optional mixin is skipped with `Error loading class`. Porting it means re-reading the beta.27 policy against `CeleritasWorldRenderer` / `CubeStatusTracker`.
 19. **NecroTempus upstream.** beta.38 patches NecroTempus 2.0.0/2.1.0 at load time; the source fix in `versions/*beta.38*/necrotempus-source-fix/` has not been proposed to CrucibleMC yet.
-20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.50; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
+20. **CI covers only beta.38+.** `.github/workflows/ci.yml` checks all release/manifest hashes but rebuilds only beta.38 to beta.51; earlier build scripts need machine paths, the real Forestry jar or Java 8u51. The `projects/` Gradle builds are not in CI.
 21. No LICENSE chosen.
 22. Third-party build inputs (Angelica, GTNHLib jars) are not vendored.
 
@@ -72,3 +72,8 @@ Everything here is something the repository **cannot prove**. Each item says wha
 
 37. **beta.50 acceptance in the pack** (gate in its checkpoint). Verified in the headless client only.
 38. **3,732 recipes stay untrusted by the Thaumcraft index** (their classes override `getRecipeOutput`), so each `generateTags` call still goes through 18% of the list, plus the untouched recursion over ingredients. Trusting more classes needs a per-class review of their `getRecipeOutput`.
+
+## K. GeckoLib frame spikes (AkashicFishing 3D rods, TEOF 4.8) - after beta.51
+
+39. **beta.51 acceptance in the pack** (gate in its checkpoint). Verified in a headless TEOF 4.8 client with the rods' harness only.
+40. **First display of a rod with an animated aura** uploads its 8 texture frames once (1.7.10's `TextureUtil` allocates 16 MB per upload): a one-time hitch, not fixed. A preload at resource reload (in Kunftig) would move it to the loading screen.
