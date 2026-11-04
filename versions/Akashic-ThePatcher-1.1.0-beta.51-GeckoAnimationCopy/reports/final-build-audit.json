@@ -1,0 +1,56 @@
+{
+  "version": "1.1.0-beta.51",
+  "base": {
+    "path": "releases/v1.1.0-beta.50-RecipeIndex/!Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex.jar",
+    "sha256": "2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948"
+  },
+  "output": {
+    "name": "!Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy.jar",
+    "sha256": "5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1",
+    "bytes": 412200
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-9.7.jar": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d",
+    "asm-tree-9.7.jar": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1",
+    "asm-analysis-9.7.jar": "7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f",
+    "asm-util-9.7.jar": "37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff"
+  },
+  "entries": 191,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/geckolib/GeckoAnimationCopyTransformer.class"
+  ],
+  "inherited_identical": 186,
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta50.CLIENT": "REGISTRATION side=CLIENT count=28 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer]",
+  "registration.beta50.SERVER": "REGISTRATION side=SERVER count=8 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer]",
+  "registration.beta51.CLIENT": "REGISTRATION side=CLIENT count=29 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "registration.beta51.SERVER": "REGISTRATION side=SERVER count=9 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "gecko_copy_gate.beta51": [
+    "[Akashic-ThePatcher] GeckoLib animation copy fix applied: software.bernie.geckolib3.core.builder.Animation (field copy of 7 field(s)).",
+    "GATE shape=geckolib-1.0.4 transformed=1 sharedLists=true copy=18.2 us",
+    "GECKO_COPY_GATE PASS expect=patched"
+  ],
+  "gecko_copy_gate.beta50": [
+    "GATE shape=geckolib-1.0.4 transformed=0 sharedLists=false copy=48973.2 us",
+    "GECKO_COPY_GATE PASS expect=unpatched"
+  ],
+  "gecko_copy_gate.beta51.disabled": [
+    "[Akashic-ThePatcher] GeckoLib animation copy fix disabled by -Dakashic.geckoAnimationCopy.disable=true.",
+    "GATE shape=geckolib-1.0.4 transformed=0 sharedLists=false copy=47644.4 us",
+    "GECKO_COPY_GATE PASS expect=unpatched"
+  ],
+  "gecko_copy_gate.beta51.other-shape": [
+    "[Akashic-ThePatcher] WARN: GeckoLib animation copy fix skipped for software.bernie.geckolib3.core.builder.Animation: copy is not the serialization copy (writeObject=false, readObject=false); original bytecode retained.",
+    "GATE shape=other transformed=0 sharedLists=false copy=111.2 us",
+    "GECKO_COPY_GATE PASS expect=unpatched shape=other"
+  ]
+}

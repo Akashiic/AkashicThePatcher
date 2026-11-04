@@ -1,6 +1,6 @@
 # Changelog
 
-All 53 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 54 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -17,8 +17,19 @@ All 53 recorded builds of AkashicThePatcher, **newest first**. For the same list
 
 ---
 
+## 1.1.0-beta.51 - GeckoAnimationCopy - 2026-11-04
+*Replaces beta.50 in the client.* SHA-256 `5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1` - 412200 B - 191 entries.
+* **Base:** beta.50 (4 entries changed, 1 added, the other 186 byte-identical).
+* **Problem (frame spikes, AkashicFishing 3D rods drawn by Kunftig through GeckoLib Unofficial 1.7.10 1.0.4):** the most animated rod stutters every few seconds. `AnimationController.setAnimation` copies every `Animation` it starts with `Animation.copy`, a deep copy by serialization (`ObjectOutputStream` -> Base64 -> `ObjectInputStream`), and the port restarts each looping animation through `setAnimation` at every loop. Measured in a TEOF 4.8 client: 74-118 ms and 17-25 MB per copy for the 2,952-keyframe aura (every 4 s), 36 ms for the 239-keyframe fight loop (every 2 s).
+* **Fix (`GeckoAnimationCopyTransformer`, both sides, registered last):** `copy`'s body becomes a field copy (null stays null; a new `Animation` with every instance field assigned). The copy keeps its own loop type; the keyframe lists are shared, which GeckoLib only reads, and `AnimationController.process` already swaps the copy for the model's shared cached animation on the next frame. Fails closed on the exact shape (static `copy` with the exact descriptor calling `writeObject` and `readObject`, public no-argument constructor) and runs the ASM verifier. Kill-switch `-Dakashic.geckoAnimationCopy.disable=true`.
+* **Gates (offline, PASS):** deterministic build; plugin: only `getASMTransformerClass` differs; registration client/server = beta.50's + the transformer last; `GeckoAnimationCopyGate` under `-Xverify:all` on a GeckoLib 1.0.4 shape with 3,000 keyframes: same values, own loop type, `copy(null)` null, lists shared, 48,973 µs -> 18 µs; beta.50, the kill-switch and a different `copy` shape stay untouched.
+* **Real client (headless TEOF 4.8):** `GeckoLib animation copy fix applied: ... (field copy of 7 field(s))`; the aura copy went from 81 ms / 18 MB to 0.00 ms / 0.00 MB; the rods' render harness (36 screenshots, every state) runs as with beta.50, no GeckoLib or Kunftig exception.
+* **Not fixed:** the one-time hitch when a rod with the animated aura is first shown (8 texture frames uploaded once, 16 MB allocation each in 1.7.10's `TextureUtil`).
+* **Evidence:** checkpoint + build audit + tools + tests in `versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/`.
+* **Live status:** real headless client as above; pending in the players' pack (gate in the checkpoint).
+
 ## 1.1.0-beta.50 - RecipeIndex - 2026-11-02
-*Replaces beta.49 in the client.* SHA-256 `2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948` - 408516 B - 190 entries.
+*Superseded by beta.51 (GeckoLib animation copy).* SHA-256 `2b746b0f70cc009b11192c3624ad7eaf05d177c6341dc9af99d03e256603f948` - 408516 B - 190 entries.
 * **Base:** beta.49 (4 entries changed, 6 added, the other 180 byte-identical).
 * **Problem (boot time, TEOF 5.5):** a JFR profile of the client boot put 9.7% of the main thread's Java samples in Thaumcraft's `ThaumcraftCraftingManager.generateTags` (RotaryCraft, Thermal, MFR, ChromatiCraft, Extra Utilities and others call it while registering aspects) and 5.4% in Eln's `CraftingRecipes.recipeExists` (`checkRecipe`, which only logs items without a recipe). Both walk the whole crafting recipe list (~16,500 recipes) once per item.
 * **Fix (`RecipeIndexTransformer` + `RecipeIndexHooks`, both sides, registered last):**

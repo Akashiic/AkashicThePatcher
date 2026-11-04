@@ -45,6 +45,7 @@ Source coverage of the beta.34 jar: 30 of 104 top-level classes have sources on 
 | `akashic.thaumcraftRecipeIndex.disable` [false] | Thaumcraft: hand `generateTagsFromCraftingRecipes` the whole recipe list again instead of the list filtered by output item | beta.50 |
 | `akashic.elnRecipeCheckIndex.disable` [false] | Eln: run `recipeExists` (full scan) for every `checkRecipe` item instead of the output/ore-id index | beta.50 |
 | `akashic.recipeIndex.verify` [false] | diagnostics: check every recipe-index answer against a full scan (slow) | beta.50 |
+| `akashic.geckoAnimationCopy.disable` [false] | GeckoLib 1.0.4: keep `Animation.copy`'s serialization deep copy (paid at every loop of every looping animation) instead of the field copy | beta.51 |
 | `akashic.iconCrossDeps.disable` [false] | hybrid icon loader: stop running the 28 listed block classes that read another block's icon while registering (and their subclasses) on the client thread | beta.49 |
 | `akashic.backhandProxyReturn.disable` [false] | Backhand: stop accepting a mod list captured since the previous JoinGame as the proof for the next one (the return from a vanilla lobby behind the proxy ends in TRANSITION again, offhand blocked) | beta.48 |
 | `akashic.baublesExpandedApi.disable` [false] | Baubles Expanded: do not add 2.2.26's default `onSlotContentsChanged` to an older embedded `IBaubleExpanded` copy (both sides) | beta.47 |
