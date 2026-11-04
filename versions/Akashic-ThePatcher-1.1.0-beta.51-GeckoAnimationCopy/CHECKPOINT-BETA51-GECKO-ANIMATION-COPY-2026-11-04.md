@@ -65,6 +65,9 @@ real cached animations of the rods:
 
 * `latest.log`: `GeckoLib animation copy fix applied: software.bernie.geckolib3.core.builder.Animation (field copy of 7 field(s)).`
 * Aura of the Ascensão: **81 ms and 18 MB per copy -> 0.00 ms and 0.00 MB** (beta.50 -> beta.51, same instance).
+* The rods' render harness on the same instance with beta.51 (36 screenshots: every state, first and third person,
+  both hands, off hand, the hanging line at rest/walking/stopping/catching): animations loop and change state as with
+  beta.50; no GeckoLib or Kunftig exception in the log.
 
 Not fixed here: the first time a rod with the m6 aura is shown, its 8 animated texture frames are uploaded (1.7.10's
 `TextureUtil` allocates 16 MB per upload). That is a one-time hitch, not a periodic one.

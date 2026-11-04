@@ -1581,7 +1581,7 @@ versions/Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex/tools/PatchBeta50Plugin.ja
 versions/Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex/tools/PatchThePatcherVersion.java	claude-code session 2026-11-02	2755	13e99f8d2a84234b66c11b8886b7db5c8e508269d89c3bbb696f37b4bc7482f8
 versions/Akashic-ThePatcher-1.1.0-beta.50-RecipeIndex/tools/beta50-build.py	claude-code session 2026-11-02	12441	417d53fcd58e0400f2a4d412177026a99958018d35976f6d7253ba53451ae18a
 releases/v1.1.0-beta.51-GeckoAnimationCopy/!Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy.jar	built by versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/tools/beta51-build.py	412200	5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1
-versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/CHECKPOINT-BETA51-GECKO-ANIMATION-COPY-2026-11-04.md	claude-code session 2026-11-04	5129	c781df2edeccc3dea697364bbc9b21913744f47e734c44f8ee16195460452969
+versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/CHECKPOINT-BETA51-GECKO-ANIMATION-COPY-2026-11-04.md	claude-code session 2026-11-04	5418	7cd48aa78c2848db97f9d3060cefc0bf1d1b2183807a9df1c734bcff63c23e2b
 versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/reports/final-build-audit.json	claude-code session 2026-11-04	8108	64294ae4824ef2b542db941c4eb1d89a3872b9f015dca1ed9b007ab4820f8b00
 versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/src/com/akashic/thepatcher/module/geckolib/GeckoAnimationCopyTransformer.java	claude-code session 2026-11-04	8801	312af4b0eb2de695fd97f0608a31f1c4929f2a86d63cc05a366086163628067a
 versions/Akashic-ThePatcher-1.1.0-beta.51-GeckoAnimationCopy/test/GeckoAnimationCopyGate.java	claude-code session 2026-11-04	6570	c0b04f66a457aa095d8f52f0fd4d67e72f661ce5cc30c8d48c8a7d1ea147ec1a
