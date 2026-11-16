@@ -1633,5 +1633,33 @@
   "declared_base_basis": "build-audit",
   "nearest_by_content_sha256": "5e2fce966fa780f54a5405980636cb35027ea9c7b1f536482e65441d85e871f1",
   "note": "Held 3D items no longer vanish at the edge of the view: vanilla's renderEntities frustum tests and Angelica's isEntityVisible cull a living entity holding an item with a custom EQUIPPED renderer by its box grown by 3 blocks (the AkashicFishing 3D rods of another player at the side of the screen); built by tools/beta52-build.py"
+ },
+ {
+  "id": "1.1.0-beta.53",
+  "kind": "mainline",
+  "sha256": "17ab2facd1e35ef1871987731e6ca4bbf9a0b68237d3d29dd0a23e18084905e3",
+  "size": 426176,
+  "entries": 196,
+  "max_class_major": 52,
+  "mcmod_version": "1.1.0-beta.53",
+  "impl_version": "1.1.0-beta.53",
+  "changed": [
+   "META-INF/MANIFEST.MF",
+   "com/akashic/thepatcher/AkashicThePatcherMod.class",
+   "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+   "mcmod.info"
+  ],
+  "added": [
+   "com/akashic/thepatcher/module/neostates/NeoStatesWaterPassHooks.class",
+   "com/akashic/thepatcher/module/neostates/NeoStatesWaterPassTransformer.class"
+  ],
+  "removed": [],
+  "tag": "v1.1.0-beta.53-NeoStatesDragonApiWaterPass",
+  "jar": "!Akashic-ThePatcher-1.1.0-beta.53-NeoStatesDragonApiWaterPass.jar",
+  "date": "2026-11-16T12:00:00-03:00",
+  "declared_base_sha256": "9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af",
+  "declared_base_basis": "build-audit",
+  "nearest_by_content_sha256": "9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af",
+  "note": "Neo States x DragonAPI without Angelica (the launcher's compatibility mode for GPUs without OpenGL 3.3) no longer stops the client: Neo States' required MixinWorldRenderer_WaterPass gets require=0 and DragonAPI's RenderBlockAtPosEvent.getMaxRenderPass applies the same holder rule; built by tools/beta53-build.py"
  }
 ]

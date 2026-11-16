@@ -73,10 +73,25 @@ the edited method passes the ASM `BasicVerifier`; a second pass changes nothing.
   * Untouched (same bytes, Neo States never asked): kill-switch; Angelica 2.2.40 on the class path; no DragonAPI; an
     upstream-fixed Neo States (wraps DragonAPI's hook itself); beta.52.
 
-## Real client
+## Real client (TEOF 5.6, Forbidden Series launcher end-to-end, OpenGL 3.1)
 
-Pending. The Forbidden Series launcher's "PC fraco (OpenGL 3.1)" end-to-end test (TEOF 5.6, Mesa capped at OpenGL 3.1,
-compatibility mode on) runs with this JAR in place of beta.52 and the pack's own Neo States 0.1.0-alpha.10.
+The launcher's "PC fraco (OpenGL 3.1)" job (AkashicLauncher `.github/workflows/e2e.yml`): Linux, Xvfb, Mesa capped with
+`MESA_GL_VERSION_OVERRIDE=3.1` (as the Intel HD 2000), the real TEOF 5.6 release installed by the launcher, compatibility
+mode on (Angelica, its atlas fix and Mirai left out of `mods/`), this JAR in place of beta.52, and the pack's own
+**Neo States 0.1.0-alpha.10** (unchanged).
+
+* Without the compatibility mode (and beta.52): Angelica's `OpenGL 3.3 core profile` crash, as the player.
+* Compatibility mode + beta.52: `Critical injection failure ... MixinWorldRenderer_WaterPass ... Scanned 0 target(s)`.
+* Compatibility mode + **beta.53**: the log shows
+  * `NeoStates x DragonAPI water pass fix armed (Neo States and DragonAPI without Angelica).`
+  * `NeoStates x DragonAPI water pass fix applied: com.akashic.neostates.mixin.early.client.MixinWorldRenderer_WaterPass (neostates$holdersNeedTheWaterPass require=0).`
+    (Mixin accepted the rewritten mixin: the transformer is trusted.)
+  * `NeoStates x DragonAPI water pass fix applied: Reika.DragonAPI.Instantiable.Event.Client.RenderBlockAtPosEvent (getMaxRenderPass: 1 site).`
+  * and the game goes on to `Forge Mod Loader has successfully loaded ... mods` (the job's pass condition).
+* The same run with Angelica (the normal "JOGAR com o pack publicado" job) is unaffected.
+
+Not yet seen: a player in the world (water in slabs with no other translucent block nearby) and the server join on the
+real Intel HD 2000.
 
 ## Acceptance gate in the pack
 
