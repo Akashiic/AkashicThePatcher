@@ -159,6 +159,13 @@ jobs:
             --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta52.jar" --report "$RUNNER_TEMP/beta52-audit.json"
           cmp "$RUNNER_TEMP/beta52.jar" "releases/v1.1.0-beta.52-HeldItemCullBox/!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar"
 
+      - name: Rebuild beta.53 and compare
+        run: |
+          python3 versions/Akashic-ThePatcher-1.1.0-beta.53-NeoStatesDragonApiWaterPass/tools/beta53-build.py \
+            --jdk8 "${{ steps.jdk8.outputs.path }}" --jdk21 "${{ steps.jdk21.outputs.path }}" \
+            --libs ~/thepatcher-libs --out "$RUNNER_TEMP/beta53.jar" --report "$RUNNER_TEMP/beta53-audit.json"
+          cmp "$RUNNER_TEMP/beta53.jar" "releases/v1.1.0-beta.53-NeoStatesDragonApiWaterPass/!Akashic-ThePatcher-1.1.0-beta.53-NeoStatesDragonApiWaterPass.jar"
+
       - name: Build the artifacts of the newest build (jar, dev, sources, checksums)
         run: |
           python3 tools/ci/make_artifacts.py --libs ~/thepatcher-libs --java "${{ steps.jdk21.outputs.path }}" \
