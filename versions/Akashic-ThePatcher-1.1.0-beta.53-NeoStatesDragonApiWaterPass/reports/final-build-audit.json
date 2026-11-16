@@ -1,0 +1,104 @@
+{
+  "version": "1.1.0-beta.53",
+  "base": {
+    "path": "releases/v1.1.0-beta.52-HeldItemCullBox/!Akashic-ThePatcher-1.1.0-beta.52-HeldItemCullBox.jar",
+    "sha256": "9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af"
+  },
+  "output": {
+    "name": "b53.jar",
+    "sha256": "17ab2facd1e35ef1871987731e6ca4bbf9a0b68237d3d29dd0a23e18084905e3",
+    "bytes": 426176
+  },
+  "deterministic_rebuild": "PASS",
+  "third_party_sha256": {
+    "asm-9.7.jar": "adf46d5e34940bdf148ecdd26a9ee8eea94496a72034ff7141066b3eea5c4e9d",
+    "asm-tree-9.7.jar": "62f4b3bc436045c1acb5c3ba2d8ec556ec3369093d7f5d06c747eb04b56d52b1",
+    "asm-analysis-9.7.jar": "7bc6bcbc21379948a0c8c467fb0f864206e5b818f6bc0b546872f5c9f941556f",
+    "asm-util-9.7.jar": "37a6414d36641973f1af104937c95d6d921b2ddb4d612c66c5a9f2b13fc14211",
+    "launchwrapper-1.12.jar": "57f402b626d16cc2705bf2a37add7adbb074f0ca3b3102fa6e23aa303dae682f",
+    "asm-all-5.0.3.jar": "09d44e6adddaab9fd89ea3164c439f71c755769fa8d3a940352ab3d2003b98ff",
+    "angelica-2.2.40.jar": "c91adf2712aa65f8d99f5378a3027f538ab8e027c0b5b2aa261cc632ae937c54",
+    "+unimixins-all-1.7.10-0.3.1.jar": "ad0ea4f92daf7bf7ec5c10e16258425e47929126954aea5d80df69ce26cd7318"
+  },
+  "entries": 196,
+  "changed": [
+    "META-INF/MANIFEST.MF",
+    "com/akashic/thepatcher/AkashicThePatcherMod.class",
+    "com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class",
+    "mcmod.info"
+  ],
+  "added": [
+    "com/akashic/thepatcher/module/neostates/NeoStatesWaterPassHooks.class",
+    "com/akashic/thepatcher/module/neostates/NeoStatesWaterPassTransformer.class"
+  ],
+  "inherited_identical": 190,
+  "method_diff.com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin.class": "METHOD_DIFF com/akashic/thepatcher/core/AkashicThePatcherLoadingPlugin methods=7 differing=[1 getASMTransformerClass()[Ljava/lang/String;]",
+  "registration.beta52.CLIENT": "REGISTRATION side=CLIENT count=30 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer, com.akashic.thepatcher.module.helditemcull.HeldItemCullTransformer]",
+  "registration.beta52.SERVER": "REGISTRATION side=SERVER count=9 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "registration.beta53.CLIENT": "REGISTRATION side=CLIENT count=31 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusAngelicaFontTransformer, com.akashic.thepatcher.module.dragonapi.DragonApiResourcePackTransformer, com.akashic.thepatcher.module.crashrecovery.CoreTweaksCrashRecoveryTransformer, com.akashic.thepatcher.module.mirai.MiraiShaderBridgeTransformer, com.akashic.thepatcher.module.angelica.AngelicaShaderPackFolderTransformer, com.akashic.thepatcher.module.dimdoors.DimDoorsClientSyncTransformer, com.akashic.forbiddenhandoff.core.HandoffTransitionTransformer, com.akashic.forbiddenhologram.core.ForbiddenHologramTransformer, com.akashic.forbiddenbackhand.core.BackhandBackendTransformer, com.akashic.forbiddenbaubles.core.BaublesHandoffTransformer, com.akashic.forbiddenregister.core.LegacyRegisterTransformer, com.akashic.thepatcher.module.mekanism.MekanismEnergyCubeTransformer, com.akashic.thepatcher.module.necrotempus.NecroTempusBossbarTransformer, com.akashic.thepatcher.module.rgb.RgbTextTransformer, com.akashic.thepatcher.module.network.MotdTransformer, com.akashic.thepatcher.module.rgb.RgbChatStyleTransformer, com.akashic.thepatcher.module.hologram.HologramFastPathTransformer, com.akashic.thepatcher.module.agricraft.AgriCraftIrrigationTransformer, com.akashic.thepatcher.module.immersivepetroleum.ProjectorSlotTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.angelica.AngelicaGlLookupTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer, com.akashic.thepatcher.module.helditemcull.HeldItemCullTransformer, com.akashic.thepatcher.module.neostates.NeoStatesWaterPassTransformer]",
+  "registration.beta53.SERVER": "REGISTRATION side=SERVER count=9 list=[com.akashic.thepatcher.module.windowguard.WindowLifecycleGuardTransformer, com.akashic.thepatcher.module.hotspotaudit.HotspotAuditTransformer, com.akashic.thepatcher.module.startupaudit.FmlPhaseAuditTransformer, com.akashic.thepatcher.module.forestry.ForestryGenomeC2Transformer, com.akashic.compat.iude.IndustrialUpgradeTransformer, com.akashic.thepatcher.module.industrialupgrade.IndustrialUpgradeOreDictTransformer, com.akashic.thepatcher.module.baubles.BaublesExpandedApiTransformer, com.akashic.thepatcher.module.recipeindex.RecipeIndexTransformer, com.akashic.thepatcher.module.geckolib.GeckoAnimationCopyTransformer]",
+  "mixingasm.beta53": "MIXINGASM_TRUST PASS com.akashic.thepatcher.module.neostates.NeoStatesWaterPassTransformer trusted=true",
+  "without_unimixins": "NO_MIXINGASM PASS annotations=0",
+  "gate.beta53.mixin": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix armed (Neo States and DragonAPI without Angelica).",
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix applied: com.akashic.neostates.mixin.early.client.MixinWorldRenderer_WaterPass (neostates$holdersNeedTheWaterPass require=0).",
+    "GATE mixin require=0 same-bytes=false",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=mixin expect=patched"
+  ],
+  "gate.beta53.dragon": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix armed (Neo States and DragonAPI without Angelica).",
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix applied: Reika.DragonAPI.Instantiable.Event.Client.RenderBlockAtPosEvent (getMaxRenderPass: 1 site).",
+    "GATE dragon transformed=1",
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass: first chunk section built through DragonAPI's hook.",
+    "GATE dragon holder=1 opaque=0 glass=1 neostatesCalls=7",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=dragon expect=patched"
+  ],
+  "gate.beta53.disabled.mixin": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix disabled by -Dakashic.neoStatesWaterPass.disable=true.",
+    "GATE mixin require=null same-bytes=true",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=mixin expect=unpatched"
+  ],
+  "gate.beta53.disabled.dragon": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix disabled by -Dakashic.neoStatesWaterPass.disable=true.",
+    "GATE dragon transformed=0",
+    "GATE dragon holder=0 opaque=0 glass=1 neostatesCalls=0",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=dragon expect=unpatched"
+  ],
+  "gate.beta53.angelica.mixin": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix not needed: Angelica present (Neo States does not add the vanilla renderer mixin).",
+    "GATE mixin require=null same-bytes=true",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=mixin expect=unpatched"
+  ],
+  "gate.beta53.angelica.dragon": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix not needed: Angelica present (Neo States does not add the vanilla renderer mixin).",
+    "GATE dragon transformed=0",
+    "GATE dragon holder=0 opaque=0 glass=1 neostatesCalls=0",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=dragon expect=unpatched"
+  ],
+  "gate.beta53.no-dragonapi.mixin": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix not needed: no DragonAPI.",
+    "GATE mixin require=null same-bytes=true",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=mixin expect=unpatched"
+  ],
+  "gate.beta53.upstream-fixed.mixin": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix not needed: Neo States already wraps DragonAPI's hook.",
+    "GATE mixin require=null same-bytes=true",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=mixin expect=unpatched"
+  ],
+  "gate.beta53.upstream-fixed.dragon": [
+    "[Akashic-ThePatcher] NeoStates x DragonAPI water pass fix not needed: Neo States already wraps DragonAPI's hook.",
+    "GATE dragon transformed=0",
+    "GATE dragon holder=0 opaque=0 glass=1 neostatesCalls=0",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=dragon expect=unpatched"
+  ],
+  "gate.beta52.mixin": [
+    "GATE transformer not in the jar under test",
+    "GATE mixin require=null same-bytes=true",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=mixin expect=unpatched"
+  ],
+  "gate.beta52.dragon": [
+    "GATE dragon transformed=0",
+    "GATE dragon holder=0 opaque=0 glass=1 neostatesCalls=0",
+    "NEOSTATES_WATER_PASS_GATE PASS mode=dragon expect=unpatched"
+  ]
+}

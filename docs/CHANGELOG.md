@@ -1,6 +1,6 @@
 # Changelog
 
-All 55 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
+All 56 recorded builds of AkashicThePatcher, **newest first**. For the same list oldest-first as a story, read [HISTORY.md](HISTORY.md). For parents, hashes and the graph, read [LINEAGE.md](LINEAGE.md).
 
 ## How to read an entry
 
@@ -16,6 +16,34 @@ All 55 recorded builds of AkashicThePatcher, **newest first**. For the same list
 * "Inherited regression 16/16" is the 16-gate offline suite created for beta.8 (RGB / Hodgepodge text-format work); it is re-run for every build until beta.28.
 
 ---
+
+## 1.1.0-beta.53 - NeoStatesDragonApiWaterPass - 2026-11-16
+*Replaces beta.52 in the client.* SHA-256 `17ab2facd1e35ef1871987731e6ca4bbf9a0b68237d3d29dd0a23e18084905e3` - 426176 B - 196 entries.
+* **Base:** beta.52 (4 entries changed, 2 added, the other 190 byte-identical).
+* **Problem (TEOF 5.6, Intel HD Graphics 2000):** the launcher's compatibility mode leaves Angelica out for GPUs without
+  OpenGL 3.3; the client then stopped in pre-init with `Critical injection failure ... MixinWorldRenderer_WaterPass ...
+  Scanned 0 target(s)`.
+  * Neo States adds `MixinWorldRenderer_WaterPass` only without Angelica: a required `@WrapOperation` on
+    `Block.getRenderBlockPass()` in `WorldRenderer.updateRenderer` (holder blocks ask for the translucent pass).
+  * DragonAPI's coremod rewrites that call into `RenderBlockAtPosEvent.getMaxRenderPass(block, x, y, z)`, which calls
+    `getRenderBlockPass()` itself: the wrap finds no target.
+* **Fix (`NeoStatesWaterPassTransformer` + `NeoStatesWaterPassHooks`, client only, `@MixinSafeTransformer`, registered
+  last):** armed only with Neo States and DragonAPI and no Angelica, for the Neo States shape it knows.
+  * Neo States' mixin: that `@WrapOperation` gets `require = 0` (nothing else changes).
+  * DragonAPI's `getMaxRenderPass`: its `block.getRenderBlockPass()` value goes through `waterPass(pass, block)`
+    (`pass < 1` and `NeoStates.canHoldWater(block)` -> 1), the same rule at the same place.
+  * Fails closed on exact names, descriptors, annotation values and one site; ASM verifier.
+  * Kill-switch `-Dakashic.neoStatesWaterPass.disable=true`.
+* **Gates (offline, PASS):** deterministic build; plugin: only `getASMTransformerClass` differs; registration: client =
+  beta.52's + the transformer last, server = beta.52's; Mixingasm trusts it (real UniMixins 0.3.1).
+  `NeoStatesWaterPassGate` under `-Xverify:all` on the real Neo States 0.1.0-alpha.10 mixin source and DragonAPI V33b's
+  hook shape: patched with both mods and no Angelica; untouched with the kill-switch, Angelica 2.2.40, no DragonAPI, an
+  upstream-fixed Neo States, and beta.52.
+* **Real client (launcher end-to-end, TEOF 5.6, Mesa capped at OpenGL 3.1, compatibility mode, pack's Neo States
+  0.1.0-alpha.10):** `armed`, both `applied` lines, then `Forge Mod Loader has successfully loaded ... mods`; with
+  beta.52 the same run stops at the injection failure.
+* **Evidence:** checkpoint + build audit + tools + tests in
+  `versions/Akashic-ThePatcher-1.1.0-beta.53-NeoStatesDragonApiWaterPass/`.
 
 ## 1.1.0-beta.52 - HeldItemCullBox - 2026-11-05
 *Replaces beta.51 in the client.* SHA-256 `9fb5ae22c89be71919d31b584f138668448271af78d0b383b72e8ed9cf5059af` - 419456 B - 194 entries.
